@@ -1,47 +1,74 @@
-**After repository creation:**
-- [ ] Update this `README.md`. Update the Project Name, description, and all sections. Remove this checklist.
-- [ ] If required, update `LICENSE.txt` and the License section with your project's approved license
-- [ ] Search this repo for "REPLACE-ME" and update all instances accordingly
-- [ ] Update `CONTRIBUTING.md` as needed
-- [ ] Review the workflows in `.github/workflows`, updating as needed. See https://docs.github.com/en/actions for information on what these files do and how they work.
-- [ ] Review and update the suggested Issue and PR templates as needed in `.github/ISSUE_TEMPLATE` and `.github/PULL_REQUEST_TEMPLATE`
+API Compatibility Checker
+=========================
 
-# Project Name
+API Compatibility Checker is a tool for checking backward source-level compatibility of C/C++ software libraries using Clang AST.
 
-*\<update with your project name and a short description\>*
+Contents
+--------
+1. [ About      ](#about)
+2. [ Install    ](#install)
+3. [ Usage      ](#usage)
+4. [ Test suite ](#test-suite)
+5. [Troubleshooting & Environment Setup](#troubleshoot)
 
-Project that does ... implemented in ... runs on Qualcomm® *\<processor\>*
+About
+-----
+This tool analyzes two versions of a C/C++ header file and detects source-level API incompatibilities. It leverages Clang's AST to perform deep structural comparisons, helping maintainers ensure backward compatibility in evolving codebases.
 
-## Branches
 
-**main**: Primary development branch. Contributors should develop submissions based on this branch, and submit pull requests to this branch.
+Install
+-------
 
-## Requirements
+    sudo apt update
+    sudo apt install clang-14 make cmake
+    sudo apt install libclang-common-14-dev libclang-14-dev llvm-14-dev
 
-List requirements to run the project, how to install them, instructions to use docker container, etc...
 
-## Installation Instructions
+###### Requires
 
-How to install the software itself.
+* make
+* cmake
+* llvm-14
+* clang-14
 
-## Usage
+###### Platforms
 
-Describe how to use the project.
+* Linux
 
-## Development
+Usage
+-----
 
-How to develop new features/fixes for the software. Maybe different than "usage". Also provide details on how to contribute via a [CONTRIBUTING.md file](CONTRIBUTING.md).
+Clone the repository and run the build_binary.sh script with two header files as input:
 
-## Getting in Contact
 
-How to contact maintainers. E.g. GitHub Issues, GitHub Discussions could be indicated for many cases. However a mail list or list of Maintainer e-mails could be shared for other types of discussions. E.g.
+    bash build_binary.sh <header_file1> <heder_file2>
 
-* [Report an Issue on GitHub](../../issues)
-* [Open a Discussion on GitHub](../../discussions)
-* [E-mail us](mailto:REPLACE-ME@qti.qualcomm.com) for general questions
+This will build and run the compatibility checker on the provided headers.
 
+Test suite
+----------
+
+Troubleshooting & Environment Setup
+-----------------------------------
+If you encounter build errors, ensure the following environment setup:
+
+1. You have C++ version 11 or higher (e.g., 23):
+
+    ls /usr/include/c++
+
+
+2. The same C++ version is available under the platform-specific path:
+
+    ls /usr/include/x86_64-linux-gnu/c++
+
+
+3. You have Clang version 14 and subversion 14.0.0:
+
+    ls /usr/include/clang
+
+4. You only have LLVM version 14 installed (Clang 14 is only compatible with LLVM 14):
+
+    ls /usr/lib | grep llvm-
 ## License
 
-*\<update with your project name and license\>*
-
-*\<REPLACE-ME\>* is licensed under the [BSD-3-clause License](https://spdx.org/licenses/BSD-3-Clause.html). See [LICENSE.txt](LICENSE.txt) for the full license text.
+api_compatibility_checker is licensed under the [BSD-3-clause License](https://spdx.org/licenses/BSD-3-Clause.html). See [LICENSE.txt](LICENSE.txt) for the full license text.
