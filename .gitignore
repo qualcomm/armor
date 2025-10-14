@@ -1,0 +1,19 @@
+# Specific to cland lsp server
+.cache
+.vscode
+
+build
+**/__pycache__
+**/.pytest_cache
+**/ast_diff_output.json
+**/api_diff_report.html
+**/api_diff_report.json
+**/heaptrack*
+**/tmp
+tests/functional/**/armor_reports/
+tests/functional/**/debug_output/
+armor_reports/
+debug_output/
+_CPack_Packages/
+api-compat-checker-*
+armor-*
