@@ -5,6 +5,6 @@
 
 #include <string>
 
-bool handleCommandLineOptions(int argc, const char **argv);
+bool runArmorTool(int argc, const char **argv);
 
 #endif
