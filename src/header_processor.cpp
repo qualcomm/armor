@@ -39,14 +39,38 @@ using namespace llvm;
 #define CLANG_FLAGS ""
 #endif
 
-std::vector<std::string> getClangFlags() {
+std::vector<std::string> getClangFlags(const std::vector<std::string>& includePaths,
+                                       const std::vector<std::string>& macroFlags) {
     std::vector<std::string> flags;
+
     std::istringstream iss(CLANG_FLAGS);
     std::string flag;
     while (iss >> flag) {
         flags.emplace_back(std::move(flag));
     }
+
+    // Add runtime include paths
+    for (const auto& path : includePaths) {
+        flags.emplace_back("-I" + path);
+    }
+
+    // Add full macro flags directly
+    for (const auto& macro : macroFlags) {
+        flags.emplace_back(macro);
+    }
+
     return flags;
+}
+
+
+std::vector<std::string> resolveInternalIncludePaths(const std::vector<std::string>& internalPaths,
+                                                     const std::string& workspacePath) {
+
+    std::vector<std::string> resolvedPaths;
+    for (const auto& path : internalPaths) {
+        resolvedPaths.push_back(workspacePath + "/" + path);
+    }
+    return resolvedPaths;
 }
 
 std::vector<std::string> generateIncludePaths(const std::string& projectPath, const std::string& headerPath) {
@@ -86,9 +110,13 @@ std::vector<std::string> generateIncludePaths(const std::string& projectPath, co
     return includePaths;
 }
 
-void processHeaderPair(const std::string& project1, const std::string& file1,
-                       const std::string& project2, const std::string& file2,
-                       const std::string& reportFormat) {
+void processHeaderPair(const std::string& project1,
+                       const std::string& file1,
+                       const std::string& project2,
+                       const std::string& file2,
+                       const std::string& reportFormat,
+                       const std::vector<std::string>& IncludePaths,
+                       const std::vector<std::string>& macroFlags) {
 
     // === Initialize the shared log sink BEFORE any logging ===
     if (!gSharedLog) {
@@ -119,20 +147,26 @@ void processHeaderPair(const std::string& project1, const std::string& file1,
             DebugConfig::instance().setSink(gSharedLog.get());
         }
     }
+
     std::vector<std::string> inclusion_paths1 = generateIncludePaths(project1, file1);
     std::vector<std::string> inclusion_paths2 = generateIncludePaths(project2, file2);
 
-    std::vector<std::string> clang_flags = getClangFlags();
-    inclusion_paths1.insert(inclusion_paths1.end(), clang_flags.begin(), clang_flags.end());
-    inclusion_paths2.insert(inclusion_paths2.end(), clang_flags.begin(), clang_flags.end());
+    std::vector<std::string> intinclusionPaths1 = resolveInternalIncludePaths(IncludePaths, project1);
+    std::vector<std::string> intinclusionPaths2 = resolveInternalIncludePaths(IncludePaths, project2);
+
+    std::vector<std::string> Flags1 = getClangFlags(intinclusionPaths1, macroFlags);
+    std::vector<std::string> Flags2 = getClangFlags(intinclusionPaths2, macroFlags);
+
+    Flags1.insert(Flags1.end(), inclusion_paths1.begin(), inclusion_paths1.end());
+    Flags2.insert(Flags2.end(), inclusion_paths2.begin(), inclusion_paths2.end());
 
     // 1. Set up the Session
-    auto compDB1 = std::make_unique<FixedCompilationDatabase>(project1, inclusion_paths1);
-    auto compDB2 = std::make_unique<FixedCompilationDatabase>(project2, inclusion_paths2);
+    auto compDB1 = std::make_unique<FixedCompilationDatabase>(project1, Flags1);
+    auto compDB2 = std::make_unique<FixedCompilationDatabase>(project2, Flags2);
     auto session = std::make_unique<APISession>();
 
     DebugConfig::instance().log("Processing File1 : " + file1, DebugConfig::Level::INFO);
-    for (auto x : inclusion_paths1) {
+    for (auto x : Flags1) {
         DebugConfig::instance().log("Clang search path : " + x, DebugConfig::Level::INFO);
     }
 
@@ -140,7 +174,7 @@ void processHeaderPair(const std::string& project1, const std::string& file1,
     session->processFile(file1, std::move(compDB1));
 
     DebugConfig::instance().log("Processing File2 : " + file2, DebugConfig::Level::INFO);
-    for (auto x : inclusion_paths2) {
+    for (auto x : Flags2) {
         DebugConfig::instance().log("Clang search path : " + x, DebugConfig::Level::INFO);
     }
     session->processFile(file2, std::move(compDB2));

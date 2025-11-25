@@ -3,7 +3,7 @@
 #include "options_handler.hpp"
 
 int main(int argc, const char **argv) {
-    if (!handleCommandLineOptions(argc, argv)) {
+    if (!runArmorTool(argc, argv)) {
         return 1;
     }
     return 0;
