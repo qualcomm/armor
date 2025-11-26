@@ -5,6 +5,8 @@
 #include <string>
 #include "node.hpp"
 
+extern std::string DATA_TYPE_PLACE_HOLDER;
+
 extern std::string ADDED;
 extern std::string REMOVED;
 extern std::string MODIFIED;

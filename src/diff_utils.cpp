@@ -2,6 +2,8 @@
 // SPDX-License-Identifier: BSD-3-Clause
 #include "diff_utils.hpp"
 
+std::string DATA_TYPE_PLACE_HOLDER = "(un-resolved Type)";
+
 std::string ADDED = "added";
 std::string REMOVED = "removed";
 std::string MODIFIED = "modified";

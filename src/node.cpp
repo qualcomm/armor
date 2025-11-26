@@ -25,7 +25,9 @@ nlohmann::json APINode::diff(const std::shared_ptr<const APINode>& other) const 
     };
 
     // Compare fields
-    compare(DATA_TYPE, dataType, other->dataType, std::string{});
+    if(dataType != DATA_TYPE_PLACE_HOLDER && other->dataType != DATA_TYPE_PLACE_HOLDER){
+        compare(DATA_TYPE, dataType, other->dataType, std::string{});
+    }
     compare(
         STORAGE_QUALIFIER, 
         storage, 

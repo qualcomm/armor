@@ -7,6 +7,7 @@
 #include "iostream"
 #include "node.hpp"
 #include "debug_config.hpp"
+#include "diff_utils.hpp"
 
 TreeBuilder::TreeBuilder(ASTNormalizedContext* context): context(context) {}
 
@@ -65,7 +66,7 @@ void TreeBuilder::normalizeFunctionPointerType(const std::string& dataType, clan
     
     auto returnNode = std::make_shared<APINode>();
     returnNode->kind = NodeKind::ReturnType;
-    returnNode->dataType = FTL.getReturnLoc().getType().getAsString();
+    returnNode->dataType = FTL.getReturnLoc().getType()->isIncompleteType() ? DATA_TYPE_PLACE_HOLDER : FTL.getReturnLoc().getType().getAsString();
     PushName("(returnType)");
     returnNode->qualifiedName = GetCurrentQualifiedName();
     PopName();
@@ -98,7 +99,7 @@ void TreeBuilder::normalizeValueDeclNode(const clang::ValueDecl *Decl) {
     } 
     else return;
 
-    std::string dataType = initialDeclType.getAsString();
+    std::string dataType = Decl->isInvalidDecl() ? DATA_TYPE_PLACE_HOLDER : initialDeclType.getAsString();
     if (Decl->getName().empty()) {
         PushName(std::string("(anonymous::parameter)::").append(dataType));
     } 
@@ -224,7 +225,7 @@ bool TreeBuilder::BuildEnumNode(clang::EnumDecl* Decl){
     if(!Decl->enumerators().empty()) nodeStack.push_back(enumNode);
 
     const clang::QualType enumType = Decl->getIntegerType();
-    std::string enumaratorDataType = enumType.getAsString();
+    std::string enumaratorDataType = Decl->isInvalidDecl() ? DATA_TYPE_PLACE_HOLDER : enumType.getAsString();
      
     for (const auto* EnumConstDecl : Decl->enumerators()) {
         auto enumValNode = std::make_shared<APINode>();
@@ -281,7 +282,7 @@ bool TreeBuilder::BuildFunctionNode(clang::FunctionDecl* Decl){
     
     auto returnNode = std::make_shared<APINode>();
     clang::QualType returnType = Decl->getReturnType();
-    returnNode->dataType = returnType.getAsString();
+    returnNode->dataType = returnType->isIncompleteType() ? DATA_TYPE_PLACE_HOLDER : returnType.getAsString();
     PushName(clang::StringRef("returnType"));
     returnNode->qualifiedName = GetCurrentQualifiedName();
     DebugConfig::instance().log("VisitFunctionReturnDecl : " + returnNode->qualifiedName, DebugConfig::Level::DEBUG);
