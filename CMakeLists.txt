@@ -59,59 +59,25 @@ FetchContent_Declare(
   GIT_TAG v3.12.0
 )
 
-# Tree-sitter core
-FetchContent_Declare(
-  tree_sitter
-  GIT_REPOSITORY https://github.com/tree-sitter/tree-sitter.git
-  GIT_TAG v0.25.8
-)
-
-# Tree-sitter C++ grammar
-FetchContent_Declare(
-  tree_sitter_cpp
-  GIT_REPOSITORY https://github.com/tree-sitter/tree-sitter-cpp.git
-  GIT_TAG v0.23.4
-)
-
 # CLI11
 FetchContent_Declare(
   CLI11
   GIT_REPOSITORY https://github.com/CLIUtils/CLI11.git
   GIT_TAG v2.3.2
 )
-FetchContent_MakeAvailable(nlohmann_json tree_sitter tree_sitter_cpp CLI11)
-
-# Build tree-sitter static library manually
-add_library(tree_sitter STATIC
-  ${tree_sitter_SOURCE_DIR}/lib/src/lib.c
-)
-
-target_include_directories(tree_sitter PUBLIC
-  ${tree_sitter_SOURCE_DIR}/lib/src
-  ${tree_sitter_SOURCE_DIR}/lib/include
-)
+FetchContent_MakeAvailable(nlohmann_json CLI11)
 
 # Source files
 file(GLOB_RECURSE SOURCES "src/*.cpp")
 
-set(TREE_SITTER_CPP_SRC
-  ${tree_sitter_cpp_SOURCE_DIR}/src/parser.c
-  ${tree_sitter_cpp_SOURCE_DIR}/src/scanner.c
-)
-
-
 # Define the executable
 add_executable(armor
   ${SOURCES}
-  ${TREE_SITTER_CPP_SRC}
 )
 
 # Include project headers
 target_include_directories(armor PRIVATE
   ${CMAKE_SOURCE_DIR}/include
-  ${tree_sitter_SOURCE_DIR}/lib/src
-  ${tree_sitter_SOURCE_DIR}/lib/include
-  ${tree_sitter_cpp_SOURCE_DIR}/src
 )
 
 # Use llvm_map_components_to_libnames to get only required LLVM libs
@@ -127,7 +93,6 @@ target_link_libraries(armor
   clangTooling
   clangIndex
   nlohmann_json::nlohmann_json
-  tree_sitter
   CLI11::CLI11
 )
 
