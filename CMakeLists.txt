@@ -98,20 +98,3 @@ target_link_libraries(armor
 
 # Install the binary
 install(TARGETS armor DESTINATION bin)
-
-# CPack configuration
-set(CPACK_GENERATOR "DEB")
-set(CPACK_PACKAGE_NAME "armor")
-set(CPACK_PACKAGE_VERSION "0.4.0")
-set(CPACK_DEBIAN_PACKAGE_SECTION "devel")
-set(CPACK_DEBIAN_PACKAGE_PRIORITY "optional")
-set(CPACK_DEBIAN_PACKAGE_ARCHITECTURE "amd64")
-set(CPACK_DEBIAN_PACKAGE_DEPENDS "clang, clang-14, cmake, make, libclang-common-14-dev, libclang-14-dev, llvm-14-dev, libstdc++-11-dev, gcc-11, g++-11, git, build-essential")
-set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Qualcomm API Backward Compatibility Checker
-A static analysis tool for detecting API breakages between two versions of C/C++ public headers, classifying changes as backward compatible or incompatible.")
-set(CPACK_PACKAGE_HOMEPAGE_URL "https://github.qualcomm.com/LinuxIntegration/API_Compatibility_Checker")
-set(CPACK_PACKAGE_DESCRIPTION_FILE "${CMAKE_CURRENT_SOURCE_DIR}/CHANGELOG")
-
-include(CPack)
-
-add_definitions(-DTOOL_VERSION="${CPACK_PACKAGE_VERSION}")
