@@ -1,0 +1,250 @@
+
+name: "Run ARMOR tool"
+description: "Run ARMOR tool"
+branding:
+  icon: "align-left"
+  color: "blue"
+
+inputs:
+  event-name:
+    description: "github.event_name from the caller"
+    required: true
+  head-sha:
+    description: "Head SHA for the event (PR head or push after)"
+    required: true
+  base-sha:
+    description: "Base SHA for the event (PR base or push before)"
+    required: false
+    default: ""
+  ref:
+    description: "Ref associated with the event"
+    required: false
+    default: ""
+  repo:
+    description: "owner/repo of the caller"
+    required: false
+    default: ""
+  branch-name:
+    description: "Branch name for the event"
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - name: Checkout base commit
+      uses: actions/checkout@v4
+      with:
+        ref: ${{ inputs.base-sha }}
+        path: base
+        fetch-depth: 0
+
+    - name: Checkout head commit
+      uses: actions/checkout@v4
+      with:
+        ref: ${{ inputs.head-sha }}
+        path: head
+        fetch-depth: 0
+
+    - name: Echo paths and SHAs
+      shell: bash
+      run: |
+        echo "Event       : ${{ inputs.event-name }}"
+        echo "Base SHA    : ${{ inputs.base-sha }}"
+        echo "Head SHA    : ${{ inputs.head-sha }}"
+        echo "github-base path : $GITHUB_WORKSPACE/base"
+        echo "github-head path : $GITHUB_WORKSPACE/head"
+
+
+    - name: Verify gcc and Docker installation
+      shell: bash
+      run: |
+        set -e
+        gcc --version || { echo "gcc missing"; exit 1; }
+        docker --version || { echo "docker missing"; exit 1; }
+
+    - name: Install yq
+      shell: bash
+      run: |
+        set -e
+        if ! command -v yq >/dev/null 2>&1; then
+          sudo apt-get update -y
+          sudo apt-get install -y jq
+          sudo wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/download/v4.44.3/yq_linux_amd64
+          sudo chmod +x /usr/local/bin/yq
+        fi
+
+    - name: Get changed files
+      id: changed-files
+      shell: bash
+      run: |
+        set -e
+        # Diff directly using the two trees
+        git --git-dir="$GITHUB_WORKSPACE/head/.git" --work-tree="$GITHUB_WORKSPACE/head" diff --name-only ${{ inputs.base-sha }} ${{ inputs.head-sha }} > "$GITHUB_WORKSPACE/changed_files.txt" || true
+        echo "Changed files:"
+        cat "$GITHUB_WORKSPACE/changed_files.txt" || true
+
+    
+    - name: Parse YAML for headers (dirs/globs allowed) and expand to file list
+      id: parse-yaml
+      shell: bash
+      run: |
+        set -euo pipefail
+        bash "${{ github.action_path }}/action_script/parse_headers.sh" \
+          "$GITHUB_WORKSPACE/public_headers/armor_config.yaml" \
+          "${{ inputs.branch-name }}" \
+          "$GITHUB_WORKSPACE/base" \
+          "$GITHUB_WORKSPACE/head" \
+          "$GITHUB_WORKSPACE"
+
+
+    - name: Find intersection of changed files and headers
+      id: intersection
+      shell: bash
+      run: |
+        set -e
+        INTERSECT=$(grep -Fxf "$GITHUB_WORKSPACE/headers.txt" "$GITHUB_WORKSPACE/changed_files.txt" || true)
+        echo "$INTERSECT" > "$GITHUB_WORKSPACE/updated_headers_PR.txt"
+        if [[ -n "$INTERSECT" ]]; then
+          echo "Intersection found:"
+          cat "$GITHUB_WORKSPACE/updated_headers_PR.txt"
+          echo "has-intersection=true" >> "$GITHUB_OUTPUT"
+        else
+          echo "No intersection found."
+          : > "$GITHUB_WORKSPACE/updated_headers_PR.txt"
+          echo "has-intersection=false" >> "$GITHUB_OUTPUT"
+          echo "No intersection with changed headers in PR and public headers." >> "$GITHUB_STEP_SUMMARY"
+        fi
+
+    - name: Build docker image for armor bins
+      if: steps.intersection.outputs.has-intersection == 'true'
+      shell: bash
+      run: |
+        set -e
+        docker build -t armor_tool:latest -f "${{ github.action_path }}/Dockerfile" "${{ github.action_path }}"
+
+    - name: Build ARMOR tool inside container
+      if: steps.intersection.outputs.has-intersection == 'true'
+      shell: bash
+      run: |
+        set -euo pipefail
+        ACTION_DIR="${{ github.action_path }}"
+        docker run -i --rm \
+          --user $(id -u):$(id -g) \
+          -v "$ACTION_DIR":"$ACTION_DIR" \
+          -e ACTION_DIR="$ACTION_DIR" \
+          -w "$ACTION_DIR" \
+          armor_tool:latest bash -c '
+            set -euo pipefail
+            chmod +x ./api_compat_check.sh
+            ./api_compat_check.sh --package
+            echo "$ACTION_DIR/build/armor" > "$ACTION_DIR/.armor_bins_path"
+          '
+
+    - name: Run ARMOR per header (collect outputs)
+      if: steps.intersection.outputs.has-intersection == 'true'
+      id: run-armor
+      shell: bash
+      env:
+        REPORT_FORMAT: "json"
+        LOG_LEVEL: "INFO"
+        DUMP_AST_DIFF: "true"
+      run: |
+        set -e
+        BASE_PATH="$GITHUB_WORKSPACE/base"
+        HEAD_PATH="$GITHUB_WORKSPACE/head"
+        INTERSECTION_HEADERS_PATH="$GITHUB_WORKSPACE/updated_headers_PR.txt"
+        ARMOR_BINS_PATH="$(cat "${{ github.action_path }}/.armor_bins_path")"
+
+        chmod +x "${{ github.action_path }}/action_script/run_armor.sh"
+        "${{ github.action_path }}/action_script/run_armor.sh" "$BASE_PATH" "$HEAD_PATH" "$INTERSECTION_HEADERS_PATH" "$ARMOR_BINS_PATH"
+
+        OUT_ROOT="$(cat "$GITHUB_WORKSPACE/.armor_out_root")"
+        echo "out-root=$OUT_ROOT" >> "$GITHUB_OUTPUT"
+
+    - name: Upload all armor outputs (artifact)
+      if: steps.intersection.outputs.has-intersection == 'true'
+      uses: actions/upload-artifact@v4
+      with:
+        name: armor-output-${{ inputs.head-sha }}
+        path: ${{ steps.run-armor.outputs.out-root }}
+        if-no-files-found: warn
+
+    - name: Compute compatibility status
+      id: compatibility_status
+      shell: bash
+      run: |
+        set -e
+        STATUS_FILE="$GITHUB_WORKSPACE/.armor_status"
+        if [[ -f "$STATUS_FILE" ]]; then
+          STATUS="$(cat "$STATUS_FILE")"
+        else
+          STATUS="success"
+        fi
+        echo "Overall status: $STATUS"
+        echo "res=$STATUS" >> "$GITHUB_OUTPUT"
+
+    - name: prepare PR comment with ARMOR summary
+      if: >
+          (github.event_name == 'pull_request' || github.event_name == 'pull_request_target')
+          && steps.intersection.outputs.has-intersection == 'true'
+      id: prepare-comment
+      shell: bash
+      run: |
+        set -euo pipefail
+
+        # Inputs and common context
+        workflow_url="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+        artifacts="${workflow_url}#artifacts"
+        out_root="${{ steps.run-armor.outputs.out-root }}"
+        summary_path="${out_root}/compact_summary.json"
+        incompatible_path="${out_root}/metadata.txt"
+        status="${{ steps.compatibility_status.outputs.res }}"
+
+        body="$(cat <<'EOF'
+        ### ARMOR Check Result
+
+        **Status:** __STATUS__
+
+        Please check __ARTIFACTS__ for details.
+        EOF
+        )"
+        # Substitute tokens
+        body="${body/__STATUS__/${status}}"
+        body="${body/__ARTIFACTS__/${artifacts}}"
+
+        # Append incompatible headers section if present and non-empty
+        if [[ -f "$summary_path" ]]; then
+          if [[ -f "$incompatible_path" && -s "$incompatible_path" ]]; then
+            failed_headers=""
+            # Build a clean markdown list with no leading spaces
+            while IFS= read -r line; do
+              # Skip blank lines
+              [[ -z "$line" ]] && continue
+              failed_headers+=$'- '"$line"$'\n'
+            done < "$incompatible_path"
+
+            body+=$'\n\n**Backward Incompatible Headers:**\n'
+            body+="${failed_headers}"
+          fi
+        fi
+
+        delimiter="EOF_SUMMARY_$(date +%s)"
+        {
+          echo "body<<$delimiter"
+          printf '%s\n' "$body"
+          echo "$delimiter"
+        } >> "$GITHUB_OUTPUT"
+
+    - name: Fail if incompatible changes detected
+      if: steps.intersection.outputs.has-intersection == 'true'
+      shell: bash
+      run: |
+        set -euo pipefail
+        status="${{ steps.run-armor.outputs.status }}"
+        printf '%s\n' "${{ steps.prepare-comment.outputs.body }}" >> "$GITHUB_STEP_SUMMARY"
+        if [[ "$status" == "failure" ]]; then
+          echo "::error ::ARMOR detected backward incompatible changes. Failing the check."
+          exit 1
+        else
+          echo "ARMOR check passed (status: $status)."
+        fi
