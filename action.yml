@@ -90,7 +90,7 @@ runs:
       run: |
         set -euo pipefail
         bash "${{ github.action_path }}/action_script/parse_headers.sh" \
-          "$GITHUB_WORKSPACE/public_headers/armor_config.yaml" \
+          "$GITHUB_WORKSPACE/public_headers/config.yml" \
           "${{ inputs.branch-name }}" \
           "$GITHUB_WORKSPACE/base" \
           "$GITHUB_WORKSPACE/head" \
