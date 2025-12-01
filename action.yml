@@ -183,10 +183,9 @@ runs:
         echo "Overall status: $STATUS"
         echo "res=$STATUS" >> "$GITHUB_OUTPUT"
 
-    - name: prepare PR comment with ARMOR summary
+    - name: prepare ARMOR summary
       if: >
-          (github.event_name == 'pull_request' || github.event_name == 'pull_request_target')
-          && steps.intersection.outputs.has-intersection == 'true'
+          steps.intersection.outputs.has-intersection == 'true'
       id: prepare-comment
       shell: bash
       run: |
