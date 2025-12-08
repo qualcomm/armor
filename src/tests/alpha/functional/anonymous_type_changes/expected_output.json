@@ -1,0 +1,35 @@
+[
+    {
+        "children": [
+            {
+                "children": [
+                    {
+                        "children": [
+                            {
+                                "dataType": "int",
+                                "nodeType": "Parameter",
+                                "qualifiedName": "funcPtr::1",
+                                "tag": "removed"
+                            },
+                            {
+                                "dataType": "float",
+                                "nodeType": "Parameter",
+                                "qualifiedName": "funcPtr::1",
+                                "tag": "added"
+                            }
+                        ],
+                        "nodeType": "Parameter",
+                        "qualifiedName": "funcPtr::1",
+                        "tag": "modified"
+                    }
+                ],
+                "nodeType": "FunctionPointer",
+                "qualifiedName": "funcPtr",
+                "tag": "modified"
+            }
+        ],
+        "nodeType": "Variable",
+        "qualifiedName": "funcPtr",
+        "tag": "modified"
+    }
+]
