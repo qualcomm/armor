@@ -1,0 +1,332 @@
+[
+    {
+        "children": [
+            {
+                "children": [
+                    {
+                        "children": [
+                            {
+                                "dataType": "int",
+                                "nodeType": "Field",
+                                "qualifiedName": "Device::test::b",
+                                "tag": "removed"
+                            },
+                            {
+                                "dataType": "char",
+                                "nodeType": "Field",
+                                "qualifiedName": "Device::test::b",
+                                "tag": "added"
+                            }
+                        ],
+                        "nodeType": "Field",
+                        "qualifiedName": "Device::test::b",
+                        "tag": "modified"
+                    }
+                ],
+                "nodeType": "Struct",
+                "qualifiedName": "Device::test",
+                "tag": "modified"
+            }
+        ],
+        "nodeType": "Struct",
+        "qualifiedName": "Device",
+        "tag": "modified"
+    },
+    {
+        "children": [
+            {
+                "children": [
+                    {
+                        "dataType": "char[64]",
+                        "nodeType": "Field",
+                        "qualifiedName": "System::systemName",
+                        "tag": "removed"
+                    },
+                    {
+                        "dataType": "char[60]",
+                        "nodeType": "Field",
+                        "qualifiedName": "System::systemName",
+                        "tag": "added"
+                    }
+                ],
+                "nodeType": "Field",
+                "qualifiedName": "System::systemName",
+                "tag": "modified"
+            },
+            {
+                "children": [
+                    {
+                        "children": [
+                            {
+                                "dataType": "Device[10]",
+                                "nodeType": "Field",
+                                "qualifiedName": "System::systemDetails::devices",
+                                "tag": "removed"
+                            },
+                            {
+                                "dataType": "Device[5]",
+                                "nodeType": "Field",
+                                "qualifiedName": "System::systemDetails::devices",
+                                "tag": "added"
+                            }
+                        ],
+                        "nodeType": "Field",
+                        "qualifiedName": "System::systemDetails::devices",
+                        "tag": "modified"
+                    },
+                    {
+                        "children": [
+                            {
+                                "dataType": "unsigned int",
+                                "nodeType": "Enumerator",
+                                "qualifiedName": "System::systemDetails::systemStatus::STATUS_UNKNOWN",
+                                "tag": "removed"
+                            }
+                        ],
+                        "nodeType": "Enum",
+                        "qualifiedName": "System::systemDetails::systemStatus",
+                        "tag": "modified"
+                    },
+                    {
+                        "children": [
+                            {
+                                "children": [
+                                    {
+                                        "dataType": "int",
+                                        "nodeType": "Field",
+                                        "qualifiedName": "System::systemDetails::alpha::beta::a"
+                                    },
+                                    {
+                                        "dataType": "int",
+                                        "nodeType": "Field",
+                                        "qualifiedName": "System::systemDetails::alpha::beta::b"
+                                    }
+                                ],
+                                "nodeType": "Struct",
+                                "qualifiedName": "System::systemDetails::alpha::beta",
+                                "tag": "removed"
+                            },
+                            {
+                                "children": [
+                                    {
+                                        "dataType": "unsigned int",
+                                        "nodeType": "Enumerator",
+                                        "qualifiedName": "System::systemDetails::alpha::(Anon::Enum)::delta",
+                                        "tag": "removed"
+                                    },
+                                    {
+                                        "dataType": "unsigned int",
+                                        "nodeType": "Enumerator",
+                                        "qualifiedName": "System::systemDetails::alpha::(Anon::Enum)::epsilon",
+                                        "tag": "added"
+                                    }
+                                ],
+                                "nodeType": "Enum",
+                                "qualifiedName": "System::systemDetails::alpha::(Anon::Enum)",
+                                "tag": "modified"
+                            },
+                            {
+                                "children": [
+                                    {
+                                        "children": [
+                                            {
+                                                "dataType": "int",
+                                                "nodeType": "Field",
+                                                "qualifiedName": "System::systemDetails::alpha::(Anon::Struct)::y",
+                                                "tag": "removed"
+                                            },
+                                            {
+                                                "dataType": "double",
+                                                "nodeType": "Field",
+                                                "qualifiedName": "System::systemDetails::alpha::(Anon::Struct)::y",
+                                                "tag": "added"
+                                            }
+                                        ],
+                                        "nodeType": "Field",
+                                        "qualifiedName": "System::systemDetails::alpha::(Anon::Struct)::y",
+                                        "tag": "modified"
+                                    },
+                                    {
+                                        "dataType": "int",
+                                        "nodeType": "Field",
+                                        "qualifiedName": "System::systemDetails::alpha::(Anon::Struct)::z",
+                                        "tag": "removed"
+                                    }
+                                ],
+                                "nodeType": "Struct",
+                                "qualifiedName": "System::systemDetails::alpha::(Anon::Struct)",
+                                "tag": "modified"
+                            },
+                            {
+                                "children": [
+                                    {
+                                        "children": [
+                                            {
+                                                "dataType": "int",
+                                                "nodeType": "Field",
+                                                "qualifiedName": "System::systemDetails::alpha::gamma::omega::a"
+                                            },
+                                            {
+                                                "dataType": "int",
+                                                "nodeType": "Field",
+                                                "qualifiedName": "System::systemDetails::alpha::gamma::omega::b"
+                                            }
+                                        ],
+                                        "nodeType": "Struct",
+                                        "qualifiedName": "System::systemDetails::alpha::gamma::omega",
+                                        "tag": "added"
+                                    },
+                                    {
+                                        "dataType": "struct omega",
+                                        "nodeType": "Typedef",
+                                        "qualifiedName": "System::systemDetails::alpha::gamma::omega",
+                                        "tag": "added"
+                                    }
+                                ],
+                                "nodeType": "Struct",
+                                "qualifiedName": "System::systemDetails::alpha::gamma",
+                                "tag": "modified"
+                            },
+                            {
+                                "children": [
+                                    {
+                                        "dataType": "unsigned int",
+                                        "nodeType": "Enumerator",
+                                        "qualifiedName": "System::systemDetails::alpha::beta::start"
+                                    },
+                                    {
+                                        "dataType": "unsigned int",
+                                        "nodeType": "Enumerator",
+                                        "qualifiedName": "System::systemDetails::alpha::beta::end"
+                                    }
+                                ],
+                                "nodeType": "Enum",
+                                "qualifiedName": "System::systemDetails::alpha::beta",
+                                "tag": "added"
+                            }
+                        ],
+                        "nodeType": "Struct",
+                        "qualifiedName": "System::systemDetails::alpha",
+                        "tag": "modified"
+                    },
+                    {
+                        "children": [
+                            {
+                                "children": [
+                                    {
+                                        "dataType": "int",
+                                        "nodeType": "Field",
+                                        "qualifiedName": "System::systemDetails::gamma::b",
+                                        "tag": "removed"
+                                    },
+                                    {
+                                        "dataType": "float",
+                                        "nodeType": "Field",
+                                        "qualifiedName": "System::systemDetails::gamma::b",
+                                        "tag": "added"
+                                    }
+                                ],
+                                "nodeType": "Field",
+                                "qualifiedName": "System::systemDetails::gamma::b",
+                                "tag": "modified"
+                            }
+                        ],
+                        "nodeType": "Struct",
+                        "qualifiedName": "System::systemDetails::gamma",
+                        "tag": "modified"
+                    },
+                    {
+                        "dataType": "Device",
+                        "nodeType": "Typedef",
+                        "qualifiedName": "System::systemDetails::myDevice",
+                        "tag": "added"
+                    }
+                ],
+                "nodeType": "Struct",
+                "qualifiedName": "System::systemDetails",
+                "tag": "modified"
+            }
+        ],
+        "nodeType": "Struct",
+        "qualifiedName": "System",
+        "tag": "modified"
+    },
+    {
+        "children": [
+            {
+                "children": [
+                    {
+                        "dataType": "int",
+                        "nodeType": "Field",
+                        "qualifiedName": "alpha_beta::b",
+                        "tag": "removed"
+                    },
+                    {
+                        "dataType": "float",
+                        "nodeType": "Field",
+                        "qualifiedName": "alpha_beta::b",
+                        "tag": "added"
+                    }
+                ],
+                "nodeType": "Field",
+                "qualifiedName": "alpha_beta::b",
+                "tag": "modified"
+            }
+        ],
+        "nodeType": "Struct",
+        "qualifiedName": "alpha_beta",
+        "tag": "modified"
+    },
+    {
+        "children": [
+            {
+                "children": [
+                    {
+                        "children": [
+                            {
+                                "dataType": "int",
+                                "nodeType": "Parameter",
+                                "qualifiedName": "funcPtr::1",
+                                "tag": "removed"
+                            },
+                            {
+                                "dataType": "float",
+                                "nodeType": "Parameter",
+                                "qualifiedName": "funcPtr::1",
+                                "tag": "added"
+                            }
+                        ],
+                        "nodeType": "Parameter",
+                        "qualifiedName": "funcPtr::1",
+                        "tag": "modified"
+                    }
+                ],
+                "nodeType": "FunctionPointer",
+                "qualifiedName": "funcPtr",
+                "tag": "modified"
+            }
+        ],
+        "nodeType": "Variable",
+        "qualifiedName": "funcPtr",
+        "tag": "modified"
+    },
+    {
+        "children": [
+            {
+                "dataType": "Device ******const *********",
+                "nodeType": "Typedef",
+                "qualifiedName": "mydefptr",
+                "tag": "removed"
+            },
+            {
+                "dataType": "Device ******const ********",
+                "nodeType": "Typedef",
+                "qualifiedName": "mydefptr",
+                "tag": "added"
+            }
+        ],
+        "nodeType": "Typedef",
+        "qualifiedName": "mydefptr",
+        "tag": "modified"
+    }
+]

@@ -1,0 +1,106 @@
+[
+    {
+        "children": [
+            {
+                "dataType": "unsigned int",
+                "nodeType": "Enumerator",
+                "qualifiedName": "diag_apps_feature_support_def::F_DIAG_DIAGID_BASED_ASYNC_PKT",
+                "tag": "removed"
+            }
+        ],
+        "nodeType": "Enum",
+        "qualifiedName": "diag_apps_feature_support_def",
+        "tag": "modified"
+    },
+    {
+        "children": [
+            {
+                "dataType": "bool",
+                "nodeType": "Variable",
+                "qualifiedName": "filter_enabled",
+                "tag": "removed"
+            },
+            {
+                "dataType": "float",
+                "nodeType": "Variable",
+                "qualifiedName": "filter_enabled",
+                "tag": "added"
+            }
+        ],
+        "nodeType": "Variable",
+        "qualifiedName": "filter_enabled",
+        "tag": "modified"
+    },
+    {
+        "children": [
+            {
+                "dataType": "void *",
+                "nodeType": "Field",
+                "qualifiedName": "diag_callback_tbl_t::context_data",
+                "tag": "removed"
+            },
+            {
+                "children": [
+                    {
+                        "dataType": "int",
+                        "nodeType": "Field",
+                        "qualifiedName": "diag_callback_tbl_t::inited",
+                        "tag": "removed"
+                    },
+                    {
+                        "dataType": "float",
+                        "nodeType": "Field",
+                        "qualifiedName": "diag_callback_tbl_t::inited",
+                        "tag": "added"
+                    }
+                ],
+                "nodeType": "Field",
+                "qualifiedName": "diag_callback_tbl_t::inited",
+                "tag": "modified"
+            }
+        ],
+        "nodeType": "Struct",
+        "qualifiedName": "diag_callback_tbl_t",
+        "tag": "modified"
+    },
+    {
+        "children": [
+            {
+                "children": [
+                    {
+                        "children": [
+                            {
+                                "children": [
+                                    {
+                                        "dataType": "unsigned char *",
+                                        "nodeType": "Parameter",
+                                        "qualifiedName": "diag_uart_tbl_t::cb_func_ptr::1",
+                                        "tag": "removed"
+                                    },
+                                    {
+                                        "dataType": "unsigned int *",
+                                        "nodeType": "Parameter",
+                                        "qualifiedName": "diag_uart_tbl_t::cb_func_ptr::1",
+                                        "tag": "added"
+                                    }
+                                ],
+                                "nodeType": "Parameter",
+                                "qualifiedName": "diag_uart_tbl_t::cb_func_ptr::1",
+                                "tag": "modified"
+                            }
+                        ],
+                        "nodeType": "FunctionPointer",
+                        "qualifiedName": "diag_uart_tbl_t::cb_func_ptr",
+                        "tag": "modified"
+                    }
+                ],
+                "nodeType": "Field",
+                "qualifiedName": "diag_uart_tbl_t::cb_func_ptr",
+                "tag": "modified"
+            }
+        ],
+        "nodeType": "Struct",
+        "qualifiedName": "diag_uart_tbl_t",
+        "tag": "modified"
+    }
+]

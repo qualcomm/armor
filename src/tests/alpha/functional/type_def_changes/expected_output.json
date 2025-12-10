@@ -1,0 +1,27 @@
+[
+    {
+        "dataType": "int[0]",
+        "nodeType": "Variable",
+        "qualifiedName": "data",
+        "tag": "removed"
+    },
+    {
+        "children": [
+            {
+                "dataType": "struct alpha",
+                "nodeType": "Variable",
+                "qualifiedName": "alpha2",
+                "tag": "removed"
+            },
+            {
+                "dataType": "struct alpha ***********[20]",
+                "nodeType": "Variable",
+                "qualifiedName": "alpha2",
+                "tag": "added"
+            }
+        ],
+        "nodeType": "Variable",
+        "qualifiedName": "alpha2",
+        "tag": "modified"
+    }
+]
