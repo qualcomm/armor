@@ -1,0 +1,90 @@
+[
+    {
+        "children": [
+            {
+                "dataType": "int",
+                "nodeType": "Field",
+                "qualifiedName": "alpha::b",
+                "tag": "removed"
+            }
+        ],
+        "nodeType": "Struct",
+        "qualifiedName": "alpha",
+        "tag": "modified"
+    },
+    {
+        "children": [
+            {
+                "children": [
+                    {
+                        "dataType": "const class std::basic_string<char, struct std::char_traits<char>, class std::allocator<char>> &",
+                        "nodeType": "Parameter",
+                        "qualifiedName": "printMessage::1",
+                        "tag": "removed"
+                    },
+                    {
+                        "dataType": "const char *",
+                        "nodeType": "Parameter",
+                        "qualifiedName": "printMessage::1",
+                        "tag": "added"
+                    }
+                ],
+                "nodeType": "Parameter",
+                "qualifiedName": "printMessage::1",
+                "tag": "modified"
+            }
+        ],
+        "nodeType": "Function",
+        "qualifiedName": "printMessage",
+        "tag": "modified"
+    },
+    {
+        "children": [
+            {
+                "dataType": "double",
+                "nodeType": "Parameter",
+                "qualifiedName": "calculateArea::1"
+            },
+            {
+                "dataType": "double",
+                "nodeType": "Parameter",
+                "qualifiedName": "calculateArea::2"
+            },
+            {
+                "dataType": "double",
+                "nodeType": "ReturnType",
+                "qualifiedName": "calculateArea::(ReturnType)"
+            }
+        ],
+        "nodeType": "Function",
+        "qualifiedName": "calculateArea",
+        "tag": "removed"
+    },
+    {
+        "children": [
+            {
+                "dataType": "int",
+                "nodeType": "Parameter",
+                "qualifiedName": "add::1"
+            },
+            {
+                "dataType": "int",
+                "nodeType": "Parameter",
+                "qualifiedName": "add::2"
+            },
+            {
+                "dataType": "int",
+                "nodeType": "Parameter",
+                "qualifiedName": "add::3"
+            },
+            {
+                "dataType": "int",
+                "nodeType": "ReturnType",
+                "qualifiedName": "add::(ReturnType)"
+            }
+        ],
+        "nodeType": "Function",
+        "qualifiedName": "add",
+        "tag": "added"
+    }
+]

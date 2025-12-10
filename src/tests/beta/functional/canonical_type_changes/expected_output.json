@@ -1,0 +1,26 @@
+[
+    {
+        "dataType": "int",
+        "nodeType": "Typedef",
+        "qualifiedName": "a",
+        "tag": "removed"
+    },
+    {
+        "dataType": "a",
+        "nodeType": "Typedef",
+        "qualifiedName": "b",
+        "tag": "removed"
+    },
+    {
+        "dataType": "int",
+        "nodeType": "Typedef",
+        "qualifiedName": "c",
+        "tag": "added"
+    },
+    {
+        "dataType": "c",
+        "nodeType": "Typedef",
+        "qualifiedName": "e",
+        "tag": "added"
+    }
+]
