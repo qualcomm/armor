@@ -1,0 +1,83 @@
+[
+    {
+        "children": [
+            {
+                "dataType": "int",
+                "nodeType": "Field",
+                "qualifiedName": "Data::i",
+                "tag": "removed"
+            },
+            {
+                "dataType": "long",
+                "nodeType": "Field",
+                "qualifiedName": "Data::id",
+                "tag": "added"
+            },
+            {
+                "children": [
+                    {
+                        "dataType": "float",
+                        "nodeType": "Field",
+                        "qualifiedName": "Data::f",
+                        "tag": "removed"
+                    },
+                    {
+                        "dataType": "double",
+                        "nodeType": "Field",
+                        "qualifiedName": "Data::f",
+                        "tag": "added"
+                    }
+                ],
+                "nodeType": "Field",
+                "qualifiedName": "Data::f",
+                "tag": "modified"
+            },
+            {
+                "children": [
+                    {
+                        "dataType": "double",
+                        "nodeType": "Field",
+                        "qualifiedName": "Data::nested_union::value",
+                        "tag": "removed"
+                    },
+                    {
+                        "dataType": "int",
+                        "nodeType": "Field",
+                        "qualifiedName": "Data::nested_union::key",
+                        "tag": "added"
+                    }
+                ],
+                "nodeType": "Union",
+                "qualifiedName": "Data::nested_union",
+                "tag": "modified"
+            }
+        ],
+        "nodeType": "Union",
+        "qualifiedName": "Data",
+        "tag": "modified"
+    },
+    {
+        "children": [
+            {
+                "children": [
+                    {
+                        "dataType": "int",
+                        "nodeType": "Field",
+                        "qualifiedName": "Alpha::(Anon::Union)::a"
+                    },
+                    {
+                        "dataType": "int",
+                        "nodeType": "Field",
+                        "qualifiedName": "Alpha::(Anon::Union)::b"
+                    }
+                ],
+                "nodeType": "Union",
+                "qualifiedName": "Alpha::(Anon::Union)",
+                "tag": "removed"
+            }
+        ],
+        "nodeType": "Union",
+        "qualifiedName": "Alpha",
+        "tag": "modified"
+    }
+]

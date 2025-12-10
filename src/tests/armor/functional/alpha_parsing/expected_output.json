@@ -1,0 +1,233 @@
+[
+    {
+        "children": [
+            {
+                "dataType": "const double",
+                "nodeType": "Variable",
+                "qualifiedName": "GLOBAL_PI",
+                "tag": "removed"
+            },
+            {
+                "dataType": "const float",
+                "nodeType": "Variable",
+                "qualifiedName": "GLOBAL_PI",
+                "tag": "added"
+            }
+        ],
+        "nodeType": "Variable",
+        "qualifiedName": "GLOBAL_PI",
+        "tag": "modified"
+    },
+    {
+        "children": [
+            {
+                "dataType": "const char[7]",
+                "nodeType": "Variable",
+                "qualifiedName": "GLOBAL_VERSION",
+                "tag": "removed"
+            },
+            {
+                "dataType": "const char[10]",
+                "nodeType": "Variable",
+                "qualifiedName": "GLOBAL_VERSION",
+                "tag": "added"
+            }
+        ],
+        "nodeType": "Variable",
+        "qualifiedName": "GLOBAL_VERSION",
+        "tag": "modified"
+    },
+    {
+        "children": [
+            {
+                "dataType": "int",
+                "nodeType": "Parameter",
+                "qualifiedName": "isValidInput::2",
+                "tag": "added"
+            }
+        ],
+        "nodeType": "Function",
+        "qualifiedName": "isValidInput",
+        "tag": "modified"
+    },
+    {
+        "children": [
+            {
+                "dataType": "int",
+                "nodeType": "Parameter",
+                "qualifiedName": "logMessage::2",
+                "tag": "removed"
+            },
+            {
+                "children": [
+                    {
+                        "dataType": "const char *",
+                        "nodeType": "Parameter",
+                        "qualifiedName": "logMessage::1",
+                        "tag": "removed"
+                    },
+                    {
+                        "dataType": "int",
+                        "nodeType": "Parameter",
+                        "qualifiedName": "logMessage::1",
+                        "tag": "added"
+                    }
+                ],
+                "nodeType": "Parameter",
+                "qualifiedName": "logMessage::1",
+                "tag": "modified"
+            }
+        ],
+        "nodeType": "Function",
+        "qualifiedName": "logMessage",
+        "tag": "modified"
+    },
+    {
+        "dataType": "_Bool",
+        "nodeType": "Variable",
+        "qualifiedName": "filter_enabled",
+        "tag": "removed"
+    },
+    {
+        "children": [
+            {
+                "dataType": "unsigned int",
+                "nodeType": "Enumerator",
+                "qualifiedName": "pkt_status::PKT_PROCESS_DONE",
+                "tag": "removed"
+            }
+        ],
+        "nodeType": "Enum",
+        "qualifiedName": "pkt_status",
+        "tag": "modified"
+    },
+    {
+        "children": [
+            {
+                "children": [
+                    {
+                        "children": [
+                            {
+                                "dataType": "void *",
+                                "nodeType": "Parameter",
+                                "qualifiedName": "diag_callback_tbl_t::cb_func_ptr::3",
+                                "tag": "removed"
+                            }
+                        ],
+                        "nodeType": "FunctionPointer",
+                        "qualifiedName": "diag_callback_tbl_t::cb_func_ptr",
+                        "tag": "modified"
+                    }
+                ],
+                "nodeType": "Field",
+                "qualifiedName": "diag_callback_tbl_t::cb_func_ptr",
+                "tag": "modified"
+            }
+        ],
+        "nodeType": "Struct",
+        "qualifiedName": "diag_callback_tbl_t",
+        "tag": "modified"
+    },
+    {
+        "children": [
+            {
+                "dataType": "int",
+                "nodeType": "Field",
+                "qualifiedName": "diag_uart_tbl_t::a",
+                "tag": "added"
+            },
+            {
+                "children": [
+                    {
+                        "dataType": "int",
+                        "nodeType": "Field",
+                        "qualifiedName": "diag_uart_tbl_t::pid",
+                        "tag": "removed"
+                    },
+                    {
+                        "dataType": "float",
+                        "nodeType": "Field",
+                        "qualifiedName": "diag_uart_tbl_t::pid",
+                        "tag": "added"
+                    }
+                ],
+                "nodeType": "Field",
+                "qualifiedName": "diag_uart_tbl_t::pid",
+                "tag": "modified"
+            }
+        ],
+        "nodeType": "Struct",
+        "qualifiedName": "diag_uart_tbl_t",
+        "tag": "modified"
+    },
+    {
+        "dataType": "const double",
+        "nodeType": "Variable",
+        "qualifiedName": "PI",
+        "tag": "removed"
+    },
+    {
+        "children": [
+            {
+                "dataType": "const int",
+                "nodeType": "Variable",
+                "qualifiedName": "PACKET_BUFFER_SIZE",
+                "tag": "removed"
+            },
+            {
+                "dataType": "const float",
+                "nodeType": "Variable",
+                "qualifiedName": "PACKET_BUFFER_SIZE",
+                "tag": "added"
+            }
+        ],
+        "nodeType": "Variable",
+        "qualifiedName": "PACKET_BUFFER_SIZE",
+        "tag": "modified"
+    },
+    {
+        "dataType": "const int",
+        "nodeType": "Variable",
+        "qualifiedName": "TIMEOUT_MS",
+        "tag": "removed"
+    },
+    {
+        "children": [
+            {
+                "dataType": "(un-resolved Type)",
+                "nodeType": "Field",
+                "qualifiedName": "alpha::data",
+                "tag": "removed"
+            }
+        ],
+        "nodeType": "Struct",
+        "qualifiedName": "alpha",
+        "tag": "modified"
+    },
+    {
+        "children": [
+            {
+                "dataType": "int",
+                "nodeType": "Parameter",
+                "qualifiedName": "add::3",
+                "tag": "added"
+            }
+        ],
+        "nodeType": "Function",
+        "qualifiedName": "add",
+        "tag": "modified"
+    },
+    {
+        "children": [
+            {
+                "dataType": "int",
+                "nodeType": "Parameter",
+                "qualifiedName": "getOptimalProcessor::2",
+                "tag": "added"
+            }
+        ],
+        "nodeType": "Function",
+        "qualifiedName": "getOptimalProcessor",
+        "tag": "modified"
+    }
+]

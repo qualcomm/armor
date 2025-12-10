@@ -1,0 +1,288 @@
+[
+    {
+        "children": [
+            {
+                "dataType": "int",
+                "nodeType": "ReturnType",
+                "qualifiedName": "diag_lsm_comm_open::(ReturnType)"
+            }
+        ],
+        "nodeType": "Function",
+        "qualifiedName": "diag_lsm_comm_open",
+        "tag": "removed"
+    },
+    {
+        "children": [
+            {
+                "children": [
+                    {
+                        "dataType": "int",
+                        "nodeType": "Parameter",
+                        "qualifiedName": "diag_lsm_comm_write::1",
+                        "tag": "removed"
+                    },
+                    {
+                        "dataType": "float",
+                        "nodeType": "Parameter",
+                        "qualifiedName": "diag_lsm_comm_write::1",
+                        "tag": "added"
+                    }
+                ],
+                "nodeType": "Parameter",
+                "qualifiedName": "diag_lsm_comm_write::1",
+                "tag": "modified"
+            },
+            {
+                "children": [
+                    {
+                        "dataType": "unsigned char *",
+                        "nodeType": "Parameter",
+                        "qualifiedName": "diag_lsm_comm_write::2",
+                        "tag": "removed"
+                    },
+                    {
+                        "dataType": "unsigned char *[10]",
+                        "nodeType": "Parameter",
+                        "qualifiedName": "diag_lsm_comm_write::2",
+                        "tag": "added"
+                    }
+                ],
+                "nodeType": "Parameter",
+                "qualifiedName": "diag_lsm_comm_write::2",
+                "tag": "modified"
+            }
+        ],
+        "nodeType": "Function",
+        "qualifiedName": "diag_lsm_comm_write",
+        "tag": "modified"
+    },
+    {
+        "children": [
+            {
+                "children": [
+                    {
+                        "dataType": "int",
+                        "nodeType": "ReturnType",
+                        "qualifiedName": "diag_lsm_comm_ioctl::(ReturnType)",
+                        "tag": "removed"
+                    },
+                    {
+                        "dataType": "double",
+                        "nodeType": "ReturnType",
+                        "qualifiedName": "diag_lsm_comm_ioctl::(ReturnType)",
+                        "tag": "added"
+                    }
+                ],
+                "nodeType": "ReturnType",
+                "qualifiedName": "diag_lsm_comm_ioctl::(ReturnType)",
+                "tag": "modified"
+            }
+        ],
+        "nodeType": "Function",
+        "qualifiedName": "diag_lsm_comm_ioctl",
+        "tag": "modified"
+    },
+    {
+        "children": [
+            {
+                "dataType": "void *",
+                "nodeType": "Parameter",
+                "qualifiedName": "diag_lsm_ioctl::3",
+                "tag": "removed"
+            }
+        ],
+        "nodeType": "Function",
+        "qualifiedName": "diag_lsm_ioctl",
+        "tag": "modified"
+    },
+    {
+        "children": [
+            {
+                "nodeType": "Function",
+                "qualifiedName": "sum",
+                "storageQualifier": "Extern",
+                "tag": "removed"
+            }
+        ],
+        "nodeType": "Function",
+        "qualifiedName": "sum",
+        "tag": "modified"
+    },
+    {
+        "children": [
+            {
+                "nodeType": "Function",
+                "qualifiedName": "multiply",
+                "storageQualifier": "Static",
+                "tag": "added"
+            }
+        ],
+        "nodeType": "Function",
+        "qualifiedName": "multiply",
+        "tag": "modified"
+    },
+    {
+        "children": [
+            {
+                "nodeType": "Function",
+                "qualifiedName": "divide",
+                "storageQualifier": "Static",
+                "tag": "removed"
+            }
+        ],
+        "nodeType": "Function",
+        "qualifiedName": "divide",
+        "tag": "modified"
+    },
+    {
+        "children": [
+            {
+                "dataType": "unsigned int *[10]",
+                "nodeType": "Parameter",
+                "qualifiedName": "diag_send_data::4",
+                "tag": "added"
+            },
+            {
+                "children": [
+                    {
+                        "dataType": "unsigned int *[10]",
+                        "nodeType": "Parameter",
+                        "qualifiedName": "diag_send_data::3",
+                        "tag": "removed"
+                    },
+                    {
+                        "dataType": "int",
+                        "nodeType": "Parameter",
+                        "qualifiedName": "diag_send_data::3",
+                        "tag": "added"
+                    }
+                ],
+                "nodeType": "Parameter",
+                "qualifiedName": "diag_send_data::3",
+                "tag": "modified"
+            }
+        ],
+        "nodeType": "Function",
+        "qualifiedName": "diag_send_data",
+        "tag": "modified"
+    },
+    {
+        "children": [
+            {
+                "dataType": "unsigned int *[10]",
+                "nodeType": "Parameter",
+                "qualifiedName": "diag_get_data::4",
+                "tag": "added"
+            },
+            {
+                "children": [
+                    {
+                        "dataType": "int",
+                        "nodeType": "Parameter",
+                        "qualifiedName": "diag_get_data::1",
+                        "tag": "removed"
+                    },
+                    {
+                        "dataType": "unsigned char *",
+                        "nodeType": "Parameter",
+                        "qualifiedName": "diag_get_data::1",
+                        "tag": "added"
+                    }
+                ],
+                "nodeType": "Parameter",
+                "qualifiedName": "diag_get_data::1",
+                "tag": "modified"
+            },
+            {
+                "children": [
+                    {
+                        "dataType": "unsigned int *[10]",
+                        "nodeType": "Parameter",
+                        "qualifiedName": "diag_get_data::3",
+                        "tag": "removed"
+                    },
+                    {
+                        "dataType": "int",
+                        "nodeType": "Parameter",
+                        "qualifiedName": "diag_get_data::3",
+                        "tag": "added"
+                    }
+                ],
+                "nodeType": "Parameter",
+                "qualifiedName": "diag_get_data::3",
+                "tag": "modified"
+            },
+            {
+                "children": [
+                    {
+                        "dataType": "int ****",
+                        "nodeType": "ReturnType",
+                        "qualifiedName": "diag_get_data::(ReturnType)",
+                        "tag": "removed"
+                    },
+                    {
+                        "dataType": "int ******",
+                        "nodeType": "ReturnType",
+                        "qualifiedName": "diag_get_data::(ReturnType)",
+                        "tag": "added"
+                    }
+                ],
+                "nodeType": "ReturnType",
+                "qualifiedName": "diag_get_data::(ReturnType)",
+                "tag": "modified"
+            }
+        ],
+        "nodeType": "Function",
+        "qualifiedName": "diag_get_data",
+        "tag": "modified"
+    },
+    {
+        "children": [
+            {
+                "dataType": "int",
+                "nodeType": "Parameter",
+                "qualifiedName": "SQUARE::1"
+            },
+            {
+                "dataType": "int",
+                "nodeType": "ReturnType",
+                "qualifiedName": "SQUARE::(ReturnType)"
+            }
+        ],
+        "nodeType": "Function",
+        "qualifiedName": "SQUARE",
+        "tag": "added"
+    },
+    {
+        "children": [
+            {
+                "dataType": "int",
+                "nodeType": "Parameter",
+                "qualifiedName": "diag_lsm_comm_ioctl_v2::1"
+            },
+            {
+                "dataType": "unsigned long",
+                "nodeType": "Parameter",
+                "qualifiedName": "diag_lsm_comm_ioctl_v2::2"
+            },
+            {
+                "dataType": "void *",
+                "nodeType": "Parameter",
+                "qualifiedName": "diag_lsm_comm_ioctl_v2::3"
+            },
+            {
+                "dataType": "unsigned int",
+                "nodeType": "Parameter",
+                "qualifiedName": "diag_lsm_comm_ioctl_v2::4"
+            },
+            {
+                "dataType": "int",
+                "nodeType": "ReturnType",
+                "qualifiedName": "diag_lsm_comm_ioctl_v2::(ReturnType)"
+            }
+        ],
+        "nodeType": "Function",
+        "qualifiedName": "diag_lsm_comm_ioctl_v2",
+        "tag": "added"
+    }
+]

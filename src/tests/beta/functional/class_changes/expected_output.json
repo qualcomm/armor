@@ -1,0 +1,179 @@
+[
+    {
+        "children": [
+            {
+                "children": [
+                    {
+                        "children": [
+                            {
+                                "dataType": "int",
+                                "nodeType": "Field",
+                                "qualifiedName": "inner_alpha::a"
+                            },
+                            {
+                                "dataType": "int",
+                                "nodeType": "Field",
+                                "qualifiedName": "inner_alpha::b"
+                            }
+                        ],
+                        "nodeType": "Union",
+                        "qualifiedName": "inner_alpha",
+                        "tag": "removed"
+                    }
+                ],
+                "nodeType": "Struct",
+                "qualifiedName": "alpha",
+                "tag": "modified"
+            },
+            {
+                "children": [
+                    {
+                        "dataType": "int",
+                        "nodeType": "Field",
+                        "qualifiedName": "beta::a"
+                    },
+                    {
+                        "dataType": "int",
+                        "nodeType": "Field",
+                        "qualifiedName": "beta::b"
+                    },
+                    {
+                        "children": [
+                            {
+                                "dataType": "int",
+                                "nodeType": "Field",
+                                "qualifiedName": "inner_beta::a"
+                            },
+                            {
+                                "dataType": "int",
+                                "nodeType": "Field",
+                                "qualifiedName": "inner_beta::b"
+                            }
+                        ],
+                        "nodeType": "Struct",
+                        "qualifiedName": "inner_beta"
+                    }
+                ],
+                "nodeType": "Union",
+                "qualifiedName": "beta",
+                "tag": "removed"
+            },
+            {
+                "children": [
+                    {
+                        "dataType": "int",
+                        "nodeType": "Parameter",
+                        "qualifiedName": "MemoryBufferHandle_t::MemoryBufferHandle_t::2",
+                        "tag": "added"
+                    }
+                ],
+                "nodeType": "Function",
+                "qualifiedName": "MemoryBufferHandle_t::MemoryBufferHandle_t",
+                "tag": "modified"
+            },
+            {
+                "children": [
+                    {
+                        "dataType": "int",
+                        "nodeType": "Parameter",
+                        "qualifiedName": "MemoryBufferHandle_t::IsMemoryValid::1"
+                    },
+                    {
+                        "dataType": "int",
+                        "nodeType": "Parameter",
+                        "qualifiedName": "MemoryBufferHandle_t::IsMemoryValid::2"
+                    },
+                    {
+                        "dataType": "bool",
+                        "nodeType": "ReturnType",
+                        "qualifiedName": "MemoryBufferHandle_t::IsMemoryValid::(ReturnType)"
+                    }
+                ],
+                "nodeType": "Function",
+                "qualifiedName": "MemoryBufferHandle_t::IsMemoryValid",
+                "tag": "removed"
+            },
+            {
+                "children": [
+                    {
+                        "dataType": "int",
+                        "nodeType": "Parameter",
+                        "qualifiedName": "MemoryBufferHandle_t::UnmapBuffer::1"
+                    },
+                    {
+                        "dataType": "bool",
+                        "nodeType": "ReturnType",
+                        "qualifiedName": "MemoryBufferHandle_t::UnmapBuffer::(ReturnType)"
+                    }
+                ],
+                "nodeType": "Function",
+                "qualifiedName": "MemoryBufferHandle_t::UnmapBuffer",
+                "tag": "removed"
+            },
+            {
+                "children": [
+                    {
+                        "dataType": "int",
+                        "nodeType": "Parameter",
+                        "qualifiedName": "MemoryBufferHandle_t::FreeMemory::1"
+                    },
+                    {
+                        "dataType": "int",
+                        "nodeType": "Parameter",
+                        "qualifiedName": "MemoryBufferHandle_t::FreeMemory::2"
+                    },
+                    {
+                        "dataType": "void",
+                        "nodeType": "ReturnType",
+                        "qualifiedName": "MemoryBufferHandle_t::FreeMemory::(ReturnType)"
+                    }
+                ],
+                "nodeType": "Function",
+                "qualifiedName": "MemoryBufferHandle_t::FreeMemory",
+                "tag": "added"
+            },
+            {
+                "children": [
+                    {
+                        "dataType": "int",
+                        "nodeType": "Parameter",
+                        "qualifiedName": "MemoryBufferHandle_t::UnmapBuffer::1"
+                    },
+                    {
+                        "dataType": "int",
+                        "nodeType": "Parameter",
+                        "qualifiedName": "MemoryBufferHandle_t::UnmapBuffer::2"
+                    },
+                    {
+                        "dataType": "bool",
+                        "nodeType": "ReturnType",
+                        "qualifiedName": "MemoryBufferHandle_t::UnmapBuffer::(ReturnType)"
+                    }
+                ],
+                "nodeType": "Function",
+                "qualifiedName": "MemoryBufferHandle_t::UnmapBuffer",
+                "tag": "added"
+            }
+        ],
+        "nodeType": "Struct",
+        "qualifiedName": "MemoryBufferHandle_t",
+        "tag": "modified"
+    },
+    {
+        "children": [
+            {
+                "dataType": "int",
+                "nodeType": "Parameter",
+                "qualifiedName": "FreeSharedMemory::1"
+            },
+            {
+                "dataType": "void",
+                "nodeType": "ReturnType",
+                "qualifiedName": "FreeSharedMemory::(ReturnType)"
+            }
+        ],
+        "nodeType": "Function",
+        "qualifiedName": "FreeSharedMemory",
+        "tag": "added"
+    }
+]

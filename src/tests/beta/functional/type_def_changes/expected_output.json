@@ -1,0 +1,421 @@
+[
+    {
+        "children": [
+            {
+                "children": [
+                    {
+                        "dataType": "Device::manufactureDate",
+                        "nodeType": "Typedef",
+                        "qualifiedName": "Device::manufactureDate",
+                        "tag": "removed"
+                    },
+                    {
+                        "dataType": "struct Device::(unnamed) *********const ****volatile *****[30]",
+                        "nodeType": "Typedef",
+                        "qualifiedName": "Device::manufactureDate",
+                        "tag": "added"
+                    }
+                ],
+                "nodeType": "Typedef",
+                "qualifiedName": "Device::manufactureDate",
+                "tag": "modified"
+            }
+        ],
+        "nodeType": "Struct",
+        "qualifiedName": "Device",
+        "tag": "modified"
+    },
+    {
+        "children": [
+            {
+                "dataType": "const struct alpha ******volatile ******[200][30]",
+                "nodeType": "Variable",
+                "qualifiedName": "alpha1",
+                "tag": "removed"
+            },
+            {
+                "dataType": "const struct alpha ******volatile ****[200][30]",
+                "nodeType": "Variable",
+                "qualifiedName": "alpha1",
+                "tag": "added"
+            }
+        ],
+        "nodeType": "Variable",
+        "qualifiedName": "alpha1",
+        "tag": "modified"
+    },
+    {
+        "children": [
+            {
+                "children": [
+                    {
+                        "dataType": "int",
+                        "nodeType": "Field",
+                        "qualifiedName": "alpha2::b",
+                        "tag": "removed"
+                    },
+                    {
+                        "dataType": "float",
+                        "nodeType": "Field",
+                        "qualifiedName": "alpha2::b",
+                        "tag": "added"
+                    }
+                ],
+                "nodeType": "Field",
+                "qualifiedName": "alpha2::b",
+                "tag": "modified"
+            }
+        ],
+        "nodeType": "Struct",
+        "qualifiedName": "alpha2",
+        "tag": "modified"
+    },
+    {
+        "children": [
+            {
+                "dataType": "int",
+                "nodeType": "Field",
+                "qualifiedName": "alpha3::a"
+            },
+            {
+                "dataType": "int",
+                "nodeType": "Field",
+                "qualifiedName": "alpha3::b"
+            }
+        ],
+        "nodeType": "Struct",
+        "qualifiedName": "alpha3",
+        "tag": "removed"
+    },
+    {
+        "children": [
+            {
+                "dataType": "struct alpha3 ****const ******[120][10]",
+                "nodeType": "Typedef",
+                "qualifiedName": "alpha4",
+                "tag": "removed"
+            },
+            {
+                "dataType": "union alpha3 ****const ******[120][10]",
+                "nodeType": "Typedef",
+                "qualifiedName": "alpha4",
+                "tag": "added"
+            }
+        ],
+        "nodeType": "Typedef",
+        "qualifiedName": "alpha4",
+        "tag": "modified"
+    },
+    {
+        "children": [
+            {
+                "dataType": "int",
+                "nodeType": "Field",
+                "qualifiedName": "a::a",
+                "tag": "added"
+            },
+            {
+                "dataType": "int",
+                "nodeType": "Field",
+                "qualifiedName": "a::b",
+                "tag": "added"
+            }
+        ],
+        "nodeType": "Struct",
+        "qualifiedName": "a",
+        "tag": "modified"
+    },
+    {
+        "dataType": "struct alpha3",
+        "nodeType": "Typedef",
+        "qualifiedName": "ok",
+        "tag": "removed"
+    },
+    {
+        "children": [
+            {
+                "dataType": "int",
+                "nodeType": "Field",
+                "qualifiedName": "b::a",
+                "tag": "removed"
+            },
+            {
+                "dataType": "int",
+                "nodeType": "Field",
+                "qualifiedName": "b::b",
+                "tag": "removed"
+            }
+        ],
+        "nodeType": "Struct",
+        "qualifiedName": "b",
+        "tag": "modified"
+    },
+    {
+        "children": [
+            {
+                "children": [
+                    {
+                        "dataType": "char[64]",
+                        "nodeType": "Field",
+                        "qualifiedName": "System::systemName",
+                        "tag": "removed"
+                    },
+                    {
+                        "dataType": "char[63]",
+                        "nodeType": "Field",
+                        "qualifiedName": "System::systemName",
+                        "tag": "added"
+                    }
+                ],
+                "nodeType": "Field",
+                "qualifiedName": "System::systemName",
+                "tag": "modified"
+            },
+            {
+                "children": [
+                    {
+                        "children": [
+                            {
+                                "dataType": "Device[10]",
+                                "nodeType": "Field",
+                                "qualifiedName": "System::systemDetails::devices",
+                                "tag": "removed"
+                            },
+                            {
+                                "dataType": "Device[11]",
+                                "nodeType": "Field",
+                                "qualifiedName": "System::systemDetails::devices",
+                                "tag": "added"
+                            }
+                        ],
+                        "nodeType": "Field",
+                        "qualifiedName": "System::systemDetails::devices",
+                        "tag": "modified"
+                    },
+                    {
+                        "children": [
+                            {
+                                "dataType": "unsigned int",
+                                "nodeType": "Enumerator",
+                                "qualifiedName": "System::systemDetails::systemStatus::STATUS_UNKNOWN",
+                                "tag": "removed"
+                            }
+                        ],
+                        "nodeType": "Enum",
+                        "qualifiedName": "System::systemDetails::systemStatus",
+                        "tag": "modified"
+                    }
+                ],
+                "nodeType": "Struct",
+                "qualifiedName": "System::systemDetails",
+                "tag": "modified"
+            },
+            {
+                "children": [
+                    {
+                        "dataType": "systemDetails",
+                        "nodeType": "Typedef",
+                        "qualifiedName": "System::systemDetails",
+                        "tag": "removed"
+                    },
+                    {
+                        "dataType": "volatile struct System::(unnamed) **********const *********[10]",
+                        "nodeType": "Typedef",
+                        "qualifiedName": "System::systemDetails",
+                        "tag": "added"
+                    }
+                ],
+                "nodeType": "Typedef",
+                "qualifiedName": "System::systemDetails",
+                "tag": "modified"
+            }
+        ],
+        "nodeType": "Struct",
+        "qualifiedName": "System",
+        "tag": "modified"
+    },
+    {
+        "children": [
+            {
+                "dataType": "struct (unnamed) ********const **volatile ****",
+                "nodeType": "Typedef",
+                "qualifiedName": "System",
+                "tag": "removed"
+            },
+            {
+                "dataType": "System",
+                "nodeType": "Typedef",
+                "qualifiedName": "System",
+                "tag": "added"
+            }
+        ],
+        "nodeType": "Typedef",
+        "qualifiedName": "System",
+        "tag": "modified"
+    },
+    {
+        "children": [
+            {
+                "children": [
+                    {
+                        "dataType": "int",
+                        "nodeType": "Field",
+                        "qualifiedName": "DALSYSPropertyVar::Val::dwVal",
+                        "tag": "removed"
+                    },
+                    {
+                        "children": [
+                            {
+                                "dataType": "int *",
+                                "nodeType": "Field",
+                                "qualifiedName": "DALSYSPropertyVar::Val::pdwVal",
+                                "tag": "removed"
+                            },
+                            {
+                                "dataType": "float *",
+                                "nodeType": "Field",
+                                "qualifiedName": "DALSYSPropertyVar::Val::pdwVal",
+                                "tag": "added"
+                            }
+                        ],
+                        "nodeType": "Field",
+                        "qualifiedName": "DALSYSPropertyVar::Val::pdwVal",
+                        "tag": "modified"
+                    }
+                ],
+                "nodeType": "Union",
+                "qualifiedName": "DALSYSPropertyVar::Val",
+                "tag": "modified"
+            },
+            {
+                "children": [
+                    {
+                        "dataType": "union DALSYSPropertyVar::(unnamed)",
+                        "nodeType": "Field",
+                        "qualifiedName": "DALSYSPropertyVar::Val",
+                        "tag": "removed"
+                    },
+                    {
+                        "dataType": "union DALSYSPropertyVar::(unnamed) *************[30]",
+                        "nodeType": "Field",
+                        "qualifiedName": "DALSYSPropertyVar::Val",
+                        "tag": "added"
+                    }
+                ],
+                "nodeType": "Field",
+                "qualifiedName": "DALSYSPropertyVar::Val",
+                "tag": "modified"
+            }
+        ],
+        "nodeType": "Struct",
+        "qualifiedName": "DALSYSPropertyVar",
+        "tag": "modified"
+    },
+    {
+        "dataType": "struct DALSYSPropertyVar",
+        "nodeType": "Typedef",
+        "qualifiedName": "DALSYSPropertyVar",
+        "tag": "removed"
+    },
+    {
+        "children": [
+            {
+                "children": [
+                    {
+                        "children": [
+                            {
+                                "dataType": "char",
+                                "nodeType": "Field",
+                                "qualifiedName": "cl_uchar2::(Anon::Struct)::s0",
+                                "tag": "removed"
+                            },
+                            {
+                                "dataType": "int",
+                                "nodeType": "Field",
+                                "qualifiedName": "cl_uchar2::(Anon::Struct)::s0",
+                                "tag": "added"
+                            }
+                        ],
+                        "nodeType": "Field",
+                        "qualifiedName": "cl_uchar2::(Anon::Struct)::s0",
+                        "tag": "modified"
+                    },
+                    {
+                        "children": [
+                            {
+                                "dataType": "char",
+                                "nodeType": "Field",
+                                "qualifiedName": "cl_uchar2::(Anon::Struct)::s1",
+                                "tag": "removed"
+                            },
+                            {
+                                "dataType": "int",
+                                "nodeType": "Field",
+                                "qualifiedName": "cl_uchar2::(Anon::Struct)::s1",
+                                "tag": "added"
+                            }
+                        ],
+                        "nodeType": "Field",
+                        "qualifiedName": "cl_uchar2::(Anon::Struct)::s1",
+                        "tag": "modified"
+                    }
+                ],
+                "nodeType": "Struct",
+                "qualifiedName": "cl_uchar2::(Anon::Struct)",
+                "tag": "modified"
+            }
+        ],
+        "nodeType": "Union",
+        "qualifiedName": "cl_uchar2",
+        "tag": "modified"
+    },
+    {
+        "children": [
+            {
+                "children": [
+                    {
+                        "dataType": "char",
+                        "nodeType": "Field",
+                        "qualifiedName": "cl_uchar4::(Anon::Struct)::s0",
+                        "tag": "removed"
+                    },
+                    {
+                        "dataType": "char",
+                        "nodeType": "Field",
+                        "qualifiedName": "cl_uchar4::(Anon::Struct)::s1",
+                        "tag": "removed"
+                    }
+                ],
+                "nodeType": "Struct",
+                "qualifiedName": "cl_uchar4::(Anon::Struct)",
+                "tag": "modified"
+            }
+        ],
+        "nodeType": "Union",
+        "qualifiedName": "cl_uchar4",
+        "tag": "modified"
+    },
+    {
+        "children": [
+            {
+                "dataType": "int",
+                "nodeType": "Field",
+                "qualifiedName": "alpha3::a"
+            },
+            {
+                "dataType": "int",
+                "nodeType": "Field",
+                "qualifiedName": "alpha3::b"
+            }
+        ],
+        "nodeType": "Union",
+        "qualifiedName": "alpha3",
+        "tag": "added"
+    },
+    {
+        "dataType": "struct DALSYSPropertyVar",
+        "nodeType": "Typedef",
+        "qualifiedName": "DALSYSPropertyVar1",
+        "tag": "added"
+    }
+]

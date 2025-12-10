@@ -1,0 +1,54 @@
+[
+    {
+        "children": [
+            {
+                "dataType": "int",
+                "nodeType": "Variable",
+                "qualifiedName": "v1",
+                "tag": "removed"
+            },
+            {
+                "dataType": "unsigned int",
+                "nodeType": "Variable",
+                "qualifiedName": "v1",
+                "tag": "added"
+            }
+        ],
+        "nodeType": "Variable",
+        "qualifiedName": "v1",
+        "tag": "modified"
+    },
+    {
+        "children": [
+            {
+                "dataType": "float",
+                "nodeType": "Variable",
+                "qualifiedName": "v2",
+                "storageQualifier": "Static",
+                "tag": "removed"
+            },
+            {
+                "dataType": "int",
+                "nodeType": "Variable",
+                "qualifiedName": "v2",
+                "storageQualifier": "Extern",
+                "tag": "added"
+            }
+        ],
+        "nodeType": "Variable",
+        "qualifiedName": "v2",
+        "tag": "modified"
+    },
+    {
+        "dataType": "int",
+        "nodeType": "Variable",
+        "qualifiedName": "old",
+        "tag": "removed"
+    },
+    {
+        "dataType": "int",
+        "nodeType": "Variable",
+        "qualifiedName": "new_var",
+        "tag": "added"
+    }
+]

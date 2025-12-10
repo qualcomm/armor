@@ -1,0 +1,28 @@
+[
+    {
+        "children": [
+            {
+                "dataType": "unsigned int",
+                "nodeType": "Enumerator",
+                "qualifiedName": "Color::C",
+                "tag": "added"
+            }
+        ],
+        "nodeType": "Enum",
+        "qualifiedName": "Color",
+        "tag": "modified"
+    },
+    {
+        "children": [
+            {
+                "dataType": "unsigned int",
+                "nodeType": "Enumerator",
+                "qualifiedName": "Color1::G",
+                "tag": "removed"
+            }
+        ],
+        "nodeType": "Enum",
+        "qualifiedName": "Color1",
+        "tag": "modified"
+    }
+]

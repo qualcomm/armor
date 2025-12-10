@@ -1,0 +1,287 @@
+[
+    {
+        "children": [
+            {
+                "children": [
+                    {
+                        "dataType": "unsigned char ********[100][20]",
+                        "nodeType": "Parameter",
+                        "qualifiedName": "cb_func_ptr::1"
+                    },
+                    {
+                        "dataType": "int",
+                        "nodeType": "Parameter",
+                        "qualifiedName": "cb_func_ptr::2"
+                    },
+                    {
+                        "dataType": "void ********&&",
+                        "nodeType": "Parameter",
+                        "qualifiedName": "cb_func_ptr::3"
+                    },
+                    {
+                        "children": [
+                            {
+                                "children": [
+                                    {
+                                        "dataType": "int *********&&",
+                                        "nodeType": "Parameter",
+                                        "qualifiedName": "cb_func_ptr::4::1"
+                                    },
+                                    {
+                                        "dataType": "int *****[10]",
+                                        "nodeType": "Parameter",
+                                        "qualifiedName": "cb_func_ptr::4::2"
+                                    },
+                                    {
+                                        "dataType": "int",
+                                        "nodeType": "ReturnType",
+                                        "qualifiedName": "cb_func_ptr::4::(ReturnType)"
+                                    }
+                                ],
+                                "dataType": "******************volatile ************const *&&",
+                                "nodeType": "FunctionPointer",
+                                "qualifiedName": "cb_func_ptr::4"
+                            }
+                        ],
+                        "nodeType": "Parameter",
+                        "qualifiedName": "cb_func_ptr::4"
+                    },
+                    {
+                        "dataType": "int",
+                        "nodeType": "ReturnType",
+                        "qualifiedName": "cb_func_ptr::(ReturnType)"
+                    }
+                ],
+                "dataType": "******const ****",
+                "nodeType": "FunctionPointer",
+                "qualifiedName": "cb_func_ptr"
+            }
+        ],
+        "nodeType": "Typedef",
+        "qualifiedName": "cb_func_ptr",
+        "tag": "removed"
+    },
+    {
+        "dataType": "cb_func_ptr",
+        "nodeType": "Typedef",
+        "qualifiedName": "ok",
+        "tag": "removed"
+    },
+    {
+        "children": [
+            {
+                "dataType": "cb_func_ptr",
+                "nodeType": "ReturnType",
+                "qualifiedName": "fun::(ReturnType)"
+            }
+        ],
+        "nodeType": "Function",
+        "qualifiedName": "fun",
+        "tag": "removed"
+    },
+    {
+        "children": [
+            {
+                "children": [
+                    {
+                        "children": [
+                            {
+                                "dataType": "int",
+                                "nodeType": "Parameter",
+                                "qualifiedName": "fun_ptr_ok::1",
+                                "tag": "removed"
+                            },
+                            {
+                                "dataType": "int **",
+                                "nodeType": "Parameter",
+                                "qualifiedName": "fun_ptr_ok::1",
+                                "tag": "added"
+                            }
+                        ],
+                        "nodeType": "Parameter",
+                        "qualifiedName": "fun_ptr_ok::1",
+                        "tag": "modified"
+                    },
+                    {
+                        "children": [
+                            {
+                                "dataType": "int",
+                                "nodeType": "ReturnType",
+                                "qualifiedName": "fun_ptr_ok::(ReturnType)",
+                                "tag": "removed"
+                            },
+                            {
+                                "dataType": "float",
+                                "nodeType": "ReturnType",
+                                "qualifiedName": "fun_ptr_ok::(ReturnType)",
+                                "tag": "added"
+                            }
+                        ],
+                        "nodeType": "ReturnType",
+                        "qualifiedName": "fun_ptr_ok::(ReturnType)",
+                        "tag": "modified"
+                    }
+                ],
+                "nodeType": "FunctionPointer",
+                "qualifiedName": "fun_ptr_ok",
+                "tag": "modified"
+            }
+        ],
+        "nodeType": "Variable",
+        "qualifiedName": "fun_ptr_ok",
+        "tag": "modified"
+    },
+    {
+        "children": [
+            {
+                "dataType": "cb_func_ptr",
+                "nodeType": "Field",
+                "qualifiedName": "alpha::ok",
+                "tag": "removed"
+            },
+            {
+                "children": [
+                    {
+                        "children": [
+                            {
+                                "children": [
+                                    {
+                                        "dataType": "unsigned char **",
+                                        "nodeType": "Parameter",
+                                        "qualifiedName": "alpha::cb_func_ptr::1",
+                                        "tag": "removed"
+                                    },
+                                    {
+                                        "dataType": "unsigned char *[10]",
+                                        "nodeType": "Parameter",
+                                        "qualifiedName": "alpha::cb_func_ptr::1",
+                                        "tag": "added"
+                                    }
+                                ],
+                                "nodeType": "Parameter",
+                                "qualifiedName": "alpha::cb_func_ptr::1",
+                                "tag": "modified"
+                            },
+                            {
+                                "children": [
+                                    {
+                                        "children": [
+                                            {
+                                                "children": [
+                                                    {
+                                                        "dataType": "int **[10]",
+                                                        "nodeType": "Parameter",
+                                                        "qualifiedName": "alpha::cb_func_ptr::4::2",
+                                                        "tag": "removed"
+                                                    },
+                                                    {
+                                                        "dataType": "int *[10]",
+                                                        "nodeType": "Parameter",
+                                                        "qualifiedName": "alpha::cb_func_ptr::4::2",
+                                                        "tag": "added"
+                                                    }
+                                                ],
+                                                "nodeType": "Parameter",
+                                                "qualifiedName": "alpha::cb_func_ptr::4::2",
+                                                "tag": "modified"
+                                            },
+                                            {
+                                                "dataType": "**volatile ***const *&&",
+                                                "nodeType": "FunctionPointer",
+                                                "qualifiedName": "alpha::cb_func_ptr::4",
+                                                "tag": "removed"
+                                            },
+                                            {
+                                                "dataType": "**volatile ***const *&",
+                                                "nodeType": "FunctionPointer",
+                                                "qualifiedName": "alpha::cb_func_ptr::4",
+                                                "tag": "added"
+                                            }
+                                        ],
+                                        "nodeType": "FunctionPointer",
+                                        "qualifiedName": "alpha::cb_func_ptr::4",
+                                        "tag": "modified"
+                                    }
+                                ],
+                                "nodeType": "Parameter",
+                                "qualifiedName": "alpha::cb_func_ptr::4",
+                                "tag": "modified"
+                            }
+                        ],
+                        "nodeType": "FunctionPointer",
+                        "qualifiedName": "alpha::cb_func_ptr",
+                        "tag": "modified"
+                    }
+                ],
+                "nodeType": "Typedef",
+                "qualifiedName": "alpha::cb_func_ptr",
+                "tag": "modified"
+            }
+        ],
+        "nodeType": "Struct",
+        "qualifiedName": "alpha",
+        "tag": "modified"
+    },
+    {
+        "children": [
+            {
+                "children": [
+                    {
+                        "dataType": "unsigned char *****[100][20]",
+                        "nodeType": "Parameter",
+                        "qualifiedName": "cb_func_ptr::1"
+                    },
+                    {
+                        "dataType": "int",
+                        "nodeType": "Parameter",
+                        "qualifiedName": "cb_func_ptr::2"
+                    },
+                    {
+                        "dataType": "void ********&&",
+                        "nodeType": "Parameter",
+                        "qualifiedName": "cb_func_ptr::3"
+                    },
+                    {
+                        "children": [
+                            {
+                                "children": [
+                                    {
+                                        "dataType": "int *********&",
+                                        "nodeType": "Parameter",
+                                        "qualifiedName": "cb_func_ptr::4::1"
+                                    },
+                                    {
+                                        "dataType": "int *****[20]",
+                                        "nodeType": "Parameter",
+                                        "qualifiedName": "cb_func_ptr::4::2"
+                                    },
+                                    {
+                                        "dataType": "int",
+                                        "nodeType": "ReturnType",
+                                        "qualifiedName": "cb_func_ptr::4::(ReturnType)"
+                                    }
+                                ],
+                                "dataType": "****************************const *&&",
+                                "nodeType": "FunctionPointer",
+                                "qualifiedName": "cb_func_ptr::4"
+                            }
+                        ],
+                        "nodeType": "Parameter",
+                        "qualifiedName": "cb_func_ptr::4"
+                    },
+                    {
+                        "dataType": "int",
+                        "nodeType": "ReturnType",
+                        "qualifiedName": "cb_func_ptr::(ReturnType)"
+                    }
+                ],
+                "dataType": "***const **",
+                "nodeType": "FunctionPointer",
+                "qualifiedName": "cb_func_ptr"
+            }
+        ],
+        "nodeType": "Variable",
+        "qualifiedName": "cb_func_ptr",
+        "tag": "added"
+    }
+]

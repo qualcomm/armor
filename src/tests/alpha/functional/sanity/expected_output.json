@@ -1,0 +1,119 @@
+[
+    {
+        "children": [
+            {
+                "dataType": "_Bool",
+                "nodeType": "Variable",
+                "qualifiedName": "filter_enabled",
+                "tag": "removed"
+            },
+            {
+                "dataType": "float",
+                "nodeType": "Variable",
+                "qualifiedName": "filter_enabled",
+                "tag": "added"
+            }
+        ],
+        "nodeType": "Variable",
+        "qualifiedName": "filter_enabled",
+        "tag": "modified"
+    },
+    {
+        "children": [
+            {
+                "dataType": "void *",
+                "nodeType": "Field",
+                "qualifiedName": "diag_callback_tbl_t::context_data",
+                "tag": "removed"
+            },
+            {
+                "children": [
+                    {
+                        "dataType": "int",
+                        "nodeType": "Field",
+                        "qualifiedName": "diag_callback_tbl_t::inited",
+                        "tag": "removed"
+                    },
+                    {
+                        "dataType": "float",
+                        "nodeType": "Field",
+                        "qualifiedName": "diag_callback_tbl_t::inited",
+                        "tag": "added"
+                    }
+                ],
+                "nodeType": "Field",
+                "qualifiedName": "diag_callback_tbl_t::inited",
+                "tag": "modified"
+            }
+        ],
+        "nodeType": "Struct",
+        "qualifiedName": "diag_callback_tbl_t",
+        "tag": "modified"
+    },
+    {
+        "children": [
+            {
+                "children": [
+                    {
+                        "children": [
+                            {
+                                "children": [
+                                    {
+                                        "dataType": "unsigned char *",
+                                        "nodeType": "Parameter",
+                                        "qualifiedName": "diag_uart_tbl_t::cb_func_ptr::1",
+                                        "tag": "removed"
+                                    },
+                                    {
+                                        "dataType": "unsigned int *",
+                                        "nodeType": "Parameter",
+                                        "qualifiedName": "diag_uart_tbl_t::cb_func_ptr::1",
+                                        "tag": "added"
+                                    }
+                                ],
+                                "nodeType": "Parameter",
+                                "qualifiedName": "diag_uart_tbl_t::cb_func_ptr::1",
+                                "tag": "modified"
+                            }
+                        ],
+                        "nodeType": "FunctionPointer",
+                        "qualifiedName": "diag_uart_tbl_t::cb_func_ptr",
+                        "tag": "modified"
+                    }
+                ],
+                "nodeType": "Field",
+                "qualifiedName": "diag_uart_tbl_t::cb_func_ptr",
+                "tag": "modified"
+            }
+        ],
+        "nodeType": "Struct",
+        "qualifiedName": "diag_uart_tbl_t",
+        "tag": "modified"
+    },
+    {
+        "children": [
+            {
+                "children": [
+                    {
+                        "dataType": "int",
+                        "nodeType": "Field",
+                        "qualifiedName": "DALSYSPropertyVar::reserved",
+                        "tag": "removed"
+                    },
+                    {
+                        "dataType": "int[2]",
+                        "nodeType": "Field",
+                        "qualifiedName": "DALSYSPropertyVar::reserved",
+                        "tag": "added"
+                    }
+                ],
+                "nodeType": "Field",
+                "qualifiedName": "DALSYSPropertyVar::reserved",
+                "tag": "modified"
+            }
+        ],
+        "nodeType": "Struct",
+        "qualifiedName": "DALSYSPropertyVar",
+        "tag": "modified"
+    }
+]

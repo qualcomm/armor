@@ -1,0 +1,99 @@
+[
+    {
+        "children": [
+            {
+                "dataType": "char",
+                "nodeType": "Field",
+                "qualifiedName": "Record::status",
+                "tag": "removed"
+            },
+            {
+                "dataType": "double",
+                "nodeType": "Field",
+                "qualifiedName": "Record::timestamp",
+                "tag": "added"
+            },
+            {
+                "children": [
+                    {
+                        "dataType": "int",
+                        "nodeType": "Field",
+                        "qualifiedName": "Record::id",
+                        "tag": "removed"
+                    },
+                    {
+                        "dataType": "long",
+                        "nodeType": "Field",
+                        "qualifiedName": "Record::id",
+                        "tag": "added"
+                    }
+                ],
+                "nodeType": "Field",
+                "qualifiedName": "Record::id",
+                "tag": "modified"
+            },
+            {
+                "children": [
+                    {
+                        "dataType": "int",
+                        "nodeType": "Field",
+                        "qualifiedName": "Record::diag_uart_tbl_t::pid",
+                        "tag": "removed"
+                    },
+                    {
+                        "children": [
+                            {
+                                "children": [
+                                    {
+                                        "children": [
+                                            {
+                                                "dataType": "int",
+                                                "nodeType": "ReturnType",
+                                                "qualifiedName": "Record::diag_uart_tbl_t::cb_func_ptr::(ReturnType)",
+                                                "tag": "removed"
+                                            },
+                                            {
+                                                "dataType": "float",
+                                                "nodeType": "ReturnType",
+                                                "qualifiedName": "Record::diag_uart_tbl_t::cb_func_ptr::(ReturnType)",
+                                                "tag": "added"
+                                            }
+                                        ],
+                                        "nodeType": "ReturnType",
+                                        "qualifiedName": "Record::diag_uart_tbl_t::cb_func_ptr::(ReturnType)",
+                                        "tag": "modified"
+                                    }
+                                ],
+                                "nodeType": "FunctionPointer",
+                                "qualifiedName": "Record::diag_uart_tbl_t::cb_func_ptr",
+                                "tag": "modified"
+                            }
+                        ],
+                        "nodeType": "Field",
+                        "qualifiedName": "Record::diag_uart_tbl_t::cb_func_ptr",
+                        "tag": "modified"
+                    }
+                ],
+                "nodeType": "Struct",
+                "qualifiedName": "Record::diag_uart_tbl_t",
+                "tag": "modified"
+            }
+        ],
+        "nodeType": "Struct",
+        "qualifiedName": "Record",
+        "tag": "modified"
+    },
+    {
+        "children": [
+            {
+                "dataType": "int",
+                "nodeType": "Field",
+                "qualifiedName": "alpha::b",
+                "tag": "removed"
+            }
+        ],
+        "nodeType": "Struct",
+        "qualifiedName": "alpha",
+        "tag": "modified"
+    }
+]
