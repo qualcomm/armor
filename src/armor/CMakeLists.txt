@@ -15,7 +15,7 @@ llvm_map_components_to_libnames(LLVM_LIBS
 file(GLOB_RECURSE ARMOR_SOURCES "*.cpp")
 
 # Define the executable
-set(TOOL_VERSION "0.1.1")
+set(TOOL_VERSION "0.5.1")
 add_executable(armor
   ${ARMOR_SOURCES}
 )

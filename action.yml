@@ -135,9 +135,9 @@ runs:
           -w "$ACTION_DIR" \
           armor_tool:latest bash -c '
             set -euo pipefail
-            chmod +x ./api_compat_check.sh
-            ./api_compat_check.sh --package
-            echo "$ACTION_DIR/build/armor" > "$ACTION_DIR/.armor_bins_path"
+            chmod +x ./build_binary.sh
+            ./build_binary.sh --build
+            echo "$ACTION_DIR/build/src/armor/armor" > "$ACTION_DIR/.armor_bins_path"
           '
 
     - name: Run ARMOR per header (collect outputs)
