@@ -38,15 +38,155 @@ Install
 Usage
 -----
 
-Clone the repository and run the build_binary.sh script with two header files as input:
+### Basic Usage
 
+Clone the repository and run the build_binary.sh script to build the armor tool:
 
-    bash build_binary.sh <header_file1> <heder_file2>
+```bash
+bash build_binary.sh --build
+```
 
-This will build and run the compatibility checker on the provided headers.
+This will build armor.
+
+**Important:** All header files and include paths must exist in both `project_root1` and `project_root2`.
+
+### ARMOR Command-Line Interface
+
+The tool is invoked directly using the `armor` binary:
+
+```bash
+./build/src/armor/armor [OPTIONS] projectroot1 projectroot2 [headers...]
+```
+
+#### Positional Arguments
+
+* **projectroot1** (REQUIRED)  
+  Path to the project root directory of the older version
+
+* **projectroot2** (REQUIRED)  
+  Path to the project root directory of the newer version
+
+* **headers** (optional)  
+  List of header files to compare between the two versions.  
+  **Note:** Headers must exist in both project roots.
+  
+  Header path interpretation depends on whether `--header-dir` is provided:
+  
+  - **With `--header-dir`:**  
+    Headers are treated as basenames (e.g., `foo.h`) under the specified subdirectory.  
+    Example:
+    ```bash
+    --header-dir include/api foo.h bar.hpp
+    ```
+    This will compare:  
+    - `projectroot1/include/api/foo.h` with `projectroot2/include/api/foo.h`  
+    - `projectroot1/include/api/bar.hpp` with `projectroot2/include/api/bar.hpp`
+  
+  - **Without `--header-dir`:**  
+    Headers must be relative paths from the project root.  
+    Example:
+    ```bash
+    include/api/foo.h include/api/bar.hpp
+    ```
+    This will compare:  
+    - `projectroot1/include/api/foo.h` with `projectroot2/include/api/foo.h`  
+    - `projectroot1/include/api/bar.hpp` with `projectroot2/include/api/bar.hpp`
+
+#### Options
+
+* **-h, --help**  
+  Print help message and exit
+
+* **--header-dir TEXT**  
+  Subdirectory under each project root containing headers
+
+* **-r, --report-format TEXT:{html,json}**  
+  Report format: `html` (default).  
+  If `json` is provided, both HTML and JSON reports will be generated.
+
+* **--dump-ast-diff**  
+  Dump AST diff JSON files for debugging
+
+* **-v, --version**  
+  Display program version information and exit
+
+* **--log-level TEXT:{ERROR,LOG,INFO,DEBUG}**  
+  Set debug log level: ERROR, LOG, INFO (default), DEBUG
+
+* **-I, --include-paths TEXT ...**  
+  Include paths for header dependencies (relative to project roots).  
+  **Note:** Include paths must exist in both project roots.  
+  Example:
+  ```bash
+  -I path/to/include1 -I path/to/include2
+  ```
+  This will add:  
+  - `projectroot1/path/to/include1` and `projectroot2/path/to/include1`  
+  - `projectroot1/path/to/include2` and `projectroot2/path/to/include2`
+
+* **-m, --macro-flags TEXT**  
+  Macro flags to be passed for headers
+
+#### Usage Examples
+
+1. **Basic comparison with header directory:**
+   ```bash
+   ./build/src/armor/armor /path/to/old/project /path/to/new/project --header-dir include foo.h bar.h
+   ```
+
+2. **Comparison with relative header paths:**
+   ```bash
+   ./build/src/armor/armor /path/to/old/project /path/to/new/project include/api/foo.h include/api/bar.h
+   ```
+
+3. **Generate JSON report with include paths:**
+   ```bash
+   ./build/src/armor/armor /path/to/old/project /path/to/new/project \
+     --header-dir include \
+     --report-format json \
+     -I dependencies/include \
+     -I third_party/headers \
+     foo.h
+   ```
+   This assumes both projects have `dependencies/include` and `third_party/headers` directories.
+
+4. **Debug mode with AST diff dump:**
+   ```bash
+   ./build/src/armor/armor /path/to/old/project /path/to/new/project \
+     --header-dir include \
+     --dump-ast-diff \
+     --log-level DEBUG \
+     foo.h
+   ```
 
 Test suite
 ----------
+
+All tests are located in the `src/tests` folder. The test suite uses pytest for test execution and validation.
+
+### Running Tests
+
+To run all tests, use the following command from the project root:
+
+```bash
+pytest
+```
+
+### Running Specific Tests
+
+You can also run specific test files:
+
+```bash
+pytest src/tests/test_example.py
+```
+
+### Test Requirements
+
+Ensure pytest and deepdiff packages are installed before running tests:
+
+```bash
+pip install pytest==8.4.1 deepdiff==8.5.0
+```
 
 Troubleshooting & Environment Setup
 -----------------------------------
