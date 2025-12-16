@@ -48,12 +48,11 @@ runs:
     - name: Echo paths and SHAs
       shell: bash
       run: |
-        echo "Event       : ${{ inputs.event-name }}"
-        echo "Base SHA    : ${{ inputs.base-sha }}"
-        echo "Head SHA    : ${{ inputs.head-sha }}"
-        echo "github-base path : $GITHUB_WORKSPACE/base"
-        echo "github-head path : $GITHUB_WORKSPACE/head"
-
+        echo "Event        : ${{ inputs.event-name }}"
+        echo "Base SHA     : ${{ inputs.base-sha }}"
+        echo "Head SHA     : ${{ inputs.head-sha }}"
+        echo "github-base path  : $GITHUB_WORKSPACE/base"
+        echo "github-head path  : $GITHUB_WORKSPACE/head"
 
     - name: Verify gcc and Docker installation
       shell: bash
@@ -79,11 +78,12 @@ runs:
       run: |
         set -e
         # Diff directly using the two trees
-        git --git-dir="$GITHUB_WORKSPACE/head/.git" --work-tree="$GITHUB_WORKSPACE/head" diff --name-only ${{ inputs.base-sha }} ${{ inputs.head-sha }} > "$GITHUB_WORKSPACE/changed_files.txt" || true
+        git --git-dir="$GITHUB_WORKSPACE/head/.git" --work-tree="$GITHUB_WORKSPACE/head" \
+          diff --name-only ${{ inputs.base-sha }} ${{ inputs.head-sha }} > "$GITHUB_WORKSPACE/changed_files.txt" || true
+
         echo "Changed files:"
         cat "$GITHUB_WORKSPACE/changed_files.txt" || true
 
-    
     - name: Parse YAML for headers (dirs/globs allowed) and expand to file list
       id: parse-yaml
       shell: bash
@@ -92,10 +92,8 @@ runs:
         bash "${{ github.action_path }}/action_script/parse_headers.sh" \
           "$GITHUB_WORKSPACE/public_headers/config.yml" \
           "${{ inputs.branch-name }}" \
-          "$GITHUB_WORKSPACE/base" \
           "$GITHUB_WORKSPACE/head" \
           "$GITHUB_WORKSPACE"
-
 
     - name: Find intersection of changed files and headers
       id: intersection
@@ -104,6 +102,7 @@ runs:
         set -e
         INTERSECT=$(grep -Fxf "$GITHUB_WORKSPACE/headers.txt" "$GITHUB_WORKSPACE/changed_files.txt" || true)
         echo "$INTERSECT" > "$GITHUB_WORKSPACE/updated_headers_PR.txt"
+
         if [[ -n "$INTERSECT" ]]; then
           echo "Intersection found:"
           cat "$GITHUB_WORKSPACE/updated_headers_PR.txt"
@@ -140,26 +139,55 @@ runs:
             echo "$ACTION_DIR/build/src/armor/armor" > "$ACTION_DIR/.armor_bins_path"
           '
 
-    - name: Run ARMOR per header (collect outputs)
+    - name: Run header processing inside container
       if: steps.intersection.outputs.has-intersection == 'true'
       id: run-armor
       shell: bash
       env:
         REPORT_FORMAT: "json"
-        LOG_LEVEL: "INFO"
+        LOG_LEVEL: "DEBUG"
         DUMP_AST_DIFF: "true"
       run: |
-        set -e
-        BASE_PATH="$GITHUB_WORKSPACE/base"
-        HEAD_PATH="$GITHUB_WORKSPACE/head"
-        INTERSECTION_HEADERS_PATH="$GITHUB_WORKSPACE/updated_headers_PR.txt"
+        set -euo pipefail
+        ACTION_DIR="${{ github.action_path }}"
         ARMOR_BINS_PATH="$(cat "${{ github.action_path }}/.armor_bins_path")"
+        PROJECT="${{ github.repository }}"
+        BRANCH="${{ inputs.branch-name }}"
+        GITHUB_EVENT="${{ github.event_name }}"
+        if [[ "$GITHUB_EVENT" == pull_request* ]]; then
+          PR_NUMBER="${{ github.event.pull_request.number }}"
+        else
+          PR_NUMBER=""
+        fi
+        workflow_url="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
-        chmod +x "${{ github.action_path }}/action_script/run_armor.sh"
-        "${{ github.action_path }}/action_script/run_armor.sh" "$BASE_PATH" "$HEAD_PATH" "$INTERSECTION_HEADERS_PATH" "$ARMOR_BINS_PATH"
+        # Mount the workspace and action dir into the container and run the script inside
+        docker run -i --rm \
+          --user $(id -u):$(id -g) \
+          -e REPORT_FORMAT="${REPORT_FORMAT}" \
+          -e LOG_LEVEL="${LOG_LEVEL}" \
+          -e DUMP_AST_DIFF="${DUMP_AST_DIFF}" \
+          -e PROJECT="${PROJECT}" \
+          -e BRANCH="${BRANCH}" \
+          -e GITHUB_EVENT="${GITHUB_EVENT}" \
+          -e PR_NUMBER="${PR_NUMBER}" \
+          -e workflow_url="${workflow_url}" \
+          -e ACTION_DIR="$ACTION_DIR" \
+          -e GITHUB_WORKSPACE="$GITHUB_WORKSPACE" \
+          -e ARMOR_BINS_PATH="${ARMOR_BINS_PATH}" \
+          -v "$GITHUB_WORKSPACE":"$GITHUB_WORKSPACE" \
+          -v "$ACTION_DIR":"$ACTION_DIR" \
+          -w /work \
+          armor_tool:latest bash -c '
+            set -euo pipefail
+            chmod +x "$ACTION_DIR/action_script/run_armor.sh"
+            "$ACTION_DIR/action_script/run_armor.sh" "$GITHUB_WORKSPACE/base" "$GITHUB_WORKSPACE/head" "$GITHUB_WORKSPACE/updated_headers_PR.txt" "$ARMOR_BINS_PATH"
+          '
 
+        # Expose out-root path
+        ls "$GITHUB_WORKSPACE/.armor_out_root"
         OUT_ROOT="$(cat "$GITHUB_WORKSPACE/.armor_out_root")"
-        echo "out-root=$OUT_ROOT" >> "$GITHUB_OUTPUT"
+        echo "out-root=${OUT_ROOT}" >> "$GITHUB_OUTPUT"
 
     - name: Upload all armor outputs (artifact)
       if: steps.intersection.outputs.has-intersection == 'true'
@@ -183,48 +211,44 @@ runs:
         echo "Overall status: $STATUS"
         echo "res=$STATUS" >> "$GITHUB_OUTPUT"
 
-    - name: prepare ARMOR summary
-      if: >
-          steps.intersection.outputs.has-intersection == 'true'
+    - name: Prepare ARMOR summary
+      if: steps.intersection.outputs.has-intersection == 'true'
       id: prepare-comment
       shell: bash
       run: |
         set -euo pipefail
-
-        # Inputs and common context
         workflow_url="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
         artifacts="${workflow_url}#artifacts"
         out_root="${{ steps.run-armor.outputs.out-root }}"
-        summary_path="${out_root}/compact_summary.json"
-        incompatible_path="${out_root}/metadata.txt"
+        blk="${out_root}/incompatible_blocking.txt"
+        nbk="${out_root}/incompatible_nonblocking.txt"
         status="${{ steps.compatibility_status.outputs.res }}"
 
         body="$(cat <<'EOF'
         ### ARMOR Check Result
-
         **Status:** __STATUS__
-
         Please check __ARTIFACTS__ for details.
         EOF
         )"
-        # Substitute tokens
         body="${body/__STATUS__/${status}}"
         body="${body/__ARTIFACTS__/${artifacts}}"
 
-        # Append incompatible headers section if present and non-empty
-        if [[ -f "$summary_path" ]]; then
-          if [[ -f "$incompatible_path" && -s "$incompatible_path" ]]; then
-            failed_headers=""
-            # Build a clean markdown list with no leading spaces
-            while IFS= read -r line; do
-              # Skip blank lines
-              [[ -z "$line" ]] && continue
-              failed_headers+=$'- '"$line"$'\n'
-            done < "$incompatible_path"
+        # Segregated incompatible lists
+        body+=$'\n\n**Backward Incompatible Headers (segregated):**\n'
+        if [[ -s "$blk" ]]; then
+          body+=$'\n**Blocking:**\n'
+          while IFS= read -r line; do
+            [[ -z "$line" ]] && continue
+            body+=$'- '"$line"$'\n'
+          done < "$blk"
+        fi
 
-            body+=$'\n\n**Backward Incompatible Headers:**\n'
-            body+="${failed_headers}"
-          fi
+        if [[ -s "$nbk" ]]; then
+          body+=$'\n**Non-blocking:**\n'
+          while IFS= read -r line; do
+            [[ -z "$line" ]] && continue
+            body+=$'- '"$line"$'\n'
+          done < "$nbk"
         fi
 
         delimiter="EOF_SUMMARY_$(date +%s)"
@@ -239,10 +263,10 @@ runs:
       shell: bash
       run: |
         set -euo pipefail
-        status="${{ steps.run-armor.outputs.status }}"
+        status="${{ steps.compatibility_status.outputs.res }}"
         printf '%s\n' "${{ steps.prepare-comment.outputs.body }}" >> "$GITHUB_STEP_SUMMARY"
         if [[ "$status" == "failure" ]]; then
-          echo "::error ::ARMOR detected backward incompatible changes. Failing the check."
+          echo "::error ::ARMOR detected backward incompatible changes in blocking headers. Failing the check."
           exit 1
         else
           echo "ARMOR check passed (status: $status)."
