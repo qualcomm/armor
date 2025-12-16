@@ -5,17 +5,14 @@
 set -euo pipefail
 
 # --- Arguments ---
-# 1: YAML file path (e.g., $GITHUB_WORKSPACE/public_headers/armor_config.yaml)
+# 1: YAML file path (e.g., $GITHUB_WORKSPACE/public_headers/config.yml)
 # 2: current branch name (e.g., inputs.branch-name)
-# 3: BASE_PATH (e.g., $GITHUB_WORKSPACE/base)
-# 4: HEAD_PATH (e.g., $GITHUB_WORKSPACE/head)
-# 5: WORKSPACE (optional; defaults to $GITHUB_WORKSPACE)
-
+# 3: HEAD_PATH (e.g., $GITHUB_WORKSPACE/head)
+# 4: WORKSPACE
 YAML_FILE="${1:?YAML file path required}"
 CURRENT_BRANCH="${2:?Current branch name required}"
-BASE_PATH="${3:?Base path required}"
-HEAD_PATH="${4:?Head path required}"
-WORKSPACE="${5:-${GITHUB_WORKSPACE:-}}"
+HEAD_PATH="${3:?Head path required}"
+WORKSPACE="${4:-${GITHUB_WORKSPACE:-}}"
 
 if [[ -z "${WORKSPACE}" ]]; then
   echo "WORKSPACE not provided and GITHUB_WORKSPACE not set"; exit 1
@@ -26,13 +23,12 @@ fi
 command -v yq >/dev/null 2>&1 || { echo "yq is required but not installed"; exit 1; }
 
 echo "Parsing $YAML_FILE for branch: $CURRENT_BRANCH"
-echo "BASE_PATH=$BASE_PATH"
 echo "HEAD_PATH=$HEAD_PATH"
 echo "WORKSPACE=$WORKSPACE"
 
-# -----------------------------
+# ----------------------------------------------------------------------
 # Helpers
-# -----------------------------
+# ----------------------------------------------------------------------
 
 # Extract patterns for a given mode into a target file (deduped)
 # usage: extract_patterns "blocking" "$OUT_FILE"
@@ -47,18 +43,18 @@ extract_patterns() {
   cat "$out" || true
 }
 
-# Expand one pattern against a root and append matches to out
-expand_pattern() {
-  local root="$1"
+# Expand one pattern against HEAD root and append matches to out
+expand_pattern_head() {
+  local root="$1"   # HEAD_PATH
   local patt="$2"
   local out="$3"
 
   # Normalize leading "./"
   case "$patt" in
-    ./*) patt="${patt#./}" ;;
+    ./*) patt="${patt#./}";;
   esac
 
-  # If pattern points to a directory, find headers recursively
+  # Pattern that points to a directory and wants recursive header discovery
   if [[ "$patt" == */ ]]; then
     local dir="${patt%/}"
     if [[ -d "$root/$dir" ]]; then
@@ -67,6 +63,7 @@ expand_pattern() {
     return
   fi
 
+  # If pattern is an existing directory, recurse
   if [[ -d "$root/$patt" ]]; then
     find "$root/$patt" -type f \( -name "*.h" -o -name "*.hpp" \) -print >> "$out"
     return
@@ -89,30 +86,26 @@ expand_pattern() {
     return
   fi
 
-  # Explicit file path relative to root
+  # Explicit file path relative to HEAD root
   [[ -f "$root/$patt" ]] && echo "$root/$patt" >> "$out"
 }
 
-# Expand patterns (base/head), normalize to repo-relative paths, and produce final list
-expand_and_normalize() {
+# Expand patterns only against HEAD, normalize to repo-relative paths, and produce final list
+expand_and_normalize_head() {
   local patterns_file="$1"
-  local expanded_base="$2"
-  local expanded_head="$3"
-  local final_out="$4"
+  local expanded_head="$2"
+  local final_out="$3"
 
-  : > "$expanded_base"
   : > "$expanded_head"
   : > "$final_out"
 
   while IFS= read -r patt; do
     [[ -z "${patt// }" ]] && continue
-    expand_pattern "$BASE_PATH" "$patt" "$expanded_base"
-    expand_pattern "$HEAD_PATH" "$patt" "$expanded_head"
+    expand_pattern_head "$HEAD_PATH" "$patt" "$expanded_head"
   done < "$patterns_file"
 
-  # Convert absolute -> repo-relative
-  sed -E "s%^${BASE_PATH}/%%" "$expanded_base" >  "${final_out}.tmp1" || true
-  sed -E "s%^${HEAD_PATH}/%%" "$expanded_head" >> "${final_out}.tmp1" || true
+  # Convert absolute -> repo-relative (using HEAD_PATH only)
+  sed -E "s%^${HEAD_PATH}/%%" "$expanded_head" > "${final_out}.tmp1" || true
 
   # Keep only .h/.hpp, de-duplicate
   grep -E '\.(h|hpp)$' "${final_out}.tmp1" | sort -u > "$final_out" || true
@@ -122,41 +115,38 @@ expand_and_normalize() {
   cat "$final_out" || true
 }
 
-# -----------------------------
+# ----------------------------------------------------------------------
 # Orchestration over modes
-# -----------------------------
+# ----------------------------------------------------------------------
 declare -A PATTERNS_FILE
-declare -A EXP_BASE
 declare -A EXP_HEAD
 declare -A FINAL_OUT
 
 PATTERNS_FILE["blocking"]="$WORKSPACE/blocking_patterns.txt"
 PATTERNS_FILE["non-blocking"]="$WORKSPACE/nonblocking_patterns.txt"
 
-EXP_BASE["blocking"]="$WORKSPACE/expanded_blocking_base.txt"
 EXP_HEAD["blocking"]="$WORKSPACE/expanded_blocking_head.txt"
 FINAL_OUT["blocking"]="$WORKSPACE/blocking_headers_final.txt"
 
-EXP_BASE["non-blocking"]="$WORKSPACE/expanded_nonblocking_base.txt"
 EXP_HEAD["non-blocking"]="$WORKSPACE/expanded_nonblocking_head.txt"
 FINAL_OUT["non-blocking"]="$WORKSPACE/nonblocking_headers_final.txt"
 
 for mode in "blocking" "non-blocking"; do
   extract_patterns "$mode" "${PATTERNS_FILE[$mode]}"
-  expand_and_normalize \
+  expand_and_normalize_head \
     "${PATTERNS_FILE[$mode]}" \
-    "${EXP_BASE[$mode]}" \
     "${EXP_HEAD[$mode]}" \
     "${FINAL_OUT[$mode]}"
 done
 
-# Preserve previous combined behavior
-COMBINED_HEADERS="$WORKSPACE/headers.txt"
-cat "${FINAL_OUT["blocking"]}" "${FINAL_OUT["non-blocking"]}" | sort -u > "$COMBINED_HEADERS" || true
-echo "Combined headers → $COMBINED_HEADERS"
-cat "$COMBINED_HEADERS" || true
+HEADERS="$WORKSPACE/headers.txt"
+cat "${FINAL_OUT["blocking"]}" "${FINAL_OUT["non-blocking"]}" \
+  | sort -u > "$HEADERS" || true
+
+echo "Eligible headers → $HEADERS"
+cat "$HEADERS" || true
 
 # Emit a step output if GITHUB_OUTPUT is available
 if [[ -n "${GITHUB_OUTPUT:-}" ]]; then
-  echo "headers_path=$COMBINED_HEADERS" >> "$GITHUB_OUTPUT"
+  echo "headers_path=$HEADERS" >> "$GITHUB_OUTPUT"
 fi
