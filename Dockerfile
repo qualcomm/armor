@@ -27,7 +27,8 @@ RUN apt update && \
     python3-pip \
     git \
     build-essential \
-    libstdc++-11-dev
+    libstdc++-11-dev \
+    jq
 
 # Set clang-14 and g++-11 as default compilers
 RUN update-alternatives --install /usr/bin/clang clang /usr/bin/clang-14 100 && \
