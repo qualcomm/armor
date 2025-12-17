@@ -87,10 +87,13 @@ runs:
     - name: Parse YAML for headers (dirs/globs allowed) and expand to file list
       id: parse-yaml
       shell: bash
+      env:
+        DEBUG: "1"
+        TRACE_PATTERNS: "1"
       run: |
         set -euo pipefail
         bash "${{ github.action_path }}/action_script/parse_headers.sh" \
-          "$GITHUB_WORKSPACE/public_headers/config.yml" \
+          "$GITHUB_WORKSPACE/head/public_headers/config.yml" \
           "${{ inputs.branch-name }}" \
           "$GITHUB_WORKSPACE/head" \
           "$GITHUB_WORKSPACE"
