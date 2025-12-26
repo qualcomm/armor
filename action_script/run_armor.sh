@@ -23,7 +23,7 @@ BASE_PATH="${1:-}"; HEAD_PATH="${2:-}"; INTERSECTION_FILE="${3:-}"; ARMOR_BINS_P
 [[ -d "$HEAD_PATH" ]] || die "HEAD_PATH not a directory"
 [[ -f "$INTERSECTION_FILE" ]] || die "Intersection file not found"
 
-PROJECT="${PROJECT:-unknown}"
+PROJECT_URL="${PROJECT_URL:-unknown}"
 BRANCH="${BRANCH:-unknown}"
 GITHUB_EVENT="${GITHUB_EVENT:-unknown}"
 PR_NUMBER="${PR_NUMBER:-}"
@@ -119,7 +119,7 @@ sort -u -o "$INCOMPATIBLE_NONBLOCKING" "$INCOMPATIBLE_NONBLOCKING"
 headers_array="$(jq -s '.' "$METADATA_NDJSON")"
 ts="$(date -u +'%Y-%m-%dT%H:%M:%SZ')"
 jq -n \
-  --arg project "$PROJECT" \
+  --arg project_url "$PROJECT_URL" \
   --arg branch "$BRANCH" \
   --arg event "$GITHUB_EVENT" \
   --argjson pr "$( [[ -n "$PR_NUMBER" ]] && printf '%s' "$PR_NUMBER" || printf 'null' )" \
@@ -128,7 +128,7 @@ jq -n \
   --arg base_sha "$BASE_SHA" \
   --arg artifacts "$workflow_url#artifacts" \
   --argjson headers "$headers_array" \
-  '{project:$project, branch:$branch, github_event:$event, pr_number:$pr, timestamp:$timestamp, head_sha:$head_sha, base_sha:$base_sha, artifacts:$artifacts, headers:$headers}' \
+  '{project_url:$project_url, branch:$branch, github_event:$event, pr_number:$pr, timestamp:$timestamp, head_sha:$head_sha, base_sha:$base_sha, artifacts:$artifacts, headers:$headers}' \
   > "${OUT_ROOT}/metadata.json"
 
 overall_status="success"
