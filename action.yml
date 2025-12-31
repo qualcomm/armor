@@ -215,6 +215,7 @@ runs:
         echo "res=$STATUS" >> "$GITHUB_OUTPUT"
 
     - name: Upload folder to S3
+      if: steps.intersection.outputs.has-intersection == 'true'
       shell: bash
       run: |
         set -e
