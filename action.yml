@@ -220,7 +220,7 @@ runs:
       run: |
         set -e
         FOLDER="${{ steps.run-armor.outputs.out-root }}"
-        BUCKET="s3://qli-stg-armor-gh-artifacts"
+        BUCKET="s3://qli-prd-armor-gh-artifacts"
         YYYY="$(date -u +'%Y')"
         MM="$(date -u +'%m')"
         DD="$(date -u +'%d')"
