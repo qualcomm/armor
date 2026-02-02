@@ -62,14 +62,49 @@ runs:
         docker --version || { echo "docker missing"; exit 1; }
 
     - name: Install yq
+      id: install-yq
       shell: bash
       run: |
         set -e
-        if ! command -v yq >/dev/null 2>&1; then
-          sudo apt-get update -y
-          sudo apt-get install -y jq
-          sudo wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/download/v4.44.3/yq_linux_amd64
-          sudo chmod +x /usr/local/bin/yq
+
+        # Default output
+        echo "yq-installed=false" >> "$GITHUB_OUTPUT"
+
+        # If yq already present, mark installed and exit
+        if command -v yq >/dev/null 2>&1; then
+          echo "yq already present: $(yq --version || true)"
+          echo "yq-installed=true" >> "$GITHUB_OUTPUT"
+          exit 0
+        fi
+
+        # Install prereqs
+        sudo apt-get update -y
+        sudo apt-get install -y jq
+
+        # Determine correct yq asset based on architecture
+        arch="$(uname -m)"
+        case "$arch" in
+          x86_64|amd64)   yq_asset="yq_linux_amd64" ;;
+          aarch64|arm64)  yq_asset="yq_linux_arm64" ;;
+          armv7l|armv7)   yq_asset="yq_linux_arm" ;;
+          *)
+            echo "::warning::Unsupported architecture for yq: $arch. Skipping yq install."
+            exit 0
+            ;;
+        esac
+
+        # Download and install yq
+        sudo wget -qO /usr/local/bin/yq \
+          "https://github.com/mikefarah/yq/releases/download/v4.44.3/${yq_asset}"
+        sudo chmod +x /usr/local/bin/yq
+
+        echo "Installed yq:"
+
+        if ! /usr/local/bin/yq --version; then
+          echo "::warning::yq installed but version check failed." >> "$GITHUB_STEP_SUMMARY"
+          exit 0
+        else
+          echo "yq-installed=true" >> "$GITHUB_OUTPUT"
         fi
 
     - name: Get changed files
@@ -85,6 +120,7 @@ runs:
         cat "$GITHUB_WORKSPACE/changed_files.txt" || true
 
     - name: Parse YAML for headers (dirs/globs allowed) and expand to file list
+      if: ${{ steps.install-yq.outputs.yq-installed == 'true' }}
       id: parse-yaml
       shell: bash
       env:
@@ -99,6 +135,7 @@ runs:
           "$GITHUB_WORKSPACE"
 
     - name: Find intersection of changed files and headers
+      if: ${{ steps.install-yq.outputs.yq-installed == 'true' }}
       id: intersection
       shell: bash
       run: |
