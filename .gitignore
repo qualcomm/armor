@@ -8,6 +8,7 @@ build
 **/ast_diff_output.json
 **/api_diff_report.html
 **/api_diff_report.json
+**/output.txt
 **/heaptrack*
 **/tmp
 tests/functional/**/armor_reports/
