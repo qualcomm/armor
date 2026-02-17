@@ -1,0 +1,862 @@
+11404736249108278501
+// Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+----------------------------------------
+252520090170005577
+// SPDX-License-Identifier: BSD-3-Clause
+----------------------------------------
+13544904843976097695
+// Forward declarations
+----------------------------------------
+11267647554641730971
+// Namespace: utils
+----------------------------------------
+10264227844602370393
+// Configuration struct
+----------------------------------------
+14963466610205032711
+// Logger class with inline implementation
+----------------------------------------
+5865571366761843282
+// Template function for type conversion
+----------------------------------------
+8605818612656676144
+// Template specialization
+----------------------------------------
+13782717844351025227
+// namespace utils
+----------------------------------------
+7397357897752776240
+// Namespace: data
+----------------------------------------
+6135284773483032879
+// Base class for data items
+----------------------------------------
+213202090689869372
+// Derived class
+----------------------------------------
+13388134716493447465
+// Simple processing
+----------------------------------------
+12608445356743797463
+// Template container class
+----------------------------------------
+5401376707195751443
+// Template specialization for pointers
+----------------------------------------
+12850795797299116385
+// DataProcessor class
+----------------------------------------
+4554097994260096122
+// namespace data
+----------------------------------------
+1550353041608393525
+// Global template function
+----------------------------------------
+17515647457009941114
+// Function template with multiple parameters
+----------------------------------------
+10956266650370016217
+// Variadic template function
+----------------------------------------
+11599155956872148656
+// Enum class
+----------------------------------------
+7862016107802771329
+// Helper function
+----------------------------------------
+6901770178673578204
+// MYLIB_H
+----------------------------------------
+NamespaceDecl
+18037591429378092848
+namespace data {
+    class DataProcessor;
+    template<typename T>
+    class Container;
+}
+----------------------------------------
+NamespaceDecl
+119168063653421453
+namespace utils {
+    class Logger;
+    struct Config;
+}
+----------------------------------------
+NamespaceDecl
+9868683111920518734
+namespace utils {
+
+// Configuration struct
+struct Config {
+    std::string name;
+    int version;
+    bool enabled;
+    
+    Config() : name("default"), version(1), enabled(true) {}
+    Config(const std::string& n, int v, bool e) 
+        : name(n), version(v), enabled(e) {}
+};
+
+// Logger class with inline implementation
+class Logger {
+private:
+    std::string prefix;
+    bool verbose;
+    
+public:
+    Logger(const std::string& p = "LOG") : prefix(p), verbose(false) {}
+    
+    void setVerbose(bool v) { verbose = v; }
+    
+    void log(const std::string& message) const {
+        std::cout << "[" << prefix << "] " << message << std::endl;
+    }
+    
+    template<typename T>
+    void logValue(const std::string& name, const T& value) const {
+        std::cout << "[" << prefix << "] " << name << ": " << value << std::endl;
+    }
+};
+
+// Template function for type conversion
+template<typename To, typename From>
+inline To convert(const From& value) {
+    return static_cast<To>(value);
+}
+
+// Template specialization
+template<>
+inline std::string convert<std::string, int>(const int& value) {
+    return std::to_string(value);
+}
+
+}
+----------------------------------------
+NamespaceDecl
+5773148239709965832
+namespace data {
+
+// Base class for data items
+class DataItem {
+protected:
+    std::string id;
+    int timestamp;
+    
+public:
+    DataItem(const std::string& itemId) : id(itemId), timestamp(0) {}
+    virtual ~DataItem() = default;
+    
+    virtual std::string getType() const = 0;
+    virtual void process() = 0;
+    
+    std::string getId() const { return id; }
+    void setTimestamp(int ts) { timestamp = ts; }
+};
+
+// Derived class
+class TextData : public DataItem {
+private:
+    std::string content;
+    
+public:
+    TextData(const std::string& id, const std::string& text) 
+        : DataItem(id), content(text) {}
+    
+    std::string getType() const override { return "TextData"; }
+    
+    void process() override {
+        // Simple processing
+        content = "[PROCESSED] " + content;
+    }
+    
+    std::string getContent() const { return content; }
+};
+
+// Template container class
+template<typename T>
+class Container {
+private:
+    std::vector<T> items;
+    std::string name;
+    
+public:
+    Container(const std::string& containerName) : name(containerName) {}
+    
+    void add(const T& item) {
+        items.push_back(item);
+    }
+    
+    size_t size() const {
+        return items.size();
+    }
+    
+    T& get(size_t index) {
+        return items.at(index);
+    }
+    
+    const T& get(size_t index) const {
+        return items.at(index);
+    }
+    
+    void clear() {
+        items.clear();
+    }
+    
+    template<typename Func>
+    void forEach(Func func) {
+        for (auto& item : items) {
+            func(item);
+        }
+    }
+};
+
+// Template specialization for pointers
+template<typename T>
+class Container<T*> {
+private:
+    std::vector<T*> items;
+    bool ownsPointers;
+    
+public:
+    Container(bool owns = false) : ownsPointers(owns) {}
+    
+    ~Container() {
+        if (ownsPointers) {
+            for (auto* ptr : items) {
+                delete ptr;
+            }
+        }
+    }
+    
+    void add(T* item) {
+        items.push_back(item);
+    }
+    
+    size_t size() const {
+        return items.size();
+    }
+};
+
+// DataProcessor class
+class DataProcessor {
+private:
+    utils::Logger logger;
+    utils::Config config;
+    Container<std::shared_ptr<DataItem>> dataItems;
+    
+public:
+    DataProcessor() : logger("DataProcessor"), dataItems("MainContainer") {}
+    
+    void setConfig(const utils::Config& cfg) {
+        config = cfg;
+        logger.log("Configuration updated: " + config.name);
+    }
+    
+    void addItem(std::shared_ptr<DataItem> item) {
+        dataItems.add(item);
+        logger.log("Added item: " + item->getId());
+    }
+    
+    void processAll() {
+        logger.log("Processing all items...");
+        dataItems.forEach([this](std::shared_ptr<DataItem>& item) {
+            item->process();
+            logger.log("Processed: " + item->getId());
+        });
+    }
+    
+    size_t getItemCount() const {
+        return dataItems.size();
+    }
+};
+
+}
+----------------------------------------
+FunctionTemplateDecl
+2666077775589890806
+template<typename T>
+T max(const T& a, const T& b) {
+    return (a > b) ? a : b;
+}
+----------------------------------------
+FunctionNode
+14979730967654149590
+T max(const T& a, const T& b) {
+    return (a > b) ? a : b;
+}
+----------------------------------------
+FunctionTemplateDecl
+18119148573612579309
+template<typename T, typename U>
+auto multiply(const T& a, const U& b) -> decltype(a * b) {
+    return a * b;
+}
+----------------------------------------
+FunctionNode
+1569320927087516783
+auto multiply(const T& a, const U& b) -> decltype(a * b) {
+    return a * b;
+}
+----------------------------------------
+FunctionTemplateDecl
+3329847226039882490
+template<typename T>
+T sum(T value) {
+    return value;
+}
+----------------------------------------
+FunctionNode
+3753469723839970776
+T sum(T value) {
+    return value;
+}
+----------------------------------------
+FunctionTemplateDecl
+9271550913951296238
+template<typename T, typename... Args>
+T sum(T first, Args... args) {
+    return first + sum(args...);
+}
+----------------------------------------
+FunctionNode
+15941537904032972569
+T sum(T first, Args... args) {
+    return first + sum(args...);
+}
+----------------------------------------
+Function Body
+statusToString
+2452958038002734939
+{
+    switch (status) {
+        case Status::Idle: return "Idle";
+        case Status::Running: return "Running";
+        case Status::Paused: return "Paused";
+        case Status::Completed: return "Completed";
+        case Status::Error: return "Error";
+        default: return "Unknown";
+    }
+}
+----------------------------------------
+14149454363135089577
+#ifndef MYLIB_H
+----------------------------------------
+15469631829536770432
+#define MYLIB_H
+----------------------------------------
+15219203312359965853
+#include <string>
+----------------------------------------
+16977924592700156950
+#include <vector>
+----------------------------------------
+11160874710484048764
+#include <memory>
+----------------------------------------
+11799315910370350277
+#include <iostream>
+----------------------------------------
+2348909900560597168
+#include <functional>
+----------------------------------------
+13425203279752416008
+#endif
+----------------------------------------
+11404736249108278501
+// Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+----------------------------------------
+252520090170005577
+// SPDX-License-Identifier: BSD-3-Clause
+----------------------------------------
+13544904843976097695
+// Forward declarations
+----------------------------------------
+11267647554641730971
+// Namespace: utils
+----------------------------------------
+10264227844602370393
+// Configuration struct
+----------------------------------------
+14963466610205032711
+// Logger class with inline implementation
+----------------------------------------
+5865571366761843282
+// Template function for type conversion
+----------------------------------------
+8605818612656676144
+// Template specialization
+----------------------------------------
+13782717844351025227
+// namespace utils
+----------------------------------------
+7397357897752776240
+// Namespace: data
+----------------------------------------
+6135284773483032879
+// Base class for data items
+----------------------------------------
+213202090689869372
+// Derived class
+----------------------------------------
+13388134716493447465
+// Simple processing
+----------------------------------------
+12608445356743797463
+// Template container class
+----------------------------------------
+9231309009609790952
+// add fun
+----------------------------------------
+5401376707195751443
+// Template specialization for pointers
+----------------------------------------
+12850795797299116385
+// DataProcessor class
+----------------------------------------
+15244275484275291308
+// new comments
+----------------------------------------
+4554097994260096122
+// namespace data
+----------------------------------------
+1550353041608393525
+// Global template function
+----------------------------------------
+17515647457009941114
+// Function template with multiple parameters
+----------------------------------------
+10956266650370016217
+// Variadic template function
+----------------------------------------
+11599155956872148656
+// Enum class
+----------------------------------------
+7862016107802771329
+// Helper function
+----------------------------------------
+6901770178673578204
+// MYLIB_H
+----------------------------------------
+NamespaceDecl
+18037591429378092848
+namespace data {
+    class DataProcessor;
+    template<typename T>
+    class Container;
+}
+----------------------------------------
+NamespaceDecl
+119168063653421453
+namespace utils {
+    class Logger;
+    struct Config;
+}
+----------------------------------------
+NamespaceDecl
+16581084743695327726
+namespace utils {
+
+// Configuration struct
+struct Config {
+    std::string name;
+    int version;
+    bool enabled;
+    
+    Config() : name("default"), version(1), enabled(true) {}
+    Config(const std::string& n, int v, bool e) 
+        : name(n), version(v), enabled(e) {}
+};
+
+// Logger class with inline implementation
+class Logger {
+private:
+    std::string prefix;
+    bool verbose;
+    int flag;
+    
+public:
+    Logger(const std::string& p = "LOG") : prefix(p), verbose(false) {}
+    
+    void setVerbose(bool v) { verbose = v; }
+    
+    void log(const std::string& message) const {
+        std::cout << "[" << prefix << "] " << 
+        
+        
+        message << std::endl;
+    }
+    
+    template<typename T>
+    void logValue(const std::string& name, const T& value) const {
+        std::cout 
+        << "[" << prefix << "] " << name << ": " << value << std::endl;
+    }
+};
+
+// Template function for type conversion
+template<typename To, typename From>
+inline To convert(const From& value) {
+    return static_cast<To>(value);
+}
+
+// Template specialization
+template<>
+inline std::string convert<std::string, int>(   const int& value) {
+
+
+    return std::to_string(value/2);
+}
+
+}
+----------------------------------------
+NamespaceDecl
+16837918215476657956
+namespace data {
+
+
+// Base class for data items
+class DataItem {
+protected:
+
+
+    std::string id;
+    int timestamp;
+    int flag;
+    
+public:
+    DataItem(const std::string& itemId) : id(itemId), timestamp(0) {}
+    virtual ~DataItem() = default;
+    
+    virtual std::string getType() const = 0;
+    virtual void process() = 0;
+    
+    std::string getId() const { 
+        
+        return id; }
+    void setTimestamp(int ts) { timestamp = ts; }
+};
+
+// Derived class
+class TextData : public DataItem {
+private:
+    std::string content;
+    
+
+public:
+    TextData(const std::string& id, const std::string& text) 
+        : DataItem(id), content(text) {}
+    
+    std::string getType() const override { return "TextData"; }
+    
+    void process() override {
+        // Simple processing
+
+        content = "[PROCESSED] " + content;
+    }
+    
+};
+
+// Template container class
+template<typename T>
+class Container {
+private:
+    std::vector<T> items;
+    std::string name;
+    
+public:
+    Container(const std::string& containerName) : name(containerName) {}
+    
+    void add(const T& item) {
+        // add fun
+        items.push_back(item);
+    }
+    
+    size_t size() const {
+        return items.size();
+    }
+    
+    T& get(size_t index) {
+        return items.at(index);
+    }
+    
+    const T& get(size_t index) const {
+        return items.at(index);
+    }
+    
+    void clear() {
+        items.clear();
+    }
+    
+    template<typename Func>
+    void forEach(Func func) {
+        for (auto& item : items) {
+            func(item);
+        }
+    }
+};
+
+// Template specialization for pointers
+template<typename T>
+class Container<T*> {
+private:
+
+    std::vector<T*> items;
+    bool ownsPointers;
+    
+public:
+    Container(bool owns = false) : ownsPointers(owns) {}
+    
+    ~Container() {
+        if (ownsPointers) {
+            for (auto* ptr : items) {
+                delete ptr;
+            }
+        }
+    }
+    
+    void add(T* item) {
+                items.push_back(item);  
+    }
+    
+    size_t size() const {
+        return items.size();
+    }
+};
+
+// DataProcessor class
+class DataProcessor {
+private:
+    utils::Logger logger;
+    utils::Config config;
+    Container<std::shared_ptr<DataItem>> dataItems;
+    
+public:
+    DataProcessor() : logger("DataProcessor"), dataItems("MainContainer") {}
+    
+    void setConfig(const utils::Config& cfg) {
+        config = cfg;
+        logger.log("Configuration updated: " + config.name);
+    }
+    
+    void addItem(std::shared_ptr<DataItem> item) {
+        dataItems.add(item);
+        // new comments
+        
+        logger.log("Added item: " + item->getId());
+    }
+    
+    void processAll() {
+        logger.log("Processing all items...");
+        dataItems.forEach([this](std::shared_ptr<DataItem>& item) {
+            item->process();
+            logger.log("Processed: " + item->getId());
+        });
+    }
+    
+    size_t getItemCount() const {
+        return dataItems.size();
+    }
+};
+
+}
+----------------------------------------
+FunctionTemplateDecl
+2666077775589890806
+template<typename T>
+T max(const T& a, const T& b) {
+    return (a > b) ? a : b;
+}
+----------------------------------------
+FunctionNode
+14979730967654149590
+T max(const T& a, const T& b) {
+    return (a > b) ? a : b;
+}
+----------------------------------------
+FunctionTemplateDecl
+18119148573612579309
+template<typename T, typename U>
+auto multiply(const T& a, const U& b) -> decltype(a * b) {
+    return a * b;
+}
+----------------------------------------
+FunctionNode
+1569320927087516783
+auto multiply(const T& a, const U& b) -> decltype(a * b) {
+    return a * b;
+}
+----------------------------------------
+FunctionTemplateDecl
+8624137196278052191
+template<typename T>
+T sum(T value) {
+    return value/2;
+}
+----------------------------------------
+FunctionNode
+15044685514343924287
+T sum(T value) {
+    return value/2;
+}
+----------------------------------------
+FunctionTemplateDecl
+9271550913951296238
+template<typename T, typename... Args>
+T sum(T first, Args... args) {
+    
+    return first + sum(args...);
+}
+----------------------------------------
+FunctionNode
+15941537904032972569
+T sum(T first, Args... args) {
+    
+    return first + sum(args...);
+}
+----------------------------------------
+Function Body
+statusToString
+2452958038002734939
+{
+    switch (status) {
+        case Status::Idle: return "Idle";
+        case Status::Running: return "Running";
+        case Status::Paused: return "Paused";
+        case Status::Completed: return "Completed";
+        case Status::Error: return "Error";
+        default: return "Unknown";
+    }
+}
+----------------------------------------
+14149454363135089577
+#ifndef MYLIB_H
+----------------------------------------
+15469631829536770432
+#define MYLIB_H
+----------------------------------------
+15219203312359965853
+#include <string>
+----------------------------------------
+16977924592700156950
+#include <vector>
+----------------------------------------
+11160874710484048764
+#include <memory>
+----------------------------------------
+11799315910370350277
+#include <iostream>
+----------------------------------------
+2348909900560597168
+#include <functional>
+----------------------------------------
+13425203279752416008
+#endif
+----------------------------------------
+
+############ CONTEXT 1 MAPS ############
+comments1
+14963466610205032711  : 1
+12850795797299116385  : 1
+6135284773483032879  : 1
+6901770178673578204  : 1
+252520090170005577  : 1
+12608445356743797463  : 1
+13782717844351025227  : 1
+11404736249108278501  : 1
+5865571366761843282  : 1
+10264227844602370393  : 1
+10956266650370016217  : 1
+4554097994260096122  : 1
+17515647457009941114  : 1
+7862016107802771329  : 1
+11267647554641730971  : 1
+1550353041608393525  : 1
+213202090689869372  : 1
+13388134716493447465  : 1
+8605818612656676144  : 1
+7397357897752776240  : 1
+11599155956872148656  : 1
+13544904843976097695  : 1
+5401376707195751443  : 1
+----------------------------------------
+unhandledDecls1
+15469631829536770432  : 1
+18119148573612579309  : 1
+9868683111920518734  : 1
+1569320927087516783  : 1
+2666077775589890806  : 1
+15941537904032972569  : 1
+119168063653421453  : 1
+3329847226039882490  : 1
+9271550913951296238  : 1
+2452958038002734939  : 1
+5773148239709965832  : 1
+13425203279752416008  : 1
+11160874710484048764  : 1
+14149454363135089577  : 1
+14979730967654149590  : 1
+16977924592700156950  : 1
+18037591429378092848  : 1
+15219203312359965853  : 1
+2348909900560597168  : 1
+3753469723839970776  : 1
+11799315910370350277  : 1
+----------------------------------------
+inactiveUnhandledDecls1
+(empty)
+----------------------------------------
+
+############ CONTEXT 2 MAPS ############
+comments2
+14963466610205032711  : 1
+12850795797299116385  : 1
+9231309009609790952  : 1
+6135284773483032879  : 1
+6901770178673578204  : 1
+252520090170005577  : 1
+12608445356743797463  : 1
+13782717844351025227  : 1
+11404736249108278501  : 1
+5865571366761843282  : 1
+15244275484275291308  : 1
+10264227844602370393  : 1
+10956266650370016217  : 1
+4554097994260096122  : 1
+17515647457009941114  : 1
+7862016107802771329  : 1
+11267647554641730971  : 1
+1550353041608393525  : 1
+213202090689869372  : 1
+13388134716493447465  : 1
+8605818612656676144  : 1
+7397357897752776240  : 1
+11599155956872148656  : 1
+13544904843976097695  : 1
+5401376707195751443  : 1
+----------------------------------------
+unhandledDecls2
+15469631829536770432  : 1
+18119148573612579309  : 1
+1569320927087516783  : 1
+2666077775589890806  : 1
+15044685514343924287  : 1
+15941537904032972569  : 1
+119168063653421453  : 1
+16581084743695327726  : 1
+9271550913951296238  : 1
+2452958038002734939  : 1
+13425203279752416008  : 1
+11160874710484048764  : 1
+14149454363135089577  : 1
+14979730967654149590  : 1
+16977924592700156950  : 1
+18037591429378092848  : 1
+15219203312359965853  : 1
+2348909900560597168  : 1
+16837918215476657956  : 1
+11799315910370350277  : 1
+8624137196278052191  : 1
+----------------------------------------
+inactiveUnhandledDecls2
+(empty)
+----------------------------------------

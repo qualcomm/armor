@@ -1,0 +1,29 @@
+{
+    "astDiff": [
+        {
+            "children": [
+                {
+                    "dataType": "const char *",
+                    "nodeType": "Parameter",
+                    "qualifiedName": "hash_string::1"
+                },
+                {
+                    "dataType": "std::size_t",
+                    "nodeType": "Parameter",
+                    "qualifiedName": "hash_string::2"
+                },
+                {
+                    "dataType": "std::size_t",
+                    "nodeType": "ReturnType",
+                    "qualifiedName": "hash_string::(ReturnType)"
+                }
+            ],
+            "nodeType": "Function",
+            "qualifiedName": "hash_string",
+            "tag": "removed"
+        }
+    ],
+    "headerResolutionFailures": [],
+    "parsed_status": 1,
+    "unparsed_status": 1
+}
