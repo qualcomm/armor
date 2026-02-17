@@ -1,6 +1,5 @@
 // Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-3-Clause
-
 #include "diff_utils.hpp"
 #include "node.hpp"
 
@@ -36,10 +35,16 @@ nlohmann::json alpha::APINode::diff(const std::shared_ptr<const alpha::APINode>&
         APINodeStorageClass::None
     );
     compare(
-        CONST_QUALIFIER,
-        constQualifier,
-        other->constQualifier,
-        ConstQualifier::None
+        INLINE, 
+        isInclined, 
+        other->isInclined, 
+        false
+    );
+    compare(
+        CONST_EXPR, 
+        isConstExpr, 
+        other->isConstExpr, 
+        false
     );
     
     // If there are any changes

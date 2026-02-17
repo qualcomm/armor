@@ -1,6 +1,5 @@
 // Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-3-Clause
-
 #include "node.hpp"
 #include "ast_normalized_context.hpp"
 
@@ -12,7 +11,7 @@ void alpha::ASTNormalizedContext::addNode(llvm::StringRef key, std::shared_ptr<c
 
 void alpha::ASTNormalizedContext::addRootNode(std::shared_ptr<const alpha::APINode> rootNode) {
     if (rootNode) {
-        apiNodes.push_back(std::move(rootNode));
+        apiNodes.emplace_back(std::move(rootNode));
     }
 }
 
@@ -31,6 +30,7 @@ bool alpha::ASTNormalizedContext::empty() const {
 void alpha::ASTNormalizedContext::clear() {
     apiNodesMap.clear();
     apiNodes.clear();
+    sourceRangeTracker.clear();
 }
 
 void alpha::ASTNormalizedContext::addClangASTContext(clang::ASTContext *ASTContext){
@@ -39,4 +39,28 @@ void alpha::ASTNormalizedContext::addClangASTContext(clang::ASTContext *ASTConte
 
 clang::ASTContext* alpha::ASTNormalizedContext::getClangASTContext() const { 
     return clangContext; 
+}
+
+alpha::SourceRangeTracker& alpha::ASTNormalizedContext::getSourceRangeTracker() {
+    return sourceRangeTracker;
+}
+
+const alpha::SourceRangeTracker& alpha::ASTNormalizedContext::getSourceRangeTracker() const {
+    return sourceRangeTracker;
+}
+
+void alpha::SourceRangeTracker::addFatalDirective(llvm::StringRef header, llvm::StringRef file) {
+    fatalDirectives.emplace_back(header, file);
+}
+
+const llvm::SmallVector<alpha::SourceRangeTracker::FatalDirectiveRef,8>& alpha::SourceRangeTracker::getFatalDirectives() const {
+    return fatalDirectives;
+}
+
+void alpha::SourceRangeTracker::clear() {
+    fatalDirectives.clear();
+}
+
+bool alpha::SourceRangeTracker::empty() const {
+    return fatalDirectives.empty();
 }

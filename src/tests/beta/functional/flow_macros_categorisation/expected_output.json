@@ -1,0 +1,19 @@
+{
+    "astDiff": [
+        {
+            "children": [
+                {
+                    "dataType": "int",
+                    "nodeType": "ReturnType",
+                    "qualifiedName": "fun::(ReturnType)"
+                }
+            ],
+            "nodeType": "Function",
+            "qualifiedName": "fun",
+            "tag": "removed"
+        }
+    ],
+    "headerResolutionFailures": [],
+    "parsed_status": 1,
+    "unparsed_status": 1
+}

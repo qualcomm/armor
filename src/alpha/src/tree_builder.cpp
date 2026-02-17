@@ -1,6 +1,5 @@
 // Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-3-Clause
-
 #include "tree_builder.hpp"
 #include "ast_normalized_context.hpp"
 #include "astnormalizer.hpp"
@@ -8,7 +7,7 @@
 #include "tree_builder_utils.hpp"
 #include "iostream"
 #include "node.hpp"
-#include "debug_config.hpp"
+#include "logger.hpp"
 #include "diff_utils.hpp"
 #include "clang/AST/Decl.h"
 #include "clang/Basic/Diagnostic.h"
@@ -70,7 +69,7 @@ void alpha::TreeBuilder::BuildReturnTypeNode(clang::QualType type) {
     AddNode(returnNode);
     PopName();
 
-    DebugConfig::instance().log("BuildReturnType : " + returnNode->dataType, DebugConfig::Level::DEBUG);
+    armor::debug() << "BuildReturnType : " << returnNode->dataType << "\n";
 }
 
 void alpha::TreeBuilder::normalizeFunctionPointerType(const std::string& dataType, clang::FunctionProtoTypeLoc FTL) {
@@ -117,8 +116,10 @@ void alpha::TreeBuilder::normalizeValueDeclNode(const clang::ValueDecl *Decl, un
         PushName(nameBuf);
     } 
     else if (const auto *varDecl = llvm::dyn_cast_or_null<clang::VarDecl>(Decl)) {
-        ValueNode->kind = NodeKind::Variable;
+        ValueNode->kind = varDecl->isCXXClassMember() ? NodeKind::Field : NodeKind::Variable;
         ValueNode->storage = getStorageClass(varDecl->getStorageClass());
+        ValueNode->isInclined = varDecl->isInlineSpecified();
+        ValueNode->isConstExpr = varDecl->isConstexpr();
         unDecayedDeclType = varDecl->getType();
         TSI = varDecl->getTypeSourceInfo();
         Decl->printName(OS);
@@ -131,13 +132,13 @@ void alpha::TreeBuilder::normalizeValueDeclNode(const clang::ValueDecl *Decl, un
     ValueNode->hash = generateHash(ValueNode->qualifiedName, ValueNode->kind);
 
     if (llvm::isa<clang::ParmVarDecl>(Decl)) {
-        DebugConfig::instance().log("VisitParamDecl : " + ValueNode->qualifiedName, DebugConfig::Level::DEBUG);
+        armor::debug() << "VisitParamDecl : " << ValueNode->qualifiedName << "\n";
     } 
     else if (llvm::isa<clang::FieldDecl>(Decl)) {
-        DebugConfig::instance().log("VisitFieldDecl : " + ValueNode->qualifiedName, DebugConfig::Level::DEBUG);
+        armor::debug() << "VisitFieldDecl : " << ValueNode->qualifiedName << "\n";
     } 
     else if (llvm::isa<clang::VarDecl>(Decl)) {
-        DebugConfig::instance().log("VisitVarDecl : " + ValueNode->qualifiedName, DebugConfig::Level::DEBUG);
+        armor::debug() << "VisitVarDecl : " << ValueNode->qualifiedName << "\n";
     } 
 
     AddNode(ValueNode);
@@ -178,7 +179,7 @@ bool alpha::TreeBuilder::BuildCXXRecordNode(clang::CXXRecordDecl* Decl) {
 
     cxxRecordNode->qualifiedName = qualifiedName;
 
-    DebugConfig::instance().log("VisitCxxRecordDecl : " + qualifiedName, DebugConfig::Level::DEBUG);
+    armor::debug() << "VisitCxxRecordDecl : " << qualifiedName << "\n";
 
     if( Decl->isStruct() ){
         cxxRecordNode->kind = NodeKind::Struct;
@@ -236,7 +237,7 @@ bool alpha::TreeBuilder::BuildEnumNode(clang::EnumDecl* Decl){
         enumNode->qualifiedName = GetCurrentQualifiedName();
     }
 
-    DebugConfig::instance().log("VisitEnumDecl: " + enumNode->qualifiedName, DebugConfig::Level::DEBUG);
+    armor::debug() << "VisitEnumDecl: " << enumNode->qualifiedName << "\n";
 
     enumNode->kind = NodeKind::Enum;
     enumNode->hash = generateHash(enumNode->qualifiedName, NodeKind::Enum);
@@ -286,7 +287,7 @@ bool alpha::TreeBuilder::BuildFunctionNode(clang::FunctionDecl* Decl){
     
     if(context->hashSet.contains(hash)){
         context->excludeNodes.insert(hash);
-        DebugConfig::instance().log("Excluding Function Overloads : " + qualifiedName, DebugConfig::Level::DEBUG);
+        armor::debug() << "Excluding Function Overloads : " << qualifiedName << "\n";
         PopName();
         return true;
     }
@@ -295,8 +296,9 @@ bool alpha::TreeBuilder::BuildFunctionNode(clang::FunctionDecl* Decl){
     functionNode->kind = NodeKind::Function;
     functionNode->hash = hash;
     functionNode->storage = getStorageClass(Decl->getStorageClass());
+    functionNode->isInclined = Decl->isInlined();
 
-    DebugConfig::instance().log("VisitFunctionDecl : " + functionNode->qualifiedName, DebugConfig::Level::DEBUG);
+    armor::debug() << "VisitFunctionDecl : " << functionNode->qualifiedName << "\n";
     context->hashSet.try_emplace(hash);
 
     AddNode(functionNode);

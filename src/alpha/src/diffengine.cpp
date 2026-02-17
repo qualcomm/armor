@@ -1,12 +1,11 @@
 // Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-3-Clause
-
 #include <iostream>
 #include <llvm/ADT/SmallVector.h>
 
 #include "diffengine.hpp"
 #include "diff_utils.hpp"
-#include "debug_config.hpp"
+#include "logger.hpp"
 
 using json = nlohmann::json;
 
@@ -103,6 +102,17 @@ namespace{
         json_node[TAG] = tag;
         return json_node;
     }
+
+    const json createHeaderResolutionFailures(const alpha::SourceRangeTracker& tracker) {
+        json failures = json::array();
+        for (const auto& directive : tracker.getFatalDirectives()) {
+            json failure;
+            failure["header"] = directive.Header;
+            failure["file"] = directive.File;
+            failures.emplace_back(failure);
+        }
+        return failures;
+    }
 }
 
 
@@ -189,19 +199,19 @@ json diffTrees(
     const alpha::ASTNormalizedContext* context2
 ) {
 
-    json diffs = json::array();
+    json astDiffs = json::array();
     llvm::StringMap<std::shared_ptr<const alpha::APINode>> tree1 = context1->getTree();
     llvm::StringMap<std::shared_ptr<const alpha::APINode>> tree2 = context2->getTree();
 
     for (auto const &rootNode1 : context1->getRootNodes()) {
 
         if(context1->excludeNodes.count(rootNode1->hash) || context2->excludeNodes.count(rootNode1->hash)){
-            DebugConfig::instance().log("Excluding : " + rootNode1->hash, DebugConfig::Level::INFO);
+            armor::info() << "Excluding : " << rootNode1->hash << "\n";
             continue;
         }
 
         if (tree2.find(rootNode1->hash) == tree2.end()) {
-            diffs.emplace_back(get_json_from_node(rootNode1, REMOVED));
+            astDiffs.emplace_back(get_json_from_node(rootNode1, REMOVED));
         }
         else {
             const std::shared_ptr<const alpha::APINode> rootNode2 = tree2.find(rootNode1->hash)->second;
@@ -212,9 +222,9 @@ json diffTrees(
             */
             if (!sameScopeDiff.is_null() && !sameScopeDiff.empty()){
                 if (sameScopeDiff.is_array()){
-                    diffs.insert(diffs.end(), sameScopeDiff.begin(), sameScopeDiff.end());
+                    astDiffs.insert(astDiffs.end(), sameScopeDiff.begin(), sameScopeDiff.end());
                 }
-                else diffs.emplace_back(sameScopeDiff);
+                else astDiffs.emplace_back(sameScopeDiff);
             }
         }
 
@@ -223,14 +233,34 @@ json diffTrees(
     for (const auto & rootNode2 : context2->getRootNodes()) {
 
         if(context1->excludeNodes.count(rootNode2->hash) || context2->excludeNodes.count(rootNode2->hash)){
-            DebugConfig::instance().log("Excluding : " + rootNode2->hash, DebugConfig::Level::INFO);
+            armor::info() << "Excluding : " << rootNode2->hash << "\n";
             continue;
         }
 
         if (tree1.find(rootNode2->hash) == tree1.end()) {
-            diffs.emplace_back(get_json_from_node(rootNode2, ADDED));
+            astDiffs.emplace_back(get_json_from_node(rootNode2, ADDED));
         }
     }
 
-    return diffs;
+    json report;
+    
+    report[PARSED_STATUS] = ParsedDiffStatus::FATAL_ERRORS;
+    report[UNPARSED_STATUS] = nullptr;
+
+    json headerFailures = json::array();
+    
+    json failures1 = createHeaderResolutionFailures(context1->getSourceRangeTracker());
+    if (!failures1.empty()) {
+        headerFailures.insert(headerFailures.end(), failures1.begin(), failures1.end());
+    }
+    
+    json failures2 = createHeaderResolutionFailures(context2->getSourceRangeTracker());
+    if (!failures2.empty()) {
+        headerFailures.insert(headerFailures.end(), failures2.begin(), failures2.end());
+    }
+    
+    report[HEADER_RESOLUTION_FAILURES] = headerFailures;
+    report[AST_DIFF] = astDiffs;
+    
+    return report;
 }

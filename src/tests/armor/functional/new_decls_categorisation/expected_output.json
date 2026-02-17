@@ -1,0 +1,574 @@
+{
+    "astDiff": [
+        {
+            "dataType": "struct alpha",
+            "nodeType": "Variable",
+            "qualifiedName": "c",
+            "tag": "added"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "int",
+                    "nodeType": "Field",
+                    "qualifiedName": "beta::a"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Field",
+                    "qualifiedName": "beta::b"
+                },
+                {
+                    "dataType": "struct alpha",
+                    "nodeType": "Field",
+                    "qualifiedName": "beta::c"
+                }
+            ],
+            "nodeType": "Struct",
+            "qualifiedName": "beta",
+            "tag": "added"
+        },
+        {
+            "dataType": "struct beta",
+            "nodeType": "Variable",
+            "qualifiedName": "beta_var",
+            "tag": "added"
+        },
+        {
+            "children": [
+                {
+                    "children": [
+                        {
+                            "children": [
+                                {
+                                    "dataType": "int",
+                                    "nodeType": "Parameter",
+                                    "qualifiedName": "ComplexCalculator::operation::1"
+                                },
+                                {
+                                    "dataType": "int",
+                                    "nodeType": "Parameter",
+                                    "qualifiedName": "ComplexCalculator::operation::2"
+                                },
+                                {
+                                    "dataType": "int",
+                                    "nodeType": "ReturnType",
+                                    "qualifiedName": "ComplexCalculator::operation::(ReturnType)"
+                                }
+                            ],
+                            "dataType": "*",
+                            "nodeType": "FunctionPointer",
+                            "qualifiedName": "ComplexCalculator::operation"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "ComplexCalculator::operation"
+                },
+                {
+                    "children": [
+                        {
+                            "children": [
+                                {
+                                    "dataType": "double",
+                                    "nodeType": "Field",
+                                    "qualifiedName": "ComplexCalculator::data::complex::real"
+                                },
+                                {
+                                    "dataType": "double",
+                                    "nodeType": "Field",
+                                    "qualifiedName": "ComplexCalculator::data::complex::imag"
+                                }
+                            ],
+                            "nodeType": "Struct",
+                            "qualifiedName": "ComplexCalculator::data::complex"
+                        },
+                        {
+                            "dataType": "struct (unnamed)",
+                            "nodeType": "Field",
+                            "qualifiedName": "ComplexCalculator::data::complex"
+                        },
+                        {
+                            "dataType": "long long",
+                            "nodeType": "Field",
+                            "qualifiedName": "ComplexCalculator::data::integer"
+                        }
+                    ],
+                    "nodeType": "Union",
+                    "qualifiedName": "ComplexCalculator::data"
+                },
+                {
+                    "dataType": "union (unnamed)",
+                    "nodeType": "Field",
+                    "qualifiedName": "ComplexCalculator::data"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "unsigned int",
+                            "nodeType": "Enumerator",
+                            "qualifiedName": "ComplexCalculator::op_type::ADD"
+                        },
+                        {
+                            "dataType": "unsigned int",
+                            "nodeType": "Enumerator",
+                            "qualifiedName": "ComplexCalculator::op_type::SUB"
+                        },
+                        {
+                            "dataType": "unsigned int",
+                            "nodeType": "Enumerator",
+                            "qualifiedName": "ComplexCalculator::op_type::MUL"
+                        },
+                        {
+                            "dataType": "unsigned int",
+                            "nodeType": "Enumerator",
+                            "qualifiedName": "ComplexCalculator::op_type::DIV"
+                        }
+                    ],
+                    "nodeType": "Enum",
+                    "qualifiedName": "ComplexCalculator::op_type"
+                },
+                {
+                    "dataType": "enum (unnamed)",
+                    "nodeType": "Field",
+                    "qualifiedName": "ComplexCalculator::op_type"
+                }
+            ],
+            "nodeType": "Struct",
+            "qualifiedName": "ComplexCalculator",
+            "tag": "added"
+        },
+        {
+            "dataType": "struct ComplexCalculator",
+            "nodeType": "Typedef",
+            "qualifiedName": "ComplexCalculator",
+            "tag": "added"
+        },
+        {
+            "children": [
+                {
+                    "children": [
+                        {
+                            "dataType": "unsigned int",
+                            "nodeType": "Enumerator",
+                            "qualifiedName": "OuterLevel::Status::ACTIVE"
+                        },
+                        {
+                            "dataType": "unsigned int",
+                            "nodeType": "Enumerator",
+                            "qualifiedName": "OuterLevel::Status::INACTIVE"
+                        },
+                        {
+                            "dataType": "unsigned int",
+                            "nodeType": "Enumerator",
+                            "qualifiedName": "OuterLevel::Status::PENDING"
+                        }
+                    ],
+                    "nodeType": "Enum",
+                    "qualifiedName": "OuterLevel::Status"
+                },
+                {
+                    "dataType": "enum Status",
+                    "nodeType": "Field",
+                    "qualifiedName": "OuterLevel::status"
+                },
+                {
+                    "children": [
+                        {
+                            "children": [
+                                {
+                                    "dataType": "int",
+                                    "nodeType": "Field",
+                                    "qualifiedName": "OuterLevel::MiddleLevel::DataType::int_val"
+                                },
+                                {
+                                    "dataType": "float",
+                                    "nodeType": "Field",
+                                    "qualifiedName": "OuterLevel::MiddleLevel::DataType::float_val"
+                                },
+                                {
+                                    "dataType": "char",
+                                    "nodeType": "Field",
+                                    "qualifiedName": "OuterLevel::MiddleLevel::DataType::char_val"
+                                }
+                            ],
+                            "nodeType": "Union",
+                            "qualifiedName": "OuterLevel::MiddleLevel::DataType"
+                        },
+                        {
+                            "dataType": "union DataType",
+                            "nodeType": "Field",
+                            "qualifiedName": "OuterLevel::MiddleLevel::data"
+                        },
+                        {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "dataType": "unsigned int",
+                                            "nodeType": "Enumerator",
+                                            "qualifiedName": "OuterLevel::MiddleLevel::InnerLevel::Priority::LOW"
+                                        },
+                                        {
+                                            "dataType": "unsigned int",
+                                            "nodeType": "Enumerator",
+                                            "qualifiedName": "OuterLevel::MiddleLevel::InnerLevel::Priority::MEDIUM"
+                                        },
+                                        {
+                                            "dataType": "unsigned int",
+                                            "nodeType": "Enumerator",
+                                            "qualifiedName": "OuterLevel::MiddleLevel::InnerLevel::Priority::HIGH"
+                                        }
+                                    ],
+                                    "nodeType": "Enum",
+                                    "qualifiedName": "OuterLevel::MiddleLevel::InnerLevel::Priority"
+                                },
+                                {
+                                    "dataType": "enum Priority",
+                                    "nodeType": "Field",
+                                    "qualifiedName": "OuterLevel::MiddleLevel::InnerLevel::priority"
+                                },
+                                {
+                                    "children": [
+                                        {
+                                            "children": [
+                                                {
+                                                    "dataType": "int",
+                                                    "nodeType": "Field",
+                                                    "qualifiedName": "OuterLevel::MiddleLevel::InnerLevel::payload::coordinates::x"
+                                                },
+                                                {
+                                                    "dataType": "int",
+                                                    "nodeType": "Field",
+                                                    "qualifiedName": "OuterLevel::MiddleLevel::InnerLevel::payload::coordinates::y"
+                                                },
+                                                {
+                                                    "dataType": "int",
+                                                    "nodeType": "Field",
+                                                    "qualifiedName": "OuterLevel::MiddleLevel::InnerLevel::payload::coordinates::z"
+                                                }
+                                            ],
+                                            "nodeType": "Struct",
+                                            "qualifiedName": "OuterLevel::MiddleLevel::InnerLevel::payload::coordinates"
+                                        },
+                                        {
+                                            "dataType": "struct (unnamed)",
+                                            "nodeType": "Field",
+                                            "qualifiedName": "OuterLevel::MiddleLevel::InnerLevel::payload::coordinates"
+                                        },
+                                        {
+                                            "dataType": "char[12]",
+                                            "nodeType": "Field",
+                                            "qualifiedName": "OuterLevel::MiddleLevel::InnerLevel::payload::buffer"
+                                        }
+                                    ],
+                                    "nodeType": "Union",
+                                    "qualifiedName": "OuterLevel::MiddleLevel::InnerLevel::payload"
+                                },
+                                {
+                                    "dataType": "union (unnamed)",
+                                    "nodeType": "Field",
+                                    "qualifiedName": "OuterLevel::MiddleLevel::InnerLevel::payload"
+                                },
+                                {
+                                    "dataType": "bool",
+                                    "nodeType": "Field",
+                                    "qualifiedName": "OuterLevel::MiddleLevel::InnerLevel::is_valid"
+                                },
+                                {
+                                    "dataType": "int",
+                                    "nodeType": "Field",
+                                    "qualifiedName": "OuterLevel::MiddleLevel::InnerLevel::counter"
+                                },
+                                {
+                                    "dataType": "double",
+                                    "nodeType": "Field",
+                                    "qualifiedName": "OuterLevel::MiddleLevel::InnerLevel::weight"
+                                },
+                                {
+                                    "dataType": "char[8]",
+                                    "nodeType": "Field",
+                                    "qualifiedName": "OuterLevel::MiddleLevel::InnerLevel::tag"
+                                }
+                            ],
+                            "nodeType": "Struct",
+                            "qualifiedName": "OuterLevel::MiddleLevel::InnerLevel"
+                        },
+                        {
+                            "dataType": "struct InnerLevel",
+                            "nodeType": "Field",
+                            "qualifiedName": "OuterLevel::MiddleLevel::inner"
+                        },
+                        {
+                            "dataType": "int",
+                            "nodeType": "Field",
+                            "qualifiedName": "OuterLevel::MiddleLevel::middle_id"
+                        },
+                        {
+                            "dataType": "float",
+                            "nodeType": "Field",
+                            "qualifiedName": "OuterLevel::MiddleLevel::scale"
+                        },
+                        {
+                            "dataType": "char[16]",
+                            "nodeType": "Field",
+                            "qualifiedName": "OuterLevel::MiddleLevel::name"
+                        },
+                        {
+                            "dataType": "bool",
+                            "nodeType": "Field",
+                            "qualifiedName": "OuterLevel::MiddleLevel::active"
+                        }
+                    ],
+                    "nodeType": "Struct",
+                    "qualifiedName": "OuterLevel::MiddleLevel"
+                },
+                {
+                    "dataType": "struct MiddleLevel",
+                    "nodeType": "Field",
+                    "qualifiedName": "OuterLevel::middle"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Field",
+                    "qualifiedName": "OuterLevel::outer_id"
+                },
+                {
+                    "dataType": "bool",
+                    "nodeType": "Field",
+                    "qualifiedName": "OuterLevel::enabled"
+                },
+                {
+                    "dataType": "double",
+                    "nodeType": "Field",
+                    "qualifiedName": "OuterLevel::version"
+                },
+                {
+                    "dataType": "char[32]",
+                    "nodeType": "Field",
+                    "qualifiedName": "OuterLevel::description"
+                }
+            ],
+            "nodeType": "Struct",
+            "qualifiedName": "OuterLevel",
+            "tag": "added"
+        },
+        {
+            "dataType": "struct OuterLevel",
+            "nodeType": "Variable",
+            "qualifiedName": "nested_instance",
+            "tag": "added"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "int",
+                    "nodeType": "Parameter",
+                    "qualifiedName": "calculate_sum::1"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Parameter",
+                    "qualifiedName": "calculate_sum::2"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Parameter",
+                    "qualifiedName": "calculate_sum::3"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "ReturnType",
+                    "qualifiedName": "calculate_sum::(ReturnType)"
+                }
+            ],
+            "nodeType": "Function",
+            "qualifiedName": "calculate_sum",
+            "tag": "added"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "const ComplexCalculator *",
+                    "nodeType": "Parameter",
+                    "qualifiedName": "process_data::1"
+                },
+                {
+                    "dataType": "double",
+                    "nodeType": "Parameter",
+                    "qualifiedName": "process_data::2"
+                },
+                {
+                    "dataType": "bool",
+                    "nodeType": "Parameter",
+                    "qualifiedName": "process_data::3"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Parameter",
+                    "qualifiedName": "process_data::4"
+                },
+                {
+                    "dataType": "double",
+                    "nodeType": "ReturnType",
+                    "qualifiedName": "process_data::(ReturnType)"
+                }
+            ],
+            "nodeType": "Function",
+            "qualifiedName": "process_data",
+            "tag": "added"
+        },
+        {
+            "dataType": "struct OuterLevel[3]",
+            "nodeType": "Variable",
+            "qualifiedName": "nested_array",
+            "tag": "added"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "int[5]",
+                    "nodeType": "Field",
+                    "qualifiedName": "ConfigData::values"
+                },
+                {
+                    "dataType": "double[2][2]",
+                    "nodeType": "Field",
+                    "qualifiedName": "ConfigData::matrix"
+                },
+                {
+                    "dataType": "char[32]",
+                    "nodeType": "Field",
+                    "qualifiedName": "ConfigData::text"
+                },
+                {
+                    "dataType": "bool[4]",
+                    "nodeType": "Field",
+                    "qualifiedName": "ConfigData::flags"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "int",
+                            "nodeType": "Field",
+                            "qualifiedName": "ConfigData::Point::x"
+                        },
+                        {
+                            "dataType": "int",
+                            "nodeType": "Field",
+                            "qualifiedName": "ConfigData::Point::y"
+                        },
+                        {
+                            "dataType": "char[8]",
+                            "nodeType": "Field",
+                            "qualifiedName": "ConfigData::Point::label"
+                        }
+                    ],
+                    "nodeType": "Struct",
+                    "qualifiedName": "ConfigData::Point"
+                },
+                {
+                    "dataType": "struct Point[2]",
+                    "nodeType": "Field",
+                    "qualifiedName": "ConfigData::points"
+                }
+            ],
+            "nodeType": "Struct",
+            "qualifiedName": "ConfigData",
+            "tag": "added"
+        },
+        {
+            "dataType": "struct ConfigData",
+            "nodeType": "Variable",
+            "qualifiedName": "config_instance",
+            "tag": "added"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "int",
+                    "nodeType": "Field",
+                    "qualifiedName": "MultiType::as_int"
+                },
+                {
+                    "dataType": "float",
+                    "nodeType": "Field",
+                    "qualifiedName": "MultiType::as_float"
+                },
+                {
+                    "dataType": "char[4]",
+                    "nodeType": "Field",
+                    "qualifiedName": "MultiType::as_chars"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "short",
+                            "nodeType": "Field",
+                            "qualifiedName": "MultiType::as_shorts::low"
+                        },
+                        {
+                            "dataType": "short",
+                            "nodeType": "Field",
+                            "qualifiedName": "MultiType::as_shorts::high"
+                        }
+                    ],
+                    "nodeType": "Struct",
+                    "qualifiedName": "MultiType::as_shorts"
+                },
+                {
+                    "dataType": "struct (unnamed)",
+                    "nodeType": "Field",
+                    "qualifiedName": "MultiType::as_shorts"
+                }
+            ],
+            "nodeType": "Union",
+            "qualifiedName": "MultiType",
+            "tag": "added"
+        },
+        {
+            "dataType": "union MultiType",
+            "nodeType": "Variable",
+            "qualifiedName": "multi1",
+            "tag": "added"
+        },
+        {
+            "dataType": "union MultiType",
+            "nodeType": "Variable",
+            "qualifiedName": "multi2",
+            "tag": "added"
+        },
+        {
+            "dataType": "union MultiType",
+            "nodeType": "Variable",
+            "qualifiedName": "multi3",
+            "tag": "added"
+        },
+        {
+            "dataType": "union MultiType",
+            "nodeType": "Variable",
+            "qualifiedName": "multi4",
+            "tag": "added"
+        },
+        {
+            "dataType": "struct OuterLevel",
+            "nodeType": "Variable",
+            "qualifiedName": "enhanced_nested",
+            "tag": "added"
+        },
+        {
+            "dataType": "struct beta[4]",
+            "nodeType": "Variable",
+            "qualifiedName": "beta_array",
+            "tag": "added"
+        },
+        {
+            "dataType": "int[3][4]",
+            "nodeType": "Variable",
+            "qualifiedName": "int_matrix",
+            "tag": "added"
+        }
+    ],
+    "headerResolutionFailures": [],
+    "parsed_status": 2,
+    "unparsed_status": 0
+}

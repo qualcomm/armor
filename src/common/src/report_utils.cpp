@@ -1,7 +1,5 @@
 // Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
-// SPDX-License-Identifier: BSD-3-Clause
-
-#include <iostream>
+// SPDX-License-Identifier: BSD-3-Clause#include <iostream>
 #include <sstream>
 #include <fstream>
 #include <string>
@@ -16,6 +14,7 @@
 #include "report_utils.hpp"
 #include "html_template.hpp"
 #include <nlohmann/json.hpp>
+#include "diff_utils.hpp"
 
 using json = nlohmann::json;
 
@@ -1132,16 +1131,23 @@ std::vector<json> preprocess_api_changes(const json& api_differences,
 
 void generate_html_report(const std::vector<json>& processed_data,
                           const std::string& output_html_path,
-                          PARSER parser
+                          PARSER parser,
+                          int parsed_status,
+                          int unparsed_status,
+                          const std::string& agg_compatibility,
+                          const char* overall_status,
+                          const char* reason
                         ) {
     std::ofstream html(output_html_path);
+    ParsedDiffStatus parsedStatus = static_cast<ParsedDiffStatus>(parsed_status);
+    UnParsedDiffStatus unParsedStatus = static_cast<UnParsedDiffStatus>(unparsed_status);
 
     if (processed_data.empty()) {
         html << "<h2 style=\"margin-bottom: 10px;\">ARMOR Report</h2>\n";
         html << "<table border=\"1\" style=\"border-collapse: collapse; width: 100%; background-color: #f2f2f2;\">\n";
         html << "  <tr>\n";
         html << "    <td style=\"text-align: center; padding: 10px;\">\n";
-        html << "      Skipping ARMOR report generation.<br>\n";
+        html << "      Skipping ARMOR report generation. Reason: " << reason << "<br>\n";
         html << "    </td>\n";
         html << "  </tr>\n";
         html << "</table>\n";
@@ -1169,6 +1175,12 @@ void generate_html_report(const std::vector<json>& processed_data,
             html << "<td> " << render_colored_compatibility(comp) << " </td>\n";
             html << "</tr>\n";
         }
+
+        html << "<div style='margin:12px 0;padding:10px;border:1px solid #ccc;"
+            "border-radius:5px;background:#fafafa;font-size:14px;'>\n";
+        html << "<b>Overall status:</b> " << overall_status << "<br/>\n";
+        html << "<b>Reason:</b> " << reason << "<br/>\n";
+        html << "</div>\n";
     }
 
     html << HTML_FOOTER;
@@ -1176,11 +1188,25 @@ void generate_html_report(const std::vector<json>& processed_data,
 }
 
 void generate_json_report(const std::vector<json>& processed_data,
-                          const std::string& output_json_path)
+                          const std::string& output_json_path,
+                          int parsed_status,
+                          int unparsed_status,
+                          const std::string& agg_compatibility,
+                          const char* overall_status,
+                          const char* reason)
 {
     if (output_json_path.empty()) return;
     std::ofstream jf(output_json_path);
+    ParsedDiffStatus parsedStatus = static_cast<ParsedDiffStatus>(parsed_status);
+    UnParsedDiffStatus unParsedStatus = static_cast<UnParsedDiffStatus>(unparsed_status);
     auto grouped = group_records_by_function(processed_data);
-    jf << json(grouped).dump(4);
+    json wrapper;
+    wrapper["api_diff"]       = grouped;
+    wrapper["parsed_status"]  = serialize(parsedStatus);
+    wrapper["unparsed_staus"] = serialize(unParsedStatus);
+    wrapper["compatibility"]  = agg_compatibility;
+    wrapper["overall_status"] = overall_status;
+    wrapper["reason"]         = reason; 
+    jf << wrapper.dump(4);
     jf.close();
 }

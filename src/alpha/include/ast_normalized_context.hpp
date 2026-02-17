@@ -4,8 +4,63 @@
 
 #include "node.hpp"
 #include "clang/AST/ASTContext.h"
+#include <llvm-14/llvm/ADT/SmallVector.h>
 #include <llvm-14/llvm/ADT/StringRef.h>
 #include <llvm-14/llvm/ADT/StringSet.h>
+
+namespace alpha{
+
+/**
+ * @class SourceRangeTracker
+ * @brief Tracks fatal preprocessor directives found during AST traversal.
+ *
+ * This class manages a collection of fatal directive references that need to be
+ * tracked for error reporting or analysis purposes.
+ */
+class SourceRangeTracker {
+    /**
+    * @struct FatalDirectiveRef
+    * @brief References to a fatal preprocessor directive and its source file.
+    */
+    struct FatalDirectiveRef {
+        std::string Header;  ///< The directive text (e.g., "#error message")
+        std::string File;    ///< The source file containing the directive
+        
+        FatalDirectiveRef(llvm::StringRef header, llvm::StringRef file) : Header(header), File(file) {}
+    };
+
+    public:
+    /**
+     * @brief Constructs an empty SourceRangeTracker.
+     */
+    SourceRangeTracker() = default;
+
+    /**
+     * @brief Adds a fatal directive reference.
+     * @param header The directive text.
+     * @param file The source file path.
+     */
+    void addFatalDirective(llvm::StringRef header, llvm::StringRef file);
+
+    /**
+     * @brief Returns all fatal directive references.
+     */
+    const llvm::SmallVector<FatalDirectiveRef,8>& getFatalDirectives() const;
+
+    /**
+     * @brief Clears all tracked fatal directives.
+     */
+    void clear();
+
+    /**
+     * @brief Checks if the tracker is empty.
+     * @return True if no fatal directives are tracked.
+     */
+    bool empty() const;
+
+private:
+    llvm::SmallVector<FatalDirectiveRef,8> fatalDirectives;
+};
 
 /**
  * @class ASTNormalizedContext
@@ -22,7 +77,6 @@
  *    "root" elements of the API (e.g., free functions, global variables, or
  *    classes in the global namespace).
  */
-namespace alpha{
 
 class ASTNormalizedContext {
 public:
@@ -75,6 +129,16 @@ public:
 
     clang::ASTContext* getClangASTContext() const;
 
+    /**
+     * @brief Returns a reference to the source range tracker.
+     */
+    SourceRangeTracker& getSourceRangeTracker();
+
+    /**
+     * @brief Returns a const reference to the source range tracker.
+     */
+    const SourceRangeTracker& getSourceRangeTracker() const;
+
     llvm::StringSet<> excludeNodes;
     llvm::StringSet<> hashSet;
 
@@ -82,6 +146,7 @@ private:
     llvm::StringMap<std::shared_ptr<const APINode>> apiNodesMap;
     llvm::SmallVector<std::shared_ptr<const APINode>,64> apiNodes;
 
+    SourceRangeTracker sourceRangeTracker;
     clang::ASTContext* clangContext;
 };
 

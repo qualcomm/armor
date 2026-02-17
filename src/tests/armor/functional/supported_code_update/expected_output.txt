@@ -1,0 +1,401 @@
+11404736249108278501
+// Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+----------------------------------------
+252520090170005577
+// SPDX-License-Identifier: BSD-3-Clause
+----------------------------------------
+803135326675231580
+// Simple enum for color representation
+----------------------------------------
+6684995377191777671
+// Struct representing a 2D point
+----------------------------------------
+3635422396069262930
+// Struct representing a rectangle
+----------------------------------------
+14684481660696568795
+// Namespace for geometry utilities
+----------------------------------------
+8984813718910255717
+// Enum for shape types
+----------------------------------------
+286668327273015921
+// Struct for circle properties
+----------------------------------------
+375287320763785414
+// Function to calculate area (declaration only)
+----------------------------------------
+10496814141519076176
+// Namespace for data structures
+----------------------------------------
+2106859167312954154
+// Class template for a simple container
+----------------------------------------
+1823481345393373549
+// Constructor
+----------------------------------------
+3032443231977765850
+// Get the stored value
+----------------------------------------
+7623621590907825050
+// Set a new value
+----------------------------------------
+15079667888435128751
+// Class template for a pair of values
+----------------------------------------
+1823481345393373549
+// Constructor
+----------------------------------------
+254015303485137981
+// Get first element
+----------------------------------------
+2816687659275708086
+// Get second element
+----------------------------------------
+9367028613479225646
+// Nested namespace example
+----------------------------------------
+18136191912714961971
+// Mathematical constants
+----------------------------------------
+14180107522150279011
+// Enum for mathematical operations
+----------------------------------------
+12662471115717599960
+// Global function declarations
+----------------------------------------
+6901770178673578204
+// MYLIB_H
+----------------------------------------
+NamespaceDecl
+255149993700079628
+namespace Geometry {
+    // Enum for shape types
+    enum ShapeType {
+        CIRCLE,
+        SQUARE,
+        TRIANGLE
+    };
+    
+    // Struct for circle properties
+    struct Circle {
+        struct Point center;
+        double radius;
+    };
+    
+    // Function to calculate area (declaration only)
+    double calculateArea(enum ShapeType type, double dimension);
+}
+----------------------------------------
+NamespaceDecl
+3733523463869372751
+namespace DataStructures {
+    // Class template for a simple container
+    template<typename T>
+    class Container {
+    public:
+        T value;
+        
+        // Constructor
+        Container(T val) : value(val) {}
+        
+        // Get the stored value
+        T getValue() const {
+            return value;
+        }
+        
+        // Set a new value
+        void setValue(T val) {
+            value = val;
+        }
+    };
+    
+    // Class template for a pair of values
+    template<typename T1, typename T2>
+    class Pair {
+    private:
+        T1 first;
+        T2 second;
+        
+    public:
+        // Constructor
+        Pair(T1 f, T2 s) : first(f), second(s) {}
+        
+        // Get first element
+        T1 getFirst() const { return first; }
+        
+        // Get second element
+        T2 getSecond() const { return second; }
+    };
+}
+----------------------------------------
+NamespaceDecl
+14919458381899508440
+namespace Math {
+    namespace Constants {
+        // Mathematical constants
+        const double PI = 3.14159265359;
+        const double E = 2.71828182846;
+    }
+    
+    // Enum for mathematical operations
+    enum Operation {
+        ADD,
+        SUBTRACT,
+        MULTIPLY,
+        DIVIDE
+    };
+}
+----------------------------------------
+14149454363135089577
+#ifndef MYLIB_H
+----------------------------------------
+15469631829536770432
+#define MYLIB_H
+----------------------------------------
+13425203279752416008
+#endif
+----------------------------------------
+11404736249108278501
+// Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+----------------------------------------
+252520090170005577
+// SPDX-License-Identifier: BSD-3-Clause
+----------------------------------------
+803135326675231580
+// Simple enum for color representation
+----------------------------------------
+15244275484275291308
+// new comments
+----------------------------------------
+6684995377191777671
+// Struct representing a 2D point
+----------------------------------------
+3635422396069262930
+// Struct representing a rectangle
+----------------------------------------
+14684481660696568795
+// Namespace for geometry utilities
+----------------------------------------
+8984813718910255717
+// Enum for shape types
+----------------------------------------
+286668327273015921
+// Struct for circle properties
+----------------------------------------
+375287320763785414
+// Function to calculate area (declaration only)
+----------------------------------------
+10496814141519076176
+// Namespace for data structures
+----------------------------------------
+2106859167312954154
+// Class template for a simple container
+----------------------------------------
+1823481345393373549
+// Constructor
+----------------------------------------
+3032443231977765850
+// Get the stored value
+----------------------------------------
+7623621590907825050
+// Set a new value
+----------------------------------------
+15832038296875121342
+// may be use a tmp var
+----------------------------------------
+15079667888435128751
+// Class template for a pair of values
+----------------------------------------
+3114996854846868366
+// Constructor new
+----------------------------------------
+254015303485137981
+// Get first element
+----------------------------------------
+2816687659275708086
+// Get second element
+----------------------------------------
+9367028613479225646
+// Nested namespace example
+----------------------------------------
+18136191912714961971
+// Mathematical constants
+----------------------------------------
+14180107522150279011
+// Enum for mathematical operations
+----------------------------------------
+12662471115717599960
+// Global function declarations
+----------------------------------------
+6901770178673578204
+// MYLIB_H
+----------------------------------------
+NamespaceDecl
+255149993700079628
+namespace Geometry {
+    // Enum for shape types
+    enum ShapeType {
+        CIRCLE,
+        SQUARE,
+        TRIANGLE
+    };
+    
+    // Struct for circle properties
+    struct Circle {
+        struct Point center;
+        double radius;
+    };
+    
+    // Function to calculate area (declaration only)
+    double calculateArea(enum ShapeType type, double dimension);
+}
+----------------------------------------
+NamespaceDecl
+3733523463869372751
+namespace DataStructures {
+    // Class template for a simple container
+    template<typename T>
+    class Container {
+    public:
+        T value;
+        
+        // Constructor
+        Container(T val) : value(val) {}
+        
+        // Get the stored value
+        T getValue() const {
+            return value;
+        }
+        
+        // Set a new value
+        void setValue(T val) {
+            value = val;
+            // may be use a tmp var
+        }
+    };
+    
+    // Class template for a pair of values
+    template<typename T1, typename T2>
+    class Pair {
+    private:
+        T1 first;
+
+
+        T2 second;
+        
+    public:
+        // Constructor new
+        Pair(T1 f,          T2 s) : first(f), second(s) {}
+        
+        // Get first element
+        T1 getFirst() const { return first; }
+        
+        // Get second element
+        T2 getSecond() const { return second; }
+    };
+}
+----------------------------------------
+NamespaceDecl
+14919458381899508440
+namespace Math {
+    namespace Constants {
+        // Mathematical constants
+        const double PI = 3.14159265359;
+
+
+        const double E = 2.71828182846;
+    }
+    
+    // Enum for mathematical operations
+    enum Operation {
+        ADD,SUBTRACT,MULTIPLY,DIVIDE
+    };
+}
+----------------------------------------
+14149454363135089577
+#ifndef MYLIB_H
+----------------------------------------
+15469631829536770432
+#define MYLIB_H
+----------------------------------------
+13425203279752416008
+#endif
+----------------------------------------
+
+############ CONTEXT 1 MAPS ############
+comments1
+1823481345393373549  : 2
+3032443231977765850  : 1
+6684995377191777671  : 1
+7623621590907825050  : 1
+15079667888435128751  : 1
+803135326675231580  : 1
+252520090170005577  : 1
+2816687659275708086  : 1
+14180107522150279011  : 1
+10496814141519076176  : 1
+254015303485137981  : 1
+2106859167312954154  : 1
+286668327273015921  : 1
+6901770178673578204  : 1
+11404736249108278501  : 1
+3635422396069262930  : 1
+8984813718910255717  : 1
+375287320763785414  : 1
+18136191912714961971  : 1
+9367028613479225646  : 1
+14684481660696568795  : 1
+12662471115717599960  : 1
+----------------------------------------
+unhandledDecls1
+15469631829536770432  : 1
+13425203279752416008  : 1
+3733523463869372751  : 1
+14149454363135089577  : 1
+14919458381899508440  : 1
+255149993700079628  : 1
+----------------------------------------
+inactiveUnhandledDecls1
+(empty)
+----------------------------------------
+
+############ CONTEXT 2 MAPS ############
+comments2
+1823481345393373549  : 1
+3032443231977765850  : 1
+6684995377191777671  : 1
+7623621590907825050  : 1
+3114996854846868366  : 1
+15079667888435128751  : 1
+803135326675231580  : 1
+252520090170005577  : 1
+2816687659275708086  : 1
+14180107522150279011  : 1
+10496814141519076176  : 1
+254015303485137981  : 1
+2106859167312954154  : 1
+286668327273015921  : 1
+6901770178673578204  : 1
+11404736249108278501  : 1
+3635422396069262930  : 1
+15244275484275291308  : 1
+375287320763785414  : 1
+8984813718910255717  : 1
+18136191912714961971  : 1
+9367028613479225646  : 1
+14684481660696568795  : 1
+15832038296875121342  : 1
+12662471115717599960  : 1
+----------------------------------------
+unhandledDecls2
+15469631829536770432  : 1
+13425203279752416008  : 1
+3733523463869372751  : 1
+14149454363135089577  : 1
+14919458381899508440  : 1
+255149993700079628  : 1
+----------------------------------------
+inactiveUnhandledDecls2
+(empty)
+----------------------------------------

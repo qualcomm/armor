@@ -1,6 +1,5 @@
 # Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
 # SPDX-License-Identifier: BSD-3-Clause
-
 import os
 import pytest
 
@@ -30,3 +29,12 @@ def binary_args(request):
     prj_root1 = os.path.join(curr_dir, "v1")
     prj_root2 = os.path.join(curr_dir, "v2")
     return [prj_root1, prj_root2, "mylib.h", "--dump-ast-diff", "-r", "json"]
+
+@pytest.fixture
+def dependent_binary_args(request):
+    """Returns the arguments for the binary with debug and JSON output enabled."""
+    curr_dir = os.path.dirname(request.fspath)
+    prj_root1 = os.path.join(curr_dir, "v1")
+    prj_root2 = os.path.join(curr_dir, "v2")
+    return [prj_root1, prj_root2, "mylib.h","-Iinclude", "--dump-ast-diff", "-r", "json"]
+

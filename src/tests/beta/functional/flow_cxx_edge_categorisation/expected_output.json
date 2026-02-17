@@ -1,0 +1,96 @@
+{
+    "astDiff": [
+        {
+            "dataType": "class (lambda)",
+            "nodeType": "Variable",
+            "qualifiedName": "complex_processor",
+            "tag": "removed"
+        },
+        {
+            "dataType": "class ComplexNumber",
+            "nodeType": "Variable",
+            "qualifiedName": "complex_unit_i",
+            "tag": "removed"
+        },
+        {
+            "dataType": "class ComplexNumber",
+            "nodeType": "Variable",
+            "qualifiedName": "complex_golden_ratio",
+            "tag": "removed"
+        },
+        {
+            "dataType": "class ComplexNumber",
+            "nodeType": "Variable",
+            "qualifiedName": "complex_euler",
+            "tag": "removed"
+        },
+        {
+            "dataType": "int",
+            "nodeType": "Variable",
+            "qualifiedName": "specialized_int_default",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "int",
+                    "nodeType": "Field",
+                    "qualifiedName": "NestedConfig::priority"
+                },
+                {
+                    "dataType": "std::string",
+                    "nodeType": "Field",
+                    "qualifiedName": "NestedConfig::name"
+                },
+                {
+                    "dataType": "std::vector<double>",
+                    "nodeType": "Field",
+                    "qualifiedName": "NestedConfig::weights"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "NestedConfig::NestedConfig::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "NestedConfig::NestedConfig"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "int",
+                            "nodeType": "Parameter",
+                            "qualifiedName": "NestedConfig::NestedConfig::1"
+                        },
+                        {
+                            "dataType": "const std::string &",
+                            "nodeType": "Parameter",
+                            "qualifiedName": "NestedConfig::NestedConfig::2"
+                        },
+                        {
+                            "dataType": "std::vector<double>",
+                            "nodeType": "Parameter",
+                            "qualifiedName": "NestedConfig::NestedConfig::3"
+                        },
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "NestedConfig::NestedConfig::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "NestedConfig::NestedConfig"
+                }
+            ],
+            "nodeType": "Struct",
+            "qualifiedName": "NestedConfig",
+            "tag": "removed"
+        }
+    ],
+    "headerResolutionFailures": [],
+    "parsed_status": 1,
+    "unparsed_status": 0
+}

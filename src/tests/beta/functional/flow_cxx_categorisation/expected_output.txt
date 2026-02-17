@@ -1,0 +1,1628 @@
+11404736249108278501
+// Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+----------------------------------------
+252520090170005577
+// SPDX-License-Identifier: BSD-3-Clause
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+14336058393566664487
+// FORWARD DECLARATIONS
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+17863271403084006170
+// ENUMERATIONS
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+3787053326282024244
+// STRUCTURES
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+17506190268434189631
+// UNIONS
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+14091779003214382246
+// CLASSES WITH NESTED TYPES (FORWARD DECLARED)
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+14225539755409135859
+// Nested type definitions (outside class)
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+5744387925327490033
+// TEMPLATE CLASS WITH NESTED TYPES
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+4920529980274260574
+// MULTI-TEMPLATE CLASS WITH NESTED TYPES
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+1596591299096568638
+// STRUCT WITH NESTED TYPES
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+3153398168972439127
+// TEMPLATE STRUCT WITH NESTED TYPES
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+17997412378826455278
+// NAMESPACE WITH NESTED STRUCTURES
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+15370486269277432479
+// CLASS WITH OUT-OF-CLASS METHOD DEFINITIONS
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+7903741933333539097
+// NAMESPACE WITH DATA STRUCTURES
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+15949830143076403997
+// INHERITANCE EXAMPLE
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+2337998019136394874
+// TEMPLATE CLASSES
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+11389380411054211166
+// ADVANCED TEMPLATES
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+15032593263116162550
+// Variadic template
+----------------------------------------
+8605818612656676144
+// Template specialization
+----------------------------------------
+2286052694806746155
+// SFINAE
+----------------------------------------
+15909023474490578883
+// Template metaprogramming
+----------------------------------------
+1305687439994412240
+// Type traits
+----------------------------------------
+374908280617499441
+// Variadic type operations
+----------------------------------------
+8767325733329281094
+// Tuple implementation
+----------------------------------------
+11899583338227460361
+// Template with fixed size
+----------------------------------------
+2479961630764505820
+// Policy-based design
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+9330476098853646962
+// COMPLEX NESTED CLASS
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+4501360319196648518
+// MEGA COMPLEX TEMPLATE
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+12553437074722132967
+// NAMESPACE WITH DEEP NESTING
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+8159292229627760475
+// OUT-OF-CLASS METHOD DEFINITIONS
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+11975606739239108562
+// Static member initialization
+----------------------------------------
+11923386408649115825
+// LIB_H
+----------------------------------------
+CXXRecordNode
+4805977141514113120
+class Vehicle
+----------------------------------------
+CXXRecordNode
+4805977141514113120
+class Engine
+----------------------------------------
+ClassTemplateDecl
+12605193343577708732
+template<typename T> class Node
+----------------------------------------
+CXXRecordNode
+4805977141514113120
+class Node
+----------------------------------------
+ClassTemplateDecl
+566626905490260478
+template<typename T, typename U> class Graph
+----------------------------------------
+CXXRecordNode
+4805977141514113120
+class Graph
+----------------------------------------
+EnumConst
+LogLevel:DEBUG
+Get the actual end location (after the last token) startOffset == endOffset 
+12700262454154676125
+0
+----------------------------------------
+EnumConst
+LogLevel:INFO
+Get the actual end location (after the last token) startOffset == endOffset 
+7982595519259482736
+1
+----------------------------------------
+EnumConst
+LogLevel:ERROR
+Get the actual end location (after the last token) startOffset == endOffset 
+12353599670573947936
+2
+----------------------------------------
+EnumConst
+FilePermission:READ
+8871978419713980565
+1 << 0
+----------------------------------------
+EnumConst
+FilePermission:WRITE
+8871978419713980565
+1 << 1
+----------------------------------------
+EnumConst
+FilePermission:EXECUTE
+8871978419713980565
+1 << 2
+----------------------------------------
+EnumConst
+NetworkProtocol:TCP
+Get the actual end location (after the last token) startOffset == endOffset 
+12700262454154676125
+0
+----------------------------------------
+EnumConst
+NetworkProtocol:UDP
+Get the actual end location (after the last token) startOffset == endOffset 
+7982595519259482736
+1
+----------------------------------------
+EnumConst
+NetworkProtocol:HTTP
+Get the actual end location (after the last token) startOffset == endOffset 
+12353599670573947936
+2
+----------------------------------------
+Function Body
+Point2D
+15521860531219160998
+{}
+----------------------------------------
+Function Body
+Point2D
+15521860531219160998
+{}
+----------------------------------------
+Function Body
+distance
+3769084908470295571
+{ return std::sqrt(x * x + y * y); }
+----------------------------------------
+Function Body
+Vertex
+15521860531219160998
+{}
+----------------------------------------
+Function Body
+Data
+15521860531219160998
+{}
+----------------------------------------
+CXXRecordNode
+5466970749997733898
+class Vehicle {
+public:
+    struct Specifications;
+    enum class FuelType;
+    union EngineData;
+    template<typename T> class Component;
+    
+    Vehicle();
+    ~Vehicle();
+    void start();
+    double getSpeed() const;
+    template<typename T> void addComponent(const T& component);
+    static int getVehicleCount();
+    
+private:
+    std::string make;
+    double speed;
+    static int vehicleCount;
+}
+----------------------------------------
+CXXRecordNode
+1662023011201209125
+struct Vehicle::Specifications {
+    int year;
+    double engineSize;
+    typedef int a;
+    Specifications() : year(2020), engineSize(2.0) {}
+    union alpha{
+        int a;
+        alpha() {}
+    };
+}
+----------------------------------------
+EnumNode
+1755532596729387813
+enum class Vehicle::FuelType { GASOLINE, DIESEL, ELECTRIC }
+----------------------------------------
+CXXRecordNode
+5157359261923726028
+union Vehicle::EngineData {
+    int cylinderCount;
+    double batteryCapacity;
+    EngineData() : cylinderCount(4) {}
+}
+----------------------------------------
+ClassTemplateDecl
+6076429139862439662
+template<typename T>
+class Vehicle::Component {
+private:
+    T data;
+public:
+    Component() : data(T()) {}
+    T getData() const { return data; }
+}
+----------------------------------------
+CXXRecordNode
+13886175796610652808
+class Vehicle::Component {
+private:
+    T data;
+public:
+    Component() : data(T()) {}
+    T getData() const { return data; }
+}
+----------------------------------------
+ClassTemplateDecl
+7285016815956655565
+template<typename T>
+class Node {
+public:
+    struct NodeData;
+    enum class NodeType;
+    template<typename U> class ChildNode;
+    
+    Node();
+    T getValue() const;
+    
+private:
+    T value;
+    NodeType type;
+}
+----------------------------------------
+CXXRecordNode
+9366796490153803119
+class Node {
+public:
+    struct NodeData;
+    enum class NodeType;
+    template<typename U> class ChildNode;
+    
+    Node();
+    T getValue() const;
+    
+private:
+    T value;
+    NodeType type;
+}
+----------------------------------------
+CXXRecordNode
+3957989481460979414
+template<typename T>
+struct Node<T>::NodeData {
+    T data;
+    int depth;
+    NodeData() : depth(0) {}
+}
+----------------------------------------
+EnumNode
+2728159439989684256
+template<typename T>
+enum class Node<T>::NodeType { LEAF, INTERNAL, ROOT }
+----------------------------------------
+ClassTemplateDecl
+13384612219158656455
+template<typename U>
+class Node<T>::ChildNode {
+private:
+    T parentValue;
+    U childValue;
+public:
+    ChildNode() : parentValue(T()), childValue(U()) {}
+    T getParentValue() const { return parentValue; }
+}
+----------------------------------------
+CXXRecordNode
+5973506787581904235
+template<typename T>
+template<typename U>
+class Node<T>::ChildNode {
+private:
+    T parentValue;
+    U childValue;
+public:
+    ChildNode() : parentValue(T()), childValue(U()) {}
+    T getParentValue() const { return parentValue; }
+}
+----------------------------------------
+ClassTemplateDecl
+10961581202184407110
+template<typename T, typename U>
+class Graph {
+public:
+    struct GraphNode;
+    enum class TraversalType;
+    template<typename V> class Iterator;
+    
+    Graph();
+    void addNode(const T& nodeData);
+    
+private:
+    std::vector<GraphNode> nodes;
+}
+----------------------------------------
+CXXRecordNode
+6598808393822532163
+class Graph {
+public:
+    struct GraphNode;
+    enum class TraversalType;
+    template<typename V> class Iterator;
+    
+    Graph();
+    void addNode(const T& nodeData);
+    
+private:
+    std::vector<GraphNode> nodes;
+}
+----------------------------------------
+CXXRecordNode
+4788215030051697914
+template<typename T, typename U>
+struct Graph<T, U>::GraphNode {
+    T data;
+    int id;
+    GraphNode() : id(0) {}
+}
+----------------------------------------
+EnumNode
+8029491364763910765
+template<typename T, typename U>
+enum class Graph<T, U>::TraversalType { DEPTH_FIRST, BREADTH_FIRST }
+----------------------------------------
+ClassTemplateDecl
+7216027314288406637
+template<typename V>
+class Graph<T, U>::Iterator {
+private:
+    V* current;
+public:
+    Iterator() : current(nullptr) {}
+    V& operator*() { return *current; }
+}
+----------------------------------------
+CXXRecordNode
+12502259549525083937
+template<typename T, typename U>
+template<typename V>
+class Graph<T, U>::Iterator {
+private:
+    V* current;
+public:
+    Iterator() : current(nullptr) {}
+    V& operator*() { return *current; }
+}
+----------------------------------------
+Function Body
+Inner
+15521860531219160998
+{}
+----------------------------------------
+ClassTemplateDecl
+8018770162286268177
+template<typename T>
+    struct Container {
+        T data;
+        Container() : data(T()) {}
+    }
+----------------------------------------
+CXXRecordNode
+12444467055950197366
+struct Container {
+        T data;
+        Container() : data(T()) {}
+    }
+----------------------------------------
+Function Body
+Storage
+15521860531219160998
+{}
+----------------------------------------
+Function Body
+ComplexStructure
+15521860531219160998
+{}
+----------------------------------------
+ClassTemplateDecl
+12460078231673326868
+template<typename T>
+struct TemplateStructure {
+    enum class State { INITIALIZED, PROCESSING };
+    
+    struct Metadata {
+        int version;
+        Metadata() : version(1) {}
+    };
+    
+    template<typename U>
+    struct Pair {
+        T first;
+        U second;
+        Pair() : first(T()), second(U()) {}
+    };
+    
+    T data;
+    State state;
+    TemplateStructure() : state(State::INITIALIZED) {}
+}
+----------------------------------------
+CXXRecordNode
+14660461255391643157
+struct TemplateStructure {
+    enum class State { INITIALIZED, PROCESSING };
+    
+    struct Metadata {
+        int version;
+        Metadata() : version(1) {}
+    };
+    
+    template<typename U>
+    struct Pair {
+        T first;
+        U second;
+        Pair() : first(T()), second(U()) {}
+    };
+    
+    T data;
+    State state;
+    TemplateStructure() : state(State::INITIALIZED) {}
+}
+----------------------------------------
+NamespaceDecl
+8865927588136652071
+namespace Network {
+    class Connection;
+    enum class Protocol;
+    
+    class Connection {
+    public:
+        struct ConnectionInfo;
+        enum class ConnectionState;
+        template<typename T> class Buffer;
+        
+        Connection();
+        void open();
+        
+    private:
+        ConnectionState state;
+    };
+    
+    struct Connection::ConnectionInfo {
+        std::string host;
+        int port;
+        ConnectionInfo() : port(0) {}
+    };
+    
+    enum class Connection::ConnectionState { CLOSED, OPEN };
+    
+    template<typename T>
+    class Connection::Buffer {
+    private:
+        std::vector<T> data;
+    public:
+        Buffer() {}
+        void push(const T& item) { data.push_back(item); }
+    };
+    
+    enum class Protocol { TCP, UDP };
+    
+    template<typename T>
+    class Message {
+    public:
+        struct Header {
+            int messageId;
+            Header() : messageId(0) {}
+        };
+        
+        enum class Priority { LOW, HIGH };
+        
+        Message() : priority(Priority::LOW) {}
+        
+    private:
+        Header header;
+        T payload;
+        Priority priority;
+    };
+}
+----------------------------------------
+CXXRecordNode
+17352412395974784874
+class Engine {
+public:
+    struct EngineSpecs;
+    enum class EngineType;
+    
+    Engine();
+    void start();
+    int getRPM() const;
+    template<typename T> T calculateEfficiency(T fuel, T distance);
+    static EngineType getDefaultType();
+    
+private:
+    EngineType type;
+    int rpm;
+    void updateTemperature();
+}
+----------------------------------------
+CXXRecordNode
+1695758379726889624
+struct Engine::EngineSpecs {
+    double displacement;
+    EngineSpecs() : displacement(2.0) {}
+}
+----------------------------------------
+EnumNode
+9880407378149936682
+enum class Engine::EngineType { INLINE, V_TYPE, ELECTRIC }
+----------------------------------------
+NamespaceDecl
+703687659449626669
+namespace DataStructures {
+    template<typename T>
+    class Stack {
+    private:
+        std::vector<T> elements;
+    public:
+        void push(const T& element) { elements.push_back(element); }
+        void pop() { if (!elements.empty()) elements.pop_back(); }
+        bool empty() const { return elements.empty(); }
+    };
+    
+    template<typename T>
+    struct TreeNode {
+        T data;
+        std::shared_ptr<TreeNode<T>> left, right;
+        TreeNode(const T& value) : data(value), left(nullptr), right(nullptr) {}
+    };
+}
+----------------------------------------
+CXXRecordNode
+4752384078882383325
+class Shape {
+protected:
+    Color color;
+public:
+    Shape(Color c = Color::RED) : color(c) {}
+    virtual ~Shape() = default;
+    virtual double area() const = 0;
+    virtual void draw() const = 0;
+}
+----------------------------------------
+CXXRecordNode
+4806512532351133258
+class Circle : public Shape {
+private:
+    double radius;
+public:
+    Circle(double r) : Shape(), radius(r) {}
+    double area() const override { return 3.14159 * radius * radius; }
+    void draw() const override { std::cout << "Circle\n"; }
+}
+----------------------------------------
+ClassTemplateDecl
+18211485728558967942
+template<typename T1, typename T2>
+class Pair {
+private:
+    T1 first;
+    T2 second;
+public:
+    Pair() : first(T1()), second(T2()) {}
+    T1 getFirst() const { return first; }
+    bool operator==(const Pair<T1, T2>& other) const {
+        return first == other.first && second == other.second;
+    }
+}
+----------------------------------------
+CXXRecordNode
+9391020816398465494
+class Pair {
+private:
+    T1 first;
+    T2 second;
+public:
+    Pair() : first(T1()), second(T2()) {}
+    T1 getFirst() const { return first; }
+    bool operator==(const Pair<T1, T2>& other) const {
+        return first == other.first && second == other.second;
+    }
+}
+----------------------------------------
+ClassTemplateDecl
+3150790209381805238
+template<typename T>
+class Container {
+private:
+    std::vector<T> items;
+public:
+    void add(const T& item) { items.push_back(item); }
+    size_t size() const { return items.size(); }
+    typename std::vector<T>::iterator begin() { return items.begin(); }
+}
+----------------------------------------
+CXXRecordNode
+7907080855383626731
+class Container {
+private:
+    std::vector<T> items;
+public:
+    void add(const T& item) { items.push_back(item); }
+    size_t size() const { return items.size(); }
+    typename std::vector<T>::iterator begin() { return items.begin(); }
+}
+----------------------------------------
+FunctionTemplateDecl
+3329847226039882490
+template<typename T>
+T sum(T value) { return value; }
+----------------------------------------
+FunctionNode
+3753469723839970776
+T sum(T value) { return value; }
+----------------------------------------
+FunctionTemplateDecl
+9271550913951296238
+template<typename T, typename... Args>
+T sum(T first, Args... args) { return first + sum(args...); }
+----------------------------------------
+FunctionNode
+15941537904032972569
+T sum(T first, Args... args) { return first + sum(args...); }
+----------------------------------------
+ClassTemplateDecl
+13586652358942762296
+template<typename T>
+class TypeInfo {
+public:
+    static std::string name() { return "Unknown"; }
+}
+----------------------------------------
+CXXRecordNode
+7025845076918227581
+class TypeInfo {
+public:
+    static std::string name() { return "Unknown"; }
+}
+----------------------------------------
+CXXRecordNode
+16865670814356677914
+template<>
+class TypeInfo<int> {
+public:
+    static std::string name() { return "Integer"; }
+}
+----------------------------------------
+ClassTemplateSpecializationDecl
+16865670814356677914
+template<>
+class TypeInfo<int> {
+public:
+    static std::string name() { return "Integer"; }
+}
+----------------------------------------
+FunctionTemplateDecl
+13486445521944954046
+template<typename T>
+typename std::enable_if<std::is_integral<T>::value, bool>::type
+isEven(T value) { return value % 2 == 0; }
+----------------------------------------
+FunctionNode
+5422750735869062046
+typename std::enable_if<std::is_integral<T>::value, bool>::type
+isEven(T value) { return value % 2 == 0; }
+----------------------------------------
+ClassTemplateDecl
+12016066257162099732
+template<int N>
+struct Factorial {
+    static constexpr int value = N * Factorial<N - 1>::value;
+}
+----------------------------------------
+CXXRecordNode
+13177679859764303904
+struct Factorial {
+    static constexpr int value = N * Factorial<N - 1>::value;
+}
+----------------------------------------
+CXXRecordNode
+7367341230545235866
+template<>
+struct Factorial<0> {
+    static constexpr int value = 1;
+}
+----------------------------------------
+ClassTemplateSpecializationDecl
+7367341230545235866
+template<>
+struct Factorial<0> {
+    static constexpr int value = 1;
+}
+----------------------------------------
+ClassTemplateDecl
+16191982836713489129
+template<typename T>
+struct is_pointer { static constexpr bool value = false; }
+----------------------------------------
+CXXRecordNode
+17247214114941656467
+struct is_pointer { static constexpr bool value = false; }
+----------------------------------------
+CXXRecordNode
+6257566355350002226
+template<typename T>
+struct is_pointer<T*> { static constexpr bool value = true; }
+----------------------------------------
+ClassTemplateSpecializationDecl
+6257566355350002226
+template<typename T>
+struct is_pointer<T*> { static constexpr bool value = true; }
+----------------------------------------
+ClassTemplatePartialSpecializationDecl
+6257566355350002226
+template<typename T>
+struct is_pointer<T*> { static constexpr bool value = true; }
+----------------------------------------
+ClassTemplateDecl
+9648133922898168407
+template<typename T>
+struct remove_const { using type = T; }
+----------------------------------------
+CXXRecordNode
+1904438604654863150
+struct remove_const { using type = T; }
+----------------------------------------
+CXXRecordNode
+15345377261469055482
+template<typename T>
+struct remove_const<const T> { using type = T; }
+----------------------------------------
+ClassTemplateSpecializationDecl
+15345377261469055482
+template<typename T>
+struct remove_const<const T> { using type = T; }
+----------------------------------------
+ClassTemplatePartialSpecializationDecl
+15345377261469055482
+template<typename T>
+struct remove_const<const T> { using type = T; }
+----------------------------------------
+ClassTemplateDecl
+13171510886334721642
+template<typename... Args>
+struct count_args { static constexpr size_t value = sizeof...(Args); }
+----------------------------------------
+CXXRecordNode
+17476549899374261684
+struct count_args { static constexpr size_t value = sizeof...(Args); }
+----------------------------------------
+ClassTemplateDecl
+9406353967973437750
+template<size_t Index, typename... Types>
+struct type_at
+----------------------------------------
+CXXRecordNode
+17997269513964955839
+struct type_at
+----------------------------------------
+CXXRecordNode
+18356285648718400999
+template<typename First, typename... Rest>
+struct type_at<0, First, Rest...> { using type = First; }
+----------------------------------------
+ClassTemplateSpecializationDecl
+18356285648718400999
+template<typename First, typename... Rest>
+struct type_at<0, First, Rest...> { using type = First; }
+----------------------------------------
+ClassTemplatePartialSpecializationDecl
+18356285648718400999
+template<typename First, typename... Rest>
+struct type_at<0, First, Rest...> { using type = First; }
+----------------------------------------
+CXXRecordNode
+479752941996137151
+template<size_t Index, typename First, typename... Rest>
+struct type_at<Index, First, Rest...> {
+    using type = typename type_at<Index - 1, Rest...>::type;
+}
+----------------------------------------
+ClassTemplateSpecializationDecl
+479752941996137151
+template<size_t Index, typename First, typename... Rest>
+struct type_at<Index, First, Rest...> {
+    using type = typename type_at<Index - 1, Rest...>::type;
+}
+----------------------------------------
+ClassTemplatePartialSpecializationDecl
+479752941996137151
+template<size_t Index, typename First, typename... Rest>
+struct type_at<Index, First, Rest...> {
+    using type = typename type_at<Index - 1, Rest...>::type;
+}
+----------------------------------------
+ClassTemplateDecl
+3175101581008599867
+template<typename... Types>
+class Tuple
+----------------------------------------
+CXXRecordNode
+4805977141514113120
+class Tuple
+----------------------------------------
+CXXRecordNode
+5235906769332250738
+template<>
+class Tuple<> {
+public:
+    Tuple() {}
+}
+----------------------------------------
+ClassTemplateSpecializationDecl
+5235906769332250738
+template<>
+class Tuple<> {
+public:
+    Tuple() {}
+}
+----------------------------------------
+CXXRecordNode
+5272397575218490784
+template<typename Head, typename... Tail>
+class Tuple<Head, Tail...> : private Tuple<Tail...> {
+private:
+    Head head;
+public:
+    Tuple() : head(), Tuple<Tail...>() {}
+    Head& getHead() { return head; }
+}
+----------------------------------------
+ClassTemplateSpecializationDecl
+5272397575218490784
+template<typename Head, typename... Tail>
+class Tuple<Head, Tail...> : private Tuple<Tail...> {
+private:
+    Head head;
+public:
+    Tuple() : head(), Tuple<Tail...>() {}
+    Head& getHead() { return head; }
+}
+----------------------------------------
+ClassTemplatePartialSpecializationDecl
+5272397575218490784
+template<typename Head, typename... Tail>
+class Tuple<Head, Tail...> : private Tuple<Tail...> {
+private:
+    Head head;
+public:
+    Tuple() : head(), Tuple<Tail...>() {}
+    Head& getHead() { return head; }
+}
+----------------------------------------
+ClassTemplateDecl
+14997840992668204381
+template<typename T, size_t N>
+class Array {
+private:
+    T data[N];
+public:
+    T& operator[](size_t index) { return data[index]; }
+    constexpr size_t size() const { return N; }
+}
+----------------------------------------
+CXXRecordNode
+9196402361376957764
+class Array {
+private:
+    T data[N];
+public:
+    T& operator[](size_t index) { return data[index]; }
+    constexpr size_t size() const { return N; }
+}
+----------------------------------------
+ClassTemplateDecl
+12054803482138171702
+template<typename T, template<typename> class CreationPolicy>
+class SmartPtr : public CreationPolicy<T> {
+private:
+    T* ptr;
+public:
+    SmartPtr() : ptr(CreationPolicy<T>::create()) {}
+    ~SmartPtr() { CreationPolicy<T>::destroy(ptr); }
+    T& operator*() { return *ptr; }
+}
+----------------------------------------
+CXXRecordNode
+8298700543985316052
+class SmartPtr : public CreationPolicy<T> {
+private:
+    T* ptr;
+public:
+    SmartPtr() : ptr(CreationPolicy<T>::create()) {}
+    ~SmartPtr() { CreationPolicy<T>::destroy(ptr); }
+    T& operator*() { return *ptr; }
+}
+----------------------------------------
+ClassTemplateDecl
+5095071917334977447
+template<typename T>
+class NewCreator {
+public:
+    static T* create() { return new T(); }
+    static void destroy(T* p) { delete p; }
+}
+----------------------------------------
+CXXRecordNode
+1138046369232768663
+class NewCreator {
+public:
+    static T* create() { return new T(); }
+    static void destroy(T* p) { delete p; }
+}
+----------------------------------------
+CXXRecordNode
+15965517114888693573
+class ComplexClass {
+public:
+    struct NestedStruct;
+    class NestedClass;
+    enum class NestedEnum;
+    union NestedUnion;
+    template<typename T> struct NestedTemplateStruct;
+    
+    ComplexClass();
+    void simpleMethod();
+    template<typename T> T templateMethod(T value);
+    
+private:
+    int data;
+}
+----------------------------------------
+CXXRecordNode
+4539632444638239426
+struct ComplexClass::NestedStruct {
+    int x;
+    enum class StructEnum { OPTION_A, OPTION_B };
+    NestedStruct() : x(0) {}
+}
+----------------------------------------
+CXXRecordNode
+8287810358961318475
+class ComplexClass::NestedClass {
+public:
+    struct ClassStruct {
+        double value;
+        ClassStruct() : value(0.0) {}
+    };
+    NestedClass() {}
+}
+----------------------------------------
+EnumNode
+9917665275889418658
+enum class ComplexClass::NestedEnum { VALUE_1, VALUE_2 }
+----------------------------------------
+CXXRecordNode
+10990975008895002872
+union ComplexClass::NestedUnion {
+    int intValue;
+    float floatValue;
+    NestedUnion() : intValue(0) {}
+}
+----------------------------------------
+ClassTemplateDecl
+6069585415873267415
+template<typename T>
+struct ComplexClass::NestedTemplateStruct {
+    T data;
+    enum class TemplateStructEnum { TYPE_A, TYPE_B };
+    NestedTemplateStruct() : data(T()) {}
+}
+----------------------------------------
+CXXRecordNode
+2402079718734375420
+struct ComplexClass::NestedTemplateStruct {
+    T data;
+    enum class TemplateStructEnum { TYPE_A, TYPE_B };
+    NestedTemplateStruct() : data(T()) {}
+}
+----------------------------------------
+ClassTemplateDecl
+17098721222790508538
+template<typename T, typename U = int>
+class MegaComplexTemplate {
+public:
+    struct Data;
+    enum class Mode;
+    template<typename V> struct Container;
+    
+    MegaComplexTemplate();
+    template<typename V> void process(const V& value);
+    
+private:
+    T primaryData;
+    U secondaryData;
+}
+----------------------------------------
+CXXRecordNode
+18142638217897886058
+class MegaComplexTemplate {
+public:
+    struct Data;
+    enum class Mode;
+    template<typename V> struct Container;
+    
+    MegaComplexTemplate();
+    template<typename V> void process(const V& value);
+    
+private:
+    T primaryData;
+    U secondaryData;
+}
+----------------------------------------
+CXXRecordNode
+4446672806696940571
+template<typename T, typename U>
+struct MegaComplexTemplate<T, U>::Data {
+    T value;
+    enum class DataState { VALID, INVALID };
+    struct DataInfo {
+        int version;
+        DataInfo() : version(1) {}
+    };
+    DataState state;
+    Data() : value(T()), state(DataState::VALID) {}
+}
+----------------------------------------
+EnumNode
+8456408310805972707
+template<typename T, typename U>
+enum class MegaComplexTemplate<T, U>::Mode { SYNCHRONOUS, ASYNCHRONOUS }
+----------------------------------------
+ClassTemplateDecl
+5716938552083040936
+template<typename V>
+struct MegaComplexTemplate<T, U>::Container {
+    V data;
+    T primaryKey;
+    Container() : data(V()), primaryKey(T()) {}
+}
+----------------------------------------
+CXXRecordNode
+14720301859668963656
+template<typename T, typename U>
+template<typename V>
+struct MegaComplexTemplate<T, U>::Container {
+    V data;
+    T primaryKey;
+    Container() : data(V()), primaryKey(T()) {}
+}
+----------------------------------------
+NamespaceDecl
+16050176525197454502
+namespace ComplexNamespace {
+    class OuterClass {
+    public:
+        struct InnerStruct {
+            enum class InnerEnum { A, B };
+            template<typename T>
+            struct InnerTemplateStruct {
+                T value;
+                InnerTemplateStruct() : value(T()) {}
+            };
+            int data;
+            InnerStruct() : data(0) {}
+        };
+        OuterClass() {}
+    };
+    
+    template<typename T>
+    class OuterTemplate {
+    public:
+        struct TemplateStruct {
+            T value;
+            enum class StructEnum { ALPHA, BETA };
+            TemplateStruct() : value(T()) {}
+        };
+        
+        template<typename U>
+        class InnerTemplate {
+        public:
+            struct InnerStruct {
+                T outerValue;
+                U innerValue;
+                InnerStruct() : outerValue(T()), innerValue(U()) {}
+            };
+            InnerTemplate() {}
+        };
+        OuterTemplate() {}
+    };
+}
+----------------------------------------
+FunctionNode
+4069888822055533655
+inline Vehicle::Vehicle() : make(""), speed(0.0) { vehicleCount++; }
+----------------------------------------
+FunctionNode
+12353893341079534243
+inline Vehicle::~Vehicle() { vehicleCount--; }
+----------------------------------------
+FunctionNode
+12865033956472889335
+inline void Vehicle::start() { std::cout << "Vehicle started\n"; }
+----------------------------------------
+FunctionNode
+257862531607862694
+inline double Vehicle::getSpeed() const { return speed; }
+----------------------------------------
+FunctionTemplateDecl
+272775667123279592
+template<typename T>
+inline void Vehicle::addComponent(const T& component) { std::cout << "Component added\n"; }
+----------------------------------------
+FunctionNode
+14928612496118343298
+inline void Vehicle::addComponent(const T& component) { std::cout << "Component added\n"; }
+----------------------------------------
+FunctionNode
+13163716222189521484
+inline int Vehicle::getVehicleCount() { return vehicleCount; }
+----------------------------------------
+FunctionNode
+15356938917116170020
+template<typename T>
+inline Node<T>::Node() : value(T()), type(NodeType::LEAF) {}
+----------------------------------------
+FunctionNode
+8873020043357700153
+template<typename T>
+inline T Node<T>::getValue() const { return value; }
+----------------------------------------
+FunctionNode
+7192654955916124052
+template<typename T, typename U>
+inline Graph<T, U>::Graph() {}
+----------------------------------------
+FunctionNode
+1768527129068695992
+template<typename T, typename U>
+inline void Graph<T, U>::addNode(const T& nodeData) {
+    GraphNode node;
+    node.data = nodeData;
+    nodes.push_back(node);
+}
+----------------------------------------
+FunctionNode
+18104428666849068603
+inline Network::Connection::Connection() : state(ConnectionState::CLOSED) {}
+----------------------------------------
+FunctionNode
+6622812327605205269
+inline void Network::Connection::open() { state = ConnectionState::OPEN; int a;}
+----------------------------------------
+FunctionNode
+4082332567176652847
+inline Engine::Engine() : type(EngineType::INLINE), rpm(0) {}
+----------------------------------------
+FunctionNode
+6482618853855562265
+inline void Engine::start() { rpm = 1000; }
+----------------------------------------
+FunctionNode
+2611161187596204306
+inline int Engine::getRPM() const { return rpm; }
+----------------------------------------
+FunctionTemplateDecl
+13486867595198852276
+template<typename T>
+inline T Engine::calculateEfficiency(T fuel, T distance) {
+    using type = T;
+    return fuel == 0 ? 0 : distance / fuel;
+}
+----------------------------------------
+FunctionNode
+13895475835413463639
+inline T Engine::calculateEfficiency(T fuel, T distance) {
+    using type = T;
+    return fuel == 0 ? 0 : distance / fuel;
+}
+----------------------------------------
+FunctionNode
+11891806975974435126
+inline Engine::EngineType Engine::getDefaultType() { return EngineType::INLINE; }
+----------------------------------------
+FunctionNode
+17481230730985743662
+inline void Engine::updateTemperature() {}
+----------------------------------------
+FunctionNode
+15013679181225524739
+inline ComplexClass::ComplexClass() : data(0) {}
+----------------------------------------
+FunctionNode
+12491686924645549798
+inline void ComplexClass::simpleMethod() {}
+----------------------------------------
+FunctionTemplateDecl
+10798050510877401430
+template<typename T>
+inline T ComplexClass::templateMethod(T value) { return value; }
+----------------------------------------
+FunctionNode
+6929564297850302762
+inline T ComplexClass::templateMethod(T value) { return value; }
+----------------------------------------
+FunctionNode
+7404611056483586116
+template<typename T, typename U>
+inline MegaComplexTemplate<T, U>::MegaComplexTemplate() 
+    : primaryData(T()), secondaryData(U()) {}
+----------------------------------------
+FunctionTemplateDecl
+8686555848297085980
+template<typename V>
+inline void MegaComplexTemplate<T, U>::process(const V& value) {
+    std::cout << "Processing\n";
+}
+----------------------------------------
+FunctionNode
+3695652685606436153
+template<typename T, typename U>
+template<typename V>
+inline void MegaComplexTemplate<T, U>::process(const V& value) {
+    std::cout << "Processing\n";
+}
+----------------------------------------
+TemplatedVarDecl
+6174201882005428472
+inline int Vehicle::vehicleCount = 0
+----------------------------------------
+10758921512273883759
+#ifndef LIB_H
+----------------------------------------
+15574083583721340543
+#define LIB_H
+----------------------------------------
+11799315910370350277
+#include <iostream>
+----------------------------------------
+15219203312359965853
+#include <string>
+----------------------------------------
+16977924592700156950
+#include <vector>
+----------------------------------------
+11160874710484048764
+#include <memory>
+----------------------------------------
+2348909900560597168
+#include <functional>
+----------------------------------------
+11728103345505421467
+#include <map>
+----------------------------------------
+9660469657642679128
+#include <algorithm>
+----------------------------------------
+7455076031092283842
+#include <stdexcept>
+----------------------------------------
+15551422226509704042
+#include <cmath>
+----------------------------------------
+13425203279752416008
+#endif
+----------------------------------------
+18127269209848937540
+/*
+ * Copyright (c) 2026 Qualcomm Innovation Center, Inc.
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
+----------------------------------------
+
+############ CONTEXT 1 MAPS ############
+comments1
+17863271403084006170  : 1
+3787053326282024244  : 1
+2479961630764505820  : 1
+252520090170005577  : 1
+15032593263116162550  : 1
+1305687439994412240  : 1
+3153398168972439127  : 1
+5744387925327490033  : 1
+4920529980274260574  : 1
+11389380411054211166  : 1
+374908280617499441  : 1
+11404736249108278501  : 1
+11975606739239108562  : 1
+17506190268434189631  : 1
+11899583338227460361  : 1
+7903741933333539097  : 1
+8767325733329281094  : 1
+14225539755409135859  : 1
+4501360319196648518  : 1
+2337998019136394874  : 1
+14336058393566664487  : 1
+12553437074722132967  : 1
+17997412378826455278  : 1
+8159292229627760475  : 1
+11923386408649115825  : 1
+15909023474490578883  : 1
+8605818612656676144  : 1
+15949830143076403997  : 1
+1596591299096568638  : 1
+2286052694806746155  : 1
+9330476098853646962  : 1
+15166341478938275295  : 38
+15370486269277432479  : 1
+14091779003214382246  : 1
+----------------------------------------
+unhandledDecls1
+16050176525197454502  : 1
+17476549899374261684  : 1
+13486867595198852276  : 1
+14660461255391643157  : 1
+4539632444638239426  : 1
+9366796490153803119  : 1
+6622812327605205269  : 1
+8686555848297085980  : 1
+12444467055950197366  : 1
+7455076031092283842  : 1
+7025845076918227581  : 1
+9880407378149936682  : 1
+6069585415873267415  : 1
+6929564297850302762  : 1
+13586652358942762296  : 1
+10758921512273883759  : 1
+10961581202184407110  : 1
+5272397575218490784  : 3
+3329847226039882490  : 1
+4788215030051697914  : 1
+5095071917334977447  : 1
+15345377261469055482  : 3
+17098721222790508538  : 1
+13425203279752416008  : 1
+12605193343577708732  : 1
+16977924592700156950  : 1
+7982595519259482736  : 2
+15356938917116170020  : 1
+3753469723839970776  : 1
+6257566355350002226  : 3
+8873020043357700153  : 1
+12491686924645549798  : 1
+17247214114941656467  : 1
+3695652685606436153  : 1
+7367341230545235866  : 2
+5716938552083040936  : 1
+3150790209381805238  : 1
+17352412395974784874  : 1
+13171510886334721642  : 1
+18142638217897886058  : 1
+15551422226509704042  : 1
+1662023011201209125  : 1
+1755532596729387813  : 1
+15574083583721340543  : 1
+18211485728558967942  : 1
+18356285648718400999  : 3
+7192654955916124052  : 1
+6076429139862439662  : 1
+9271550913951296238  : 1
+14720301859668963656  : 1
+9917665275889418658  : 1
+2402079718734375420  : 1
+11728103345505421467  : 1
+10798050510877401430  : 1
+15013679181225524739  : 1
+2348909900560597168  : 1
+14997840992668204381  : 1
+5466970749997733898  : 1
+8018770162286268177  : 1
+13486445521944954046  : 1
+5973506787581904235  : 1
+11799315910370350277  : 1
+5235906769332250738  : 2
+5157359261923726028  : 1
+703687659449626669  : 1
+3175101581008599867  : 1
+272775667123279592  : 1
+8871978419713980565  : 3
+18104428666849068603  : 1
+12353893341079534243  : 1
+9648133922898168407  : 1
+4069888822055533655  : 1
+13895475835413463639  : 1
+1768527129068695992  : 1
+2611161187596204306  : 1
+17997269513964955839  : 1
+479752941996137151  : 3
+15941537904032972569  : 1
+6482618853855562265  : 1
+12353599670573947936  : 2
+7285016815956655565  : 1
+2728159439989684256  : 1
+8865927588136652071  : 1
+8298700543985316052  : 1
+13177679859764303904  : 1
+1904438604654863150  : 1
+13886175796610652808  : 1
+17481230730985743662  : 1
+16191982836713489129  : 1
+6598808393822532163  : 1
+12700262454154676125  : 2
+4806512532351133258  : 1
+12865033956472889335  : 1
+15219203312359965853  : 1
+566626905490260478  : 1
+9660469657642679128  : 1
+3769084908470295571  : 1
+8029491364763910765  : 1
+7216027314288406637  : 1
+13384612219158656455  : 1
+12502259549525083937  : 1
+16865670814356677914  : 2
+14928612496118343298  : 1
+4082332567176652847  : 1
+9406353967973437750  : 1
+8456408310805972707  : 1
+12054803482138171702  : 1
+1138046369232768663  : 1
+9196402361376957764  : 1
+7404611056483586116  : 1
+5422750735869062046  : 1
+8287810358961318475  : 1
+10990975008895002872  : 1
+6174201882005428472  : 1
+11891806975974435126  : 1
+4805977141514113120  : 5
+12460078231673326868  : 1
+12016066257162099732  : 1
+4446672806696940571  : 1
+11160874710484048764  : 1
+3957989481460979414  : 1
+9391020816398465494  : 1
+4752384078882383325  : 1
+7907080855383626731  : 1
+1695758379726889624  : 1
+15965517114888693573  : 1
+13163716222189521484  : 1
+257862531607862694  : 1
+15521860531219160998  : 7
+----------------------------------------
+inactiveUnhandledDecls1
+(empty)
+----------------------------------------
+
+############ CONTEXT 2 MAPS ############
+comments2
+18127269209848937540  : 1
+----------------------------------------
+unhandledDecls2
+(empty)
+----------------------------------------
+inactiveUnhandledDecls2
+(empty)
+----------------------------------------

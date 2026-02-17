@@ -1,7 +1,7 @@
 // Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-3-Clause
-
 #pragma once
+#include <string>
 
 // Enums for categorization
 enum class NodeKind {
@@ -23,16 +23,8 @@ enum class NodeKind {
     FunctionPointer,
     Enumerator,
     Macro,
-    If,
-    Elif,
-    Ifdef,
-    Ifndef,
-    Elifndef,
-    Else,
-    Endif,
-    Elifdef,
-    Define,
-    ConditionalCompilation,
+    Comment,
+    Templet,
     Unknown
 };
 
@@ -51,12 +43,6 @@ enum class APINodeStorageClass {
     Auto
 };
 
-enum class ConstQualifier {
-    None,
-    Const,
-    ConstExpr
-};
-
 enum class VirtualQualifier {
     None,
     Virtual,
@@ -73,3 +59,7 @@ enum PARSER{
     ALPHA_PARSER = 0,
     BETA_PARSER = 1
 };
+
+const std::string LOG_FILE_PATH = "debug_output/logs/diagnostics.log";
+
+const std::string TEST_LOG_FILE_PATH = "output.txt";

@@ -1,0 +1,1241 @@
+11404736249108278501
+// Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+----------------------------------------
+252520090170005577
+// SPDX-License-Identifier: BSD-3-Clause
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+728780462374771428
+// PREPROCESSING CONFIGURATION
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+3728521324851040471
+/// Version macros
+----------------------------------------
+14395902054084989377
+/// Stringify helpers
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+5101115337265717323
+// PLATFORM DETECTION
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+9841960391394464989
+// COMPILER DETECTION
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+6718595591594419631
+// FEATURE FLAGS
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+13210638685611278546
+// UTILITY MACROS
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+13771373682316877416
+// C++ INTERFACE
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+11227417260754725215
+// Type aliases
+----------------------------------------
+2096285555428416032
+// Enumeration
+----------------------------------------
+12569019300509658672
+// Structure
+----------------------------------------
+17737099747340018654
+// Union
+----------------------------------------
+14239555262679349402
+// Template Class
+----------------------------------------
+16803922399102780963
+// Template Function
+----------------------------------------
+9712332420100630136
+// Function Declarations
+----------------------------------------
+15461368897442423950
+// namespace mylib
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+13043291620876609583
+// BIG FUNCTION WITH HEAVY CONDITIONAL COMPILATION
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+998647579753942013
+/// @brief Complex processing function with heavy conditional compilation
+----------------------------------------
+4444589151997194042
+// Platform-specific memory allocation
+----------------------------------------
+17217903882032674734
+// Threading support
+----------------------------------------
+1842550228750666902
+// Flag-based processing with compiler-specific code
+----------------------------------------
+15406772653406560290
+// Platform-specific cleanup
+----------------------------------------
+3674920316187749571
+// __cplusplus
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+1301199525200941597
+// COMPILER-SPECIFIC OPTIMIZATIONS
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+17446262795489291571
+// C INTERFACE
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+1748340414771073951
+// MYLIB_H_INCLUDED
+----------------------------------------
+2354681959671418142
+// End of mylib.h - Compact version with preprocessing, templates, classes, structs, unions
+----------------------------------------
+NamespaceDecl
+10604277362686129786
+namespace mylib {
+
+    // Type aliases
+    using byte_t = uint8_t;
+    using size_type = std::size_t;
+    
+    // Enumeration
+    enum class ErrorCode : int32_t {
+        SUCCESS = 0,
+        FAILURE = -1,
+        INVALID_ARGUMENT = -2
+    };
+    
+    // Structure
+    struct Point3D {
+        float x, y, z;
+        Point3D() : x(0.0f), y(0.0f), z(0.0f) {}
+        Point3D(float x_, float y_, float z_) : x(x_), y(y_), z(z_) {}
+    };
+    
+    // Union
+    union DataUnion {
+        int32_t i32;
+        float f32;
+        byte_t bytes[4];
+        DataUnion() : i32(0) {}
+    };
+
+    // Template Class
+    template<typename T>
+    class SmartPointer {
+    private:
+        T* ptr_;
+    public:
+        SmartPointer() : ptr_(nullptr) {}
+        explicit SmartPointer(T* ptr) : ptr_(ptr) {}
+        ~SmartPointer() { delete ptr_; }
+        T* get() const { return ptr_; }
+    };
+    
+    // Template Function
+    template<typename T>
+    MYLIB_FORCE_INLINE void swap(T& a, T& b) {
+        T temp = a; a = b; b = temp;
+    }
+    
+    // Function Declarations
+    ErrorCode initializeLibrary();
+    void* allocateAligned(size_type size, size_type alignment);
+    
+}
+----------------------------------------
+Function Body
+processData
+7497696533842709105
+{
+    #ifdef MYLIB_DEBUG
+        MYLIB_ASSERT(data != nullptr, "Data pointer is null");
+        printf("[DEBUG] Processing %zu bytes, Flags: 0x%X\n", size, flags);
+    #endif
+    
+    int result = 0;
+    
+    // Platform-specific memory allocation
+    #ifdef MYLIB_PLATFORM_WINDOWS
+        void* buffer = _aligned_malloc(size, 16);
+        #ifdef MYLIB_COMPILER_MSVC
+            __assume(size > 0);
+        #endif
+    #elif defined(MYLIB_PLATFORM_LINUX)
+        void* buffer = aligned_alloc(16, size);
+        #ifdef MYLIB_COMPILER_GCC
+            __builtin_prefetch(buffer, 0, 3);
+        #endif
+    #elif defined(MYLIB_PLATFORM_MACOS)
+        void* buffer = nullptr;
+        posix_memalign(&buffer, 16, size);
+    #else
+        void* buffer = malloc(size);
+    #endif
+    
+    if (!buffer) return -1;
+    
+    // Threading support
+    #ifdef MYLIB_ENABLE_THREADING
+        static std::mutex mtx;
+        static std::atomic<int> count{0};
+        std::lock_guard<std::mutex> lock(mtx);
+        result = count.fetch_add(1, std::memory_order_relaxed);
+    #else
+        static int count = 0;
+        result = ++count;
+    #endif
+    
+    // Flag-based processing with compiler-specific code
+    if (flags & 0x01) {
+        #ifdef MYLIB_COMPILER_MSVC
+            result += 100;
+        #elif defined(MYLIB_COMPILER_GCC) || defined(MYLIB_COMPILER_CLANG)
+            result += 200;
+        #else
+            result += 300;
+        #endif
+    }
+    
+    if (flags & 0x02) {
+        #ifdef MYLIB_PLATFORM_WINDOWS
+            result += 1000;
+        #elif defined(MYLIB_PLATFORM_LINUX)
+            result += 2000;
+        #elif defined(MYLIB_PLATFORM_MACOS)
+            result += 3000;
+        #else
+            result += 4000;
+        #endif
+    }
+    
+    #ifdef MYLIB_DEBUG
+        static size_t totalBytes = 0;
+        totalBytes += size;
+        printf("[DEBUG] Total processed: %zu bytes, Result: %d\n", totalBytes, result);
+    #endif
+    
+    // Platform-specific cleanup
+    #ifdef MYLIB_PLATFORM_WINDOWS
+        _aligned_free(buffer);
+    #else
+        free(buffer);
+    #endif
+    
+    return result;
+}
+----------------------------------------
+5527843489271040135
+#ifndef MYLIB_H_INCLUDED
+----------------------------------------
+13074568307166890559
+#define MYLIB_H_INCLUDED
+----------------------------------------
+3183707768050378562
+#define MYLIB_VERSION_MAJOR 1
+----------------------------------------
+4035372600055232590
+#define MYLIB_VERSION_MINOR 0
+----------------------------------------
+14829674419287529409
+#define MYLIB_VERSION_PATCH 0
+----------------------------------------
+10086833846338844820
+#define MYLIB_STRINGIFY(x) #x
+----------------------------------------
+11687501982600197290
+#define MYLIB_TOSTRING(x) MYLIB_STRINGIFY(x)
+----------------------------------------
+4988823174612510581
+#define MYLIB_VERSION_STRING MYLIB_TOSTRING(MYLIB_VERSION_MAJOR) "." \
+                             MYLIB_TOSTRING(MYLIB_VERSION_MINOR) "." \
+                             MYLIB_TOSTRING(MYLIB_VERSION_PATCH)
+----------------------------------------
+10789492512563752263
+#if defined(_WIN32) || defined(_WIN64)
+    #define MYLIB_PLATFORM_WINDOWS
+    #define MYLIB_EXPORT __declspec(dllexport)
+#elif defined(__linux__)
+
+----------------------------------------
+15173472626001195300
+    #define MYLIB_PLATFORM_LINUX
+----------------------------------------
+6656654353517034452
+    #define MYLIB_EXPORT __attribute__((visibility("default")))
+----------------------------------------
+6094473516132133165
+#elif defined(__APPLE__) && defined(__MACH__)
+    #define MYLIB_PLATFORM_MACOS
+    #define MYLIB_EXPORT __attribute__((visibility("default")))
+#else
+    #define MYLIB_PLATFORM_UNKNOWN
+    #define MYLIB_EXPORT
+#endif
+----------------------------------------
+8117690025819232206
+#if defined(__clang__)
+----------------------------------------
+7414587302142641895
+    #define MYLIB_COMPILER_CLANG
+----------------------------------------
+15464300162902583911
+    #define MYLIB_FORCE_INLINE __attribute__((always_inline)) inline
+----------------------------------------
+15455234452876028348
+#elif defined(__GNUC__)
+    #define MYLIB_COMPILER_GCC
+    #define MYLIB_FORCE_INLINE __attribute__((always_inline)) inline
+#elif defined(_MSC_VER)
+    #define MYLIB_COMPILER_MSVC
+    #define MYLIB_FORCE_INLINE __forceinline
+#else
+    #define MYLIB_COMPILER_UNKNOWN
+    #define MYLIB_FORCE_INLINE inline
+#endif
+----------------------------------------
+12074142667616033186
+#ifdef MYLIB_DEBUG
+    #define MYLIB_DEBUG_MODE 1
+    #include <cassert>
+    #define MYLIB_ASSERT(cond, msg) assert((cond) && (msg))
+    #define MYLIB_LOG(msg) printf("[LOG] %s\n", msg)
+#else
+----------------------------------------
+9884558697256544607
+    #define MYLIB_DEBUG_MODE 0
+----------------------------------------
+4504840211387841570
+    #define MYLIB_ASSERT(cond, msg) ((void)0)
+----------------------------------------
+1567017602521651188
+    #define MYLIB_LOG(msg) ((void)0)
+----------------------------------------
+13425203279752416008
+#endif
+----------------------------------------
+5276368870544460156
+#ifdef MYLIB_ENABLE_THREADING
+    #define MYLIB_THREAD_SAFE 1
+    #include <mutex>
+#else
+----------------------------------------
+10293515776437698621
+    #define MYLIB_THREAD_SAFE 0
+----------------------------------------
+13425203279752416008
+#endif
+----------------------------------------
+5080493645433298524
+#define MYLIB_MAX(a, b) ((a) > (b) ? (a) : (b))
+----------------------------------------
+13117341127079206593
+#define MYLIB_MIN(a, b) ((a) < (b) ? (a) : (b))
+----------------------------------------
+11044959451838826049
+#define MYLIB_CLAMP(val, min, max) MYLIB_MIN(MYLIB_MAX(val, min), max)
+----------------------------------------
+14191502057406420813
+#define MYLIB_ARRAY_SIZE(arr) (sizeof(arr) / sizeof((arr)[0]))
+----------------------------------------
+8717144482643656166
+#define MYLIB_UNUSED(x) ((void)(x))
+----------------------------------------
+609842095911410082
+#ifdef MYLIB_COMPILER_MSVC
+    #define MYLIB_ALIGN(n) __declspec(align(n))
+#else
+----------------------------------------
+5323582179407016097
+    #define MYLIB_ALIGN(n) __attribute__((aligned(n)))
+----------------------------------------
+13425203279752416008
+#endif
+----------------------------------------
+10705571255276855191
+#ifdef __cplusplus
+----------------------------------------
+17944720968709299593
+#include <cstdint>
+----------------------------------------
+8068769666068225577
+#include <cstddef>
+----------------------------------------
+15219203312359965853
+#include <string>
+----------------------------------------
+10705571255276855191
+#ifdef __cplusplus
+----------------------------------------
+16125242627147687389
+    #ifdef MYLIB_DEBUG
+        MYLIB_ASSERT(data != nullptr, "Data pointer is null");
+        printf("[DEBUG] Processing %zu bytes, Flags: 0x%X\n", size, flags);
+    #endif
+----------------------------------------
+17793810274277806111
+    #ifdef MYLIB_PLATFORM_WINDOWS
+        void* buffer = _aligned_malloc(size, 16);
+        #ifdef MYLIB_COMPILER_MSVC
+            __assume(size > 0);
+        #endif
+    #elif defined(MYLIB_PLATFORM_LINUX)
+
+----------------------------------------
+11780944220859629953
+        #ifdef MYLIB_COMPILER_GCC
+            __builtin_prefetch(buffer, 0, 3);
+        #endif
+----------------------------------------
+4186474104662229156
+    #elif defined(MYLIB_PLATFORM_MACOS)
+        void* buffer = nullptr;
+        posix_memalign(&buffer, 16, size);
+    #else
+        void* buffer = malloc(size);
+    #endif
+----------------------------------------
+9496518772622674977
+    #ifdef MYLIB_ENABLE_THREADING
+        static std::mutex mtx;
+        static std::atomic<int> count{0};
+        std::lock_guard<std::mutex> lock(mtx);
+        result = count.fetch_add(1, std::memory_order_relaxed);
+    #else
+----------------------------------------
+13425203279752416008
+    #endif
+----------------------------------------
+13513711463712273799
+        #ifdef MYLIB_COMPILER_MSVC
+            result += 100;
+        #elif defined(MYLIB_COMPILER_GCC) || defined(MYLIB_COMPILER_CLANG)
+
+----------------------------------------
+5228759663874785823
+        #else
+            result += 300;
+        #endif
+----------------------------------------
+17535763163473717893
+        #ifdef MYLIB_PLATFORM_WINDOWS
+            result += 1000;
+        #elif defined(MYLIB_PLATFORM_LINUX)
+
+----------------------------------------
+9182786835064148631
+        #elif defined(MYLIB_PLATFORM_MACOS)
+            result += 3000;
+        #else
+            result += 4000;
+        #endif
+----------------------------------------
+5400481813736155076
+    #ifdef MYLIB_DEBUG
+        static size_t totalBytes = 0;
+        totalBytes += size;
+        printf("[DEBUG] Total processed: %zu bytes, Result: %d\n", totalBytes, result);
+    #endif
+----------------------------------------
+7535211014293608317
+    #ifdef MYLIB_PLATFORM_WINDOWS
+        _aligned_free(buffer);
+    #else
+----------------------------------------
+13425203279752416008
+    #endif
+----------------------------------------
+13425203279752416008
+#endif
+----------------------------------------
+9534294440999257955
+#ifdef MYLIB_COMPILER_MSVC
+    #define MYLIB_LIKELY(x) (x)
+#elif defined(MYLIB_COMPILER_GCC) || defined(MYLIB_COMPILER_CLANG)
+
+----------------------------------------
+10585965716865580119
+    #define MYLIB_LIKELY(x) __builtin_expect(!!(x), 1)
+----------------------------------------
+6262325460462613483
+#else
+    #define MYLIB_LIKELY(x) (x)
+#endif
+----------------------------------------
+10705571255276855191
+#ifdef __cplusplus
+----------------------------------------
+13425203279752416008
+#endif
+----------------------------------------
+10705571255276855191
+#ifdef __cplusplus
+----------------------------------------
+13425203279752416008
+#endif
+----------------------------------------
+13425203279752416008
+#endif
+----------------------------------------
+13425203279752416008
+#endif
+----------------------------------------
+11404736249108278501
+// Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+----------------------------------------
+252520090170005577
+// SPDX-License-Identifier: BSD-3-Clause
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+728780462374771428
+// PREPROCESSING CONFIGURATION
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+3728521324851040471
+/// Version macros
+----------------------------------------
+14395902054084989377
+/// Stringify helpers
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+5101115337265717323
+// PLATFORM DETECTION
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+9841960391394464989
+// COMPILER DETECTION
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+6718595591594419631
+// FEATURE FLAGS
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+13210638685611278546
+// UTILITY MACROS
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+13771373682316877416
+// C++ INTERFACE
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+11227417260754725215
+// Type aliases
+----------------------------------------
+2096285555428416032
+// Enumeration
+----------------------------------------
+12569019300509658672
+// Structure
+----------------------------------------
+17737099747340018654
+// Union
+----------------------------------------
+14239555262679349402
+// Template Class
+----------------------------------------
+16803922399102780963
+// Template Function
+----------------------------------------
+9712332420100630136
+// Function Declarations
+----------------------------------------
+15461368897442423950
+// namespace mylib
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+13043291620876609583
+// BIG FUNCTION WITH HEAVY CONDITIONAL COMPILATION
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+998647579753942013
+/// @brief Complex processing function with heavy conditional compilation
+----------------------------------------
+4444589151997194042
+// Platform-specific memory allocation
+----------------------------------------
+17217903882032674734
+// Threading support
+----------------------------------------
+1842550228750666902
+// Flag-based processing with compiler-specific code
+----------------------------------------
+15406772653406560290
+// Platform-specific cleanup
+----------------------------------------
+3674920316187749571
+// __cplusplus
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+1301199525200941597
+// COMPILER-SPECIFIC OPTIMIZATIONS
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+17446262795489291571
+// C INTERFACE
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+1748340414771073951
+// MYLIB_H_INCLUDED
+----------------------------------------
+2354681959671418142
+// End of mylib.h - Compact version with preprocessing, templates, classes, structs, unions
+----------------------------------------
+NamespaceDecl
+10604277362686129786
+namespace mylib {
+
+    // Type aliases
+    using byte_t = uint8_t;
+    using size_type = std::size_t;
+    
+    // Enumeration
+    enum class ErrorCode : int32_t {
+        SUCCESS = 0,
+        FAILURE = -1,
+        INVALID_ARGUMENT = -2
+    };
+    
+    // Structure
+    struct Point3D {
+        float x, y, z;
+        Point3D() : x(0.0f), y(0.0f), z(0.0f) {}
+        Point3D(float x_, float y_, float z_) : x(x_), y(y_), z(z_) {}
+    };
+    
+    // Union
+    union DataUnion {
+        int32_t i32;
+        float f32;
+        byte_t bytes[4];
+        DataUnion() : i32(0) {}
+    };
+
+    // Template Class
+    template<typename T>
+    class SmartPointer {
+    private:
+        T* ptr_;
+    public:
+        SmartPointer() : ptr_(nullptr) {}
+        explicit SmartPointer(T* ptr) : ptr_(ptr) {}
+        ~SmartPointer() { delete ptr_; }
+        T* get() const { return ptr_; }
+    };
+    
+    // Template Function
+    template<typename T>
+    MYLIB_FORCE_INLINE void swap(T& a, T& b) {
+        T temp = a; a = b; b = temp;
+    }
+    
+    // Function Declarations
+    ErrorCode initializeLibrary();
+    void* allocateAligned(size_type size, size_type alignment);
+    
+}
+----------------------------------------
+Function Body
+processData
+618311601172597535
+{
+    #ifdef MYLIB_DEBUG
+        MYLIB_ASSERT(data != nullptr, "Data pointer is null");
+        printf("[DEBUG] Processing %zu bytes, Flags: 0x%X\n", size, flags);
+    #endif
+    
+    int result = 0;
+    
+    // Platform-specific memory allocation
+    #ifdef MYLIB_PLATFORM_WINDOWS
+        void* buffer = _aligned_malloc(size, 16);
+        #ifdef MYLIB_COMPILER_MSVC
+            __assume(size > 0);
+        #endif
+    #elif defined(MYLIB_PLATFORM_LINUX)
+        void* buffer = aligned_alloc(16, size);
+        #ifdef MYLIB_COMPILER_GCC
+            __builtin_prefetch(buffer, 0, 3);
+        #endif
+    #elif defined(MYLIB_PLATFORM_MACOS)
+        void* buffer = nullptr;
+        posix_memalign(&buffer, 16, size);
+    #else
+        void* buffer = malloc(size);
+    #endif
+    
+    if (!buffer) return -1;
+    
+    // Threading support
+    #ifdef MYLIB_ENABLE_THREADING
+        static std::mutex mtx;
+        static std::atomic<int> count{0};
+        std::lock_guard<std::mutex> lock(mtx);
+        result = count.fetch_add(1, std::memory_order_relaxed);
+    #else
+        static int count = 0;
+        result = ++count;
+    #endif
+    
+    // Flag-based processing with compiler-specific code
+    if (flags & 0x01) {
+        #ifdef MYLIB_COMPILER_MSVC
+            result += 100;
+        #elif defined(MYLIB_COMPILER_GCC) || defined(MYLIB_COMPILER_CLANG)
+            result += 200;
+        #else
+            result += 300;
+        #endif
+    }
+    
+    if (flags & 0x02) {
+        #ifdef MYLIB_PLATFORM_WINDOWS
+            result += 1000;
+        #elif defined(MYLIB_PLATFORM_LINUX)
+            result += 2000;
+        #elif defined(MYLIB_PLATFORM_MACOS)
+            result += 3000;
+        #else
+            result += 4000;
+        #endif
+    }
+    
+    #ifdef MYLIB_DEBUG
+        #define NEW_LIB
+        static size_t totalBytes = 0;
+        totalBytes += size;
+        printf("[DEBUG] Total processed: %zu bytes, Result: %d\n", totalBytes, result);
+    #endif
+    
+    // Platform-specific cleanup
+    #ifdef MYLIB_PLATFORM_WINDOWS
+        _aligned_free(buffer);
+    #else
+        free(buffer);
+    #endif
+    
+    return result;
+}
+----------------------------------------
+5527843489271040135
+#ifndef MYLIB_H_INCLUDED
+----------------------------------------
+13074568307166890559
+#define MYLIB_H_INCLUDED
+----------------------------------------
+3183707768050378562
+#define MYLIB_VERSION_MAJOR 1
+----------------------------------------
+4035372600055232590
+#define MYLIB_VERSION_MINOR 0
+----------------------------------------
+14829674419287529409
+#define MYLIB_VERSION_PATCH 0
+----------------------------------------
+10086833846338844820
+#define MYLIB_STRINGIFY(x) #x
+----------------------------------------
+11687501982600197290
+#define MYLIB_TOSTRING(x) MYLIB_STRINGIFY(x)
+----------------------------------------
+4988823174612510581
+#define MYLIB_VERSION_STRING MYLIB_TOSTRING(MYLIB_VERSION_MAJOR) "." \
+                             MYLIB_TOSTRING(MYLIB_VERSION_MINOR) "." \
+                             MYLIB_TOSTRING(MYLIB_VERSION_PATCH)
+----------------------------------------
+10789492512563752263
+#if defined(_WIN32) || defined(_WIN64)
+    #define MYLIB_PLATFORM_WINDOWS
+    #define MYLIB_EXPORT __declspec(dllexport)
+#elif defined(__linux__)
+
+----------------------------------------
+15173472626001195300
+    #define MYLIB_PLATFORM_LINUX
+----------------------------------------
+6656654353517034452
+    #define MYLIB_EXPORT __attribute__((visibility("default")))
+----------------------------------------
+6094473516132133165
+#elif defined(__APPLE__) && defined(__MACH__)
+    #define MYLIB_PLATFORM_MACOS
+    #define MYLIB_EXPORT __attribute__((visibility("default")))
+#else
+    #define MYLIB_PLATFORM_UNKNOWN
+    #define MYLIB_EXPORT
+#endif
+----------------------------------------
+8117690025819232206
+#if defined(__clang__)
+----------------------------------------
+7414587302142641895
+    #define MYLIB_COMPILER_CLANG
+----------------------------------------
+15464300162902583911
+    #define MYLIB_FORCE_INLINE __attribute__((always_inline)) inline
+----------------------------------------
+15455234452876028348
+#elif defined(__GNUC__)
+    #define MYLIB_COMPILER_GCC
+    #define MYLIB_FORCE_INLINE __attribute__((always_inline)) inline
+#elif defined(_MSC_VER)
+    #define MYLIB_COMPILER_MSVC
+    #define MYLIB_FORCE_INLINE __forceinline
+#else
+    #define MYLIB_COMPILER_UNKNOWN
+    #define MYLIB_FORCE_INLINE inline
+#endif
+----------------------------------------
+12074142667616033186
+#ifdef MYLIB_DEBUG
+    #define MYLIB_DEBUG_MODE 1
+    #include <cassert>
+    #define MYLIB_ASSERT(cond, msg) assert((cond) && (msg))
+    #define MYLIB_LOG(msg) printf("[LOG] %s\n", msg)
+#else
+----------------------------------------
+9884558697256544607
+    #define MYLIB_DEBUG_MODE 0
+----------------------------------------
+4504840211387841570
+    #define MYLIB_ASSERT(cond, msg) ((void)0)
+----------------------------------------
+1567017602521651188
+    #define MYLIB_LOG(msg) ((void)0)
+----------------------------------------
+13425203279752416008
+#endif
+----------------------------------------
+5276368870544460156
+#ifdef MYLIB_ENABLE_THREADING
+    #define MYLIB_THREAD_SAFE 1
+    #include <mutex>
+#else
+----------------------------------------
+10293515776437698621
+    #define MYLIB_THREAD_SAFE 0
+----------------------------------------
+13425203279752416008
+#endif
+----------------------------------------
+5080493645433298524
+#define MYLIB_MAX(a, b) ((a) > (b) ? (a) : (b))
+----------------------------------------
+13117341127079206593
+#define MYLIB_MIN(a, b) ((a) < (b) ? (a) : (b))
+----------------------------------------
+11044959451838826049
+#define MYLIB_CLAMP(val, min, max) MYLIB_MIN(MYLIB_MAX(val, min), max)
+----------------------------------------
+14191502057406420813
+#define MYLIB_ARRAY_SIZE(arr) (sizeof(arr) / sizeof((arr)[0]))
+----------------------------------------
+8717144482643656166
+#define MYLIB_UNUSED(x) ((void)(x))
+----------------------------------------
+609842095911410082
+#ifdef MYLIB_COMPILER_MSVC
+    #define MYLIB_ALIGN(n) __declspec(align(n))
+#else
+----------------------------------------
+5323582179407016097
+    #define MYLIB_ALIGN(n) __attribute__((aligned(n)))
+----------------------------------------
+13425203279752416008
+#endif
+----------------------------------------
+10705571255276855191
+#ifdef __cplusplus
+----------------------------------------
+17944720968709299593
+#include <cstdint>
+----------------------------------------
+8068769666068225577
+#include <cstddef>
+----------------------------------------
+15219203312359965853
+#include <string>
+----------------------------------------
+10705571255276855191
+#ifdef __cplusplus
+----------------------------------------
+16125242627147687389
+    #ifdef MYLIB_DEBUG
+        MYLIB_ASSERT(data != nullptr, "Data pointer is null");
+        printf("[DEBUG] Processing %zu bytes, Flags: 0x%X\n", size, flags);
+    #endif
+----------------------------------------
+17793810274277806111
+    #ifdef MYLIB_PLATFORM_WINDOWS
+        void* buffer = _aligned_malloc(size, 16);
+        #ifdef MYLIB_COMPILER_MSVC
+            __assume(size > 0);
+        #endif
+    #elif defined(MYLIB_PLATFORM_LINUX)
+
+----------------------------------------
+11780944220859629953
+        #ifdef MYLIB_COMPILER_GCC
+            __builtin_prefetch(buffer, 0, 3);
+        #endif
+----------------------------------------
+4186474104662229156
+    #elif defined(MYLIB_PLATFORM_MACOS)
+        void* buffer = nullptr;
+        posix_memalign(&buffer, 16, size);
+    #else
+        void* buffer = malloc(size);
+    #endif
+----------------------------------------
+9496518772622674977
+    #ifdef MYLIB_ENABLE_THREADING
+        static std::mutex mtx;
+        static std::atomic<int> count{0};
+        std::lock_guard<std::mutex> lock(mtx);
+        result = count.fetch_add(1, std::memory_order_relaxed);
+    #else
+----------------------------------------
+13425203279752416008
+    #endif
+----------------------------------------
+13513711463712273799
+        #ifdef MYLIB_COMPILER_MSVC
+            result += 100;
+        #elif defined(MYLIB_COMPILER_GCC) || defined(MYLIB_COMPILER_CLANG)
+
+----------------------------------------
+5228759663874785823
+        #else
+            result += 300;
+        #endif
+----------------------------------------
+17535763163473717893
+        #ifdef MYLIB_PLATFORM_WINDOWS
+            result += 1000;
+        #elif defined(MYLIB_PLATFORM_LINUX)
+
+----------------------------------------
+9182786835064148631
+        #elif defined(MYLIB_PLATFORM_MACOS)
+            result += 3000;
+        #else
+            result += 4000;
+        #endif
+----------------------------------------
+6554561820803661536
+    #ifdef MYLIB_DEBUG
+        #define NEW_LIB
+        static size_t totalBytes = 0;
+        totalBytes += size;
+        printf("[DEBUG] Total processed: %zu bytes, Result: %d\n", totalBytes, result);
+    #endif
+----------------------------------------
+7535211014293608317
+    #ifdef MYLIB_PLATFORM_WINDOWS
+        _aligned_free(buffer);
+    #else
+----------------------------------------
+13425203279752416008
+    #endif
+----------------------------------------
+13425203279752416008
+#endif
+----------------------------------------
+9707649004395554193
+#ifdef MYLIB_COMPILER_MSVC
+    #define MYLIB_LIKELY(x) (x)
+    #define NEW_LIB
+#elif defined(MYLIB_COMPILER_GCC) || defined(MYLIB_COMPILER_CLANG)
+
+----------------------------------------
+10585965716865580119
+    #define MYLIB_LIKELY(x) __builtin_expect(!!(x), 1)
+----------------------------------------
+6262325460462613483
+#else
+    #define MYLIB_LIKELY(x) (x)
+#endif
+----------------------------------------
+10705571255276855191
+#ifdef __cplusplus
+----------------------------------------
+13425203279752416008
+#endif
+----------------------------------------
+10705571255276855191
+#ifdef __cplusplus
+----------------------------------------
+13425203279752416008
+#endif
+----------------------------------------
+13425203279752416008
+#endif
+----------------------------------------
+13425203279752416008
+#endif
+----------------------------------------
+
+############ CONTEXT 1 MAPS ############
+comments1
+14239555262679349402  : 1
+15461368897442423950  : 1
+13771373682316877416  : 1
+6718595591594419631  : 1
+13043291620876609583  : 1
+252520090170005577  : 1
+16803922399102780963  : 1
+998647579753942013  : 1
+3728521324851040471  : 1
+17737099747340018654  : 1
+5101115337265717323  : 1
+9712332420100630136  : 1
+11404736249108278501  : 1
+13210638685611278546  : 1
+2354681959671418142  : 1
+17446262795489291571  : 1
+2096285555428416032  : 1
+4444589151997194042  : 1
+14395902054084989377  : 1
+17217903882032674734  : 1
+15406772653406560290  : 1
+1842550228750666902  : 1
+3674920316187749571  : 1
+12569019300509658672  : 1
+9841960391394464989  : 1
+1301199525200941597  : 1
+728780462374771428  : 1
+15166341478938275295  : 18
+11227417260754725215  : 1
+1748340414771073951  : 1
+----------------------------------------
+unhandledDecls1
+5527843489271040135  : 1
+1567017602521651188  : 1
+5323582179407016097  : 1
+4035372600055232590  : 1
+8117690025819232206  : 1
+3183707768050378562  : 1
+5080493645433298524  : 1
+17944720968709299593  : 1
+10293515776437698621  : 1
+11687501982600197290  : 1
+10705571255276855191  : 4
+10585965716865580119  : 1
+7497696533842709105  : 1
+13074568307166890559  : 1
+14191502057406420813  : 1
+10604277362686129786  : 1
+7414587302142641895  : 1
+10086833846338844820  : 1
+14829674419287529409  : 1
+15464300162902583911  : 1
+6656654353517034452  : 1
+13425203279752416008  : 10
+4988823174612510581  : 1
+4504840211387841570  : 1
+13117341127079206593  : 1
+8068769666068225577  : 1
+11044959451838826049  : 1
+15219203312359965853  : 1
+15173472626001195300  : 1
+9884558697256544607  : 1
+8717144482643656166  : 1
+----------------------------------------
+inactiveUnhandledDecls1
+6094473516132133165  : 1
+10789492512563752263  : 1
+13513711463712273799  : 1
+9496518772622674977  : 1
+9534294440999257955  : 1
+7535211014293608317  : 1
+9182786835064148631  : 1
+5400481813736155076  : 1
+11780944220859629953  : 1
+12074142667616033186  : 1
+609842095911410082  : 1
+15455234452876028348  : 1
+5276368870544460156  : 1
+16125242627147687389  : 1
+4186474104662229156  : 1
+6262325460462613483  : 1
+17535763163473717893  : 1
+17793810274277806111  : 1
+5228759663874785823  : 1
+----------------------------------------
+
+############ CONTEXT 2 MAPS ############
+comments2
+14239555262679349402  : 1
+15461368897442423950  : 1
+13771373682316877416  : 1
+6718595591594419631  : 1
+13043291620876609583  : 1
+252520090170005577  : 1
+16803922399102780963  : 1
+998647579753942013  : 1
+3728521324851040471  : 1
+17737099747340018654  : 1
+5101115337265717323  : 1
+9712332420100630136  : 1
+11404736249108278501  : 1
+13210638685611278546  : 1
+2354681959671418142  : 1
+17446262795489291571  : 1
+2096285555428416032  : 1
+4444589151997194042  : 1
+14395902054084989377  : 1
+17217903882032674734  : 1
+15406772653406560290  : 1
+1842550228750666902  : 1
+3674920316187749571  : 1
+12569019300509658672  : 1
+9841960391394464989  : 1
+1301199525200941597  : 1
+728780462374771428  : 1
+15166341478938275295  : 18
+11227417260754725215  : 1
+1748340414771073951  : 1
+----------------------------------------
+unhandledDecls2
+5527843489271040135  : 1
+1567017602521651188  : 1
+5323582179407016097  : 1
+4035372600055232590  : 1
+8117690025819232206  : 1
+3183707768050378562  : 1
+5080493645433298524  : 1
+17944720968709299593  : 1
+10293515776437698621  : 1
+11687501982600197290  : 1
+10705571255276855191  : 4
+10585965716865580119  : 1
+13074568307166890559  : 1
+14191502057406420813  : 1
+10604277362686129786  : 1
+7414587302142641895  : 1
+10086833846338844820  : 1
+14829674419287529409  : 1
+15464300162902583911  : 1
+6656654353517034452  : 1
+13425203279752416008  : 10
+4988823174612510581  : 1
+4504840211387841570  : 1
+13117341127079206593  : 1
+8068769666068225577  : 1
+11044959451838826049  : 1
+15219203312359965853  : 1
+15173472626001195300  : 1
+618311601172597535  : 1
+9884558697256544607  : 1
+8717144482643656166  : 1
+----------------------------------------
+inactiveUnhandledDecls2
+6094473516132133165  : 1
+10789492512563752263  : 1
+13513711463712273799  : 1
+9496518772622674977  : 1
+7535211014293608317  : 1
+9182786835064148631  : 1
+6554561820803661536  : 1
+11780944220859629953  : 1
+12074142667616033186  : 1
+609842095911410082  : 1
+15455234452876028348  : 1
+5276368870544460156  : 1
+16125242627147687389  : 1
+4186474104662229156  : 1
+9707649004395554193  : 1
+6262325460462613483  : 1
+17535763163473717893  : 1
+17793810274277806111  : 1
+5228759663874785823  : 1
+----------------------------------------

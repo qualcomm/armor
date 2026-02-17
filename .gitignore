@@ -9,6 +9,7 @@ build
 **/api_diff_report.html
 **/api_diff_report.json
 **/heaptrack*
+**/output.txt
 **/tmp
 tests/functional/**/armor_reports/
 tests/functional/**/debug_output/
