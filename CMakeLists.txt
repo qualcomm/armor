@@ -38,6 +38,8 @@ llvm_map_components_to_libnames(LLVM_LIBS
   option
 )
 
+add_definitions(-DTOOL_VERSION="0.6.3")
+
 add_subdirectory(src/common)
 add_subdirectory(src/alpha)
 add_subdirectory(src/beta)
@@ -53,5 +55,3 @@ add_custom_target(build_all_executables ALL
         DEPENDS armor alpha beta
         COMMENT "Building all executables"
 )
-
-add_definitions(-DTOOL_VERSION="${CPACK_PACKAGE_VERSION}")
