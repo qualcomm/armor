@@ -1,0 +1,234 @@
+{
+    "astDiff": [
+        {
+            "dataType": "std::map<std::string, std::function<int (int, int)>>",
+            "nodeType": "Variable",
+            "qualifiedName": "operation_map",
+            "tag": "removed"
+        },
+        {
+            "dataType": "std::unordered_map<std::string, std::vector<std::complex<double>>>",
+            "nodeType": "Variable",
+            "qualifiedName": "complex_data",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "children": [
+                        {
+                            "dataType": "int",
+                            "nodeType": "Field",
+                            "qualifiedName": "ComplexDataStructure::NestedConfig::priority"
+                        },
+                        {
+                            "dataType": "std::string",
+                            "nodeType": "Field",
+                            "qualifiedName": "ComplexDataStructure::NestedConfig::name"
+                        },
+                        {
+                            "dataType": "std::vector<double>",
+                            "nodeType": "Field",
+                            "qualifiedName": "ComplexDataStructure::NestedConfig::weights"
+                        },
+                        {
+                            "children": [
+                                {
+                                    "dataType": "void",
+                                    "nodeType": "ReturnType",
+                                    "qualifiedName": "ComplexDataStructure::NestedConfig::NestedConfig::(ReturnType)"
+                                }
+                            ],
+                            "nodeType": "Function",
+                            "qualifiedName": "ComplexDataStructure::NestedConfig::NestedConfig"
+                        },
+                        {
+                            "children": [
+                                {
+                                    "dataType": "int",
+                                    "nodeType": "Parameter",
+                                    "qualifiedName": "ComplexDataStructure::NestedConfig::NestedConfig::1"
+                                },
+                                {
+                                    "dataType": "const std::string &",
+                                    "nodeType": "Parameter",
+                                    "qualifiedName": "ComplexDataStructure::NestedConfig::NestedConfig::2"
+                                },
+                                {
+                                    "dataType": "std::vector<double>",
+                                    "nodeType": "Parameter",
+                                    "qualifiedName": "ComplexDataStructure::NestedConfig::NestedConfig::3"
+                                },
+                                {
+                                    "dataType": "void",
+                                    "nodeType": "ReturnType",
+                                    "qualifiedName": "ComplexDataStructure::NestedConfig::NestedConfig::(ReturnType)"
+                                }
+                            ],
+                            "nodeType": "Function",
+                            "qualifiedName": "ComplexDataStructure::NestedConfig::NestedConfig"
+                        }
+                    ],
+                    "nodeType": "Struct",
+                    "qualifiedName": "ComplexDataStructure::NestedConfig"
+                },
+                {
+                    "dataType": "std::map<std::string, NestedConfig>",
+                    "nodeType": "Field",
+                    "qualifiedName": "ComplexDataStructure::configurations"
+                },
+                {
+                    "dataType": "std::unique_ptr<std::vector<std::string>>",
+                    "nodeType": "Field",
+                    "qualifiedName": "ComplexDataStructure::dynamic_data"
+                },
+                {
+                    "dataType": "std::function<void (const std::string &)>",
+                    "nodeType": "Field",
+                    "qualifiedName": "ComplexDataStructure::logger"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "std::vector<std::string>",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "ComplexDataStructure::get_sorted_config_names::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "ComplexDataStructure::get_sorted_config_names"
+                }
+            ],
+            "nodeType": "Struct",
+            "qualifiedName": "ComplexDataStructure",
+            "tag": "removed"
+        },
+        {
+            "dataType": "struct ComplexDataStructure",
+            "nodeType": "Variable",
+            "qualifiedName": "global_config",
+            "tag": "removed"
+        },
+        {
+            "dataType": "AdvancedContainer<int, 20>",
+            "nodeType": "Variable",
+            "qualifiedName": "global_int_container",
+            "tag": "removed"
+        },
+        {
+            "dataType": "AdvancedContainer<std::string, 15>",
+            "nodeType": "Variable",
+            "qualifiedName": "global_string_container",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "int",
+                    "nodeType": "Parameter",
+                    "qualifiedName": "process_data::1"
+                },
+                {
+                    "dataType": "std::string",
+                    "nodeType": "ReturnType",
+                    "qualifiedName": "process_data::(ReturnType)"
+                }
+            ],
+            "nodeType": "Function",
+            "qualifiedName": "process_data",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "const std::string &",
+                    "nodeType": "Parameter",
+                    "qualifiedName": "process_data::1"
+                },
+                {
+                    "dataType": "std::string",
+                    "nodeType": "ReturnType",
+                    "qualifiedName": "process_data::(ReturnType)"
+                }
+            ],
+            "nodeType": "Function",
+            "qualifiedName": "process_data",
+            "tag": "removed"
+        },
+        {
+            "dataType": "class (lambda)",
+            "nodeType": "Variable",
+            "qualifiedName": "complex_processor",
+            "tag": "removed"
+        },
+        {
+            "dataType": "int",
+            "nodeType": "Variable",
+            "qualifiedName": "specialized_int_default",
+            "tag": "removed"
+        },
+        {
+            "dataType": "class std::basic_string<char>",
+            "nodeType": "Variable",
+            "qualifiedName": "specialized_string_default",
+            "tag": "removed"
+        },
+        {
+            "dataType": "double",
+            "nodeType": "Variable",
+            "qualifiedName": "specialized_double_default",
+            "tag": "removed"
+        },
+        {
+            "dataType": "Matrix<double, 3, 3>",
+            "nodeType": "Variable",
+            "qualifiedName": "identity_matrix",
+            "tag": "removed"
+        },
+        {
+            "dataType": "Matrix<int, 2, 3>",
+            "nodeType": "Variable",
+            "qualifiedName": "sample_matrix",
+            "tag": "removed"
+        },
+        {
+            "dataType": "std::map<std::string, ComplexFunctionType>",
+            "nodeType": "Variable",
+            "qualifiedName": "signal_processors",
+            "tag": "removed"
+        },
+        {
+            "dataType": "const int",
+            "nodeType": "Variable",
+            "qualifiedName": "factorial_5",
+            "tag": "removed"
+        },
+        {
+            "dataType": "const int",
+            "nodeType": "Variable",
+            "qualifiedName": "factorial_7",
+            "tag": "removed"
+        },
+        {
+            "dataType": "class ComplexNumber",
+            "nodeType": "Variable",
+            "qualifiedName": "complex_unit_i",
+            "tag": "removed"
+        },
+        {
+            "dataType": "class ComplexNumber",
+            "nodeType": "Variable",
+            "qualifiedName": "complex_golden_ratio",
+            "tag": "removed"
+        },
+        {
+            "dataType": "class ComplexNumber",
+            "nodeType": "Variable",
+            "qualifiedName": "complex_euler",
+            "tag": "removed"
+        }
+    ],
+    "headerResolutionFailures": [],
+    "parsed_status": 1,
+    "unparsed_status": 0
+}

@@ -1,0 +1,213 @@
+11404736249108278501
+// Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+----------------------------------------
+252520090170005577
+// SPDX-License-Identifier: BSD-3-Clause
+----------------------------------------
+ClassTemplateDecl
+12016066257162099732
+template<int N>
+struct Factorial {
+    static constexpr int value = N * Factorial<N-1>::value;
+}
+----------------------------------------
+CXXRecordNode
+13177679859764303904
+struct Factorial {
+    static constexpr int value = N * Factorial<N-1>::value;
+}
+----------------------------------------
+CXXRecordNode
+7499599892057241708
+template<>
+struct Factorial<0> {
+    static constexpr int value = 1;
+    int a = 10;
+    int fun();
+}
+----------------------------------------
+ClassTemplateSpecializationDecl
+7499599892057241708
+template<>
+struct Factorial<0> {
+    static constexpr int value = 1;
+    int a = 10;
+    int fun();
+}
+----------------------------------------
+Var init
+complex_processor
+6487960850849166416
+[](const auto& input) -> decltype(auto) {
+
+  if constexpr (std::is_arithmetic_v<std::decay_t<decltype(input)>>) {
+
+    return input * 2;
+
+  } else if constexpr (std::is_same_v<std::decay_t<decltype(input)>, std::string>) {
+
+    return input + "_processed";
+
+  } else {
+
+    return input;
+
+  }
+
+}
+----------------------------------------
+CXXRecordNode
+11925212053580484782
+class ComplexNumber {
+private:
+    double real_, imag_;
+
+public:
+    ComplexNumber(double r = 0.0, double i = 0.0) : real_(r), imag_(i) {}
+    
+    void print_impl() const {
+        std::cout << real_ << " + " << imag_ << "i" << std::endl;
+    }
+    
+    ComplexNumber operator+(const ComplexNumber& other) const {
+        return ComplexNumber(real_ + other.real_, imag_ + other.imag_);
+    }
+    
+    ComplexNumber operator*(const ComplexNumber& other) const {
+        return ComplexNumber(
+            real_ * other.real_ - imag_ * other.imag_,
+            real_ * other.imag_ + imag_ * other.real_
+        );
+    }
+    
+    double magnitude() const {
+        return std::sqrt(real_ * real_ + imag_ * imag_);
+    }
+}
+----------------------------------------
+Var init
+complex_unit_i
+(ARG-EXPR) : 2
+----------------------------------------
+Get the actual end location (after the last token) startOffset == endOffset 
+12055899274147785415
+0.0
+----------------------------------------
+Get the actual end location (after the last token) startOffset == endOffset 
+13424702484772074844
+1.0
+----------------------------------------
+Var init
+complex_golden_ratio
+(ARG-EXPR) : 2
+----------------------------------------
+Get the actual end location (after the last token) startOffset == endOffset 
+11526700758653523298
+1.618
+----------------------------------------
+Get the actual end location (after the last token) startOffset == endOffset 
+12055899274147785415
+0.0
+----------------------------------------
+Var init
+complex_euler
+(ARG-EXPR) : 2
+----------------------------------------
+Get the actual end location (after the last token) startOffset == endOffset 
+13329098839795763837
+2.718
+----------------------------------------
+Get the actual end location (after the last token) startOffset == endOffset 
+1771605423457679277
+3.14159
+----------------------------------------
+Var init
+specialized_int_default
+13436859386736460033
+Factorial<7>::value
+----------------------------------------
+Field init
+priority
+Get the actual end location (after the last token) startOffset == endOffset 
+7982595519259482736
+1
+----------------------------------------
+Field init
+name
+Get the actual end location (after the last token) startOffset == endOffset 
+2076774967674073907
+"default"
+----------------------------------------
+Field init
+weights
+5675295140924787064
+= {1.0, 0.5, 0.25}
+----------------------------------------
+Function Body
+NestedConfig
+Function Body
+NestedConfig
+15521860531219160998
+{}
+----------------------------------------
+9660469657642679128
+#include <algorithm>
+----------------------------------------
+15219203312359965853
+#include <string>
+----------------------------------------
+6318722179137502176
+#include <complex>
+----------------------------------------
+11799315910370350277
+#include <iostream>
+----------------------------------------
+252520090170005577
+// SPDX-License-Identifier: BSD-3-Clause
+----------------------------------------
+11404736249108278501
+// Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+----------------------------------------
+
+############ CONTEXT 1 MAPS ############
+comments1
+252520090170005577  : 1
+11404736249108278501  : 1
+----------------------------------------
+unhandledDecls1
+0  : 1
+1771605423457679277  : 1
+12055899274147785415  : 2
+13424702484772074844  : 1
+6487960850849166416  : 1
+13329098839795763837  : 1
+5675295140924787064  : 1
+7499599892057241708  : 2
+2076774967674073907  : 1
+13177679859764303904  : 1
+6318722179137502176  : 1
+12016066257162099732  : 1
+13436859386736460033  : 1
+11925212053580484782  : 1
+11526700758653523298  : 1
+7982595519259482736  : 1
+15219203312359965853  : 1
+9660469657642679128  : 1
+11799315910370350277  : 1
+15521860531219160998  : 1
+----------------------------------------
+inactiveUnhandledDecls1
+(empty)
+----------------------------------------
+
+############ CONTEXT 2 MAPS ############
+comments2
+252520090170005577  : 1
+11404736249108278501  : 1
+----------------------------------------
+unhandledDecls2
+(empty)
+----------------------------------------
+inactiveUnhandledDecls2
+(empty)
+----------------------------------------

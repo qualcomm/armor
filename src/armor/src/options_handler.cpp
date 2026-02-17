@@ -1,6 +1,5 @@
 // Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-3-Clause
-
 #include <iostream>
 #include <vector>
 #include <string>
@@ -13,7 +12,7 @@
 
 #include "alpha/include/header_processor.hpp"
 #include "beta/include/header_processor.hpp"
-#include "user_print.hpp"
+#include "logger.hpp"
 
 #ifndef TOOL_VERSION
 #define TOOL_VERSION ""
@@ -79,18 +78,28 @@ bool runArmorTool(int argc, const char **argv) {
         macros.push_back(flag);
     }
     // Set level and announce (now goes to the file)
+    
+    DebugConfig& debugConfig = DebugConfig::getInstance();
+    debugConfig.initialize();
+
     if (debugLevel == "DEBUG") {
-        DebugConfig::instance().setLevel(DebugConfig::Level::DEBUG);
-        DebugConfig::instance().log("Debug level set to DEBUG", DebugConfig::Level::INFO);
+        debugConfig.setLevel(DebugConfig::Level::DEBUG);
+        armor::info() << "Debug level set to DEBUG\n";
     } else if (debugLevel == "INFO") {
-        DebugConfig::instance().setLevel(DebugConfig::Level::INFO);
-        DebugConfig::instance().log("Debug level set to INFO", DebugConfig::Level::INFO);
+        debugConfig.setLevel(DebugConfig::Level::INFO);
+        armor::info() << "Debug level set to INFO\n";
     } else if (debugLevel == "LOG") {
-        DebugConfig::instance().setLevel(DebugConfig::Level::LOG);
-        DebugConfig::instance().log("Debug level set to LOG", DebugConfig::Level::INFO);
+        debugConfig.setLevel(DebugConfig::Level::WARNING);
+        armor::info() << "Debug level set to LOG (WARNING)\n";
     } else if (debugLevel == "ERROR") {
-        DebugConfig::instance().setLevel(DebugConfig::Level::ERROR);
-        DebugConfig::instance().log("Debug level set to ERROR", DebugConfig::Level::INFO);
+        debugConfig.setLevel(DebugConfig::Level::ERROR);
+        armor::info() << "Debug level set to ERROR\n";
+    }
+    else{
+        #ifdef TESTING_ENABLED
+            llvm::outs()<<"Enabled Testing \n";
+        #endif
+        debugConfig.setLevel(DebugConfig::Level::NONE);
     }
 
     bool processed = false;
@@ -105,27 +114,27 @@ bool runArmorTool(int argc, const char **argv) {
                 file1 = projectRoot1 + "/" + header;
                 file2 = projectRoot2 + "/" + header;
             }
-            USER_PRINT(std::string("Processing files: ") + file1 + " " + file2);
+            armor::user_print() << "Processing files: " << file1 << " " << file2 << "\n";
             if (!std::filesystem::exists(file1)) {
-                USER_ERROR(std::string("Missing header in older version: ") + file1);
+                armor::user_error() << "Missing header in older version: " << file1 << "\n";
             } else if (!std::filesystem::exists(file2)) {
-                USER_ERROR(std::string("Missing header in newer version: ") + file2);
+                armor::user_error() << "Missing header in newer version: " << file2 << "\n";
             } else if (filesAreDifferentUsingDiff(file1, file2)) {
                 PARSING_STATUS parsingStatus = processHeaderPairAlpha(projectRoot1, file1, projectRoot2, file2, reportFormat,
                                 IncludePaths, macros);
                 switch (parsingStatus) {
                     case NO_FATAL_ERRORS:
-                        DebugConfig::instance().log("Processing Headers again via v2", DebugConfig::Level::INFO);
+                        armor::info() << "Processing Headers again via beta parser\n";
                         processHeaderPairBeta(projectRoot1, file1, projectRoot2, file2, reportFormat,
                                     IncludePaths, macros);
                         break;
                     case FATAL_ERRORS:
-                        DebugConfig::instance().log("Processing Headers stopped at v1", DebugConfig::Level::INFO);
+                        armor::info() << "Processing Headers stopped at alpha parser\n";
                         break;
                 }
                 processed = true;
             } else {
-                USER_PRINT(std::string("No differences found between: ") + file1 + " and " + file2);
+                armor::user_print() << "No differences found between: " << file1 << " and " << file2 << "\n";
             }
         }
     }
@@ -137,34 +146,35 @@ bool runArmorTool(int argc, const char **argv) {
                 headersToCompare.push_back(entry.path().filename().string());
             }
         }
-        USER_PRINT("List of headers to process:");
+        armor::user_print() << "List of headers to process:\n";
         for (const auto &h : headersToCompare) {
-            USER_PRINT(std::string("  ") + h);
+            armor::user_print() << "  " << h << "\n";
         }
         for (const auto &header : headersToCompare) {
             std::string file1 = dir1 + "/" + header;
             std::string file2 = dir2 + "/" + header;
-            USER_PRINT(std::string("Processing files: ") + file1 + " " + file2);
+            armor::user_print() << "Processing files: " << file1 << " " << file2 << "\n";
             if (!std::filesystem::exists(file1)) {
-                USER_ERROR(std::string("Missing header in older version: ") + file1);
+                armor::user_error() << "Missing header in older version: " << file1 << "\n";
             } else if (!std::filesystem::exists(file2)) {
-                USER_ERROR(std::string("Missing header in newer version: ") + file2);
+                armor::user_error() << "Missing header in newer version: " << file2 << "\n";
             } else if (filesAreDifferentUsingDiff(file1, file2)) {
                 PARSING_STATUS parsingStatus = processHeaderPairAlpha(projectRoot1, file1, projectRoot2, file2, reportFormat,
                                 IncludePaths, macros);
                 switch (parsingStatus) {
                     case NO_FATAL_ERRORS:
-                        DebugConfig::instance().log("Processing Headers again via v2", DebugConfig::Level::INFO);
+                        armor::info() << "Processing Headers again via v2\n";
                         processHeaderPairBeta(projectRoot1, file1, projectRoot2, file2, reportFormat,
                                     IncludePaths, macros);
                         break;
                     case FATAL_ERRORS:
-                        DebugConfig::instance().log("Processing Headers stopped at v1", DebugConfig::Level::INFO);
+                        armor::info() << "Processing Headers stopped at v1\n";
                         break;
                 }
                 processed = true;
             } else {
-                USER_PRINT(std::string("No differences found between: ") + file1 + " and " + file2);
+                llvm::outs()<<"No diff beta\n";
+                armor::user_print() << "No differences found between: " << file1 << " and " << file2 << "\n";
             }
         }
     }
@@ -172,16 +182,14 @@ bool runArmorTool(int argc, const char **argv) {
         try {
             std::filesystem::remove_all("debug_output/ast_diffs");
         } catch (const std::exception &e) {
-            USER_ERROR(std::string("Failed to remove debug_output directory: ") + e.what());
+            armor::user_error() << "Failed to remove debug_output directory: " << e.what() << "\n";
         }
     }
     if (!processed && headers.empty() && headerSubDir.empty()) {
         const std::string argv0 = argv[0] ? std::string(argv[0]) : std::string("armor");
-        USER_ERROR(
-            std::string("Usage: ") + argv0 + " <projectroot1> <projectroot2> <header1> <header2> ...\n"
-            "Or use --header-dir to compare all headers in a subdirectory.\n"
-            "Try '" + argv0 + " --help' for more information."
-        );
+        armor::user_error() << "Usage: " << argv0 << " <projectroot1> <projectroot2> <header1> <header2> ...\n"
+            << "Or use --header-dir to compare all headers in a subdirectory.\n"
+            << "Try '" << argv0 << " --help' for more information.\n";
     }
     return processed;
 }

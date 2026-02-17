@@ -1,6 +1,5 @@
 // Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-3-Clause
-
 #pragma once
 
 #include <string>
@@ -35,7 +34,12 @@ std::vector<json> preprocess_api_changes(const json& api_differences,
  */
 void generate_html_report(const std::vector<json>& processed_data,
                           const std::string& output_html_path,
-                          PARSER parser
+                          PARSER parser,
+                          int parsed_status,
+                          int unparsed_status,
+                          const std::string& agg_compatibility,
+                          const char* overall_status,
+                          const char* reason
                         );
 
 /**
@@ -45,5 +49,10 @@ void generate_html_report(const std::vector<json>& processed_data,
  * @param output_json_path Path to write the JSON file.
  */
 void generate_json_report(const std::vector<json>& processed_data,
-                          const std::string& output_json_path);
+                          const std::string& output_json_path,
+                          int parsed_status,
+                          int unparsed_status,
+                          const std::string& agg_compatibility,
+                          const char* overall_status,
+                          const char* reason);
 

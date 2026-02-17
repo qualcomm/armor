@@ -1,0 +1,95 @@
+{
+    "astDiff": [
+        {
+            "children": [
+                {
+                    "dataType": "string_t",
+                    "nodeType": "Field",
+                    "qualifiedName": "Person::name"
+                },
+                {
+                    "dataType": "uint_t",
+                    "nodeType": "Field",
+                    "qualifiedName": "Person::age"
+                },
+                {
+                    "dataType": "float",
+                    "nodeType": "Field",
+                    "qualifiedName": "Person::height"
+                }
+            ],
+            "nodeType": "Struct",
+            "qualifiedName": "Person",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "math_func_t",
+                    "nodeType": "Parameter",
+                    "qualifiedName": "apply_math::1"
+                },
+                {
+                    "dataType": "float",
+                    "nodeType": "Parameter",
+                    "qualifiedName": "apply_math::2"
+                },
+                {
+                    "dataType": "float",
+                    "nodeType": "ReturnType",
+                    "qualifiedName": "apply_math::(ReturnType)"
+                }
+            ],
+            "nodeType": "Function",
+            "qualifiedName": "apply_math",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "operation_t",
+                    "nodeType": "Parameter",
+                    "qualifiedName": "perform_operation::1"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Parameter",
+                    "qualifiedName": "perform_operation::2"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Parameter",
+                    "qualifiedName": "perform_operation::3"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "ReturnType",
+                    "qualifiedName": "perform_operation::(ReturnType)"
+                }
+            ],
+            "nodeType": "Function",
+            "qualifiedName": "perform_operation",
+            "tag": "removed"
+        }
+    ],
+    "headerResolutionFailures": [
+        {
+            "file": "/local/mnt/workspace/sw_sw_tools/API_Compatibility_Checker/src/tests/alpha/functional/fatal_errors/v1/include/types.h",
+            "header": "utils.h"
+        },
+        {
+            "file": "/local/mnt/workspace/sw_sw_tools/API_Compatibility_Checker/src/tests/alpha/functional/fatal_errors/v1/mylib.h",
+            "header": "comm_def.h"
+        },
+        {
+            "file": "/local/mnt/workspace/sw_sw_tools/API_Compatibility_Checker/src/tests/alpha/functional/fatal_errors/v2/include/types.h",
+            "header": "utils.h"
+        },
+        {
+            "file": "/local/mnt/workspace/sw_sw_tools/API_Compatibility_Checker/src/tests/alpha/functional/fatal_errors/v2/mylib.h",
+            "header": "comm_def.h"
+        }
+    ],
+    "parsed_status": 0,
+    "unparsed_status": null
+}

@@ -1,0 +1,1230 @@
+11404736249108278501
+// Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+----------------------------------------
+252520090170005577
+// SPDX-License-Identifier: BSD-3-Clause
+----------------------------------------
+13544904843976097695
+// Forward declarations
+----------------------------------------
+9594443262505614428
+// Complex templated variables initialization
+----------------------------------------
+15342658858839563586
+// Complex static variables with initialization
+----------------------------------------
+3758619582844837859
+// Complex templated class with inline implementation
+----------------------------------------
+18111344959285271875
+// Constructor with initializer list
+----------------------------------------
+9605644240197736416
+// Template member function
+----------------------------------------
+3142852398024095045
+// Complex member function with lambda
+----------------------------------------
+14940561797993017025
+// Operator overloading
+----------------------------------------
+7766286947037952727
+// Iterator support
+----------------------------------------
+11130587390054697834
+// Complex struct with nested types and initialization
+----------------------------------------
+10933118988422432731
+// Complex member function
+----------------------------------------
+13150095228578745277
+// Function with complex logic
+----------------------------------------
+7494459730557916148
+// Global complex variables with initialization
+----------------------------------------
+9103803152946105242
+// Complex templated function with multiple template parameters
+----------------------------------------
+10956266650370016217
+// Variadic template function
+----------------------------------------
+13135654333516560429
+// Complex function with multiple overloads
+----------------------------------------
+4086622334110350515
+// Complex lambda stored as static variable
+----------------------------------------
+7700879619482751254
+// Complex initialization with SFINAE
+----------------------------------------
+1588676221849640999
+// Static complex templated variables using the initializer
+----------------------------------------
+10219777592457057988
+// Specialized complex variables
+----------------------------------------
+6823150602294666790
+// Complex nested namespace with inline variables
+----------------------------------------
+7645683722243422614
+// Complex matrix class with advanced features
+----------------------------------------
+14161504314221718096
+// Global matrix instances with initialization
+----------------------------------------
+3131941724459852973
+// Complex function pointer type with initialization
+----------------------------------------
+3793066841880810578
+// Complex function using all the above components
+----------------------------------------
+1120250941352042540
+// Use global templated variables
+----------------------------------------
+2592559447365353836
+// Use complex container
+----------------------------------------
+16366546631334038365
+// Demonstrate filtering
+----------------------------------------
+8630109278780880554
+// Use complex data structure
+----------------------------------------
+8008042892988404947
+// Use complex operations
+----------------------------------------
+3025035934545486749
+// Use complex processor
+----------------------------------------
+12051600676984622673
+// Use matrix operations
+----------------------------------------
+10346781759784311864
+// Use signal processors
+----------------------------------------
+12717838083679479604
+// Complex recursive template for compile-time calculations
+----------------------------------------
+398651386851387080
+// Static constexpr variables using recursive templates
+----------------------------------------
+3091833896656613569
+// Complex CRTP (Curiously Recurring Template Pattern) example
+----------------------------------------
+17919327289695980878
+// Global complex number instances
+----------------------------------------
+10045713449462580603
+// LIB4_H
+----------------------------------------
+ClassTemplateDecl
+8284054292833084804
+template<typename T, size_t N = 10>
+class AdvancedContainer
+----------------------------------------
+CXXRecordNode
+4805977141514113120
+class AdvancedContainer
+----------------------------------------
+VarTemplateDecl
+16032181948639068459
+template<typename T>
+static T global_default_value = T{}
+----------------------------------------
+TemplatedVarDecl
+1738375066606156858
+static T global_default_value = T{}
+----------------------------------------
+TempletSpecVarDecl
+14180939186788272753
+template<>
+static int global_default_value<int> = 42
+----------------------------------------
+VarTemplateSpecializationDecl
+14180939186788272753
+template<>
+static int global_default_value<int> = 42
+----------------------------------------
+TempletSpecVarDecl
+6112743799942898378
+template<>
+static std::string global_default_value<std::string> = "default_string"
+----------------------------------------
+VarTemplateSpecializationDecl
+6112743799942898378
+template<>
+static std::string global_default_value<std::string> = "default_string"
+----------------------------------------
+TempletSpecVarDecl
+8771808281520941346
+template<>
+static double global_default_value<double> = 3.14159
+----------------------------------------
+VarTemplateSpecializationDecl
+8771808281520941346
+template<>
+static double global_default_value<double> = 3.14159
+----------------------------------------
+Var init
+operation_map
+951717322710276926
+{
+    {"add", [](int a, int b) { return a + b; }},
+    {"multiply", [](int a, int b) { return a * b; }},
+    {"subtract", [](int a, int b) { return a - b; }},
+    {"divide", [](int a, int b) { return b != 0 ? a / b : 0; }}
+}
+----------------------------------------
+Var init
+complex_data
+16309385631051561667
+{
+    {"signal1", {{1.0, 2.0}, {3.0, 4.0}, {5.0, 6.0}}},
+    {"signal2", {{2.0, 1.0}, {4.0, 3.0}, {6.0, 5.0}}},
+    {"noise", {{0.1, 0.2}, {0.3, 0.4}, {0.5, 0.6}}}
+}
+----------------------------------------
+ClassTemplateDecl
+856567704942466178
+template<typename T, size_t N>
+class AdvancedContainer {
+private:
+    std::array<T, N> data_;
+    size_t size_;
+    std::function<bool(const T&, const T&)> comparator_;
+
+public:
+    // Constructor with initializer list
+    AdvancedContainer(std::initializer_list<T> init_list = {}) 
+        : size_(0), comparator_([](const T& a, const T& b) { return a < b; }) {
+        for (const auto& item : init_list) {
+            if (size_ < N) {
+                data_[size_++] = item;
+            }
+        }
+    }
+
+    // Template member function
+    template<typename Predicate>
+    std::vector<T> filter(Predicate pred) const {
+        std::vector<T> result;
+        for (size_t i = 0; i < size_; ++i) {
+            if (pred(data_[i])) {
+                result.push_back(data_[i]);
+            }
+        }
+        return result;
+    }
+
+    // Complex member function with lambda
+    void sort_custom() {
+        std::sort(data_.begin(), data_.begin() + size_, comparator_);
+    }
+
+    // Operator overloading
+    T& operator[](size_t index) {
+        if (index >= size_) throw std::out_of_range("Index out of range");
+        return data_[index];
+    }
+
+    const T& operator[](size_t index) const {
+        if (index >= size_) throw std::out_of_range("Index out of range");
+        return data_[index];
+    }
+
+    // Iterator support
+    T* begin() { return data_.data(); }
+    T* end() { return data_.data() + size_; }
+    const T* begin() const { return data_.data(); }
+    const T* end() const { return data_.data() + size_; }
+
+    size_t size() const { return size_; }
+    bool empty() const { return size_ == 0; }
+
+    void push_back(const T& value) {
+        if (size_ < N) {
+            data_[size_++] = value;
+        }
+    }
+
+    void set_comparator(std::function<bool(const T&, const T&)> comp) {
+        comparator_ = comp;
+    }
+}
+----------------------------------------
+CXXRecordNode
+12462178903022914777
+class AdvancedContainer {
+private:
+    std::array<T, N> data_;
+    size_t size_;
+    std::function<bool(const T&, const T&)> comparator_;
+
+public:
+    // Constructor with initializer list
+    AdvancedContainer(std::initializer_list<T> init_list = {}) 
+        : size_(0), comparator_([](const T& a, const T& b) { return a < b; }) {
+        for (const auto& item : init_list) {
+            if (size_ < N) {
+                data_[size_++] = item;
+            }
+        }
+    }
+
+    // Template member function
+    template<typename Predicate>
+    std::vector<T> filter(Predicate pred) const {
+        std::vector<T> result;
+        for (size_t i = 0; i < size_; ++i) {
+            if (pred(data_[i])) {
+                result.push_back(data_[i]);
+            }
+        }
+        return result;
+    }
+
+    // Complex member function with lambda
+    void sort_custom() {
+        std::sort(data_.begin(), data_.begin() + size_, comparator_);
+    }
+
+    // Operator overloading
+    T& operator[](size_t index) {
+        if (index >= size_) throw std::out_of_range("Index out of range");
+        return data_[index];
+    }
+
+    const T& operator[](size_t index) const {
+        if (index >= size_) throw std::out_of_range("Index out of range");
+        return data_[index];
+    }
+
+    // Iterator support
+    T* begin() { return data_.data(); }
+    T* end() { return data_.data() + size_; }
+    const T* begin() const { return data_.data(); }
+    const T* end() const { return data_.data() + size_; }
+
+    size_t size() const { return size_; }
+    bool empty() const { return size_ == 0; }
+
+    void push_back(const T& value) {
+        if (size_ < N) {
+            data_[size_++] = value;
+        }
+    }
+
+    void set_comparator(std::function<bool(const T&, const T&)> comp) {
+        comparator_ = comp;
+    }
+}
+----------------------------------------
+Field init
+priority
+Get the actual end location (after the last token) startOffset == endOffset 
+7982595519259482736
+1
+----------------------------------------
+Field init
+name
+Get the actual end location (after the last token) startOffset == endOffset 
+2076774967674073907
+"default"
+----------------------------------------
+Field init
+weights
+5675295140924787064
+= {1.0, 0.5, 0.25}
+----------------------------------------
+Function Body
+NestedConfig
+Function Body
+NestedConfig
+15521860531219160998
+{}
+----------------------------------------
+Field init
+configurations
+16041120424113590309
+= {
+        {"high_performance", {10, "high_perf", {2.0, 1.5, 1.0}}},
+        {"balanced", {5, "balanced", {1.0, 1.0, 1.0}}},
+        {"low_power", {1, "low_power", {0.5, 0.3, 0.1}}}
+    }
+----------------------------------------
+Field init
+dynamic_data
+10457667742776737309
+std::make_unique<std::vector<std::string>>(
+            std::initializer_list<std::string>{"item1", "item2", "item3"}
+        )
+----------------------------------------
+Field init
+logger
+12782694956101511075
+[](const std::string& msg) { 
+            std::cout << "[LOG]: " << msg << std::endl; 
+        }
+----------------------------------------
+FunctionTemplateDecl
+2554253207901270623
+template<typename Callback>
+    void process_configurations(Callback callback) const {
+        for (const auto& [key, config] : configurations) {
+            callback(key, config);
+            logger("Processed configuration: " + key);
+        }
+    }
+----------------------------------------
+FunctionNode
+6981660867274067673
+void process_configurations(Callback callback) const {
+        for (const auto& [key, config] : configurations) {
+            callback(key, config);
+            logger("Processed configuration: " + key);
+        }
+    }
+----------------------------------------
+Function Body
+get_sorted_config_names
+6968967418460942861
+{
+        std::vector<std::string> names;
+        for (const auto& [key, config] : configurations) {
+            names.push_back(key);
+        }
+        
+        std::sort(names.begin(), names.end(), 
+                  [this](const std::string& a, const std::string& b) {
+                      return configurations.at(a).priority > configurations.at(b).priority;
+                  });
+        
+        return names;
+    }
+----------------------------------------
+Var init
+global_config
+(NO ARG-EXPR)
+----------------------------------------
+Var init
+global_int_container
+3616391282856490301
+global_int_container{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+----------------------------------------
+Var init
+global_string_container
+16490686200379549591
+global_string_container{
+    "alpha", "beta", "gamma", "delta", "epsilon"
+}
+----------------------------------------
+FunctionTemplateDecl
+4670556794927485077
+template<typename Container, typename Predicate, typename Transform>
+auto complex_transform_filter(const Container& container, Predicate pred, Transform trans) 
+    -> std::vector<decltype(trans(*container.begin()))> {
+    
+    using ResultType = decltype(trans(*container.begin()));
+    std::vector<ResultType> result;
+    
+    for (const auto& item : container) {
+        if (pred(item)) {
+            result.push_back(trans(item));
+        }
+    }
+    
+    return result;
+}
+----------------------------------------
+FunctionNode
+2553378970941049173
+auto complex_transform_filter(const Container& container, Predicate pred, Transform trans) 
+    -> std::vector<decltype(trans(*container.begin()))> {
+    
+    using ResultType = decltype(trans(*container.begin()));
+    std::vector<ResultType> result;
+    
+    for (const auto& item : container) {
+        if (pred(item)) {
+            result.push_back(trans(item));
+        }
+    }
+    
+    return result;
+}
+----------------------------------------
+FunctionTemplateDecl
+3681090337335648506
+template<typename T, typename... Args>
+std::unique_ptr<T> make_complex_unique(Args&&... args) {
+    return std::make_unique<T>(std::forward<Args>(args)...);
+}
+----------------------------------------
+FunctionNode
+18115684256474464314
+std::unique_ptr<T> make_complex_unique(Args&&... args) {
+    return std::make_unique<T>(std::forward<Args>(args)...);
+}
+----------------------------------------
+Function Body
+process_data
+15163640622990995000
+{
+    return "Processing integer: " + std::to_string(value);
+}
+----------------------------------------
+Function Body
+process_data
+8494400295869631523
+{
+    return "Processing string: " + value;
+}
+----------------------------------------
+FunctionTemplateDecl
+3944981449972081753
+template<typename T>
+std::string process_data(const std::vector<T>& values) {
+    return "Processing vector of size: " + std::to_string(values.size());
+}
+----------------------------------------
+FunctionNode
+4938352314944474740
+std::string process_data(const std::vector<T>& values) {
+    return "Processing vector of size: " + std::to_string(values.size());
+}
+----------------------------------------
+Var init
+complex_processor
+6487960850849166416
+[](const auto& input) -> decltype(auto) {
+    if constexpr (std::is_arithmetic_v<std::decay_t<decltype(input)>>) {
+        return input * 2;
+    } else if constexpr (std::is_same_v<std::decay_t<decltype(input)>, std::string>) {
+        return input + "_processed";
+    } else {
+        return input;
+    }
+}
+----------------------------------------
+ClassTemplateDecl
+12230296907891452888
+template<typename T>
+struct ComplexInitializer {
+    static T get_default() {
+        if constexpr (std::is_arithmetic_v<T>) {
+            return T{42};
+        } else if constexpr (std::is_same_v<T, std::string>) {
+            return std::string{"default_value"};
+        } else {
+            return T{};
+        }
+    }
+}
+----------------------------------------
+CXXRecordNode
+1781820906463316725
+struct ComplexInitializer {
+    static T get_default() {
+        if constexpr (std::is_arithmetic_v<T>) {
+            return T{42};
+        } else if constexpr (std::is_same_v<T, std::string>) {
+            return std::string{"default_value"};
+        } else {
+            return T{};
+        }
+    }
+}
+----------------------------------------
+VarTemplateDecl
+3543820999603857234
+template<typename T>
+static T complex_default = ComplexInitializer<T>::get_default()
+----------------------------------------
+TemplatedVarDecl
+15397832599593944701
+static T complex_default = ComplexInitializer<T>::get_default()
+----------------------------------------
+Var init
+specialized_int_default
+14100592286772990627
+complex_default<int>
+----------------------------------------
+TempletSpecVarDecl
+15397832599593944701
+static T complex_default = ComplexInitializer<T>::get_default()
+----------------------------------------
+VarTemplateSpecializationDecl
+15397832599593944701
+static T complex_default = ComplexInitializer<T>::get_default()
+----------------------------------------
+Var init
+specialized_string_default
+(ARG-EXPR) : 1
+----------------------------------------
+10135767722221868708
+complex_default<std::string>
+----------------------------------------
+TempletSpecVarDecl
+15397832599593944701
+static T complex_default = ComplexInitializer<T>::get_default()
+----------------------------------------
+VarTemplateSpecializationDecl
+15397832599593944701
+static T complex_default = ComplexInitializer<T>::get_default()
+----------------------------------------
+Var init
+specialized_double_default
+6898786222412502220
+complex_default<double>
+----------------------------------------
+TempletSpecVarDecl
+15397832599593944701
+static T complex_default = ComplexInitializer<T>::get_default()
+----------------------------------------
+VarTemplateSpecializationDecl
+15397832599593944701
+static T complex_default = ComplexInitializer<T>::get_default()
+----------------------------------------
+NamespaceDecl
+11730221009788629009
+namespace detail {
+    inline static std::map<std::type_index, std::string> type_names = {
+        {std::type_index(typeid(int)), "integer"},
+        {std::type_index(typeid(double)), "double"},
+        {std::type_index(typeid(std::string)), "string"},
+        {std::type_index(typeid(std::vector<int>)), "vector<int>"}
+    };
+
+    template<typename T>
+    inline static std::string get_type_name() {
+        auto it = type_names.find(std::type_index(typeid(T)));
+        return it != type_names.end() ? it->second : "unknown";
+    }
+}
+----------------------------------------
+ClassTemplateDecl
+5482259323088342019
+template<typename T, size_t Rows, size_t Cols>
+class Matrix {
+private:
+    std::array<std::array<T, Cols>, Rows> data_;
+
+public:
+    Matrix() {
+        for (auto& row : data_) {
+            row.fill(T{});
+        }
+    }
+
+    Matrix(std::initializer_list<std::initializer_list<T>> init) : Matrix() {
+        size_t row = 0;
+        for (const auto& row_data : init) {
+            if (row >= Rows) break;
+            size_t col = 0;
+            for (const auto& value : row_data) {
+                if (col >= Cols) break;
+                data_[row][col] = value;
+                ++col;
+            }
+            ++row;
+        }
+    }
+
+    T& operator()(size_t row, size_t col) {
+        if (row >= Rows || col >= Cols) {
+            throw std::out_of_range("Matrix index out of range");
+        }
+        return data_[row][col];
+    }
+
+    const T& operator()(size_t row, size_t col) const {
+        if (row >= Rows || col >= Cols) {
+            throw std::out_of_range("Matrix index out of range");
+        }
+        return data_[row][col];
+    }
+
+    template<size_t OtherCols>
+    Matrix<T, Rows, OtherCols> multiply(const Matrix<T, Cols, OtherCols>& other) const {
+        Matrix<T, Rows, OtherCols> result;
+        for (size_t i = 0; i < Rows; ++i) {
+            for (size_t j = 0; j < OtherCols; ++j) {
+                T sum = T{};
+                for (size_t k = 0; k < Cols; ++k) {
+                    sum += data_[i][k] * other(k, j);
+                }
+                result(i, j) = sum;
+            }
+        }
+        return result;
+    }
+
+    Matrix<T, Rows, Cols> operator+(const Matrix<T, Rows, Cols>& other) const {
+        Matrix<T, Rows, Cols> result;
+        for (size_t i = 0; i < Rows; ++i) {
+            for (size_t j = 0; j < Cols; ++j) {
+                result(i, j) = data_[i][j] + other(i, j);
+            }
+        }
+        return result;
+    }
+
+    constexpr size_t rows() const { return Rows; }
+    constexpr size_t cols() const { return Cols; }
+}
+----------------------------------------
+CXXRecordNode
+10395994329720020153
+class Matrix {
+private:
+    std::array<std::array<T, Cols>, Rows> data_;
+
+public:
+    Matrix() {
+        for (auto& row : data_) {
+            row.fill(T{});
+        }
+    }
+
+    Matrix(std::initializer_list<std::initializer_list<T>> init) : Matrix() {
+        size_t row = 0;
+        for (const auto& row_data : init) {
+            if (row >= Rows) break;
+            size_t col = 0;
+            for (const auto& value : row_data) {
+                if (col >= Cols) break;
+                data_[row][col] = value;
+                ++col;
+            }
+            ++row;
+        }
+    }
+
+    T& operator()(size_t row, size_t col) {
+        if (row >= Rows || col >= Cols) {
+            throw std::out_of_range("Matrix index out of range");
+        }
+        return data_[row][col];
+    }
+
+    const T& operator()(size_t row, size_t col) const {
+        if (row >= Rows || col >= Cols) {
+            throw std::out_of_range("Matrix index out of range");
+        }
+        return data_[row][col];
+    }
+
+    template<size_t OtherCols>
+    Matrix<T, Rows, OtherCols> multiply(const Matrix<T, Cols, OtherCols>& other) const {
+        Matrix<T, Rows, OtherCols> result;
+        for (size_t i = 0; i < Rows; ++i) {
+            for (size_t j = 0; j < OtherCols; ++j) {
+                T sum = T{};
+                for (size_t k = 0; k < Cols; ++k) {
+                    sum += data_[i][k] * other(k, j);
+                }
+                result(i, j) = sum;
+            }
+        }
+        return result;
+    }
+
+    Matrix<T, Rows, Cols> operator+(const Matrix<T, Rows, Cols>& other) const {
+        Matrix<T, Rows, Cols> result;
+        for (size_t i = 0; i < Rows; ++i) {
+            for (size_t j = 0; j < Cols; ++j) {
+                result(i, j) = data_[i][j] + other(i, j);
+            }
+        }
+        return result;
+    }
+
+    constexpr size_t rows() const { return Rows; }
+    constexpr size_t cols() const { return Cols; }
+}
+----------------------------------------
+Var init
+identity_matrix
+10458730474462569483
+identity_matrix{
+    {1.0, 0.0, 0.0},
+    {0.0, 1.0, 0.0},
+    {0.0, 0.0, 1.0}
+}
+----------------------------------------
+Var init
+sample_matrix
+14784299442328131169
+sample_matrix{
+    {1, 2, 3},
+    {4, 5, 6}
+}
+----------------------------------------
+TypeAliasDecl
+15529516918349818119
+using ComplexFunctionType = std::function<std::vector<double>(const std::vector<double>&, double)>
+----------------------------------------
+Var init
+signal_processors
+17592249031386877950
+{
+    {"amplify", [](const std::vector<double>& signal, double factor) {
+        std::vector<double> result;
+        result.reserve(signal.size());
+        for (double val : signal) {
+            result.push_back(val * factor);
+        }
+        return result;
+    }},
+    {"normalize", [](const std::vector<double>& signal, double) {
+        std::vector<double> result = signal;
+        if (!result.empty()) {
+            double max_val = *std::max_element(result.begin(), result.end());
+            if (max_val != 0.0) {
+                for (double& val : result) {
+                    val /= max_val;
+                }
+            }
+        }
+        return result;
+    }},
+    {"offset", [](const std::vector<double>& signal, double offset) {
+        std::vector<double> result;
+        result.reserve(signal.size());
+        for (double val : signal) {
+            result.push_back(val + offset);
+        }
+        return result;
+    }}
+}
+----------------------------------------
+FunctionTemplateDecl
+9396592619251435991
+template<typename T>
+void demonstrate_complex_functionality() {
+    std::cout << "=== Complex Functionality Demo ===" << std::endl;
+    
+    // Use global templated variables
+    std::cout << "Default value for type: " << global_default_value<T> << std::endl;
+    
+    // Use complex container
+    AdvancedContainer<T, 5> container;
+    if constexpr (std::is_same_v<T, int>) {
+        container.push_back(10);
+        container.push_back(5);
+        container.push_back(15);
+        
+        // Demonstrate filtering
+        auto filtered = container.filter([](const T& val) { return val > 7; });
+        std::cout << "Filtered values count: " << filtered.size() << std::endl;
+    }
+    
+    // Use complex data structure
+    global_config.process_configurations([](const std::string& name, const auto& config) {
+        std::cout << "Config: " << name << ", Priority: " << config.priority << std::endl;
+    });
+    
+    // Use complex operations
+    if (operation_map.count("add")) {
+        std::cout << "Operation result: " << operation_map["add"](10, 20) << std::endl;
+    }
+    
+    // Use complex processor
+    if constexpr (std::is_arithmetic_v<T>) {
+        auto result = complex_processor(T{5});
+        std::cout << "Processed result: " << result << std::endl;
+    }
+    
+    // Use matrix operations
+    std::cout << "Identity matrix (0,0): " << identity_matrix(0, 0) << std::endl;
+    std::cout << "Sample matrix (1,2): " << sample_matrix(1, 2) << std::endl;
+    
+    // Use signal processors
+    std::vector<double> test_signal = {1.0, 2.0, 3.0, 4.0, 5.0};
+    if (signal_processors.count("amplify")) {
+        auto amplified = signal_processors["amplify"](test_signal, 2.0);
+        std::cout << "Amplified signal size: " << amplified.size() << std::endl;
+    }
+    
+    std::cout << "Type name: " << detail::get_type_name<T>() << std::endl;
+}
+----------------------------------------
+FunctionNode
+10809478167656137905
+void demonstrate_complex_functionality() {
+    std::cout << "=== Complex Functionality Demo ===" << std::endl;
+    
+    // Use global templated variables
+    std::cout << "Default value for type: " << global_default_value<T> << std::endl;
+    
+    // Use complex container
+    AdvancedContainer<T, 5> container;
+    if constexpr (std::is_same_v<T, int>) {
+        container.push_back(10);
+        container.push_back(5);
+        container.push_back(15);
+        
+        // Demonstrate filtering
+        auto filtered = container.filter([](const T& val) { return val > 7; });
+        std::cout << "Filtered values count: " << filtered.size() << std::endl;
+    }
+    
+    // Use complex data structure
+    global_config.process_configurations([](const std::string& name, const auto& config) {
+        std::cout << "Config: " << name << ", Priority: " << config.priority << std::endl;
+    });
+    
+    // Use complex operations
+    if (operation_map.count("add")) {
+        std::cout << "Operation result: " << operation_map["add"](10, 20) << std::endl;
+    }
+    
+    // Use complex processor
+    if constexpr (std::is_arithmetic_v<T>) {
+        auto result = complex_processor(T{5});
+        std::cout << "Processed result: " << result << std::endl;
+    }
+    
+    // Use matrix operations
+    std::cout << "Identity matrix (0,0): " << identity_matrix(0, 0) << std::endl;
+    std::cout << "Sample matrix (1,2): " << sample_matrix(1, 2) << std::endl;
+    
+    // Use signal processors
+    std::vector<double> test_signal = {1.0, 2.0, 3.0, 4.0, 5.0};
+    if (signal_processors.count("amplify")) {
+        auto amplified = signal_processors["amplify"](test_signal, 2.0);
+        std::cout << "Amplified signal size: " << amplified.size() << std::endl;
+    }
+    
+    std::cout << "Type name: " << detail::get_type_name<T>() << std::endl;
+}
+----------------------------------------
+ClassTemplateDecl
+12016066257162099732
+template<int N>
+struct Factorial {
+    static constexpr int value = N * Factorial<N-1>::value;
+}
+----------------------------------------
+CXXRecordNode
+13177679859764303904
+struct Factorial {
+    static constexpr int value = N * Factorial<N-1>::value;
+}
+----------------------------------------
+CXXRecordNode
+7499599892057241708
+template<>
+struct Factorial<0> {
+    static constexpr int value = 1;
+    int a = 10;
+    int fun();
+}
+----------------------------------------
+ClassTemplateSpecializationDecl
+7499599892057241708
+template<>
+struct Factorial<0> {
+    static constexpr int value = 1;
+    int a = 10;
+    int fun();
+}
+----------------------------------------
+Var init
+factorial_5
+10802498839062100116
+Factorial<5>::value
+----------------------------------------
+Var init
+factorial_7
+13436859386736460033
+Factorial<7>::value
+----------------------------------------
+ClassTemplateDecl
+15193117821587401632
+template<typename Derived>
+class Printable {
+public:
+    void print() const {
+        static_cast<const Derived*>(this)->print_impl();
+    }
+    
+    void debug_info() const {
+        std::cout << "Type: " << typeid(Derived).name() << std::endl;
+        static_cast<const Derived*>(this)->print_impl();
+    }
+}
+----------------------------------------
+CXXRecordNode
+14143025345386881785
+class Printable {
+public:
+    void print() const {
+        static_cast<const Derived*>(this)->print_impl();
+    }
+    
+    void debug_info() const {
+        std::cout << "Type: " << typeid(Derived).name() << std::endl;
+        static_cast<const Derived*>(this)->print_impl();
+    }
+}
+----------------------------------------
+CXXRecordNode
+15882054327581835022
+class ComplexNumber : public Printable<ComplexNumber> {
+private:
+    double real_, imag_;
+
+public:
+    ComplexNumber(double r = 0.0, double i = 0.0) : real_(r), imag_(i) {}
+    
+    void print_impl() const {
+        std::cout << real_ << " + " << imag_ << "i" << std::endl;
+    }
+    
+    ComplexNumber operator+(const ComplexNumber& other) const {
+        return ComplexNumber(real_ + other.real_, imag_ + other.imag_);
+    }
+    
+    ComplexNumber operator*(const ComplexNumber& other) const {
+        return ComplexNumber(
+            real_ * other.real_ - imag_ * other.imag_,
+            real_ * other.imag_ + imag_ * other.real_
+        );
+    }
+    
+    double magnitude() const {
+        return std::sqrt(real_ * real_ + imag_ * imag_);
+    }
+}
+----------------------------------------
+Var init
+complex_unit_i
+(ARG-EXPR) : 2
+----------------------------------------
+Get the actual end location (after the last token) startOffset == endOffset 
+12055899274147785415
+0.0
+----------------------------------------
+Get the actual end location (after the last token) startOffset == endOffset 
+13424702484772074844
+1.0
+----------------------------------------
+Var init
+complex_golden_ratio
+(ARG-EXPR) : 2
+----------------------------------------
+Get the actual end location (after the last token) startOffset == endOffset 
+11526700758653523298
+1.618
+----------------------------------------
+Get the actual end location (after the last token) startOffset == endOffset 
+12055899274147785415
+0.0
+----------------------------------------
+Var init
+complex_euler
+(ARG-EXPR) : 2
+----------------------------------------
+Get the actual end location (after the last token) startOffset == endOffset 
+13329098839795763837
+2.718
+----------------------------------------
+Get the actual end location (after the last token) startOffset == endOffset 
+1771605423457679277
+3.14159
+----------------------------------------
+18138093064422956591
+#ifndef LIB4_H
+----------------------------------------
+13957569352895101084
+#define LIB4_H
+----------------------------------------
+11799315910370350277
+#include <iostream>
+----------------------------------------
+16977924592700156950
+#include <vector>
+----------------------------------------
+11728103345505421467
+#include <map>
+----------------------------------------
+15219203312359965853
+#include <string>
+----------------------------------------
+11160874710484048764
+#include <memory>
+----------------------------------------
+2348909900560597168
+#include <functional>
+----------------------------------------
+6318722179137502176
+#include <complex>
+----------------------------------------
+1426345352165272409
+#include <array>
+----------------------------------------
+8370400199979850612
+#include <unordered_map>
+----------------------------------------
+9660469657642679128
+#include <algorithm>
+----------------------------------------
+9696857092352719281
+#include <typeindex>
+----------------------------------------
+18305035471494891038
+#include <type_traits>
+----------------------------------------
+7455076031092283842
+#include <stdexcept>
+----------------------------------------
+13425203279752416008
+#endif
+----------------------------------------
+252520090170005577
+// SPDX-License-Identifier: BSD-3-Clause
+----------------------------------------
+11404736249108278501
+// Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+----------------------------------------
+
+############ CONTEXT 1 MAPS ############
+comments1
+13135654333516560429  : 1
+9103803152946105242  : 1
+7494459730557916148  : 1
+12717838083679479604  : 1
+17919327289695980878  : 1
+3131941724459852973  : 1
+10045713449462580603  : 1
+15342658858839563586  : 1
+9594443262505614428  : 1
+252520090170005577  : 1
+3758619582844837859  : 1
+14161504314221718096  : 1
+13150095228578745277  : 1
+11130587390054697834  : 1
+7766286947037952727  : 1
+10219777592457057988  : 1
+8630109278780880554  : 1
+10346781759784311864  : 1
+11404736249108278501  : 1
+3793066841880810578  : 1
+1120250941352042540  : 1
+10956266650370016217  : 1
+4086622334110350515  : 1
+9605644240197736416  : 1
+2592559447365353836  : 1
+1588676221849640999  : 1
+14940561797993017025  : 1
+3091833896656613569  : 1
+10933118988422432731  : 1
+398651386851387080  : 1
+7700879619482751254  : 1
+18111344959285271875  : 1
+7645683722243422614  : 1
+16366546631334038365  : 1
+3025035934545486749  : 1
+12051600676984622673  : 1
+3142852398024095045  : 1
+13544904843976097695  : 1
+6823150602294666790  : 1
+8008042892988404947  : 1
+----------------------------------------
+unhandledDecls1
+0  : 1
+1771605423457679277  : 1
+15529516918349818119  : 1
+14784299442328131169  : 1
+15882054327581835022  : 1
+4670556794927485077  : 1
+7455076031092283842  : 1
+13957569352895101084  : 1
+12782694956101511075  : 1
+8494400295869631523  : 1
+15397832599593944701  : 7
+14100592286772990627  : 1
+6487960850849166416  : 1
+8284054292833084804  : 1
+10809478167656137905  : 1
+9396592619251435991  : 1
+10458730474462569483  : 1
+15163640622990995000  : 1
+13329098839795763837  : 1
+7499599892057241708  : 2
+9696857092352719281  : 1
+13177679859764303904  : 1
+15193117821587401632  : 1
+3681090337335648506  : 1
+13436859386736460033  : 1
+13425203279752416008  : 1
+11526700758653523298  : 1
+16977924592700156950  : 1
+16309385631051561667  : 1
+7982595519259482736  : 1
+10457667742776737309  : 1
+6112743799942898378  : 2
+10135767722221868708  : 1
+17592249031386877950  : 1
+16032181948639068459  : 1
+12230296907891452888  : 1
+9660469657642679128  : 1
+2554253207901270623  : 1
+10395994329720020153  : 1
+15219203312359965853  : 1
+12055899274147785415  : 2
+4938352314944474740  : 1
+8370400199979850612  : 1
+2553378970941049173  : 1
+856567704942466178  : 1
+18138093064422956591  : 1
+13424702484772074844  : 1
+3616391282856490301  : 1
+16490686200379549591  : 1
+14180939186788272753  : 2
+18305035471494891038  : 1
+5675295140924787064  : 1
+16041120424113590309  : 1
+3543820999603857234  : 1
+12462178903022914777  : 1
+6981660867274067673  : 1
+2076774967674073907  : 1
+4805977141514113120  : 1
+6968967418460942861  : 1
+1738375066606156858  : 1
+18115684256474464314  : 1
+12016066257162099732  : 1
+10802498839062100116  : 1
+6318722179137502176  : 1
+3944981449972081753  : 1
+11728103345505421467  : 1
+1781820906463316725  : 1
+8771808281520941346  : 2
+11160874710484048764  : 1
+5482259323088342019  : 1
+2348909900560597168  : 1
+1426345352165272409  : 1
+11730221009788629009  : 1
+951717322710276926  : 1
+11799315910370350277  : 1
+6898786222412502220  : 1
+14143025345386881785  : 1
+15521860531219160998  : 1
+----------------------------------------
+inactiveUnhandledDecls1
+(empty)
+----------------------------------------
+
+############ CONTEXT 2 MAPS ############
+comments2
+252520090170005577  : 1
+11404736249108278501  : 1
+----------------------------------------
+unhandledDecls2
+(empty)
+----------------------------------------
+inactiveUnhandledDecls2
+(empty)
+----------------------------------------

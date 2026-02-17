@@ -1,0 +1,1023 @@
+11404736249108278501
+// Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+----------------------------------------
+252520090170005577
+// SPDX-License-Identifier: BSD-3-Clause
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+17506190268434189631
+// UNIONS
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+15986668699124022850
+// Basic union
+----------------------------------------
+18427937799464489401
+// Tagged union with enum
+----------------------------------------
+16794613017815258509
+// Note: unions with non-trivial members need careful handling
+----------------------------------------
+11691076932156618070
+// Anonymous union
+----------------------------------------
+11691076932156618070
+// Anonymous union
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+2520547935695893401
+// BIT FIELDS
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+4596218312822708378
+// 1 bit
+----------------------------------------
+4596218312822708378
+// 1 bit
+----------------------------------------
+11806941602503203528
+// 6 bits
+----------------------------------------
+2269965399848148928
+// 3 bits
+----------------------------------------
+1671424991673726266
+// 5 unnamed bits (padding)
+----------------------------------------
+12308406418719188016
+// 16 bits
+----------------------------------------
+144573414253188101
+// 0-31 priority levels
+----------------------------------------
+5540456239053257182
+// Reserved for future use
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+5753362038467622666
+// VIRTUAL FUNCTIONS & INHERITANCE
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+7946107127368848278
+// Abstract base class
+----------------------------------------
+13743700743314009817
+// Pure virtual
+----------------------------------------
+13743700743314009817
+// Pure virtual
+----------------------------------------
+14370505418897524974
+// Virtual with default
+----------------------------------------
+6727447764124997809
+// Non-virtual function
+----------------------------------------
+213202090689869372
+// Derived class
+----------------------------------------
+6780825668253030212
+// Additional method
+----------------------------------------
+752618242068458499
+// Multiple inheritance
+----------------------------------------
+5384466261227192891
+// Simple parsing logic would go here
+----------------------------------------
+14347266225158194013
+// Redeclared for access
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+9898063377715262896
+// EXCEPTION HANDLING
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+12220040368948128911
+// Custom exception hierarchy
+----------------------------------------
+263676438251967529
+// Function demonstrating exception handling
+----------------------------------------
+8475174106187775093
+// RAII class with exception safety
+----------------------------------------
+4425488450011472507
+// Move constructor
+----------------------------------------
+5214148549134633767
+// Move assignment
+----------------------------------------
+3110969478109908778
+// Delete copy operations
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+10808965958491221686
+// TEMPLATE TEMPLATE PARAMETERS
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+15107697706427744540
+// Template template parameter with multiple parameters
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+12698018396359521611
+// VARIADIC TEMPLATES
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+15663536434674602451
+// Variadic template function with perfect forwarding
+----------------------------------------
+11890324756914451506
+// C++17 fold expression
+----------------------------------------
+13043246927028028611
+// Variadic template class
+----------------------------------------
+8209010173398846048
+// Recursive template to check if type exists
+----------------------------------------
+11890324756914451506
+// C++17 fold expression
+----------------------------------------
+1377511998358184065
+// Variadic template with parameter pack expansion
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+176727545209352077
+// MODERN C++ FEATURES
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+145497642200059473
+// std::variant usage
+----------------------------------------
+7738890418210140171
+// std::optional usage
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+12037397812665535953
+// FUNCTION OBJECTS & LAMBDAS
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+6343577577162204282
+// Function object (functor)
+----------------------------------------
+4504882739108418238
+// Generic lambda and function utilities
+----------------------------------------
+5670737653391449154
+// Higher-order function
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+16558761098190659899
+// CONCEPTS (C++20)
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+1581461766829837169
+// C++20
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+7633092168895398110
+// COROUTINES (C++20)
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+4220438488778059685
+// C++20 coroutines
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+227639230821065814
+// GLOBAL UTILITY FUNCTIONS
+----------------------------------------
+15166341478938275295
+// ============================================================================
+----------------------------------------
+11546873152698188307
+// Demonstration function that uses multiple features
+----------------------------------------
+1518827586728504638
+// Union usage
+----------------------------------------
+15527806518192304214
+// Bit field usage
+----------------------------------------
+2281695849174222467
+// Exception handling
+----------------------------------------
+4640671631358139786
+// Variant usage
+----------------------------------------
+6105796626919107355
+// Optional usage
+----------------------------------------
+877286963952570090
+// LIB5_H
+----------------------------------------
+Function Body
+TypedData
+15521860531219160998
+{}
+----------------------------------------
+Function Body
+~TypedData
+15521860531219160998
+{}
+----------------------------------------
+Function Body
+TaggedUnion
+12073625207878275815
+{ data.int_val = val; }
+----------------------------------------
+Function Body
+TaggedUnion
+18241077227437770918
+{ data.float_val = val; }
+----------------------------------------
+Function Body
+TaggedUnion
+16097920601617933913
+{ data.string_val = const_cast<char*>(val); }
+----------------------------------------
+Function Body
+AnonymousUnionExample
+15521860531219160998
+{}
+----------------------------------------
+Function Body
+AnonymousUnionExample
+15521860531219160998
+{}
+----------------------------------------
+CXXRecordNode
+6729547780656959418
+class Shape {
+public:
+    virtual ~Shape() = default;
+    virtual double area() const = 0;  // Pure virtual
+    virtual double perimeter() const = 0;  // Pure virtual
+    virtual void draw() const { std::cout << "Drawing shape\n"; }  // Virtual with default
+    
+    // Non-virtual function
+    void info() const { std::cout << "This is a shape\n"; }
+}
+----------------------------------------
+CXXRecordNode
+11868969600101753308
+class Rectangle : public Shape {
+private:
+    double width_, height_;
+    
+public:
+    Rectangle(double w, double h) : width_(w), height_(h) {}
+    
+    double area() const override { return width_ * height_; }
+    double perimeter() const override { return 2 * (width_ + height_); }
+    void draw() const override { std::cout << "Drawing rectangle\n"; }
+    
+    // Additional method
+    double diagonal() const { return std::sqrt(width_ * width_ + height_ * height_); }
+}
+----------------------------------------
+CXXRecordNode
+10341399895611101361
+class Drawable {
+public:
+    virtual ~Drawable() = default;
+    virtual void render() const = 0;
+}
+----------------------------------------
+CXXRecordNode
+1703868323125425019
+class Serializable {
+public:
+    virtual ~Serializable() = default;
+    virtual std::string serialize() const = 0;
+    virtual void deserialize(const std::string& data) = 0;
+}
+----------------------------------------
+CXXRecordNode
+6324557409392423089
+class DrawableRectangle : public Rectangle, public Drawable, public Serializable {
+public:
+    DrawableRectangle(double w, double h) : Rectangle(w, h) {}
+    
+    void render() const override { draw(); }
+    
+    std::string serialize() const override {
+        return "Rectangle(" + std::to_string(width_) + "," + std::to_string(height_) + ")";
+    }
+    
+    void deserialize(const std::string& data) override {
+        // Simple parsing logic would go here
+    }
+    
+private:
+    double width_, height_;  // Redeclared for access
+}
+----------------------------------------
+CXXRecordNode
+17218841254141763400
+class BaseException : public std::exception {
+protected:
+    std::string message_;
+    
+public:
+    explicit BaseException(const std::string& msg) : message_(msg) {}
+    const char* what() const noexcept override { return message_.c_str(); }
+}
+----------------------------------------
+CXXRecordNode
+14115858030185735514
+class ValidationError : public BaseException {
+public:
+    explicit ValidationError(const std::string& msg) 
+        : BaseException("Validation Error: " + msg) {}
+}
+----------------------------------------
+CXXRecordNode
+13813199116550789988
+class NetworkError : public BaseException {
+private:
+    int error_code_;
+    
+public:
+    NetworkError(const std::string& msg, int code) 
+        : BaseException("Network Error: " + msg), error_code_(code) {}
+    
+    int getErrorCode() const { return error_code_; }
+}
+----------------------------------------
+FunctionTemplateDecl
+7750474127759925789
+template<typename T>
+T safe_divide(T a, T b) {
+    if (b == T{}) {
+        throw ValidationError("Division by zero");
+    }
+    return a / b;
+}
+----------------------------------------
+FunctionNode
+5592908019062377859
+T safe_divide(T a, T b) {
+    if (b == T{}) {
+        throw ValidationError("Division by zero");
+    }
+    return a / b;
+}
+----------------------------------------
+CXXRecordNode
+4881733589162099498
+class ResourceManager {
+private:
+    int* resource_;
+    
+public:
+    explicit ResourceManager(size_t size) : resource_(new int[size]) {
+        if (!resource_) {
+            throw std::bad_alloc();
+        }
+    }
+    
+    ~ResourceManager() noexcept {
+        delete[] resource_;
+    }
+    
+    // Move constructor
+    ResourceManager(ResourceManager&& other) noexcept : resource_(other.resource_) {
+        other.resource_ = nullptr;
+    }
+    
+    // Move assignment
+    ResourceManager& operator=(ResourceManager&& other) noexcept {
+        if (this != &other) {
+            delete[] resource_;
+            resource_ = other.resource_;
+            other.resource_ = nullptr;
+        }
+        return *this;
+    }
+    
+    // Delete copy operations
+    ResourceManager(const ResourceManager&) = delete;
+    ResourceManager& operator=(const ResourceManager&) = delete;
+    
+    int* get() const { return resource_; }
+}
+----------------------------------------
+ClassTemplateDecl
+11059637842122172337
+template<template<typename> class Container, typename T>
+class ContainerWrapper {
+private:
+    Container<T> container_;
+    
+public:
+    void add(const T& item) { container_.push_back(item); }
+    size_t size() const { return container_.size(); }
+    
+    template<typename Predicate>
+    void remove_if(Predicate pred) {
+        container_.erase(
+            std::remove_if(container_.begin(), container_.end(), pred),
+            container_.end()
+        );
+    }
+}
+----------------------------------------
+CXXRecordNode
+379429906857865096
+class ContainerWrapper {
+private:
+    Container<T> container_;
+    
+public:
+    void add(const T& item) { container_.push_back(item); }
+    size_t size() const { return container_.size(); }
+    
+    template<typename Predicate>
+    void remove_if(Predicate pred) {
+        container_.erase(
+            std::remove_if(container_.begin(), container_.end(), pred),
+            container_.end()
+        );
+    }
+}
+----------------------------------------
+ClassTemplateDecl
+10163018768622990908
+template<template<typename, typename> class Container, typename T, typename Allocator = std::allocator<T>>
+class AdvancedContainerWrapper {
+private:
+    Container<T, Allocator> container_;
+    
+public:
+    using value_type = T;
+    using allocator_type = Allocator;
+    using iterator = typename Container<T, Allocator>::iterator;
+    
+    void insert(const T& value) { container_.insert(container_.end(), value); }
+    iterator begin() { return container_.begin(); }
+    iterator end() { return container_.end(); }
+}
+----------------------------------------
+CXXRecordNode
+2123223742695244628
+class AdvancedContainerWrapper {
+private:
+    Container<T, Allocator> container_;
+    
+public:
+    using value_type = T;
+    using allocator_type = Allocator;
+    using iterator = typename Container<T, Allocator>::iterator;
+    
+    void insert(const T& value) { container_.insert(container_.end(), value); }
+    iterator begin() { return container_.begin(); }
+    iterator end() { return container_.end(); }
+}
+----------------------------------------
+FunctionTemplateDecl
+1793604573464532111
+template<typename... Args>
+void print_all(Args&&... args) {
+    ((std::cout << std::forward<Args>(args) << " "), ...);  // C++17 fold expression
+    std::cout << std::endl;
+}
+----------------------------------------
+FunctionNode
+13103261512013926239
+void print_all(Args&&... args) {
+    ((std::cout << std::forward<Args>(args) << " "), ...);  // C++17 fold expression
+    std::cout << std::endl;
+}
+----------------------------------------
+ClassTemplateDecl
+232158585818830723
+template<typename... Types>
+class TypeList {
+public:
+    static constexpr size_t size = sizeof...(Types);
+    
+    template<size_t N>
+    using type_at = std::tuple_element_t<N, std::tuple<Types...>>;
+    
+    // Recursive template to check if type exists
+    template<typename T>
+    static constexpr bool contains() {
+        return (std::is_same_v<T, Types> || ...);  // C++17 fold expression
+    }
+}
+----------------------------------------
+CXXRecordNode
+3819078911002632972
+class TypeList {
+public:
+    static constexpr size_t size = sizeof...(Types);
+    
+    template<size_t N>
+    using type_at = std::tuple_element_t<N, std::tuple<Types...>>;
+    
+    // Recursive template to check if type exists
+    template<typename T>
+    static constexpr bool contains() {
+        return (std::is_same_v<T, Types> || ...);  // C++17 fold expression
+    }
+}
+----------------------------------------
+FunctionTemplateDecl
+5524124380847091728
+template<typename T, typename... Args>
+std::unique_ptr<T> make_unique_with_args(Args&&... args) {
+    return std::make_unique<T>(std::forward<Args>(args)...);
+}
+----------------------------------------
+FunctionNode
+14634401375250260547
+std::unique_ptr<T> make_unique_with_args(Args&&... args) {
+    return std::make_unique<T>(std::forward<Args>(args)...);
+}
+----------------------------------------
+TypeAliasDecl
+5643335536656467175
+using Value = std::variant<int, double, std::string>
+----------------------------------------
+CXXRecordNode
+7809163442427489086
+class VariantProcessor {
+public:
+    static void process(const Value& v) {
+        std::visit([](const auto& value) {
+            using T = std::decay_t<decltype(value)>;
+            if constexpr (std::is_same_v<T, int>) {
+                std::cout << "Integer: " << value << std::endl;
+            } else if constexpr (std::is_same_v<T, double>) {
+                std::cout << "Double: " << value << std::endl;
+            } else if constexpr (std::is_same_v<T, std::string>) {
+                std::cout << "String: " << value << std::endl;
+            }
+        }, v);
+    }
+}
+----------------------------------------
+FunctionTemplateDecl
+7216266635772902375
+template<typename T>
+std::optional<T> safe_cast(const std::string& str) {
+    try {
+        if constexpr (std::is_same_v<T, int>) {
+            return std::stoi(str);
+        } else if constexpr (std::is_same_v<T, double>) {
+            return std::stod(str);
+        }
+        return std::nullopt;
+    } catch (...) {
+        return std::nullopt;
+    }
+}
+----------------------------------------
+FunctionNode
+16390664270760828787
+std::optional<T> safe_cast(const std::string& str) {
+    try {
+        if constexpr (std::is_same_v<T, int>) {
+            return std::stoi(str);
+        } else if constexpr (std::is_same_v<T, double>) {
+            return std::stod(str);
+        }
+        return std::nullopt;
+    } catch (...) {
+        return std::nullopt;
+    }
+}
+----------------------------------------
+Function Body
+Multiplier
+15521860531219160998
+{}
+----------------------------------------
+Function Body
+operator()
+7909654482965650615
+{
+        return value * factor;
+    }
+----------------------------------------
+FunctionTemplateDecl
+5141200042933997091
+template<typename T>
+    T operator()(T value) const {
+        return value * static_cast<T>(factor);
+    }
+----------------------------------------
+FunctionNode
+18024777515863882359
+T operator()(T value) const {
+        return value * static_cast<T>(factor);
+    }
+----------------------------------------
+CXXRecordNode
+202027446608545319
+class FunctionUtils {
+public:
+    template<typename Container, typename Func>
+    static auto transform_container(const Container& container, Func func) {
+        std::vector<decltype(func(*container.begin()))> result;
+        std::transform(container.begin(), container.end(), 
+                      std::back_inserter(result), func);
+        return result;
+    }
+    
+    // Higher-order function
+    template<typename Func>
+    static auto compose(Func f) {
+        return [f](auto x) { return f(x); };
+    }
+    
+    template<typename Func1, typename Func2>
+    static auto compose(Func1 f1, Func2 f2) {
+        return [f1, f2](auto x) { return f1(f2(x)); };
+    }
+}
+----------------------------------------
+FunctionTemplateDecl
+3186347411073196804
+template<typename T>
+void demonstrate_features() {
+    try {
+        // Union usage
+        BasicUnion u;
+        u.i = 42;
+        std::cout << "Union int value: " << u.i << std::endl;
+        
+        // Bit field usage
+        BitFieldExample bf{};
+        bf.flag1 = 1;
+        bf.value = 63;
+        bf.status = 0xFFFF;
+        
+        // Exception handling
+        auto result = safe_divide(10.0, 2.0);
+        std::cout << "Division result: " << result << std::endl;
+        
+        // Variant usage
+        Value v = std::string("Hello");
+        VariantProcessor::process(v);
+        
+        // Optional usage
+        auto opt_int = safe_cast<int>("123");
+        if (opt_int) {
+            std::cout << "Parsed int: " << *opt_int << std::endl;
+        }
+        
+    } catch (const BaseException& e) {
+        std::cout << "Caught exception: " << e.what() << std::endl;
+    }
+}
+----------------------------------------
+FunctionNode
+569359803562095677
+void demonstrate_features() {
+    try {
+        // Union usage
+        BasicUnion u;
+        u.i = 42;
+        std::cout << "Union int value: " << u.i << std::endl;
+        
+        // Bit field usage
+        BitFieldExample bf{};
+        bf.flag1 = 1;
+        bf.value = 63;
+        bf.status = 0xFFFF;
+        
+        // Exception handling
+        auto result = safe_divide(10.0, 2.0);
+        std::cout << "Division result: " << result << std::endl;
+        
+        // Variant usage
+        Value v = std::string("Hello");
+        VariantProcessor::process(v);
+        
+        // Optional usage
+        auto opt_int = safe_cast<int>("123");
+        if (opt_int) {
+            std::cout << "Parsed int: " << *opt_int << std::endl;
+        }
+        
+    } catch (const BaseException& e) {
+        std::cout << "Caught exception: " << e.what() << std::endl;
+    }
+}
+----------------------------------------
+VarTemplateDecl
+3924185869214740167
+template<template<typename, typename> class Container>
+typename AdvancedContainerWrapper<Container, int>::iterator global_iterator
+----------------------------------------
+TemplatedVarDecl
+17330938420637483467
+typename AdvancedContainerWrapper<Container, int>::iterator global_iterator
+----------------------------------------
+7739102919376461533
+#ifndef LIB5_H
+----------------------------------------
+6732842362608267820
+#define LIB5_H
+----------------------------------------
+11160874710484048764
+#include <memory>
+----------------------------------------
+13626083506679473294
+#include <math.h>
+----------------------------------------
+2348909900560597168
+#include <functional>
+----------------------------------------
+3268740722546936101
+#include <exception>
+----------------------------------------
+12814579946915968411
+#include <variant>
+----------------------------------------
+17683337103810379642
+#include <optional>
+----------------------------------------
+18305035471494891038
+#include <type_traits>
+----------------------------------------
+11799315910370350277
+#include <iostream>
+----------------------------------------
+12832985064113139461
+#if __cplusplus >= 202002L
+#include <concepts>
+
+// Custom concepts
+template<typename T>
+concept Numeric = std::integral<T> || std::floating_point<T>;
+
+template<typename T>
+concept Printable = requires(T t) {
+    std::cout << t;
+};
+
+template<typename T>
+concept Container = requires(T t) {
+    t.begin();
+    t.end();
+    t.size();
+};
+
+// Function using concepts
+template<Numeric T>
+T add(T a, T b) {
+    return a + b;
+}
+
+template<Container C>
+void print_container(const C& container) {
+    for (const auto& item : container) {
+        std::cout << item << " ";
+    }
+    std::cout << std::endl;
+}
+
+#endif // C++20
+----------------------------------------
+4552978047279620817
+#if __cplusplus >= 202002L && __has_include(<coroutine>)
+#include <coroutine>
+
+// Simple generator
+template<typename T>
+struct Generator {
+    struct promise_type {
+        T current_value;
+        
+        Generator get_return_object() {
+            return Generator{std::coroutine_handle<promise_type>::from_promise(*this)};
+        }
+        
+        std::suspend_always initial_suspend() { return {}; }
+        std::suspend_always final_suspend() noexcept { return {}; }
+        void unhandled_exception() {}
+        
+        std::suspend_always yield_value(T value) {
+            current_value = value;
+            return {};
+        }
+        
+        void return_void() {}
+    };
+    
+    std::coroutine_handle<promise_type> coro;
+    
+    Generator(std::coroutine_handle<promise_type> h) : coro(h) {}
+    ~Generator() { if (coro) coro.destroy(); }
+    
+    bool next() {
+        coro.resume();
+        return !coro.done();
+    }
+    
+    T value() {
+        return coro.promise().current_value;
+    }
+};
+
+// Coroutine function
+Generator<int> fibonacci() {
+    int a = 0, b = 1;
+    while (true) {
+        co_yield a;
+        auto temp = a;
+        a = b;
+        b = temp + b;
+    }
+}
+
+#endif // C++20 coroutines
+----------------------------------------
+13425203279752416008
+#endif
+----------------------------------------
+Flush : 
+// C++20
+-------------------------------------------
+Flush : 
+// C++20 coroutines
+-------------------------------------------
+252520090170005577
+// SPDX-License-Identifier: BSD-3-Clause
+----------------------------------------
+11404736249108278501
+// Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+----------------------------------------
+
+############ CONTEXT 1 MAPS ############
+comments1
+5384466261227192891  : 1
+16558761098190659899  : 1
+15986668699124022850  : 1
+5670737653391449154  : 1
+15107697706427744540  : 1
+252520090170005577  : 1
+3110969478109908778  : 1
+6727447764124997809  : 1
+5540456239053257182  : 1
+7738890418210140171  : 1
+11404736249108278501  : 1
+17506190268434189631  : 1
+7633092168895398110  : 1
+2520547935695893401  : 1
+6343577577162204282  : 1
+5214148549134633767  : 1
+1377511998358184065  : 1
+12220040368948128911  : 1
+213202090689869372  : 1
+7946107127368848278  : 1
+13043246927028028611  : 1
+145497642200059473  : 1
+12037397812665535953  : 1
+144573414253188101  : 1
+11890324756914451506  : 2
+15166341478938275295  : 22
+18427937799464489401  : 1
+11546873152698188307  : 1
+2269965399848148928  : 1
+4596218312822708378  : 2
+4425488450011472507  : 1
+10808965958491221686  : 1
+877286963952570090  : 1
+6780825668253030212  : 1
+12698018396359521611  : 1
+13743700743314009817  : 2
+8209010173398846048  : 1
+16794613017815258509  : 1
+1671424991673726266  : 1
+176727545209352077  : 1
+14370505418897524974  : 1
+6105796626919107355  : 1
+11806941602503203528  : 1
+8475174106187775093  : 1
+263676438251967529  : 1
+11691076932156618070  : 2
+752618242068458499  : 1
+12308406418719188016  : 1
+14347266225158194013  : 1
+5753362038467622666  : 1
+9898063377715262896  : 1
+227639230821065814  : 1
+2281695849174222467  : 1
+4504882739108418238  : 1
+1518827586728504638  : 1
+15527806518192304214  : 1
+4640671631358139786  : 1
+15663536434674602451  : 1
+----------------------------------------
+unhandledDecls1
+14115858030185735514  : 1
+13626083506679473294  : 1
+5141200042933997091  : 1
+4881733589162099498  : 1
+3186347411073196804  : 1
+10341399895611101361  : 1
+6324557409392423089  : 1
+11059637842122172337  : 1
+16390664270760828787  : 1
+17683337103810379642  : 1
+202027446608545319  : 1
+2123223742695244628  : 1
+379429906857865096  : 1
+13425203279752416008  : 1
+1793604573464532111  : 1
+10163018768622990908  : 1
+14634401375250260547  : 1
+7750474127759925789  : 1
+18024777515863882359  : 1
+13103261512013926239  : 1
+3819078911002632972  : 1
+3924185869214740167  : 1
+1703868323125425019  : 1
+11868969600101753308  : 1
+5524124380847091728  : 1
+569359803562095677  : 1
+18305035471494891038  : 1
+17330938420637483467  : 1
+3268740722546936101  : 1
+6732842362608267820  : 1
+16097920601617933913  : 1
+6729547780656959418  : 1
+12073625207878275815  : 1
+5643335536656467175  : 1
+7216266635772902375  : 1
+12814579946915968411  : 1
+17218841254141763400  : 1
+11160874710484048764  : 1
+5592908019062377859  : 1
+232158585818830723  : 1
+7739102919376461533  : 1
+7909654482965650615  : 1
+13813199116550789988  : 1
+7809163442427489086  : 1
+11799315910370350277  : 1
+2348909900560597168  : 1
+15521860531219160998  : 5
+18241077227437770918  : 1
+----------------------------------------
+inactiveUnhandledDecls1
+4552978047279620817  : 1
+12832985064113139461  : 1
+----------------------------------------
+
+############ CONTEXT 2 MAPS ############
+comments2
+252520090170005577  : 1
+11404736249108278501  : 1
+----------------------------------------
+unhandledDecls2
+(empty)
+----------------------------------------
+inactiveUnhandledDecls2
+(empty)
+----------------------------------------
