@@ -25,7 +25,7 @@ def test_ast_diff(binary_path, binary_args, request):
     with open(f'{test_dir}/debug_output/ast_diffs/ast_diff_output_mylib.h.json', 'r') as f:
         actual_json = json.load(f)
 
-    diff = DeepDiff(expected_json, actual_json, ignore_order=True)
+    diff = DeepDiff(expected_json, actual_json['astDiff'], ignore_order=True)
 
     assert diff == {}
     #assert not os.path.exists(f'{test_dir}/debug_output/ast_diffs/ast_diff_output_mylib.h.json')
