@@ -1,0 +1,692 @@
+11404736249108278501
+// Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+----------------------------------------
+252520090170005577
+// SPDX-License-Identifier: BSD-3-Clause
+----------------------------------------
+1925459157750440271
+// String array with initializers
+----------------------------------------
+Function Body
+alpha
+1614844741741410036
+{
+        a = 0;
+    }
+----------------------------------------
+Function Body
+alpha
+4461056045324771736
+{
+        a = x;
+        a = y;
+    }
+----------------------------------------
+Var init
+a
+(NO ARG-EXPR)
+----------------------------------------
+Var init
+b
+(ARG-EXPR) : 2
+----------------------------------------
+Get the actual end location (after the last token) startOffset == endOffset 
+7982595519259482736
+1
+----------------------------------------
+Get the actual end location (after the last token) startOffset == endOffset 
+12353599670573947936
+2
+----------------------------------------
+Var init
+string_array
+3365845941763436523
+{
+    "first",
+    "second",
+    "third"    ,
+    "fourth",
+    nullptr
+}
+----------------------------------------
+11404736249108278501
+// Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+----------------------------------------
+252520090170005577
+// SPDX-License-Identifier: BSD-3-Clause
+----------------------------------------
+16659769428922069608
+// new comment
+----------------------------------------
+4120430128987400416
+/*
+    new comments
+    */
+----------------------------------------
+16659769428922069608
+// new comment
+----------------------------------------
+16839120821193363926
+// Complex typedef with function pointer and nested structures
+----------------------------------------
+7352598931370951286
+// 3-level nested structures with enums and unions
+----------------------------------------
+12438055782925242121
+// Function with definition
+----------------------------------------
+7228406200626364214
+// Function declaration with default parameters
+----------------------------------------
+16976751976620338779
+// Struct with complex member initializations
+----------------------------------------
+5830903046350219506
+// Union with different initialization patterns
+----------------------------------------
+12957411969934699279
+// Enhanced nested structure with more initializers
+----------------------------------------
+15244275484275291308
+// new comments
+----------------------------------------
+2400318303137733805
+// Array of structures with mixed initialization styles
+----------------------------------------
+4120430128987400416
+/*
+        new comments
+        */
+----------------------------------------
+12341339433593953026
+// Complex array initialization
+----------------------------------------
+17342388045705742455
+/*
+
+
+        new comments
+        */,
+----------------------------------------
+15244275484275291308
+// new comments
+----------------------------------------
+1925459157750440271
+// String array with initializers
+----------------------------------------
+15244275484275291308
+// new comments
+----------------------------------------
+15244275484275291308
+// new comments
+----------------------------------------
+15244275484275291308
+// new comments
+----------------------------------------
+15244275484275291308
+// new comments
+----------------------------------------
+15244275484275291308
+// new comments
+----------------------------------------
+15244275484275291308
+// new comments
+----------------------------------------
+Function Body
+alpha
+1614844741741410036
+{
+        a = 0;
+    }
+----------------------------------------
+Function Body
+alpha
+4461056045324771736
+{
+
+
+        // new comment
+        a = x;
+        a = y;
+    }
+----------------------------------------
+Var init
+a
+(NO ARG-EXPR)
+----------------------------------------
+Var init
+b
+(ARG-EXPR) : 2
+----------------------------------------
+Get the actual end location (after the last token) startOffset == endOffset 
+7982595519259482736
+1
+----------------------------------------
+Get the actual end location (after the last token) startOffset == endOffset 
+12353599670573947936
+2
+----------------------------------------
+Var init
+c
+(NO ARG-EXPR)
+----------------------------------------
+Field init
+a
+Get the actual end location (after the last token) startOffset == endOffset 
+12353599670573947936
+2
+----------------------------------------
+Var init
+beta_var
+(NO ARG-EXPR)
+----------------------------------------
+EnumConst
+Status:ACTIVE
+Get the actual end location (after the last token) startOffset == endOffset 
+7982595519259482736
+1
+----------------------------------------
+EnumConst
+Status:INACTIVE
+Get the actual end location (after the last token) startOffset == endOffset 
+12700262454154676125
+0
+----------------------------------------
+EnumConst
+Status:PENDING
+Get the actual end location (after the last token) startOffset == endOffset 
+12353599670573947936
+2
+----------------------------------------
+Field init
+is_valid
+Get the actual end location (after the last token) startOffset == endOffset 
+14852111437353930693
+true
+----------------------------------------
+Field init
+counter
+Get the actual end location (after the last token) startOffset == endOffset 
+12700262454154676125
+0
+----------------------------------------
+Field init
+weight
+Get the actual end location (after the last token) startOffset == endOffset 
+13424702484772074844
+1.0
+----------------------------------------
+Field init
+tag
+Get the actual end location (after the last token) startOffset == endOffset 
+6031455774548353982
+"inner"
+----------------------------------------
+Field init
+middle_id
+Get the actual end location (after the last token) startOffset == endOffset 
+9297192508087949785
+100
+----------------------------------------
+Field init
+scale
+Get the actual end location (after the last token) startOffset == endOffset 
+4765996262716823800
+2.5f
+----------------------------------------
+Field init
+name
+Get the actual end location (after the last token) startOffset == endOffset 
+2076774967674073907
+"default"
+----------------------------------------
+Field init
+active
+Get the actual end location (after the last token) startOffset == endOffset 
+14852111437353930693
+true
+----------------------------------------
+Field init
+outer_id
+Get the actual end location (after the last token) startOffset == endOffset 
+7982595519259482736
+1
+----------------------------------------
+Field init
+enabled
+Get the actual end location (after the last token) startOffset == endOffset 
+14852111437353930693
+true
+----------------------------------------
+Field init
+version
+Get the actual end location (after the last token) startOffset == endOffset 
+12501904845103100762
+1.2
+----------------------------------------
+Field init
+description
+Get the actual end location (after the last token) startOffset == endOffset 
+12669604518464737302
+"outer_level"
+----------------------------------------
+Var init
+nested_instance
+5339355343541446068
+{ 
+    .status = OuterLevel::ACTIVE,
+    .middle = {
+        .data = { .int_val = 42 },
+        .inner = {
+            .priority = OuterLevel::MiddleLevel::InnerLevel::HIGH,
+            .payload = { .coordinates = {10, 20, 30} },
+            .counter = 5,
+            .weight = 3.14,
+  
+            .tag = "test"
+        },
+        .middle_id = 200,
+        .scale = 1.5f,
+        .name = "middle_node",
+        .active = false
+    },
+    .outer_id = 999,
+    .enabled = false,
+    .version = 2.1,
+    .description = "test_instance"
+}
+----------------------------------------
+Function Body
+calculate_sum
+14254510594064522754
+{
+    return a + b + c;
+}
+----------------------------------------
+ParamVar init
+Get the actual end location (after the last token) startOffset == endOffset 
+11232829134556608943
+5
+----------------------------------------
+ParamVar init
+Get the actual end location (after the last token) startOffset == endOffset 
+13424702484772074844
+1.0
+----------------------------------------
+ParamVar init
+Get the actual end location (after the last token) startOffset == endOffset 
+14852111437353930693
+true
+----------------------------------------
+ParamVar init
+Get the actual end location (after the last token) startOffset == endOffset 
+3564333104476343552
+10
+----------------------------------------
+Var init
+nested_array
+5487822927257398666
+{
+    {
+        OuterLevel::ACTIVE,
+        {
+            { .float_val = 1.1f },
+            {
+                OuterLevel::MiddleLevel::InnerLevel::LOW,
+                { .buffer = "test1" },
+                false,
+                1,
+                0.5
+            },
+            101,
+            1.0f,
+            "first"
+        },
+        1001,
+        true,
+        1.0
+    },
+    {
+        .status = OuterLevel::PENDING,
+        .middle = {
+            .data = { .char_val = 'X' },
+            .inner = {
+                .priority = OuterLevel::MiddleLevel::InnerLevel::MEDIUM,
+                .payload = { .coordinates = {100, 200, 300} }
+            }
+        }
+    },
+    {}
+}
+----------------------------------------
+Field init
+values
+16300735507036292969
+{1, 2, 3, 4, 5}
+----------------------------------------
+Field init
+matrix
+12120885354211412278
+{{1.0, 2.0}, {3.0, 4.0}}
+----------------------------------------
+Field init
+text
+Get the actual end location (after the last token) startOffset == endOffset 
+8913108430737204834
+"initialized"
+----------------------------------------
+Field init
+flags
+15836005679050344085
+{true, false, true, false}
+----------------------------------------
+Field init
+x
+Get the actual end location (after the last token) startOffset == endOffset 
+3564333104476343552
+10
+----------------------------------------
+Field init
+y
+Get the actual end location (after the last token) startOffset == endOffset 
+15130600840994721824
+20
+----------------------------------------
+Field init
+label
+Get the actual end location (after the last token) startOffset == endOffset 
+17603078782175486720
+"origin"
+----------------------------------------
+Field init
+points
+475314331649556830
+{
+        {100, 200, "point1"},
+        {300, 400, "point2"}
+    }
+----------------------------------------
+Var init
+config_instance
+(NO ARG-EXPR)
+----------------------------------------
+Var init
+multi1
+8849263774386161330
+{ .as_int = 42 }
+----------------------------------------
+Var init
+multi2
+13719162085742764848
+{ .as_float = 3.14f }
+----------------------------------------
+Var init
+multi3
+1043475167643251079
+{ .as_chars = {'A', 'B', 'C', '\0'} }
+----------------------------------------
+Var init
+multi4
+6928507673883497181
+{ .as_shorts = {100, 200} }
+----------------------------------------
+Var init
+enhanced_nested
+3452174224981976843
+{
+    .status = OuterLevel::INACTIVE,
+    .middle = {
+        .data = { .int_val = 999 },
+        // new comments
+        .inner = {
+            .priority = OuterLevel::MiddleLevel::InnerLevel::HIGH,
+            .payload = { .buffer = "enhanced" },
+            .is_valid = true
+        },
+        .middle_id = 500
+    },
+    .outer_id = 2000
+}
+----------------------------------------
+Var init
+beta_array
+8446433123547563594
+{
+    {10, 20, alpha()},
+    {.a = 30, 
+        
+        /*
+        new comments
+        */
+        .b = 40, .c = alpha(5, 6)},
+    {50, 60},
+    {}
+}
+----------------------------------------
+Var init
+int_matrix
+14377346980043421777
+{
+    {1, 2, 3, 4},
+    {5
+        /*
+
+
+        new comments
+        */, 6, 7, 8},
+    // new comments
+    {9, 10, 11, 12}
+}
+----------------------------------------
+Var init
+string_array
+3365845941763436523
+{
+    "first", // new comments
+    "second", // new comments
+    "third", // new comments
+    "fourth", // new comments
+
+    // new comments
+    nullptr // new comments
+}
+----------------------------------------
+reconcileUnhandledDeclHashes
+beta::a
+12353599670573947936
+----------------------------------------
+reconcileUnhandledDeclHashes
+OuterLevel::Status::ACTIVE
+7982595519259482736
+----------------------------------------
+reconcileUnhandledDeclHashes
+OuterLevel::Status::INACTIVE
+12700262454154676125
+----------------------------------------
+reconcileUnhandledDeclHashes
+OuterLevel::Status::PENDING
+12353599670573947936
+----------------------------------------
+reconcileUnhandledDeclHashes
+OuterLevel::MiddleLevel::InnerLevel::is_valid
+14852111437353930693
+----------------------------------------
+reconcileUnhandledDeclHashes
+OuterLevel::MiddleLevel::InnerLevel::counter
+12700262454154676125
+----------------------------------------
+reconcileUnhandledDeclHashes
+OuterLevel::MiddleLevel::InnerLevel::weight
+13424702484772074844
+----------------------------------------
+reconcileUnhandledDeclHashes
+OuterLevel::MiddleLevel::InnerLevel::tag
+6031455774548353982
+----------------------------------------
+reconcileUnhandledDeclHashes
+OuterLevel::MiddleLevel::middle_id
+9297192508087949785
+----------------------------------------
+reconcileUnhandledDeclHashes
+OuterLevel::MiddleLevel::scale
+4765996262716823800
+----------------------------------------
+reconcileUnhandledDeclHashes
+OuterLevel::MiddleLevel::name
+2076774967674073907
+----------------------------------------
+reconcileUnhandledDeclHashes
+OuterLevel::MiddleLevel::active
+14852111437353930693
+----------------------------------------
+reconcileUnhandledDeclHashes
+OuterLevel::outer_id
+7982595519259482736
+----------------------------------------
+reconcileUnhandledDeclHashes
+OuterLevel::enabled
+14852111437353930693
+----------------------------------------
+reconcileUnhandledDeclHashes
+OuterLevel::version
+12501904845103100762
+----------------------------------------
+reconcileUnhandledDeclHashes
+OuterLevel::description
+12669604518464737302
+----------------------------------------
+reconcileUnhandledDeclHashes
+nested_instance
+5339355343541446068
+----------------------------------------
+reconcileUnhandledDeclHashes
+calculate_sum
+14254510594064522754
+----------------------------------------
+reconcileUnhandledDeclHashes
+calculate_sum::3
+11232829134556608943
+----------------------------------------
+reconcileUnhandledDeclHashes
+process_data::2
+13424702484772074844
+----------------------------------------
+reconcileUnhandledDeclHashes
+process_data::3
+14852111437353930693
+----------------------------------------
+reconcileUnhandledDeclHashes
+process_data::4
+3564333104476343552
+----------------------------------------
+reconcileUnhandledDeclHashes
+nested_array
+5487822927257398666
+----------------------------------------
+reconcileUnhandledDeclHashes
+ConfigData::values
+16300735507036292969
+----------------------------------------
+reconcileUnhandledDeclHashes
+ConfigData::matrix
+12120885354211412278
+----------------------------------------
+reconcileUnhandledDeclHashes
+ConfigData::text
+8913108430737204834
+----------------------------------------
+reconcileUnhandledDeclHashes
+ConfigData::flags
+15836005679050344085
+----------------------------------------
+reconcileUnhandledDeclHashes
+ConfigData::Point::x
+3564333104476343552
+----------------------------------------
+reconcileUnhandledDeclHashes
+ConfigData::Point::y
+15130600840994721824
+----------------------------------------
+reconcileUnhandledDeclHashes
+ConfigData::Point::label
+17603078782175486720
+----------------------------------------
+reconcileUnhandledDeclHashes
+ConfigData::points
+475314331649556830
+----------------------------------------
+reconcileUnhandledDeclHashes
+multi1
+8849263774386161330
+----------------------------------------
+reconcileUnhandledDeclHashes
+multi2
+13719162085742764848
+----------------------------------------
+reconcileUnhandledDeclHashes
+multi3
+1043475167643251079
+----------------------------------------
+reconcileUnhandledDeclHashes
+multi4
+6928507673883497181
+----------------------------------------
+reconcileUnhandledDeclHashes
+enhanced_nested
+3452174224981976843
+----------------------------------------
+reconcileUnhandledDeclHashes
+beta_array
+8446433123547563594
+----------------------------------------
+reconcileUnhandledDeclHashes
+int_matrix
+14377346980043421777
+----------------------------------------
+
+############ CONTEXT 1 MAPS ############
+comments1
+252520090170005577  : 1
+11404736249108278501  : 1
+1925459157750440271  : 1
+----------------------------------------
+unhandledDecls1
+1614844741741410036  : 1
+12353599670573947936  : 1
+7982595519259482736  : 1
+3365845941763436523  : 1
+4461056045324771736  : 1
+----------------------------------------
+inactiveUnhandledDecls1
+(empty)
+----------------------------------------
+
+############ CONTEXT 2 MAPS ############
+comments2
+2400318303137733805  : 1
+16659769428922069608  : 2
+12341339433593953026  : 1
+252520090170005577  : 1
+7352598931370951286  : 1
+7228406200626364214  : 1
+12438055782925242121  : 1
+11404736249108278501  : 1
+15244275484275291308  : 8
+4120430128987400416  : 2
+16976751976620338779  : 1
+12957411969934699279  : 1
+1925459157750440271  : 1
+16839120821193363926  : 1
+17342388045705742455  : 1
+5830903046350219506  : 1
+----------------------------------------
+unhandledDecls2
+1614844741741410036  : 1
+12353599670573947936  : 1
+7982595519259482736  : 1
+3365845941763436523  : 1
+4461056045324771736  : 1
+----------------------------------------
+inactiveUnhandledDecls2
+(empty)
+----------------------------------------

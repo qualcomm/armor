@@ -1,0 +1,349 @@
+{
+    "astDiff": [
+        {
+            "children": [
+                {
+                    "dataType": "int",
+                    "nodeType": "Field",
+                    "qualifiedName": "BasicUnion::i"
+                },
+                {
+                    "dataType": "float",
+                    "nodeType": "Field",
+                    "qualifiedName": "BasicUnion::f"
+                },
+                {
+                    "dataType": "char",
+                    "nodeType": "Field",
+                    "qualifiedName": "BasicUnion::c"
+                }
+            ],
+            "nodeType": "Union",
+            "qualifiedName": "BasicUnion",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "int",
+                    "nodeType": "Enumerator",
+                    "qualifiedName": "DataType::INT"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Enumerator",
+                    "qualifiedName": "DataType::FLOAT"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Enumerator",
+                    "qualifiedName": "DataType::STRING"
+                }
+            ],
+            "nodeType": "Enum",
+            "qualifiedName": "DataType",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "int",
+                    "nodeType": "Field",
+                    "qualifiedName": "TypedData::int_val"
+                },
+                {
+                    "dataType": "float",
+                    "nodeType": "Field",
+                    "qualifiedName": "TypedData::float_val"
+                },
+                {
+                    "dataType": "char *",
+                    "nodeType": "Field",
+                    "qualifiedName": "TypedData::string_val"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "TypedData::TypedData::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "TypedData::TypedData"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "TypedData::~TypedData::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "TypedData::~TypedData"
+                }
+            ],
+            "nodeType": "Union",
+            "qualifiedName": "TypedData",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "enum DataType",
+                    "nodeType": "Field",
+                    "qualifiedName": "TaggedUnion::type"
+                },
+                {
+                    "dataType": "union TypedData",
+                    "nodeType": "Field",
+                    "qualifiedName": "TaggedUnion::data"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "int",
+                            "nodeType": "Parameter",
+                            "qualifiedName": "TaggedUnion::TaggedUnion::1"
+                        },
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "TaggedUnion::TaggedUnion::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "TaggedUnion::TaggedUnion"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "float",
+                            "nodeType": "Parameter",
+                            "qualifiedName": "TaggedUnion::TaggedUnion::1"
+                        },
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "TaggedUnion::TaggedUnion::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "TaggedUnion::TaggedUnion"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "const char *",
+                            "nodeType": "Parameter",
+                            "qualifiedName": "TaggedUnion::TaggedUnion::1"
+                        },
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "TaggedUnion::TaggedUnion::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "TaggedUnion::TaggedUnion"
+                }
+            ],
+            "nodeType": "Struct",
+            "qualifiedName": "TaggedUnion",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "children": [
+                        {
+                            "dataType": "unsigned int",
+                            "nodeType": "Enumerator",
+                            "qualifiedName": "AnonymousUnionExample::type::INT_TYPE"
+                        },
+                        {
+                            "dataType": "unsigned int",
+                            "nodeType": "Enumerator",
+                            "qualifiedName": "AnonymousUnionExample::type::FLOAT_TYPE"
+                        }
+                    ],
+                    "nodeType": "Enum",
+                    "qualifiedName": "AnonymousUnionExample::type"
+                },
+                {
+                    "dataType": "enum (unnamed)",
+                    "nodeType": "Field",
+                    "qualifiedName": "AnonymousUnionExample::type"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "int",
+                            "nodeType": "Field",
+                            "qualifiedName": "AnonymousUnionExample::(Anon::Union)::int_value"
+                        },
+                        {
+                            "dataType": "float",
+                            "nodeType": "Field",
+                            "qualifiedName": "AnonymousUnionExample::(Anon::Union)::float_value"
+                        }
+                    ],
+                    "nodeType": "Union",
+                    "qualifiedName": "AnonymousUnionExample::(Anon::Union)"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "int",
+                            "nodeType": "Parameter",
+                            "qualifiedName": "AnonymousUnionExample::AnonymousUnionExample::1"
+                        },
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "AnonymousUnionExample::AnonymousUnionExample::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "AnonymousUnionExample::AnonymousUnionExample"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "float",
+                            "nodeType": "Parameter",
+                            "qualifiedName": "AnonymousUnionExample::AnonymousUnionExample::1"
+                        },
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "AnonymousUnionExample::AnonymousUnionExample::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "AnonymousUnionExample::AnonymousUnionExample"
+                }
+            ],
+            "nodeType": "Struct",
+            "qualifiedName": "AnonymousUnionExample",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "unsigned int",
+                    "nodeType": "Field",
+                    "qualifiedName": "BitFieldExample::flag1"
+                },
+                {
+                    "dataType": "unsigned int",
+                    "nodeType": "Field",
+                    "qualifiedName": "BitFieldExample::flag2"
+                },
+                {
+                    "dataType": "unsigned int",
+                    "nodeType": "Field",
+                    "qualifiedName": "BitFieldExample::value"
+                },
+                {
+                    "dataType": "unsigned int",
+                    "nodeType": "Field",
+                    "qualifiedName": "BitFieldExample::type"
+                },
+                {
+                    "dataType": "unsigned int",
+                    "nodeType": "Field",
+                    "qualifiedName": "BitFieldExample::"
+                },
+                {
+                    "dataType": "unsigned int",
+                    "nodeType": "Field",
+                    "qualifiedName": "BitFieldExample::status"
+                }
+            ],
+            "nodeType": "Struct",
+            "qualifiedName": "BitFieldExample",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "bool",
+                    "nodeType": "Field",
+                    "qualifiedName": "PackedFlags::enabled"
+                },
+                {
+                    "dataType": "bool",
+                    "nodeType": "Field",
+                    "qualifiedName": "PackedFlags::visible"
+                },
+                {
+                    "dataType": "bool",
+                    "nodeType": "Field",
+                    "qualifiedName": "PackedFlags::active"
+                },
+                {
+                    "dataType": "unsigned int",
+                    "nodeType": "Field",
+                    "qualifiedName": "PackedFlags::priority"
+                },
+                {
+                    "dataType": "unsigned int",
+                    "nodeType": "Field",
+                    "qualifiedName": "PackedFlags::reserved"
+                }
+            ],
+            "nodeType": "Struct",
+            "qualifiedName": "PackedFlags",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "int",
+                    "nodeType": "Field",
+                    "qualifiedName": "Multiplier::factor"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "int",
+                            "nodeType": "Parameter",
+                            "qualifiedName": "Multiplier::Multiplier::1"
+                        },
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "Multiplier::Multiplier::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "Multiplier::Multiplier"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "int",
+                            "nodeType": "Parameter",
+                            "qualifiedName": "Multiplier::operator()::1"
+                        },
+                        {
+                            "dataType": "int",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "Multiplier::operator()::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "Multiplier::operator()"
+                }
+            ],
+            "nodeType": "Struct",
+            "qualifiedName": "Multiplier",
+            "tag": "removed"
+        }
+    ],
+    "headerResolutionFailures": [],
+    "parsed_status": 1,
+    "unparsed_status": 1
+}

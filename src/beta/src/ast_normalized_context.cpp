@@ -1,10 +1,10 @@
 // Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-3-Clause
-
 #include "node.hpp"
 #include "ast_normalized_context.hpp"
 #include <llvm-14/llvm/ADT/SmallVector.h>
 #include <llvm-14/llvm/ADT/StringRef.h>
+#include <llvm-14/llvm/Support/raw_ostream.h>
 #include <memory>
 #include <utility>
 
@@ -35,6 +35,7 @@ bool beta::ASTNormalizedContext::empty() const {
 void beta::ASTNormalizedContext::clear() {
     apiNodesMap.clear();
     apiNodes.clear();
+    sourceRangeTracker.clear();
 }
 
 void beta::ASTNormalizedContext::addClangASTContext(clang::ASTContext *ASTContext){
@@ -43,4 +44,80 @@ void beta::ASTNormalizedContext::addClangASTContext(clang::ASTContext *ASTContex
 
 clang::ASTContext* beta::ASTNormalizedContext::getClangASTContext() const { 
     return clangContext; 
+}
+
+const llvm::SmallVector<beta::Range,32>& beta::SourceRangeTracker::getComments() const {
+    return comments;
+}
+
+const std::map<unsigned, beta::Range>& beta::SourceRangeTracker::getInactivePPDirectives() const {
+    return inactivePPDirectives;
+}
+
+std::map<unsigned, beta::Range>& beta::SourceRangeTracker::getInactivePPDirectives(){
+    return inactivePPDirectives;
+}
+
+void beta::SourceRangeTracker::moveInactivePPDirectives(std::map<unsigned, beta::Range>& ranges) {
+    inactivePPDirectives = std::move(ranges);
+}
+
+void beta::SourceRangeTracker::moveComments(llvm::SmallVector<beta::Range, 32> &ranges){
+    comments = std::move(ranges);
+}
+
+void beta::SourceRangeTracker::moveInactiveUnhandledDeclsHashMap(llvm::DenseMap<uint64_t, int>& hashMap) {
+    inactiveUnhandledDeclsHashMap = std::move(hashMap);
+}
+
+void beta::SourceRangeTracker::moveCommentsHashMap(llvm::DenseMap<uint64_t, int>& hashMap) {
+    commentsHashMap = std::move(hashMap);
+}
+
+llvm::DenseMap<uint64_t, int>& beta::SourceRangeTracker::getUnhandledDeclsHashMap() {
+    return unhandledDeclsHashMap;
+}
+
+void beta::SourceRangeTracker::addUnhandledDeclHash(uint64_t hash) {
+    unhandledDeclsHashMap[hash]++;
+}
+
+const llvm::DenseMap<uint64_t, int>& beta::SourceRangeTracker::getUnhandledDeclsHashMap() const {
+    return unhandledDeclsHashMap;
+}
+
+llvm::DenseMap<uint64_t, int>& beta::SourceRangeTracker::getInactiveUnhandledDeclsHashMap() {
+    return inactiveUnhandledDeclsHashMap;
+}
+
+const llvm::DenseMap<uint64_t, int>& beta::SourceRangeTracker::getInactiveUnhandledDeclsHashMap() const {
+    return inactiveUnhandledDeclsHashMap;
+}
+
+llvm::DenseMap<uint64_t, int>& beta::SourceRangeTracker::getCommentsHashMap(){
+    return commentsHashMap;
+}
+
+const llvm::DenseMap<uint64_t, int>& beta::SourceRangeTracker::getCommentsHashMap() const {
+    return commentsHashMap;
+}
+
+void beta::SourceRangeTracker::clear() {
+    comments.clear();
+    inactivePPDirectives.clear();
+    unhandledDeclsHashMap.clear();
+    inactiveUnhandledDeclsHashMap.clear();
+}
+
+bool beta::SourceRangeTracker::empty() const {
+    return comments.empty() && 
+           inactivePPDirectives.empty();
+}
+
+beta::SourceRangeTracker& beta::ASTNormalizedContext::getSourceRangeTracker() {
+    return sourceRangeTracker;
+}
+
+const beta::SourceRangeTracker& beta::ASTNormalizedContext::getSourceRangeTracker() const {
+    return sourceRangeTracker;
 }

@@ -1,0 +1,357 @@
+{
+    "astDiff": [
+        {
+            "children": [
+                {
+                    "dataType": "int",
+                    "nodeType": "Field",
+                    "qualifiedName": "Vertex::id"
+                },
+                {
+                    "dataType": "double",
+                    "nodeType": "Field",
+                    "qualifiedName": "Vertex::x"
+                },
+                {
+                    "dataType": "double",
+                    "nodeType": "Field",
+                    "qualifiedName": "Vertex::y"
+                },
+                {
+                    "dataType": "double",
+                    "nodeType": "Field",
+                    "qualifiedName": "Vertex::z"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "Vertex::Vertex::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "Vertex::Vertex"
+                }
+            ],
+            "nodeType": "Struct",
+            "qualifiedName": "Vertex",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "int",
+                    "nodeType": "Enumerator",
+                    "qualifiedName": "Status::IDLE"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Enumerator",
+                    "qualifiedName": "Status::RUNNING"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Enumerator",
+                    "qualifiedName": "Status::STOPPED"
+                }
+            ],
+            "nodeType": "Enum",
+            "qualifiedName": "Status",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "int",
+                    "nodeType": "Field",
+                    "qualifiedName": "Data::i"
+                },
+                {
+                    "dataType": "float",
+                    "nodeType": "Field",
+                    "qualifiedName": "Data::f"
+                },
+                {
+                    "dataType": "double",
+                    "nodeType": "Field",
+                    "qualifiedName": "Data::d"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "Data::Data::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "Data::Data"
+                }
+            ],
+            "nodeType": "Union",
+            "qualifiedName": "Data",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "int",
+                    "nodeType": "Enumerator",
+                    "qualifiedName": "Color::RED"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Enumerator",
+                    "qualifiedName": "Color::GREEN"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Enumerator",
+                    "qualifiedName": "Color::BLUE"
+                }
+            ],
+            "nodeType": "Enum",
+            "qualifiedName": "Color",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "int",
+                    "nodeType": "Enumerator",
+                    "qualifiedName": "LogLevel::DEBUG"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Enumerator",
+                    "qualifiedName": "LogLevel::INFO"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Enumerator",
+                    "qualifiedName": "LogLevel::ERROR"
+                }
+            ],
+            "nodeType": "Enum",
+            "qualifiedName": "LogLevel",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "unsigned int",
+                    "nodeType": "Enumerator",
+                    "qualifiedName": "FilePermission::READ"
+                },
+                {
+                    "dataType": "unsigned int",
+                    "nodeType": "Enumerator",
+                    "qualifiedName": "FilePermission::WRITE"
+                },
+                {
+                    "dataType": "unsigned int",
+                    "nodeType": "Enumerator",
+                    "qualifiedName": "FilePermission::EXECUTE"
+                }
+            ],
+            "nodeType": "Enum",
+            "qualifiedName": "FilePermission",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "unsigned int",
+                    "nodeType": "Enumerator",
+                    "qualifiedName": "NetworkProtocol::TCP"
+                },
+                {
+                    "dataType": "unsigned int",
+                    "nodeType": "Enumerator",
+                    "qualifiedName": "NetworkProtocol::UDP"
+                },
+                {
+                    "dataType": "unsigned int",
+                    "nodeType": "Enumerator",
+                    "qualifiedName": "NetworkProtocol::HTTP"
+                }
+            ],
+            "nodeType": "Enum",
+            "qualifiedName": "NetworkProtocol",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "children": [
+                        {
+                            "dataType": "int",
+                            "nodeType": "Enumerator",
+                            "qualifiedName": "Point2D::Status::IDLE"
+                        },
+                        {
+                            "dataType": "int",
+                            "nodeType": "Enumerator",
+                            "qualifiedName": "Point2D::Status::RUNNING"
+                        },
+                        {
+                            "dataType": "int",
+                            "nodeType": "Enumerator",
+                            "qualifiedName": "Point2D::Status::STOPPED"
+                        }
+                    ],
+                    "nodeType": "Enum",
+                    "qualifiedName": "Point2D::Status"
+                },
+                {
+                    "dataType": "double",
+                    "nodeType": "Field",
+                    "qualifiedName": "Point2D::x"
+                },
+                {
+                    "dataType": "double",
+                    "nodeType": "Field",
+                    "qualifiedName": "Point2D::y"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "Point2D::Point2D::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "Point2D::Point2D"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "double",
+                            "nodeType": "Parameter",
+                            "qualifiedName": "Point2D::Point2D::1"
+                        },
+                        {
+                            "dataType": "double",
+                            "nodeType": "Parameter",
+                            "qualifiedName": "Point2D::Point2D::2"
+                        },
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "Point2D::Point2D::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "Point2D::Point2D"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "double",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "Point2D::distance::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "Point2D::distance"
+                }
+            ],
+            "nodeType": "Struct",
+            "qualifiedName": "Point2D",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "children": [
+                        {
+                            "dataType": "int",
+                            "nodeType": "Enumerator",
+                            "qualifiedName": "ComplexStructure::Mode::READ_ONLY"
+                        },
+                        {
+                            "dataType": "int",
+                            "nodeType": "Enumerator",
+                            "qualifiedName": "ComplexStructure::Mode::WRITE_ONLY"
+                        }
+                    ],
+                    "nodeType": "Enum",
+                    "qualifiedName": "ComplexStructure::Mode"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "int",
+                            "nodeType": "Field",
+                            "qualifiedName": "ComplexStructure::Inner::value"
+                        },
+                        {
+                            "children": [
+                                {
+                                    "dataType": "void",
+                                    "nodeType": "ReturnType",
+                                    "qualifiedName": "ComplexStructure::Inner::Inner::(ReturnType)"
+                                }
+                            ],
+                            "nodeType": "Function",
+                            "qualifiedName": "ComplexStructure::Inner::Inner"
+                        }
+                    ],
+                    "nodeType": "Struct",
+                    "qualifiedName": "ComplexStructure::Inner"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "int",
+                            "nodeType": "Field",
+                            "qualifiedName": "ComplexStructure::Storage::i"
+                        },
+                        {
+                            "dataType": "float",
+                            "nodeType": "Field",
+                            "qualifiedName": "ComplexStructure::Storage::f"
+                        },
+                        {
+                            "children": [
+                                {
+                                    "dataType": "void",
+                                    "nodeType": "ReturnType",
+                                    "qualifiedName": "ComplexStructure::Storage::Storage::(ReturnType)"
+                                }
+                            ],
+                            "nodeType": "Function",
+                            "qualifiedName": "ComplexStructure::Storage::Storage"
+                        }
+                    ],
+                    "nodeType": "Union",
+                    "qualifiedName": "ComplexStructure::Storage"
+                },
+                {
+                    "dataType": "enum ComplexStructure::Mode",
+                    "nodeType": "Field",
+                    "qualifiedName": "ComplexStructure::mode"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "ComplexStructure::ComplexStructure::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "ComplexStructure::ComplexStructure"
+                }
+            ],
+            "nodeType": "Struct",
+            "qualifiedName": "ComplexStructure",
+            "tag": "removed"
+        }
+    ],
+    "headerResolutionFailures": [],
+    "parsed_status": 1,
+    "unparsed_status": 0
+}

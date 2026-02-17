@@ -1,6 +1,5 @@
 // Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-3-Clause
-
 #include <iostream>
 #include <fstream>
 #include <memory>
@@ -25,13 +24,9 @@
 #include "report_generator.hpp"
 #include "report_utils.hpp"
 #include "diffengine.hpp"
-#include "debug_config.hpp"
+#include "logger.hpp"
 #include "header_processor.hpp"
-#include "user_print.hpp"
 #include "session.hpp"
-
-//one shared stream for the whole run (lives for process lifetime)
-static std::unique_ptr<llvm::raw_fd_ostream> gSharedLog;
 
 namespace fs = std::filesystem;
 using namespace clang;
@@ -83,7 +78,7 @@ namespace {
 
         // Ensure the header path starts with the project path
         if (headerPath.find(projectPath) != 0) {
-            USER_ERROR("Warning: Header file " + headerPath + " is not within project path " + projectPath );
+            armor::user_error() << "Warning: Header file " << headerPath << " is not within project path " << projectPath << "\n";
             return includePaths;
         }
 
@@ -125,34 +120,8 @@ PARSING_STATUS processHeaderPairAlpha(const std::string& project1,
                        const std::vector<std::string>& IncludePaths,
                        const std::vector<std::string>& macroFlags) {
 
-    // === Initialize the shared log sink BEFORE any logging ===
-    if (!gSharedLog) {
-        const char* envLog = std::getenv("CLANG_DIAG_LOG");
-        const std::string logPath = (envLog && *envLog)
-            ? std::string(envLog)
-            : std::string("debug_output/logs/diagnostics.log");
-
-        if (!logPath.empty()) {
-            llvm::SmallString<256> p(logPath);
-            llvm::StringRef dir = llvm::sys::path::parent_path(p);
-            if (!dir.empty()) {
-                llvm::sys::fs::create_directories(dir);
-            }
-        }
-
-        std::error_code ec;
-        auto stream = std::make_unique<llvm::raw_fd_ostream>(
-            logPath, ec, llvm::sys::fs::OF_Text | llvm::sys::fs::OF_Append);
-
-        if (ec) {
-            // Fallback to stderr so nothing is lost
-            DebugConfig::instance().setSink(&llvm::errs());
-            USER_ERROR(std::string("[WARN] Failed to open diagnostics log '") +
-           logPath + "': " + ec.message());
-        } else {
-            gSharedLog = std::move(stream);
-            DebugConfig::instance().setSink(gSharedLog.get());
-        }
+    if (!DebugConfig::getInstance().initialize()) {
+        armor::user_error() << "Failed to open diagnostics log <" << LOG_FILE_PATH << ">, using stderr\n";
     }
 
     std::vector<std::string> inclusion_paths1 = generateIncludePaths(project1, file1);
@@ -172,17 +141,17 @@ PARSING_STATUS processHeaderPairAlpha(const std::string& project1,
     auto compDB2 = std::make_unique<FixedCompilationDatabase>(project2, Flags2);
     auto session = std::make_unique<alpha::APISession>();
 
-    DebugConfig::instance().log("Processing File1 : " + file1, DebugConfig::Level::INFO);
+    armor::info() << "Processing File1 : " << file1 << "\n";
     for (auto& x : Flags1) {
-        DebugConfig::instance().log("Clang search path : " + x, DebugConfig::Level::INFO);
+        armor::info() << "Clang search path : " << x << "\n";
     }
 
     // 2. Process the files. The session handles the tools and contexts.
     PARSING_STATUS header1ParsingStatus = session->processFile(file1, std::move(compDB1));
 
-    DebugConfig::instance().log("Processing File2 : " + file2, DebugConfig::Level::INFO);
+    armor::info() << "Processing File2 : " << file2 << "\n";
     for (auto& x : Flags2) {
-        DebugConfig::instance().log("Clang search path : " + x, DebugConfig::Level::INFO);
+        armor::info() << "Clang search path : " << x << "\n";
     }
 
     PARSING_STATUS header2ParsingStatus = session->processFile(file2, std::move(compDB2));
@@ -194,7 +163,7 @@ PARSING_STATUS processHeaderPairAlpha(const std::string& project1,
     PARSING_STATUS finalParsingStatus = header1ParsingStatus == header2ParsingStatus ? header1ParsingStatus : FATAL_ERRORS;
 
     if (!context1 || !context2) {
-        USER_ERROR("Failed to retrieve processing results from session");
+        armor::user_error() << "Failed to retrieve processing results from session\n";
         return FATAL_ERRORS;
     }
 
@@ -215,7 +184,7 @@ PARSING_STATUS processHeaderPairAlpha(const std::string& project1,
         }
     }
     catch (const std::exception& e) {
-        USER_ERROR(std::string("Error generating AST diff: ") + e.what());
+        armor::user_error() << "Error generating AST diff: " << e.what() << "\n";
     }
 
     std::string reportDir = "armor_reports/html_reports";
@@ -237,12 +206,14 @@ PARSING_STATUS processHeaderPairAlpha(const std::string& project1,
     else {
         try {
             std::vector<json> emptyData;
-            generate_html_report(emptyData, htmlReportFile, BETA_PARSER);
-            USER_PRINT(std::string("HTML report generated at: ") + htmlReportFile);
+            // generate_html_report(emptyData, htmlReportFile, BETA_PARSER);
+            armor::user_print() << "HTML report generated at: " << htmlReportFile << "\n";
         } catch (const std::exception& e) {
-            USER_ERROR(std::string("Failed to generate HTML report: ") + e.what());
+            armor::user_error() << "Failed to generate HTML report: " << e.what() << "\n";
         }
     }
+
+    DebugConfig::getInstance().flush();
 
     return finalParsingStatus;
 

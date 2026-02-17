@@ -1,6 +1,5 @@
 // Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-3-Clause
-
 #pragma once
 
 #include <llvm-14/llvm/ADT/SmallString.h>
@@ -21,8 +20,9 @@ struct APINode {
     std::string hash;
     std::string qualifiedName;
     std::string dataType;         // Underlying datatype of variables .... (int/float/...)
+    bool isInclined = false;
+    bool isConstExpr = false;
     APINodeStorageClass storage = APINodeStorageClass::None;
-    ConstQualifier constQualifier = ConstQualifier::None;
 
     std::unique_ptr<llvm::SmallVector<std::shared_ptr<const APINode>,16>> children;
 

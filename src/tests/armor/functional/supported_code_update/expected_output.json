@@ -1,0 +1,32 @@
+{
+    "astDiff": [
+        {
+            "children": [
+                {
+                    "dataType": "struct Point",
+                    "nodeType": "Field",
+                    "qualifiedName": "Rectangle::bottomRight",
+                    "tag": "removed"
+                }
+            ],
+            "nodeType": "Struct",
+            "qualifiedName": "Rectangle",
+            "tag": "modified"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "void",
+                    "nodeType": "ReturnType",
+                    "qualifiedName": "cleanupLibrary::(ReturnType)"
+                }
+            ],
+            "nodeType": "Function",
+            "qualifiedName": "cleanupLibrary",
+            "tag": "removed"
+        }
+    ],
+    "headerResolutionFailures": [],
+    "parsed_status": 2,
+    "unparsed_status": 0
+}

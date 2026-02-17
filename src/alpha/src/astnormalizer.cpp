@@ -1,12 +1,13 @@
 // Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-3-Clause
-
 #include "astnormalizer.hpp"
 #include "node.hpp"
 #include "session.hpp"
 #include "tree_builder.hpp"
-#include "debug_config.hpp"
+#include "preprocesor.hpp"
+
 #include <llvm-14/llvm/Support/raw_ostream.h>
+#include "clang/Frontend/CompilerInstance.h"
 
 // --- alpha::ASTNormalize ---
 alpha::ASTNormalize::ASTNormalize(alpha::APISession* session, alpha::ASTNormalizedContext* context, clang::ASTContext* clangContext)
@@ -32,8 +33,11 @@ void alpha::ASTNormalizeConsumer::HandleTranslationUnit(clang::ASTContext &clang
 alpha::NormalizeAction::NormalizeAction(alpha::APISession* session, alpha::ASTNormalizedContext* context)
     : session(session), context(context) {}
 
-std::unique_ptr<clang::ASTConsumer> alpha::NormalizeAction::CreateASTConsumer(clang::CompilerInstance &, clang::StringRef) {
-    // No creation happens here. It just passes the pointers it already has to the consumer.
+std::unique_ptr<clang::ASTConsumer> alpha::NormalizeAction::CreateASTConsumer(clang::CompilerInstance & CI, clang::StringRef) {
+    // Set up preprocessor callbacks
+    auto preprocessor = std::make_unique<alpha::ASTNormalizerPreprocessor>(&CI.getSourceManager(), context);
+    CI.getPreprocessor().addPPCallbacks(std::move(preprocessor));
+    
     return std::make_unique<alpha::ASTNormalizeConsumer>(session, context);
 }
 

@@ -1,0 +1,20 @@
+{
+    "astDiff": [
+        {
+            "children": [
+                {
+                    "dataType": "int",
+                    "nodeType": "Enumerator",
+                    "qualifiedName": "Status::Corrupt",
+                    "tag": "added"
+                }
+            ],
+            "nodeType": "Enum",
+            "qualifiedName": "Status",
+            "tag": "modified"
+        }
+    ],
+    "headerResolutionFailures": [],
+    "parsed_status": 1,
+    "unparsed_status": 0
+}

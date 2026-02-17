@@ -1,0 +1,279 @@
+11404736249108278501
+// Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+----------------------------------------
+252520090170005577
+// SPDX-License-Identifier: BSD-3-Clause
+----------------------------------------
+17492031745652835290
+// Enum for status
+----------------------------------------
+10000630213066425824
+// Union for data types
+----------------------------------------
+4701940528624168793
+// Struct with union
+----------------------------------------
+1587970085369728574
+// Namespace with enum and struct
+----------------------------------------
+10492710326980756123
+// namespace Utils
+----------------------------------------
+6739118755913033686
+// Namespace with templates
+----------------------------------------
+12396466098278829438
+// namespace Math
+----------------------------------------
+5320741582394040826
+// Template classes
+----------------------------------------
+207791163397216375
+// Regular class
+----------------------------------------
+13474199992447623796
+// Struct with anonymous union
+----------------------------------------
+17392804916115184419
+// Typedefs
+----------------------------------------
+6931922665684878951
+// Global functions
+----------------------------------------
+6901770178673578204
+// MYLIB_H
+----------------------------------------
+NamespaceDecl
+17299654807074593664
+namespace Utils {
+enum LogLevel { DEBUG, INFO, ERROR };
+struct Config {
+  enum LogLevel level;
+  int maxRetries;
+};
+void log(enum LogLevel level, const char *message);
+}
+----------------------------------------
+NamespaceDecl
+3710398640382267289
+namespace Math {
+namespace Constants {
+const double PI = 3.14159;
+}
+enum Operation { ADD, SUBTRACT };
+template <typename T> T add(T a, T b) { return a + b; }
+}
+----------------------------------------
+NamespaceDecl
+10604276120155732903
+namespace DataStructures {
+template <typename T> class Container {
+  T *data;
+  int size;
+
+public:
+  Container(int cap);
+  void add(T element);
+  T get(int index) const;
+};
+
+template <typename T1, typename T2> class Pair {
+  T1 first;
+  T2 second;
+
+public:
+  Pair(T1 f, T2 s) : first(f), second(s) {}
+  T1 getFirst() const { return first; }
+};
+}
+----------------------------------------
+CXXRecordNode
+15986560873945165328
+class Logger {
+  enum Utils::LogLevel currentLevel;
+
+public:
+  Logger();
+  void setLevel(enum Utils::LogLevel level);
+  void log(const char *message);
+}
+----------------------------------------
+14149454363135089577
+#ifndef MYLIB_H
+----------------------------------------
+15469631829536770432
+#define MYLIB_H
+----------------------------------------
+13425203279752416008
+#endif
+----------------------------------------
+11404736249108278501
+// Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+----------------------------------------
+252520090170005577
+// SPDX-License-Identifier: BSD-3-Clause
+----------------------------------------
+17492031745652835290
+// Enum for status
+----------------------------------------
+6931922665684878951
+// Global functions
+----------------------------------------
+10000630213066425824
+// Union for data types
+----------------------------------------
+4701940528624168793
+// Struct with union
+----------------------------------------
+1587970085369728574
+// Namespace with enum and struct
+----------------------------------------
+10492710326980756123
+// namespace Utils
+----------------------------------------
+12396466098278829438
+// namespace Math
+----------------------------------------
+5320741582394040826
+// Template classes
+----------------------------------------
+6739118755913033686
+// Namespace with templates
+----------------------------------------
+207791163397216375
+// Regular class
+----------------------------------------
+13474199992447623796
+// Struct with anonymous union
+----------------------------------------
+17392804916115184419
+// Typedefs
+----------------------------------------
+6901770178673578204
+// MYLIB_H
+----------------------------------------
+NamespaceDecl
+17299654807074593664
+namespace Utils {
+    enum LogLevel { DEBUG, INFO, ERROR };
+    struct Config {
+        enum LogLevel level; int maxRetries;
+    };
+    void log(enum LogLevel level, const char* message);
+}
+----------------------------------------
+NamespaceDecl
+3710398640382267289
+namespace Math {
+    namespace Constants {
+        const double PI = 3.14159;
+    }
+    enum Operation { ADD, SUBTRACT };
+    template<typename T>
+    T add(T a, T b) { return a + b; }
+}
+----------------------------------------
+NamespaceDecl
+10604276120155732903
+namespace DataStructures {
+    template<typename T>
+    class Container {
+        T* data; int size;
+    public:
+        Container(int cap);
+        void add(T element);
+        T get(int index) const;
+    };
+    
+    template<typename T1, typename T2>
+    class Pair {
+        T1 first; T2 second;
+    public:
+        Pair(T1 f, T2 s) : first(f), second(s) {}
+        T1 getFirst() const { 
+            return first; 
+        }
+    };
+}
+----------------------------------------
+CXXRecordNode
+15986560873945165328
+class Logger {
+    enum Utils::LogLevel currentLevel;
+public:
+    Logger();
+    void setLevel(enum Utils::LogLevel level);
+    void log(const char* message);
+}
+----------------------------------------
+14149454363135089577
+#ifndef MYLIB_H
+----------------------------------------
+15469631829536770432
+#define MYLIB_H
+----------------------------------------
+13425203279752416008
+#endif
+----------------------------------------
+
+############ CONTEXT 1 MAPS ############
+comments1
+17492031745652835290  : 1
+13474199992447623796  : 1
+6901770178673578204  : 1
+252520090170005577  : 1
+17392804916115184419  : 1
+11404736249108278501  : 1
+4701940528624168793  : 1
+10000630213066425824  : 1
+5320741582394040826  : 1
+6931922665684878951  : 1
+10492710326980756123  : 1
+6739118755913033686  : 1
+207791163397216375  : 1
+1587970085369728574  : 1
+12396466098278829438  : 1
+----------------------------------------
+unhandledDecls1
+17299654807074593664  : 1
+15469631829536770432  : 1
+15986560873945165328  : 1
+3710398640382267289  : 1
+10604276120155732903  : 1
+13425203279752416008  : 1
+14149454363135089577  : 1
+----------------------------------------
+inactiveUnhandledDecls1
+(empty)
+----------------------------------------
+
+############ CONTEXT 2 MAPS ############
+comments2
+17492031745652835290  : 1
+13474199992447623796  : 1
+6901770178673578204  : 1
+252520090170005577  : 1
+17392804916115184419  : 1
+11404736249108278501  : 1
+4701940528624168793  : 1
+10000630213066425824  : 1
+5320741582394040826  : 1
+6931922665684878951  : 1
+10492710326980756123  : 1
+6739118755913033686  : 1
+207791163397216375  : 1
+1587970085369728574  : 1
+12396466098278829438  : 1
+----------------------------------------
+unhandledDecls2
+17299654807074593664  : 1
+15469631829536770432  : 1
+15986560873945165328  : 1
+3710398640382267289  : 1
+10604276120155732903  : 1
+13425203279752416008  : 1
+14149454363135089577  : 1
+----------------------------------------
+inactiveUnhandledDecls2
+(empty)
+----------------------------------------

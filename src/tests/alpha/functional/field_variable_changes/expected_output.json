@@ -1,0 +1,179 @@
+{
+    "astDiff": [
+        {
+            "children": [
+                {
+                    "children": [
+                        {
+                            "dataType": "const int",
+                            "nodeType": "Field",
+                            "qualifiedName": "Device::max_connections",
+                            "tag": "removed"
+                        },
+                        {
+                            "dataType": "int",
+                            "nodeType": "Field",
+                            "qualifiedName": "Device::max_connections",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "Device::max_connections",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "volatile int",
+                            "nodeType": "Field",
+                            "qualifiedName": "Device::status",
+                            "tag": "removed"
+                        },
+                        {
+                            "dataType": "int",
+                            "nodeType": "Field",
+                            "qualifiedName": "Device::status",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "Device::status",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "const volatile int",
+                            "nodeType": "Field",
+                            "qualifiedName": "Device::control_register",
+                            "tag": "removed"
+                        },
+                        {
+                            "dataType": "int",
+                            "nodeType": "Field",
+                            "qualifiedName": "Device::control_register",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "Device::control_register",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "constexpr": true,
+                            "dataType": "const int",
+                            "nodeType": "Field",
+                            "qualifiedName": "Device::MAX_BUFFER_SIZE",
+                            "storageQualifier": "Static",
+                            "tag": "removed"
+                        },
+                        {
+                            "dataType": "int",
+                            "nodeType": "Field",
+                            "qualifiedName": "Device::MAX_BUFFER_SIZE",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "Device::MAX_BUFFER_SIZE",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "constexpr": true,
+                            "dataType": "const float",
+                            "nodeType": "Field",
+                            "qualifiedName": "Device::DEFAULT_TEMP",
+                            "storageQualifier": "Static",
+                            "tag": "removed"
+                        },
+                        {
+                            "dataType": "float",
+                            "nodeType": "Field",
+                            "qualifiedName": "Device::DEFAULT_TEMP",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "Device::DEFAULT_TEMP",
+                    "tag": "modified"
+                }
+            ],
+            "nodeType": "Struct",
+            "qualifiedName": "Device",
+            "tag": "modified"
+        },
+        {
+            "children": [
+                {
+                    "nodeType": "Variable",
+                    "qualifiedName": "thread_counter",
+                    "storageQualifier": "Extern",
+                    "tag": "removed"
+                }
+            ],
+            "nodeType": "Variable",
+            "qualifiedName": "thread_counter",
+            "tag": "modified"
+        },
+        {
+            "children": [
+                {
+                    "inline": true,
+                    "nodeType": "Variable",
+                    "qualifiedName": "inline_global",
+                    "tag": "removed"
+                }
+            ],
+            "nodeType": "Variable",
+            "qualifiedName": "inline_global",
+            "tag": "modified"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "const int",
+                    "inline": true,
+                    "nodeType": "Variable",
+                    "qualifiedName": "inline_const_global",
+                    "tag": "removed"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Variable",
+                    "qualifiedName": "inline_const_global",
+                    "tag": "added"
+                }
+            ],
+            "nodeType": "Variable",
+            "qualifiedName": "inline_const_global",
+            "tag": "modified"
+        },
+        {
+            "children": [
+                {
+                    "constexpr": true,
+                    "dataType": "const int",
+                    "nodeType": "Variable",
+                    "qualifiedName": "array_size",
+                    "tag": "removed"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Variable",
+                    "qualifiedName": "array_size",
+                    "tag": "added"
+                }
+            ],
+            "nodeType": "Variable",
+            "qualifiedName": "array_size",
+            "tag": "modified"
+        }
+    ],
+    "headerResolutionFailures": [],
+    "parsed_status": 0,
+    "unparsed_status": null
+}

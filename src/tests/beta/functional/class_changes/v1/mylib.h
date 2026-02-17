@@ -169,6 +169,7 @@ public:
 
 class beta{
     int a;
+    int b;
 };
 
 class SyncMemoryRefTable
