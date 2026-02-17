@@ -1,6 +1,5 @@
 // Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-3-Clause
-
 #include <iostream>
 #include <cstdlib>
 #include <system_error>
@@ -20,9 +19,7 @@
 #include "session.hpp"
 #include "astnormalizer.hpp"
 #include "ast_normalized_context.hpp"
-#include "debug_config.hpp"
-#include "user_print.hpp"
-
+#include "logger.hpp"
 
 void beta::APISession::createNormalizedASTContext(const std::string& key){
     const auto pair = m_contexts.try_emplace(key, std::make_unique<ASTNormalizedContext>());
@@ -32,39 +29,11 @@ void beta::APISession::createNormalizedASTContext(const std::string& key){
 }
 
 PARSING_STATUS beta::APISession::processFile(std::string fileName, std::unique_ptr<clang::tooling::FixedCompilationDatabase> m_compDB) {
-    const std::string diagLogPath = std::string("debug_output/logs/diagnostics.log");
+    // Initialize DebugConfig2 with diagnostics log path if not already initialized
+    DebugConfig& debugConfig = DebugConfig::getInstance();
 
-    if (!diagLogPath.empty()) {
-        llvm::SmallString<256> p(diagLogPath);
-        llvm::StringRef dir = llvm::sys::path::parent_path(p);
-        if (!dir.empty()) {
-            (void)llvm::sys::fs::create_directories(dir);
-        }
-    }
-
-    // Prefer the global/shared sink if already set by the entry point
-    llvm::raw_ostream* sink = DebugConfig::instance().getSink();
-
-    // Fallback: create our own file stream if no sink yet
-    static std::unique_ptr<llvm::raw_fd_ostream> sDiagStream;
-    if (!sink) {
-        if (!sDiagStream) {
-            std::error_code EC;
-            auto stream = std::make_unique<llvm::raw_fd_ostream>(
-                diagLogPath, EC, llvm::sys::fs::OF_Text | llvm::sys::fs::OF_Append);
-            if (EC) {
-                USER_ERROR(std::string("Warning: cannot open diagnostics log '") +
-                           diagLogPath + "': " + EC.message() +
-                           " (using stderr for Clang diagnostics)");
-            } else {
-                sDiagStream = std::move(stream);
-            }
-        }
-        sink = sDiagStream ? static_cast<llvm::raw_ostream*>(sDiagStream.get())
-                           : static_cast<llvm::raw_ostream*>(&llvm::errs());
-        // Also let DebugConfig share it so logs and diagnostics stay unified
-        DebugConfig::instance().setSink(sink);
-    }
+    // Get the sink from DebugConfig2 (handles file creation and fallback)
+    llvm::raw_ostream* sink = debugConfig.getSink();
 
     // Diagnostic options
     static llvm::IntrusiveRefCntPtr<clang::DiagnosticOptions> sDiagOpts;
@@ -73,7 +42,6 @@ PARSING_STATUS beta::APISession::processFile(std::string fileName, std::unique_p
         sDiagOpts->ShowColors = 0; // cleaner logs
     }
 
-    // Now it is safe to do any logging before/after this point
     createNormalizedASTContext(fileName);
 
     clang::tooling::ClangTool tool(*m_compDB, {fileName});
@@ -99,14 +67,11 @@ PARSING_STATUS beta::APISession::processFile(std::string fileName, std::unique_p
     tool.setPrintErrorMessage(false);
     int rc = tool.run(new NormalizeActionFactory(this, fileName));
     if (rc != 0) {
-        DebugConfig::instance().log(
-            std::string("Error while processing ") + fileName + ".",
-            DebugConfig::Level::ERROR
-        );
-        if (sDiagStream) sDiagStream->flush();
+        armor::error() << "Error while processing " << fileName << "." << "\n";
+        debugConfig.flush();
         return rc == 1 ? FATAL_ERRORS : NO_FATAL_ERRORS;
     }
-    if (sDiagStream) sDiagStream->flush();
+    debugConfig.flush();
 
     return NO_FATAL_ERRORS;
 
