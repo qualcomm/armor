@@ -4,12 +4,13 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <sstream>
 #include <filesystem>
 #include "CLI/CLI.hpp"
 #include "llvm/Support/raw_ostream.h"
 #include "options_handler.hpp"
 #include "beta/include/header_processor.hpp"
-#include "user_print.hpp"
+#include "logger.hpp"
 
 #ifndef TOOL_VERSION
 #define TOOL_VERSION ""
@@ -74,19 +75,26 @@ bool runArmorTool(int argc, const char **argv) {
     while (iss >> flag) {
         macros.push_back(flag);
     }
+
+    DebugConfig& debugConfig = DebugConfig::getInstance();
+    debugConfig.initialize();
+
     // Set level and announce (now goes to the file)
     if (debugLevel == "DEBUG") {
-        DebugConfig::instance().setLevel(DebugConfig::Level::DEBUG);
-        DebugConfig::instance().log("Debug level set to DEBUG", DebugConfig::Level::INFO);
+        debugConfig.setLevel(DebugConfig::Level::DEBUG);
+        armor::info() << "Debug level set to DEBUG";
     } else if (debugLevel == "INFO") {
-        DebugConfig::instance().setLevel(DebugConfig::Level::INFO);
-        DebugConfig::instance().log("Debug level set to INFO", DebugConfig::Level::INFO);
-    } else if (debugLevel == "LOG") {
-        DebugConfig::instance().setLevel(DebugConfig::Level::LOG);
-        DebugConfig::instance().log("Debug level set to LOG", DebugConfig::Level::INFO);
+        debugConfig.setLevel(DebugConfig::Level::INFO);
+        armor::info() << "Debug level set to INFO";
+    } else if (debugLevel == "WARNING") {
+        debugConfig.setLevel(DebugConfig::Level::WARNING);
+        armor::info() << "Debug level set to WARNING";
     } else if (debugLevel == "ERROR") {
-        DebugConfig::instance().setLevel(DebugConfig::Level::ERROR);
-        DebugConfig::instance().log("Debug level set to ERROR", DebugConfig::Level::INFO);
+        debugConfig.setLevel(DebugConfig::Level::ERROR);
+        armor::info() << "Debug level set to ERROR";
+    }
+    else{
+        debugConfig.setLevel(DebugConfig::Level::NONE);
     }
 
     bool processed = false;
@@ -101,17 +109,17 @@ bool runArmorTool(int argc, const char **argv) {
                 file1 = projectRoot1 + "/" + header;
                 file2 = projectRoot2 + "/" + header;
             }
-            USER_PRINT(std::string("Processing files: ") + file1 + " " + file2);
+            armor::user_print() << "Processing files: " << file1 << " " << file2;
             if (!std::filesystem::exists(file1)) {
-                USER_ERROR(std::string("Missing header in older version: ") + file1);
+                armor::user_error() << "Missing header in older version: " << file1;
             } else if (!std::filesystem::exists(file2)) {
-                USER_ERROR(std::string("Missing header in newer version: ") + file2);
+                armor::user_error() << "Missing header in newer version: " << file2;
             } else if (filesAreDifferentUsingDiff(file1, file2)) {
                 processHeaderPairBeta(projectRoot1, file1, projectRoot2, file2, reportFormat,
                                 IncludePaths, macros);
                 processed = true;
             } else {
-                USER_PRINT(std::string("No differences found between: ") + file1 + " and " + file2);
+                armor::user_print() << "No differences found between: " << file1 << " and " << file2;
             }
         }
     }
@@ -123,24 +131,24 @@ bool runArmorTool(int argc, const char **argv) {
                 headersToCompare.push_back(entry.path().filename().string());
             }
         }
-        USER_PRINT("List of headers to process:");
+        armor::user_print() << "List of headers to process:";
         for (const auto &h : headersToCompare) {
-            USER_PRINT(std::string("  ") + h);
+            armor::user_print() << "  " << h;
         }
         for (const auto &header : headersToCompare) {
             std::string file1 = dir1 + "/" + header;
             std::string file2 = dir2 + "/" + header;
-            USER_PRINT(std::string("Processing files: ") + file1 + " " + file2);
+            armor::user_print() << "Processing files: " << file1 << " " << file2;
             if (!std::filesystem::exists(file1)) {
-                USER_ERROR(std::string("Missing header in older version: ") + file1);
+                armor::user_error() << "Missing header in older version: " << file1;
             } else if (!std::filesystem::exists(file2)) {
-                USER_ERROR(std::string("Missing header in newer version: ") + file2);
+                armor::user_error() << "Missing header in newer version: " << file2;
             } else if (filesAreDifferentUsingDiff(file1, file2)) {
                 processHeaderPairBeta(projectRoot1, file1, projectRoot2, file2, reportFormat,
                                 IncludePaths, macros);
                 processed = true;
             } else {
-                USER_PRINT(std::string("No differences found between: ") + file1 + " and " + file2);
+                armor::user_print() << "No differences found between: " << file1 << " and " << file2;
             }
         }
     }
@@ -148,16 +156,14 @@ bool runArmorTool(int argc, const char **argv) {
         try {
             std::filesystem::remove_all("debug_output/ast_diffs");
         } catch (const std::exception &e) {
-            USER_ERROR(std::string("Failed to remove debug_output directory: ") + e.what());
+            armor::user_error() << "Failed to remove debug_output directory: " << e.what();
         }
     }
     if (!processed && headers.empty() && headerSubDir.empty()) {
         const std::string argv0 = argv[0] ? std::string(argv[0]) : std::string("armor");
-        USER_ERROR(
-            std::string("Usage: ") + argv0 + " <projectroot1> <projectroot2> <header1> <header2> ...\n"
-            "Or use --header-dir to compare all headers in a subdirectory.\n"
-            "Try '" + argv0 + " --help' for more information."
-        );
+        armor::user_error() << "Usage: " << argv0 << " <projectroot1> <projectroot2> <header1> <header2> ...\n"
+            << "Or use --header-dir to compare all headers in a subdirectory.\n"
+            << "Try '" << argv0 << " --help' for more information.";
     }
     return processed;
 }

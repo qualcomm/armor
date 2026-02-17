@@ -1,13 +1,12 @@
 // Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-3-Clause
-
 #include "tree_builder_utils.hpp"
 #include "custom_usr_generator.hpp"
+#include "logger.hpp"
 #include "nsr_generator.hpp"
 
 #include "clang/AST/Decl.h"
 #include "clang/Lex/Lexer.h"
-#include "debug_config.hpp"
 #include <llvm-14/llvm/ADT/SmallString.h>
 #include <llvm-14/llvm/Support/raw_ostream.h>
 #include <string>
@@ -125,7 +124,7 @@ const std::string generateUSRForDecl(const clang::NamedDecl * Decl){
     
     if (llvm::isa<clang::ParmVarDecl>(Decl)|| llvm::isa<clang::TemplateTypeParmDecl>(Decl) 
     || llvm::isa<clang::NonTypeTemplateParmDecl>(Decl) || llvm::isa<clang::TemplateTemplateParmDecl>(Decl)) {
-        DebugConfig::instance().log("No USR for Param type declerations", DebugConfig::Level::INFO);
+        armor::info() << "No USR for Param type declerations \n";
         return std::string{};
     }
     
@@ -140,7 +139,7 @@ const std::string generateNSRForDecl(const clang::NamedDecl * Decl){
 
     if (llvm::isa<clang::ParmVarDecl>(Decl)|| llvm::isa<clang::TemplateTypeParmDecl>(Decl) 
     || llvm::isa<clang::NonTypeTemplateParmDecl>(Decl) || llvm::isa<clang::TemplateTemplateParmDecl>(Decl)) {
-        DebugConfig::instance().log("No NSR for Param type declerations", DebugConfig::Level::INFO);
+        armor::info() << "No NSR for Param type declerations \n";
         return std::string{};
     }
 
