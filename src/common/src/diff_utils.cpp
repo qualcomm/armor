@@ -1,6 +1,5 @@
 // Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-3-Clause
-
 #include "diff_utils.hpp"
 #include <llvm-14/llvm/ADT/SmallString.h>
 #include <llvm-14/llvm/Support/raw_ostream.h>
@@ -21,9 +20,12 @@ std::string DATA_TYPE = "dataType";
 std::string STORAGE_QUALIFIER = "storageQualifier";
 std::string CONST_QUALIFIER = "constQualifier";
 std::string VIRTUAL_QUALIFIER = "virtualQualifier";
-std::string FUNCTION_CALLING_CONVENTION = "functionCallingConvention";
-std::string PACKED = "packed";
 std::string INLINE = "inline";
+std::string PARSED_STATUS = "parsed_status";
+std::string UNPARSED_STATUS = "unparsed_status";
+std::string HEADER_RESOLUTION_FAILURES = "headerResolutionFailures";
+std::string AST_DIFF = "astDiff";
+std::string CONST_EXPR = "constexpr";
 
 const std::string serialize(const APINodeStorageClass& storageClass) {
     switch (storageClass) {
@@ -32,14 +34,6 @@ const std::string serialize(const APINodeStorageClass& storageClass) {
         case APINodeStorageClass::Register: return "Register";
         case APINodeStorageClass::Auto:     return "Auto";
         default:                            return std::string{};
-    }
-}
-
-const std::string serialize(const ConstQualifier& qualifier) {
-    switch (qualifier) {
-        case ConstQualifier::Const:     return "Const";
-        case ConstQualifier::ConstExpr: return "ConstExpr";
-        default:                        return std::string{};
     }
 }
 
@@ -71,16 +65,6 @@ const std::string serialize(const NodeKind& node) {
         case NodeKind::ReturnType:             return "ReturnType";
         case NodeKind::Enumerator:             return "Enumerator";
         case NodeKind::Macro:                  return "Macro";
-        case NodeKind::If:                     return "If";
-        case NodeKind::Elif:                   return "Elif";
-        case NodeKind::Ifdef:                  return "Ifdef";
-        case NodeKind::Ifndef:                 return "Ifndef";
-        case NodeKind::Elifndef:               return "Elifndef";
-        case NodeKind::Else:                   return "Else";
-        case NodeKind::Endif:                  return "Endif";
-        case NodeKind::Elifdef:                return "Elifdef";
-        case NodeKind::Define:                 return "Define";
-        case NodeKind::ConditionalCompilation: return "ConditionalCompilation";
         case NodeKind::Unknown:                return "Unknown";
         case NodeKind::FunctionPointer:        return "FunctionPointer";
         default:                           return "Invalid";
@@ -94,4 +78,22 @@ const std::string serialize(const std::string& str){
 
 const bool serialize(const bool& val){
     return val;
+}
+
+const std::string serialize(const ParsedDiffStatus& diff_status){
+    switch (diff_status) {
+        case ParsedDiffStatus::FATAL_ERRORS:           return "FATAL_ERRORS";
+        case ParsedDiffStatus::UNSUPPORTED_UPDATES:    return "UNSUPPORTED_UPDATES";
+        case ParsedDiffStatus::SUPPORTED_UPDATES:      return "SUPPORTED_UPDATES";
+        case ParsedDiffStatus::COMMENTS_UPDATED:       return "COMMENTS_UPDATED";
+        case ParsedDiffStatus::NON_FUNCTIONAL_CHANGES: return "NON_FUNCTIONAL_CHANGES";
+        default:                                       return "UNKNOWN";
+    }
+}
+const std::string serialize(const UnParsedDiffStatus& diff_status){
+    switch (diff_status) {
+        case UnParsedDiffStatus::UN_CHANGES: return "UNCHANGED";
+        case UnParsedDiffStatus::CHANGED:    return "CHANGED";
+        default:                             return "FATAL_ERRORS";
+    }
 }

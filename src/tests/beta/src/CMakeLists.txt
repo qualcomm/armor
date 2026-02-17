@@ -19,11 +19,13 @@ add_executable(beta
   ${BETA_SOURCES}
 )
 
+# Enable testing mode
+target_compile_definitions(beta PRIVATE TESTING_ENABLED=1)
+
 # Include project headers
 target_include_directories(beta PRIVATE
   ${CMAKE_SOURCE_DIR}/src
   ${CMAKE_SOURCE_DIR}/src/common/include
-  ${CMAKE_SOURCE_DIR}/src/alpha/include
   ${CMAKE_SOURCE_DIR}/src/beta/include
   ${LLVM_INCLUDE_DIRS}
   ${CLANG_INCLUDE_DIRS}
@@ -31,9 +33,8 @@ target_include_directories(beta PRIVATE
 
 # Link libraries statically
 target_link_libraries(beta
-  alpha_lib
-  beta_lib
-  common_lib
+  beta_lib_test
+  common_lib_test
   ${LLVM_LIBS}
   clangTooling
   clangIndex

@@ -1,0 +1,21 @@
+[
+    {
+        "children": [
+            {
+                "children": [
+                    {
+                        "dataType": "void",
+                        "nodeType": "ReturnType",
+                        "qualifiedName": "OfflineLogger::close::(ReturnType)"
+                    }
+                ],
+                "nodeType": "Function",
+                "qualifiedName": "OfflineLogger::close",
+                "tag": "removed"
+            }
+        ],
+        "nodeType": "Struct",
+        "qualifiedName": "OfflineLogger",
+        "tag": "modified"
+    }
+]

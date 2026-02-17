@@ -1,0 +1,755 @@
+11404736249108278501
+// Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+----------------------------------------
+252520090170005577
+// SPDX-License-Identifier: BSD-3-Clause
+----------------------------------------
+5419962897945675648
+// Only compile this library if advanced features are enabled
+----------------------------------------
+7636333945994878634
+// Basic structures using lib.h types
+----------------------------------------
+16900633732847876163
+// Declare without initialization to avoid inheritance initialization issues
+----------------------------------------
+5180290590211237250
+// Data processing structures
+----------------------------------------
+6594477239204463527
+// Array of buffers
+----------------------------------------
+13759726292008249200
+// Declare without initialization to avoid buffer_size_t narrowing issues
+----------------------------------------
+15379654075879878714
+// Mathematical processing
+----------------------------------------
+804652022792082845
+// Network communication structures
+----------------------------------------
+4229672208794179372
+// Legacy support structures (can be undefined with -ULEGACY_MODE)
+----------------------------------------
+197425029113604524
+// Old API support (can be undefined with -UOLD_API_VERSION)
+----------------------------------------
+17109349846149599586
+// Experimental features (can be undefined with -UEXPERIMENTAL_FEATURES)
+----------------------------------------
+16824853756774076024
+// Beta functions support (can be undefined with -UBETA_FUNCTIONS)
+----------------------------------------
+15279528139739157605
+// Deprecated support (can be undefined with -UDEPRECATED_SUPPORT)
+----------------------------------------
+2856003258634914105
+// Function declarations
+----------------------------------------
+3666314960829894594
+// ENABLE_API_FUNCTIONS
+----------------------------------------
+9430431893940707003
+// ENABLE_ADVANCED_FEATURES
+----------------------------------------
+6901770178673578204
+// MYLIB_H
+----------------------------------------
+Var init
+app_config
+(NO ARG-EXPR)
+----------------------------------------
+Var init
+buffers
+(NO ARG-EXPR)
+----------------------------------------
+Var init
+legacy_buffer
+2107155471627629662
+{
+    .data = "legacy",
+    .size = 6,
+    .legacy_version = LEGACY_API_VERSION
+}
+----------------------------------------
+Var init
+legacy_configs
+6386232701150455932
+{
+    {1, "config1"},
+    {2, "config2"},
+    {3, "config3"}
+}
+----------------------------------------
+14149454363135089577
+#ifndef MYLIB_H
+----------------------------------------
+15469631829536770432
+#define MYLIB_H
+----------------------------------------
+4813612112611831530
+#include "lib.h"
+----------------------------------------
+6687040628121657510
+#ifdef ENABLE_ADVANCED_FEATURES
+----------------------------------------
+16188692334800662690
+#if defined(VERSION_2) || defined(VERSION_3)
+----------------------------------------
+4317565735544191414
+    #ifdef ENABLE_LOGGING
+    LogLevel default_log_level;
+    #endif
+----------------------------------------
+13425203279752416008
+#endif
+----------------------------------------
+7316820520996380391
+#ifdef ENABLE_DATA_PROCESSING
+----------------------------------------
+8858807332175181956
+    #ifdef DEBUG_MODE
+    extended_int_t access_count;
+    char debug_info[64];
+    #endif
+----------------------------------------
+13425203279752416008
+#endif
+----------------------------------------
+4028265945927569883
+#ifdef ENABLE_MATH_UTILS
+struct Calculator {
+    MathOperation operations[5];
+    int operation_count;
+    extended_float_t precision;
+} calculator_instance = {
+    .operation_count = 0,
+    .precision = 0.0001
+};
+
+// Function using conditional compilation
+INLINE extended_float_t calculate(extended_int_t a, extended_int_t b) {
+    DEBUG_PRINT("Calculating with values: %lld, %lld", a, b);
+    return (extended_float_t)(a + b);
+}
+#endif
+----------------------------------------
+15971896135806486621
+#ifdef ENABLE_NETWORKING
+struct Connection {
+    int socket_fd;
+    ConnectionType type;
+    NetworkConfig config;
+    bool is_active;
+    
+    #ifdef ENABLE_SSL
+    bool ssl_enabled;
+    #endif
+};
+
+// Connection pool
+struct Connection connections[MAX_CONNECTIONS];
+
+void initialize_connections() {
+    for (int i = 0; i < MAX_CONNECTIONS; i++) {
+        connections[i] = (struct Connection){
+            .socket_fd = -1,
+            .type = CONN_TCP,
+            .config = {
+                .host = "localhost",
+                .port = 8080,
+                .timeout = 30,
+                #ifdef ENABLE_SSL
+                .use_ssl = false,
+                #endif
+            },
+            .is_active = false,
+            #ifdef ENABLE_SSL
+            .ssl_enabled = false,
+            #endif
+        };
+    }
+}
+#endif
+----------------------------------------
+5144812314941509237
+#if defined(LEGACY_MODE) && defined(LEGACY_API_VERSION) && defined(LEGACY_BUFFER_SIZE)
+----------------------------------------
+13425203279752416008
+#endif
+----------------------------------------
+3283656231603163010
+#ifdef OLD_API_VERSION
+struct OldHandle {
+    old_handle_t handle;
+    char name[16];
+    int api_version;
+} old_handles[OLD_HANDLE_COUNT] = {
+    {1, "handle1", 1},
+    {2, "handle2", 1},
+    {3, "handle3", 1}
+};
+
+struct OldApiData old_api_instances[3] = {
+    {100, 1},
+    {200, 1},
+    {300, 1}
+};
+#endif
+----------------------------------------
+13171204464568943967
+#ifdef EXPERIMENTAL_FEATURES
+struct ExperimentalData {
+    experimental_type_t value;
+    bool is_experimental;
+    char experiment_name[32];
+} experimental_instances[2] = {
+    {3.14159, true, "pi_experiment"},
+    {2.71828, true, "e_experiment"}
+};
+
+struct ExperimentalConfig experimental_config = {
+    .value = 1.41421,
+    .is_experimental = true
+};
+#endif
+----------------------------------------
+12988119784036996851
+#ifdef BETA_FUNCTIONS
+struct BetaConfig {
+    beta_type_t beta_value;
+    char beta_name[32];
+    int beta_version;
+} beta_configs[3] = {
+    {1.0f, "beta_test_1", BETA_VERSION},
+    {2.0f, "beta_test_2", BETA_VERSION},
+    {3.0f, "beta_test_3", BETA_VERSION}
+};
+
+struct BetaData beta_data_instance = {
+    .beta_value = 42.0f,
+    .beta_name = "main_beta"
+};
+#endif
+----------------------------------------
+6896127565158225636
+#ifdef DEPRECATED_SUPPORT
+struct DeprecatedBuffer {
+    char old_data[DEPRECATED_BUFFER_SIZE];
+    deprecated_int_t old_size;
+} deprecated_buffers[2] = {
+    {"old_data_1", 10},
+    {"old_data_2", 10}
+};
+
+struct DeprecatedStruct deprecated_instance = {
+    .old_value = 999,
+    .old_name = "old"
+};
+#endif
+----------------------------------------
+12707728945743425350
+#ifdef ENABLE_API_FUNCTIONS
+int initialize_system(void);
+void shutdown_system(void);
+
+#ifdef ENABLE_DATA_PROCESSING
+int process_data(struct DataBuffer* buffer);
+#endif
+
+#ifdef ENABLE_NETWORKING
+int create_connection(const char* host, int port);
+void close_connection(int connection_id);
+#endif
+
+#ifdef ENABLE_LOGGING
+void log_message(LogLevel level, const char* message);
+#endif
+
+// Legacy API functions (can be undefined with -ULEGACY_MODE)
+#if defined(LEGACY_MODE) && defined(LEGACY_API_VERSION) && defined(LEGACY_BUFFER_SIZE)
+int legacy_init(int legacy_id);
+void legacy_cleanup(void);
+struct LegacyBuffer* get_legacy_buffer(void);
+#endif
+
+// Old API functions (can be undefined with -UOLD_API_VERSION)
+#ifdef OLD_API_VERSION
+old_handle_t old_api_create_handle(void);
+void old_api_destroy_handle(old_handle_t handle);
+int old_api_process(struct OldApiData* data);
+#endif
+
+// Experimental API functions (can be undefined with -UEXPERIMENTAL_FEATURES)
+#ifdef EXPERIMENTAL_FEATURES
+experimental_type_t experimental_calculate(experimental_type_t input);
+void experimental_process(struct ExperimentalData* data);
+#endif
+
+// Beta API functions (can be undefined with -UBETA_FUNCTIONS)
+#ifdef BETA_FUNCTIONS
+void beta_function(void);
+int beta_process(struct BetaConfig* config);
+beta_type_t beta_calculate(beta_type_t input);
+#endif
+
+// Deprecated API functions (can be undefined with -UDEPRECATED_SUPPORT)
+#ifdef DEPRECATED_SUPPORT
+int deprecated_function(deprecated_int_t value);
+void deprecated_cleanup(struct DeprecatedStruct* data);
+#endif
+
+#endif // ENABLE_API_FUNCTIONS
+----------------------------------------
+3898577154630875261
+#else
+// Fallback when advanced features are disabled
+#warning "Advanced features are disabled. Limited functionality available."
+
+struct SimpleConfig {
+    int id;
+    char name[32];
+} simple_config = {1, "BasicApp"};
+
+int basic_function(int a, int b) {
+    return a + b;
+}
+
+#endif // ENABLE_ADVANCED_FEATURES
+----------------------------------------
+13425203279752416008
+#endif
+----------------------------------------
+Flush : 
+// ENABLE_API_FUNCTIONS
+-------------------------------------------
+Flush : 
+// ENABLE_ADVANCED_FEATURES
+-------------------------------------------
+11404736249108278501
+// Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+----------------------------------------
+252520090170005577
+// SPDX-License-Identifier: BSD-3-Clause
+----------------------------------------
+5419962897945675648
+// Only compile this library if advanced features are enabled
+----------------------------------------
+7636333945994878634
+// Basic structures using lib.h types
+----------------------------------------
+16900633732847876163
+// Declare without initialization to avoid inheritance initialization issues
+----------------------------------------
+5180290590211237250
+// Data processing structures
+----------------------------------------
+15244275484275291308
+// new comments
+----------------------------------------
+15244275484275291308
+// new comments
+----------------------------------------
+6594477239204463527
+// Array of buffers
+----------------------------------------
+13759726292008249200
+// Declare without initialization to avoid buffer_size_t narrowing issues
+----------------------------------------
+15379654075879878714
+// Mathematical processing
+----------------------------------------
+804652022792082845
+// Network communication structures
+----------------------------------------
+4229672208794179372
+// Legacy support structures (can be undefined with -ULEGACY_MODE)
+----------------------------------------
+197425029113604524
+// Old API support (can be undefined with -UOLD_API_VERSION)
+----------------------------------------
+17109349846149599586
+// Experimental features (can be undefined with -UEXPERIMENTAL_FEATURES)
+----------------------------------------
+16824853756774076024
+// Beta functions support (can be undefined with -UBETA_FUNCTIONS)
+----------------------------------------
+15279528139739157605
+// Deprecated support (can be undefined with -UDEPRECATED_SUPPORT)
+----------------------------------------
+2856003258634914105
+// Function declarations
+----------------------------------------
+3666314960829894594
+// ENABLE_API_FUNCTIONS
+----------------------------------------
+9430431893940707003
+// ENABLE_ADVANCED_FEATURES
+----------------------------------------
+6901770178673578204
+// MYLIB_H
+----------------------------------------
+Var init
+app_config
+(NO ARG-EXPR)
+----------------------------------------
+Var init
+buffers
+(NO ARG-EXPR)
+----------------------------------------
+Var init
+legacy_buffer
+2107155471627629662
+{
+    .data = "legacy",
+    .size = 6,
+    .legacy_version = LEGACY_API_VERSION
+}
+----------------------------------------
+Var init
+legacy_configs
+6386232701150455932
+{
+    {1, "config1"},
+    {2, "config2"},
+    {3, "config3"}
+}
+----------------------------------------
+14149454363135089577
+#ifndef MYLIB_H
+----------------------------------------
+15469631829536770432
+#define MYLIB_H
+----------------------------------------
+4813612112611831530
+#include "lib.h"
+----------------------------------------
+6687040628121657510
+#ifdef ENABLE_ADVANCED_FEATURES
+----------------------------------------
+16188692334800662690
+#if defined(VERSION_2) || defined(VERSION_3)
+----------------------------------------
+4317565735544191414
+    #ifdef ENABLE_LOGGING
+    LogLevel default_log_level;
+    #endif
+----------------------------------------
+13425203279752416008
+#endif
+----------------------------------------
+7316820520996380391
+#ifdef ENABLE_DATA_PROCESSING
+----------------------------------------
+8858807332175181956
+    #ifdef DEBUG_MODE
+    extended_int_t access_count;
+    char debug_info[64];
+    #endif
+----------------------------------------
+13425203279752416008
+#endif
+----------------------------------------
+4028265945927569883
+#ifdef ENABLE_MATH_UTILS
+struct Calculator {
+    MathOperation operations[5];
+    int operation_count;
+    extended_float_t precision;
+} calculator_instance = {
+    .operation_count = 0,
+    .precision = 0.0001
+};
+
+// Function using conditional compilation
+INLINE extended_float_t calculate(extended_int_t a, extended_int_t b) {
+    DEBUG_PRINT("Calculating with values: %lld, %lld", a, b);
+    return (extended_float_t)(a + b);
+}
+#endif
+----------------------------------------
+15971896135806486621
+#ifdef ENABLE_NETWORKING
+struct Connection {
+    int socket_fd;
+    ConnectionType type;
+    NetworkConfig config;
+    bool is_active;
+    
+    #ifdef ENABLE_SSL
+    bool ssl_enabled;
+    #endif
+};
+
+// Connection pool
+struct Connection connections[MAX_CONNECTIONS];
+
+void initialize_connections() {
+    for (int i = 0; i < MAX_CONNECTIONS; i++) {
+        connections[i] = (struct Connection){
+            .socket_fd = -1,
+            .type = CONN_TCP,
+            .config = {
+                .host = "localhost",
+                .port = 8080,
+                .timeout = 30,
+                #ifdef ENABLE_SSL
+                .use_ssl = false,
+                #endif
+            },
+            .is_active = false,
+            #ifdef ENABLE_SSL
+            .ssl_enabled = false,
+            #endif
+        };
+    }
+}
+#endif
+----------------------------------------
+5144812314941509237
+#if defined(LEGACY_MODE) && defined(LEGACY_API_VERSION) && defined(LEGACY_BUFFER_SIZE)
+----------------------------------------
+13425203279752416008
+#endif
+----------------------------------------
+3283656231603163010
+#ifdef OLD_API_VERSION
+struct OldHandle {
+    old_handle_t handle;
+    char name[16];
+    int api_version;
+} old_handles[OLD_HANDLE_COUNT] = {
+    {1, "handle1", 1},
+    {2, "handle2", 1},
+    {3, "handle3", 1}
+};
+
+struct OldApiData old_api_instances[3] = {
+    {100, 1},
+    {200, 1},
+    {300, 1}
+};
+#endif
+----------------------------------------
+13171204464568943967
+#ifdef EXPERIMENTAL_FEATURES
+struct ExperimentalData {
+    experimental_type_t value;
+    bool is_experimental;
+    char experiment_name[32];
+} experimental_instances[2] = {
+    {3.14159, true, "pi_experiment"},
+    {2.71828, true, "e_experiment"}
+};
+
+struct ExperimentalConfig experimental_config = {
+    .value = 1.41421,
+    .is_experimental = true
+};
+#endif
+----------------------------------------
+12988119784036996851
+#ifdef BETA_FUNCTIONS
+struct BetaConfig {
+    beta_type_t beta_value;
+    char beta_name[32];
+    int beta_version;
+} beta_configs[3] = {
+    {1.0f, "beta_test_1", BETA_VERSION},
+    {2.0f, "beta_test_2", BETA_VERSION},
+    {3.0f, "beta_test_3", BETA_VERSION}
+};
+
+struct BetaData beta_data_instance = {
+    .beta_value = 42.0f,
+    .beta_name = "main_beta"
+};
+#endif
+----------------------------------------
+6896127565158225636
+#ifdef DEPRECATED_SUPPORT
+struct DeprecatedBuffer {
+    char old_data[DEPRECATED_BUFFER_SIZE];
+    deprecated_int_t old_size;
+} deprecated_buffers[2] = {
+    {"old_data_1", 10},
+    {"old_data_2", 10}
+};
+
+struct DeprecatedStruct deprecated_instance = {
+    .old_value = 999,
+    .old_name = "old"
+};
+#endif
+----------------------------------------
+15736156447599205530
+#ifdef ENABLE_API_FUNCTIONS
+int initialize_system(void);
+void shutdown_system(void);
+
+#ifdef ENABLE_DATA_PROCESSING
+int process_data(struct DataBuffer* buffer);
+#endif
+
+#ifdef ENABLE_NETWORKING
+int create_connection(const char* host, int port);
+void close_connection(int connection_id);
+#endif
+
+#ifdef ENABLE_LOGGING
+void log_message(LogLevel level, const char* message);
+#endif
+
+// Legacy API functions (can be undefined with -ULEGACY_MODE)
+#if defined(LEGACY_MODE) && defined(LEGACY_API_VERSION) && defined(LEGACY_BUFFER_SIZE)
+int legacy_init(int legacy_id);
+void legacy_cleanup(void);
+struct LegacyBuffer* get_legacy_buffer(void);
+#endif
+
+// Old API functions (can be undefined with -UOLD_API_VERSION)
+#ifdef OLD_API_VERSION
+old_handle_t old_api_create_handle(void);
+void old_api_destroy_handle(old_handle_t handle);
+int old_api_process(struct OldApiData* data);
+#endif
+
+// Experimental API functions (can be undefined with -UEXPERIMENTAL_FEATURES)
+#ifdef EXPERIMENTAL_FEATURES
+experimental_type_t experimental_calculate(experimental_type_t input);
+void experimental_process(struct ExperimentalData* data);
+#endif
+
+// Beta API functions (can be undefined with -UBETA_FUNCTIONS)
+#ifdef BETA_FUNCTIONS
+void beta_function(void);
+int beta_process(struct BetaConfig* config);
+beta_type_t beta_calculate(beta_type_t input);
+#endif
+
+// Deprecated API functions (can be undefined with -UDEPRECATED_SUPPORT)
+#ifdef DEPRECATED_SUPPORT
+
+// new comment
+int deprecated_function(deprecated_int_t value);
+void deprecated_cleanup(struct DeprecatedStruct* data);
+#endif
+
+#endif // ENABLE_API_FUNCTIONS
+----------------------------------------
+3898577154630875261
+#else
+// Fallback when advanced features are disabled
+#warning "Advanced features are disabled. Limited functionality available."
+
+struct SimpleConfig {
+    int id;
+    char name[32];
+} simple_config = {1, "BasicApp"};
+
+int basic_function(int a, int b) {
+    return a + b;
+}
+
+#endif // ENABLE_ADVANCED_FEATURES
+----------------------------------------
+13425203279752416008
+#endif
+----------------------------------------
+Flush : 
+// ENABLE_API_FUNCTIONS
+-------------------------------------------
+Flush : 
+// ENABLE_ADVANCED_FEATURES
+-------------------------------------------
+
+############ CONTEXT 1 MAPS ############
+comments1
+5419962897945675648  : 1
+5180290590211237250  : 1
+6901770178673578204  : 1
+252520090170005577  : 1
+7636333945994878634  : 1
+16824853756774076024  : 1
+11404736249108278501  : 1
+15279528139739157605  : 1
+4229672208794179372  : 1
+197425029113604524  : 1
+15379654075879878714  : 1
+6594477239204463527  : 1
+17109349846149599586  : 1
+16900633732847876163  : 1
+13759726292008249200  : 1
+804652022792082845  : 1
+2856003258634914105  : 1
+----------------------------------------
+unhandledDecls1
+15469631829536770432  : 1
+4813612112611831530  : 1
+2107155471627629662  : 1
+7316820520996380391  : 1
+13425203279752416008  : 4
+5144812314941509237  : 1
+16188692334800662690  : 1
+6386232701150455932  : 1
+14149454363135089577  : 1
+6687040628121657510  : 1
+----------------------------------------
+inactiveUnhandledDecls1
+3283656231603163010  : 1
+4317565735544191414  : 1
+3898577154630875261  : 1
+8858807332175181956  : 1
+12707728945743425350  : 1
+12988119784036996851  : 1
+4028265945927569883  : 1
+15971896135806486621  : 1
+6896127565158225636  : 1
+13171204464568943967  : 1
+----------------------------------------
+
+############ CONTEXT 2 MAPS ############
+comments2
+5419962897945675648  : 1
+5180290590211237250  : 1
+6901770178673578204  : 1
+252520090170005577  : 1
+7636333945994878634  : 1
+16824853756774076024  : 1
+11404736249108278501  : 1
+15279528139739157605  : 1
+15244275484275291308  : 2
+4229672208794179372  : 1
+197425029113604524  : 1
+15379654075879878714  : 1
+6594477239204463527  : 1
+17109349846149599586  : 1
+16900633732847876163  : 1
+13759726292008249200  : 1
+804652022792082845  : 1
+2856003258634914105  : 1
+----------------------------------------
+unhandledDecls2
+15469631829536770432  : 1
+4813612112611831530  : 1
+2107155471627629662  : 1
+7316820520996380391  : 1
+13425203279752416008  : 4
+5144812314941509237  : 1
+16188692334800662690  : 1
+6386232701150455932  : 1
+14149454363135089577  : 1
+6687040628121657510  : 1
+----------------------------------------
+inactiveUnhandledDecls2
+15736156447599205530  : 1
+3283656231603163010  : 1
+4317565735544191414  : 1
+3898577154630875261  : 1
+8858807332175181956  : 1
+12988119784036996851  : 1
+4028265945927569883  : 1
+15971896135806486621  : 1
+6896127565158225636  : 1
+13171204464568943967  : 1
+----------------------------------------

@@ -1,6 +1,5 @@
 // Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-3-Clause
-
 #include "nsr_generator.hpp"
 #include "type_utils.hpp"
 #include "clang/AST/ASTContext.h"
@@ -306,8 +305,12 @@ void NSRGenerator::VisitVarDecl(const VarDecl *D) {
   // In this case, don't generate a USR.
   if (s.empty())
     IgnoreResults = true;
-  else
-    Out << '@' << s;
+  else{
+    if(D->isCXXClassMember()) 
+      Out << "@FI@" << s;
+    else
+      Out << '@' << s;
+  }
 
   // For a template specialization, mangle the template arguments.
   // if (const VarTemplateSpecializationDecl *Spec
