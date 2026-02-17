@@ -111,6 +111,12 @@
     {
         "children": [
             {
+                "inline": true,
+                "nodeType": "Function",
+                "qualifiedName": "multiply",
+                "tag": "removed"
+            },
+            {
                 "nodeType": "Function",
                 "qualifiedName": "multiply",
                 "storageQualifier": "Static",
@@ -128,6 +134,12 @@
                 "qualifiedName": "divide",
                 "storageQualifier": "Static",
                 "tag": "removed"
+            },
+            {
+                "inline": true,
+                "nodeType": "Function",
+                "qualifiedName": "divide",
+                "tag": "added"
             }
         ],
         "nodeType": "Function",
