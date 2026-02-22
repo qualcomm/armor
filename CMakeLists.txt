@@ -38,7 +38,7 @@ llvm_map_components_to_libnames(LLVM_LIBS
   option
 )
 
-add_definitions(-DTOOL_VERSION="0.2.1")
+add_definitions(-DTOOL_VERSION="0.6.3")
 
 add_subdirectory(src/common)
 add_subdirectory(src/alpha)
