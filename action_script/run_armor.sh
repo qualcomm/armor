@@ -47,7 +47,8 @@ mkdir -p "$OUT_ROOT"
 
 INCOMPATIBLE_BLOCKING="${OUT_ROOT}/incompatible_blocking.txt"
 INCOMPATIBLE_NONBLOCKING="${OUT_ROOT}/incompatible_nonblocking.txt"
-: > "$INCOMPATIBLE_BLOCKING"; : > "$INCOMPATIBLE_NONBLOCKING"
+OTHERS_FILE="${OUT_ROOT}/others.txt"
+: > "$INCOMPATIBLE_BLOCKING"; : > "$INCOMPATIBLE_NONBLOCKING"; : > "$OTHERS_FILE"
 
 BLOCKING_FILE="${GITHUB_WORKSPACE}/blocking_headers_final.txt"
 NONBLOCKING_FILE="${GITHUB_WORKSPACE}/nonblocking_headers_final.txt"
@@ -85,26 +86,29 @@ for header in "${HEADERS[@]}"; do
   "$ARMOR_CMD" "${args[@]}" "$BASE_PATH" "$HEAD_PATH" "$hdr_arg" || warn "armor failed for $header"
 
   json_report="$WORK_DIR/armor_reports/json_reports/api_diff_report_$(basename "$hdr_arg").json"
-  api_names=(); compatibility="backward_compatible"
+  api_names=(); compatibility="backward_compatible"; header_status="Unknown"
   if [[ -f "$json_report" ]]; then
     while IFS= read -r line; do
       comp="$(jq -r '.compatibility' <<<"$line")"
       name="$(jq -r '.name' <<<"$line")"
       [[ "$comp" == "backward_incompatible" ]] && compatibility="backward_incompatible"
       [[ -n "$name" && "$name" != "null" ]] && api_names+=("$name")
-    done < <(jq -c '.[]' "$json_report")
+    one < <(jq -c '.api_diff[]' "$json_report")
+    header_status=$(jq -r '.overall_status // "unknown"' "$json_report")
   fi
 
   api_json="$(printf '%s\0' "${api_names[@]}" | awk -v RS='\0' 'BEGIN{print "["} {if(NR>1) printf ","; printf "\"" $0 "\""} END{print "]"}')"
   jq -n \
     --arg header "$header" \
     --argjson api_names "$api_json" \
-    --arg comp "$compatibility" \
+    --arg comp "$header_status" \
     '{header:$header, api_names:$api_names, compatibility:$comp}' >> "$METADATA_NDJSON"
 
-  if [[ "$compatibility" == "backward_incompatible" ]]; then
-    [[ -f "$BLOCKING_FILE" && -s "$BLOCKING_FILE" ]] && grep -Fxq "$header" "$BLOCKING_FILE" && echo "$header" >> "$INCOMPATIBLE_BLOCKING"
-    [[ -f "$NONBLOCKING_FILE" && -s "$NONBLOCKING_FILE" ]] && grep -Fxq "$header" "$NONBLOCKING_FILE" && echo "$header" >> "$INCOMPATIBLE_NONBLOCKING"
+  if [[ "$header_status" == "BACKWARD_INCOMPATIBLE" ]]; then
+    [[ -f "$BLOCKING_FILE" && -s "$BLOCKING_FILE" ]] && grep -Fxq "$header" "$BLOCKING_FILE" && echo "[BACKWARD_INCOMPATIBLE]$header" >> "$INCOMPATIBLE_BLOCKING"
+    [[ -f "$NONBLOCKING_FILE" && -s "$NONBLOCKING_FILE" ]] && grep -Fxq "$header" "$NONBLOCKING_FILE" && echo "[BACKWARD_INCOMPATIBLE]$header" >> "$INCOMPATIBLE_NONBLOCKING"
+  else
+    echo "[$header_status]$header" >> "$OTHERS_FILE"
   fi
 
   dest="${OUT_ROOT}/${safe}"

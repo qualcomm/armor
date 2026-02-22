@@ -294,33 +294,40 @@ runs:
         out_root="${{ steps.run-armor.outputs.out-root }}"
         blk="${out_root}/incompatible_blocking.txt"
         nbk="${out_root}/incompatible_nonblocking.txt"
-        status="${{ steps.compatibility_status.outputs.res }}"
+        others="${out_root}/others.txt"
 
         body="$(cat <<'EOF'
         ### ARMOR Check Result
-        **Status:** __STATUS__
         Please check __ARTIFACTS__ for details.
         EOF
         )"
-        body="${body/__STATUS__/${status}}"
         body="${body/__ARTIFACTS__/${artifacts}}"
+        body+=$'\n\n'
 
-        # Segregated incompatible lists
-        body+=$'\n\n**Backward Incompatible Headers (segregated):**\n'
-        if [[ -s "$blk" ]]; then
-          body+=$'\n**Blocking:**\n'
+        if [[ -s "$others" ]]; then
           while IFS= read -r line; do
             [[ -z "$line" ]] && continue
             body+=$'- '"$line"$'\n'
-          done < "$blk"
+          done < "$others"
         fi
 
-        if [[ -s "$nbk" ]]; then
-          body+=$'\n**Non-blocking:**\n'
-          while IFS= read -r line; do
-            [[ -z "$line" ]] && continue
-            body+=$'- '"$line"$'\n'
-          done < "$nbk"
+        # Segregated incompatible lists
+        if [[ -s "$blk" || -s "$nbk" ]];then
+          if [[ -s "$blk" ]]; then
+            body+=$'\n**Blocking:**\n'
+            while IFS= read -r line; do
+              [[ -z "$line" ]] && continue
+              body+=$'- '"$line"$'\n'
+            done < "$blk"
+          fi
+
+          if [[ -s "$nbk" ]]; then
+            body+=$'\n**Non-blocking:**\n'
+            while IFS= read -r line; do
+              [[ -z "$line" ]] && continue
+              body+=$'- '"$line"$'\n'
+            done < "$nbk"
+          fi
         fi
 
         delimiter="EOF_SUMMARY_$(date +%s)"
