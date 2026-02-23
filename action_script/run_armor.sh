@@ -93,7 +93,7 @@ for header in "${HEADERS[@]}"; do
       name="$(jq -r '.name' <<<"$line")"
       [[ "$comp" == "backward_incompatible" ]] && compatibility="backward_incompatible"
       [[ -n "$name" && "$name" != "null" ]] && api_names+=("$name")
-    one < <(jq -c '.api_diff[]' "$json_report")
+    done < <(jq -c '.api_diff[]' "$json_report")
     header_status=$(jq -r '.overall_status // "unknown"' "$json_report")
   fi
 
