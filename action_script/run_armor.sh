@@ -83,7 +83,7 @@ for header in "${HEADERS[@]}"; do
     : > "$head_header_path"
   fi
 
-  "$ARMOR_CMD" "${args[@]}" "$BASE_PATH" "$HEAD_PATH" "$hdr_arg" || warn "armor failed for $header"
+  "$ARMOR_CMD" "$BASE_PATH" "$HEAD_PATH" "$hdr_arg" "${args[@]}" || warn "armor failed for $header"
 
   json_report="$WORK_DIR/armor_reports/json_reports/api_diff_report_$(basename "$hdr_arg").json"
   api_names=(); compatibility="backward_compatible"; header_status="Unknown"
