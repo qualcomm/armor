@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.14)
 project(armor)
-set(TOOL_VERSION "0.6.4")
+set(TOOL_VERSION "0.6.5")
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
