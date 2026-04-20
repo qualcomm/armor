@@ -39,7 +39,7 @@ enum class ParsedDiffStatus {
 };
 
 enum class UnParsedDiffStatus{
-    UN_CHANGES =0,
+    UN_CHANGED =0,
     CHANGED = 1
 };
 

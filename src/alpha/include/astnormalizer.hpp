@@ -25,6 +25,7 @@ class ASTNormalize : public clang::RecursiveASTVisitor<ASTNormalize> {
         ASTNormalize(alpha::APISession* session, alpha::ASTNormalizedContext* context, clang::ASTContext* clangContext);
 
         bool TraverseNamespaceDecl(clang::NamespaceDecl *Decl);
+        bool TraverseRecordDecl(clang::RecordDecl *Decl);
         bool TraverseCXXRecordDecl(clang::CXXRecordDecl *Decl);
         bool TraverseCXXConstructorDecl(clang::CXXConstructorDecl *Decl);
         bool TraverseCXXMethodDecl(clang::CXXMethodDecl *Decl);
@@ -40,6 +41,7 @@ class ASTNormalize : public clang::RecursiveASTVisitor<ASTNormalize> {
         bool TraverseClassTemplatePartialSpecializationDecl(clang::ClassTemplatePartialSpecializationDecl *Decl);
 
         bool VisitNamespaceDecl(clang::NamespaceDecl *Decl);
+        bool VisitRecordDecl(clang::RecordDecl *Decl);
         bool VisitCXXRecordDecl(clang::CXXRecordDecl *Decl);
         bool VisitEnumDecl(clang::EnumDecl *Decl);
         bool VisitFieldDecl(clang::FieldDecl *Decl);

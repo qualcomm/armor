@@ -39,8 +39,23 @@ void generate_html_report(const std::vector<json>& processed_data,
                           int unparsed_status,
                           const std::string& agg_compatibility,
                           const char* overall_status,
-                          const char* reason
+                          const char* reason,
+                          std::pair<bool, bool> files_exists = {true, true}
                         );
+
+/**
+ * @brief Create the standard output directories for reports and AST debug dumps,
+ *        and return the path to the HTML report file for the given header.
+ *
+ * Creates:
+ *   - debug_output/ast_diffs
+ *   - armor_reports/html_reports
+ *
+ * @param headerName  Basename of the header file (e.g. "foo.h").
+ * @return std::string  Full path to the HTML report file
+ *                      ("armor_reports/html_reports/api_diff_report_<headerName>.html").
+ */
+std::pair<std::string, std::string> prepare_report_output_dirs(const std::string& headerName);
 
 /**
  * @brief Generate a JSON report from processed API changes.

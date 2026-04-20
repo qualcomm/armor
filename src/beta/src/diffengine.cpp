@@ -392,7 +392,7 @@ json diffTrees(
                                          hasHashMapDifference(inactiveUnhandledDeclsHashMap2, inactiveUnhandledDeclsHashMap1);
 
     ParsedDiffStatus parsedStatus = determineStatus(hasASTDiff, hasCommentsDiff, hasUnhandledDeclsDiff);
-    UnParsedDiffStatus unparsedStatus = hasInactiveUnhandledDeclsDiff ? UnParsedDiffStatus::CHANGED : UnParsedDiffStatus::UN_CHANGES;
+    UnParsedDiffStatus unparsedStatus = hasInactiveUnhandledDeclsDiff ? UnParsedDiffStatus::CHANGED : UnParsedDiffStatus::UN_CHANGED;
 
     json result;
     result[PARSED_STATUS] = parsedStatus;

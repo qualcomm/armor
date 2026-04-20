@@ -300,6 +300,7 @@ processData
                              MYLIB_TOSTRING(MYLIB_VERSION_MINOR) "." \
                              MYLIB_TOSTRING(MYLIB_VERSION_PATCH)
 ----------------------------------------
+(IN-ACTIVE)
 10789492512563752263
 #if defined(_WIN32) || defined(_WIN64)
     #define MYLIB_PLATFORM_WINDOWS
@@ -313,6 +314,7 @@ processData
 6656654353517034452
     #define MYLIB_EXPORT __attribute__((visibility("default")))
 ----------------------------------------
+(IN-ACTIVE)
 6094473516132133165
 #elif defined(__APPLE__) && defined(__MACH__)
     #define MYLIB_PLATFORM_MACOS
@@ -331,6 +333,7 @@ processData
 15464300162902583911
     #define MYLIB_FORCE_INLINE __attribute__((always_inline)) inline
 ----------------------------------------
+(IN-ACTIVE)
 15455234452876028348
 #elif defined(__GNUC__)
     #define MYLIB_COMPILER_GCC
@@ -343,6 +346,7 @@ processData
     #define MYLIB_FORCE_INLINE inline
 #endif
 ----------------------------------------
+(IN-ACTIVE)
 12074142667616033186
 #ifdef MYLIB_DEBUG
     #define MYLIB_DEBUG_MODE 1
@@ -363,6 +367,7 @@ processData
 13425203279752416008
 #endif
 ----------------------------------------
+(IN-ACTIVE)
 5276368870544460156
 #ifdef MYLIB_ENABLE_THREADING
     #define MYLIB_THREAD_SAFE 1
@@ -390,6 +395,7 @@ processData
 8717144482643656166
 #define MYLIB_UNUSED(x) ((void)(x))
 ----------------------------------------
+(IN-ACTIVE)
 609842095911410082
 #ifdef MYLIB_COMPILER_MSVC
     #define MYLIB_ALIGN(n) __declspec(align(n))
@@ -416,12 +422,14 @@ processData
 10705571255276855191
 #ifdef __cplusplus
 ----------------------------------------
+(IN-ACTIVE)
 16125242627147687389
     #ifdef MYLIB_DEBUG
         MYLIB_ASSERT(data != nullptr, "Data pointer is null");
         printf("[DEBUG] Processing %zu bytes, Flags: 0x%X\n", size, flags);
     #endif
 ----------------------------------------
+(IN-ACTIVE)
 17793810274277806111
     #ifdef MYLIB_PLATFORM_WINDOWS
         void* buffer = _aligned_malloc(size, 16);
@@ -431,11 +439,13 @@ processData
     #elif defined(MYLIB_PLATFORM_LINUX)
 
 ----------------------------------------
+(IN-ACTIVE)
 11780944220859629953
         #ifdef MYLIB_COMPILER_GCC
             __builtin_prefetch(buffer, 0, 3);
         #endif
 ----------------------------------------
+(IN-ACTIVE)
 4186474104662229156
     #elif defined(MYLIB_PLATFORM_MACOS)
         void* buffer = nullptr;
@@ -444,6 +454,7 @@ processData
         void* buffer = malloc(size);
     #endif
 ----------------------------------------
+(IN-ACTIVE)
 9496518772622674977
     #ifdef MYLIB_ENABLE_THREADING
         static std::mutex mtx;
@@ -455,23 +466,27 @@ processData
 13425203279752416008
     #endif
 ----------------------------------------
+(IN-ACTIVE)
 13513711463712273799
         #ifdef MYLIB_COMPILER_MSVC
             result += 100;
         #elif defined(MYLIB_COMPILER_GCC) || defined(MYLIB_COMPILER_CLANG)
 
 ----------------------------------------
+(IN-ACTIVE)
 5228759663874785823
         #else
             result += 300;
         #endif
 ----------------------------------------
+(IN-ACTIVE)
 17535763163473717893
         #ifdef MYLIB_PLATFORM_WINDOWS
             result += 1000;
         #elif defined(MYLIB_PLATFORM_LINUX)
 
 ----------------------------------------
+(IN-ACTIVE)
 9182786835064148631
         #elif defined(MYLIB_PLATFORM_MACOS)
             result += 3000;
@@ -479,6 +494,7 @@ processData
             result += 4000;
         #endif
 ----------------------------------------
+(IN-ACTIVE)
 5400481813736155076
     #ifdef MYLIB_DEBUG
         static size_t totalBytes = 0;
@@ -486,6 +502,7 @@ processData
         printf("[DEBUG] Total processed: %zu bytes, Result: %d\n", totalBytes, result);
     #endif
 ----------------------------------------
+(IN-ACTIVE)
 7535211014293608317
     #ifdef MYLIB_PLATFORM_WINDOWS
         _aligned_free(buffer);
@@ -497,6 +514,7 @@ processData
 13425203279752416008
 #endif
 ----------------------------------------
+(IN-ACTIVE)
 9534294440999257955
 #ifdef MYLIB_COMPILER_MSVC
     #define MYLIB_LIKELY(x) (x)
@@ -506,6 +524,7 @@ processData
 10585965716865580119
     #define MYLIB_LIKELY(x) __builtin_expect(!!(x), 1)
 ----------------------------------------
+(IN-ACTIVE)
 6262325460462613483
 #else
     #define MYLIB_LIKELY(x) (x)
@@ -832,6 +851,7 @@ processData
                              MYLIB_TOSTRING(MYLIB_VERSION_MINOR) "." \
                              MYLIB_TOSTRING(MYLIB_VERSION_PATCH)
 ----------------------------------------
+(IN-ACTIVE)
 10789492512563752263
 #if defined(_WIN32) || defined(_WIN64)
     #define MYLIB_PLATFORM_WINDOWS
@@ -845,6 +865,7 @@ processData
 6656654353517034452
     #define MYLIB_EXPORT __attribute__((visibility("default")))
 ----------------------------------------
+(IN-ACTIVE)
 6094473516132133165
 #elif defined(__APPLE__) && defined(__MACH__)
     #define MYLIB_PLATFORM_MACOS
@@ -863,6 +884,7 @@ processData
 15464300162902583911
     #define MYLIB_FORCE_INLINE __attribute__((always_inline)) inline
 ----------------------------------------
+(IN-ACTIVE)
 15455234452876028348
 #elif defined(__GNUC__)
     #define MYLIB_COMPILER_GCC
@@ -875,6 +897,7 @@ processData
     #define MYLIB_FORCE_INLINE inline
 #endif
 ----------------------------------------
+(IN-ACTIVE)
 12074142667616033186
 #ifdef MYLIB_DEBUG
     #define MYLIB_DEBUG_MODE 1
@@ -895,6 +918,7 @@ processData
 13425203279752416008
 #endif
 ----------------------------------------
+(IN-ACTIVE)
 5276368870544460156
 #ifdef MYLIB_ENABLE_THREADING
     #define MYLIB_THREAD_SAFE 1
@@ -922,6 +946,7 @@ processData
 8717144482643656166
 #define MYLIB_UNUSED(x) ((void)(x))
 ----------------------------------------
+(IN-ACTIVE)
 609842095911410082
 #ifdef MYLIB_COMPILER_MSVC
     #define MYLIB_ALIGN(n) __declspec(align(n))
@@ -948,12 +973,14 @@ processData
 10705571255276855191
 #ifdef __cplusplus
 ----------------------------------------
+(IN-ACTIVE)
 16125242627147687389
     #ifdef MYLIB_DEBUG
         MYLIB_ASSERT(data != nullptr, "Data pointer is null");
         printf("[DEBUG] Processing %zu bytes, Flags: 0x%X\n", size, flags);
     #endif
 ----------------------------------------
+(IN-ACTIVE)
 17793810274277806111
     #ifdef MYLIB_PLATFORM_WINDOWS
         void* buffer = _aligned_malloc(size, 16);
@@ -963,11 +990,13 @@ processData
     #elif defined(MYLIB_PLATFORM_LINUX)
 
 ----------------------------------------
+(IN-ACTIVE)
 11780944220859629953
         #ifdef MYLIB_COMPILER_GCC
             __builtin_prefetch(buffer, 0, 3);
         #endif
 ----------------------------------------
+(IN-ACTIVE)
 4186474104662229156
     #elif defined(MYLIB_PLATFORM_MACOS)
         void* buffer = nullptr;
@@ -976,6 +1005,7 @@ processData
         void* buffer = malloc(size);
     #endif
 ----------------------------------------
+(IN-ACTIVE)
 9496518772622674977
     #ifdef MYLIB_ENABLE_THREADING
         static std::mutex mtx;
@@ -987,23 +1017,27 @@ processData
 13425203279752416008
     #endif
 ----------------------------------------
+(IN-ACTIVE)
 13513711463712273799
         #ifdef MYLIB_COMPILER_MSVC
             result += 100;
         #elif defined(MYLIB_COMPILER_GCC) || defined(MYLIB_COMPILER_CLANG)
 
 ----------------------------------------
+(IN-ACTIVE)
 5228759663874785823
         #else
             result += 300;
         #endif
 ----------------------------------------
+(IN-ACTIVE)
 17535763163473717893
         #ifdef MYLIB_PLATFORM_WINDOWS
             result += 1000;
         #elif defined(MYLIB_PLATFORM_LINUX)
 
 ----------------------------------------
+(IN-ACTIVE)
 9182786835064148631
         #elif defined(MYLIB_PLATFORM_MACOS)
             result += 3000;
@@ -1011,6 +1045,7 @@ processData
             result += 4000;
         #endif
 ----------------------------------------
+(IN-ACTIVE)
 6554561820803661536
     #ifdef MYLIB_DEBUG
         #define NEW_LIB
@@ -1019,6 +1054,7 @@ processData
         printf("[DEBUG] Total processed: %zu bytes, Result: %d\n", totalBytes, result);
     #endif
 ----------------------------------------
+(IN-ACTIVE)
 7535211014293608317
     #ifdef MYLIB_PLATFORM_WINDOWS
         _aligned_free(buffer);
@@ -1030,6 +1066,7 @@ processData
 13425203279752416008
 #endif
 ----------------------------------------
+(IN-ACTIVE)
 9707649004395554193
 #ifdef MYLIB_COMPILER_MSVC
     #define MYLIB_LIKELY(x) (x)
@@ -1040,6 +1077,7 @@ processData
 10585965716865580119
     #define MYLIB_LIKELY(x) __builtin_expect(!!(x), 1)
 ----------------------------------------
+(IN-ACTIVE)
 6262325460462613483
 #else
     #define MYLIB_LIKELY(x) (x)
