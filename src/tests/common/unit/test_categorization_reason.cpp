@@ -1,6 +1,5 @@
 // Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-3-Clause
-
 #include <gtest/gtest.h>
 #include "categorization.hpp"
 #include "diff_utils.hpp"
@@ -84,7 +83,7 @@ TEST_F(CategorizationReasonTest, Changed_NonFunctionalChanges) {
 TEST_F(CategorizationReasonTest, Unchanged_FatalErrors) {
     const char* result = getReasonForCategorization(
         static_cast<unsigned int>(ParsedDiffStatus::FATAL_ERRORS),
-        static_cast<unsigned int>(UnParsedDiffStatus::UN_CHANGES),
+        static_cast<unsigned int>(UnParsedDiffStatus::UN_CHANGED),
         false
     );
 
@@ -94,7 +93,7 @@ TEST_F(CategorizationReasonTest, Unchanged_FatalErrors) {
 TEST_F(CategorizationReasonTest, Unchanged_UnsupportedUpdates_Compatible) {
     const char* result = getReasonForCategorization(
         static_cast<unsigned int>(ParsedDiffStatus::UNSUPPORTED_UPDATES),
-        static_cast<unsigned int>(UnParsedDiffStatus::UN_CHANGES),
+        static_cast<unsigned int>(UnParsedDiffStatus::UN_CHANGED),
         true
     );
 
@@ -104,7 +103,7 @@ TEST_F(CategorizationReasonTest, Unchanged_UnsupportedUpdates_Compatible) {
 TEST_F(CategorizationReasonTest, Unchanged_UnsupportedUpdates_Incompatible) {
     const char* result = getReasonForCategorization(
         static_cast<unsigned int>(ParsedDiffStatus::UNSUPPORTED_UPDATES),
-        static_cast<unsigned int>(UnParsedDiffStatus::UN_CHANGES),
+        static_cast<unsigned int>(UnParsedDiffStatus::UN_CHANGED),
         false
     );
 
@@ -114,7 +113,7 @@ TEST_F(CategorizationReasonTest, Unchanged_UnsupportedUpdates_Incompatible) {
 TEST_F(CategorizationReasonTest, Unchanged_SupportedUpdates_Compatible) {
     const char* result = getReasonForCategorization(
         static_cast<unsigned int>(ParsedDiffStatus::SUPPORTED_UPDATES),
-        static_cast<unsigned int>(UnParsedDiffStatus::UN_CHANGES),
+        static_cast<unsigned int>(UnParsedDiffStatus::UN_CHANGED),
         true
     );
 
@@ -124,7 +123,7 @@ TEST_F(CategorizationReasonTest, Unchanged_SupportedUpdates_Compatible) {
 TEST_F(CategorizationReasonTest, Unchanged_SupportedUpdates_Incompatible) {
     const char* result = getReasonForCategorization(
         static_cast<unsigned int>(ParsedDiffStatus::SUPPORTED_UPDATES),
-        static_cast<unsigned int>(UnParsedDiffStatus::UN_CHANGES),
+        static_cast<unsigned int>(UnParsedDiffStatus::UN_CHANGED),
         false
     );
 
@@ -134,7 +133,7 @@ TEST_F(CategorizationReasonTest, Unchanged_SupportedUpdates_Incompatible) {
 TEST_F(CategorizationReasonTest, Unchanged_CommentsUpdated) {
     const char* result = getReasonForCategorization(
         static_cast<unsigned int>(ParsedDiffStatus::COMMENTS_UPDATED),
-        static_cast<unsigned int>(UnParsedDiffStatus::UN_CHANGES),
+        static_cast<unsigned int>(UnParsedDiffStatus::UN_CHANGED),
         false
     );
 
@@ -144,7 +143,7 @@ TEST_F(CategorizationReasonTest, Unchanged_CommentsUpdated) {
 TEST_F(CategorizationReasonTest, Unchanged_NonFunctionalChanges) {
     const char* result = getReasonForCategorization(
         static_cast<unsigned int>(ParsedDiffStatus::NON_FUNCTIONAL_CHANGES),
-        static_cast<unsigned int>(UnParsedDiffStatus::UN_CHANGES),
+        static_cast<unsigned int>(UnParsedDiffStatus::UN_CHANGED),
         false
     );
 
@@ -164,7 +163,7 @@ TEST_F(CategorizationReasonTest, InvalidParsedStatus_Changed) {
 TEST_F(CategorizationReasonTest, InvalidParsedStatus_Unchanged) {
     const char* result = getReasonForCategorization(
         999,
-        static_cast<unsigned int>(UnParsedDiffStatus::UN_CHANGES),
+        static_cast<unsigned int>(UnParsedDiffStatus::UN_CHANGED),
         false
     );
 

@@ -4,6 +4,7 @@
 
 #include <string>
 #include <vector>
+#include "comm_def.hpp"
 #include "session.hpp"
 
 PARSING_STATUS processHeaderPairAlpha(const std::string& projectRoot1,
@@ -12,4 +13,5 @@ PARSING_STATUS processHeaderPairAlpha(const std::string& projectRoot1,
                        const std::string& file2,
                        const std::string& reportFormat,
                        const std::vector<std::string>& IncludePaths,
-                       const std::vector<std::string>& macroFlags);
+                       const std::vector<std::string>& macroFlags,
+                       const LANG_OPTIONS lang);

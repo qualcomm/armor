@@ -67,6 +67,7 @@ public:
 
     // Node building methods (supported)
     bool BuildCXXRecordNode(clang::CXXRecordDecl* Decl);
+    bool BuildRecordNode(clang::RecordDecl* Decl);
     bool BuildEnumNode(clang::EnumDecl* Decl);
     bool BuildFunctionNode(clang::FunctionDecl* Decl);
     bool BuildTypedefDecl(clang::TypedefDecl *Decl);

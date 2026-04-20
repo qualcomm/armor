@@ -1,14 +1,19 @@
 // Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
-// SPDX-License-Identifier: BSD-3-Clause#include <iostream>
+// SPDX-License-Identifier: BSD-3-Clause
+
+#include <cassert>
+#include <iostream>
 #include <sstream>
 #include <fstream>
 #include <string>
+#include <utility>
 #include <vector>
 #include <map>
 #include <set>
 #include <unordered_map>
 #include <tuple>
 #include <algorithm>
+#include <filesystem>
 
 #include "comm_def.hpp"
 #include "report_utils.hpp"
@@ -1029,6 +1034,15 @@ static std::vector<json> group_records_by_function(const std::vector<json>& rows
 // Public API
 // -----------------------------------------------------------------------------
 
+std::pair<std::string, std::string> prepare_report_output_dirs(const std::string& headerName)
+{
+    std::filesystem::create_directories("armor_reports/html_reports");
+    std::filesystem::create_directories("armor_reports/json_reports");
+    std::string json_out = "armor_reports/json_reports/api_diff_report_" + headerName + ".json";
+    std::string html_out = "armor_reports/html_reports/api_diff_report_" + headerName + ".html";
+    return {json_out, html_out};
+}
+
 std::vector<json> preprocess_api_changes(const json& api_differences,
                                          const std::string& header_file_path)
 {
@@ -1136,21 +1150,37 @@ void generate_html_report(const std::vector<json>& processed_data,
                           int unparsed_status,
                           const std::string& agg_compatibility,
                           const char* overall_status,
-                          const char* reason
+                          const char* reason,
+                          std::pair<bool, bool> files_exists
                         ) {
     std::ofstream html(output_html_path);
     ParsedDiffStatus parsedStatus = static_cast<ParsedDiffStatus>(parsed_status);
     UnParsedDiffStatus unParsedStatus = static_cast<UnParsedDiffStatus>(unparsed_status);
 
     if (processed_data.empty()) {
-        html << "<h2 style=\"margin-bottom: 10px;\">ARMOR Report</h2>\n";
-        html << "<table border=\"1\" style=\"border-collapse: collapse; width: 100%; background-color: #f2f2f2;\">\n";
-        html << "  <tr>\n";
-        html << "    <td style=\"text-align: center; padding: 10px;\">\n";
-        html << "      Skipping ARMOR report generation. Reason: " << reason << "<br>\n";
-        html << "    </td>\n";
-        html << "  </tr>\n";
-        html << "</table>\n";
+
+        const auto& [file1_exists, file2_exists] = files_exists;
+
+        if( file1_exists & file2_exists ){
+            html << "<h2 style=\"margin-bottom: 10px;\">ARMOR Report</h2>\n";
+            html << "<table border=\"1\" style=\"border-collapse: collapse; width: 100%; background-color: #f2f2f2;\">\n";
+            html << "  <tr>\n";
+            html << "    <td style=\"text-align: center; padding: 10px;\">\n";
+            html << "      Skipping ARMOR report generation. Reason: " << reason << "<br>\n";
+            html << "    </td>\n";
+            html << "  </tr>\n";
+            html << "</table>\n";
+        }
+        else{
+            assert( file1_exists | file2_exists );
+            html << SIMPLE_HEADER; 
+            html << "<div style='margin:12px 0;padding:10px;border:1px solid #ccc;"
+            "border-radius:5px;background:#fafafa;font-size:14px;'>\n";
+            html << "<b>Overall status:</b> " << overall_status << "<br/>\n";
+            html << "<b>Reason:</b> " << reason << "<br/>\n";
+            html << "</div>\n";
+            
+        }
     } 
     else {
 
@@ -1160,6 +1190,8 @@ void generate_html_report(const std::vector<json>& processed_data,
                 break;
             case BETA_PARSER:
                 html << BETA_HTML_HEADER;
+                break;
+            default:
                 break;
         }
         

@@ -1437,11 +1437,11 @@ inline int Vehicle::vehicleCount = 0
 13425203279752416008
 #endif
 ----------------------------------------
-18127269209848937540
-/*
- * Copyright (c) 2026 Qualcomm Innovation Center, Inc.
- * SPDX-License-Identifier: BSD-3-Clause
- */
+11404736249108278501
+// Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+----------------------------------------
+252520090170005577
+// SPDX-License-Identifier: BSD-3-Clause
 ----------------------------------------
 
 ############ CONTEXT 1 MAPS ############
@@ -1618,7 +1618,8 @@ inactiveUnhandledDecls1
 
 ############ CONTEXT 2 MAPS ############
 comments2
-18127269209848937540  : 1
+252520090170005577  : 1
+11404736249108278501  : 1
 ----------------------------------------
 unhandledDecls2
 (empty)

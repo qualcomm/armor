@@ -340,6 +340,76 @@ void beta::TreeBuilder::normalizeValueDeclNode(const clang::ValueDecl *Decl, uns
     PopName();
 }
 
+bool beta::TreeBuilder::BuildRecordNode(clang::RecordDecl* Decl) {
+    
+    // Building RecordDecl for C specifaically
+    if (!IsDeclFromMainFileAndNotLocal(Decl)) return false;
+
+    if(llvm::isa<clang::CXXRecordDecl>(Decl)) return true;
+
+    llvm::SmallString<128> nameBuf;
+    llvm::raw_svector_ostream OS(nameBuf);
+    Decl->printName(OS);
+
+    if (!nameBuf.empty()) {
+        PushName(nameBuf);
+    }
+    else {
+        if (const auto *typedefForAnon = Decl->getTypedefNameForAnonDecl()) {
+            typedefForAnon->printName(OS);
+            PushName(nameBuf);
+        }
+        else {
+            if (Decl->isEmbeddedInDeclarator() && !Decl->isFreeStanding()) {
+                if (const clang::ValueDecl* ValueDecl =
+                        llvm::dyn_cast_or_null<clang::ValueDecl>(Decl->getNextDeclInContext())) {
+                    const clang::QualType QT = armor::unwrapTypeModifiers(ValueDecl->getType());
+                    if (QT->getAsTagDecl()->Equals(Decl)) {
+                        ValueDecl->printName(OS);
+                        PushName(nameBuf);
+                    }
+                }
+                else if (const clang::TypedefDecl* TypeDefDecl =
+                             llvm::dyn_cast_or_null<clang::TypedefDecl>(Decl->getNextDeclInContext())) {
+                    const clang::QualType QT = armor::unwrapTypeModifiers(TypeDefDecl->getUnderlyingType());
+                    if (QT->getAsTagDecl()->Equals(Decl)) {
+                        TypeDefDecl->printName(OS);
+                        PushName(nameBuf);
+                    }
+                }
+            }
+            else {
+                if (Decl->isStruct()) PushName("(Anon::Struct)");
+                if (Decl->isUnion())  PushName("(Anon::Union)");
+            }
+        }
+    }
+
+    const std::string USR = generateUSRForDecl(Decl);
+    const std::string NSR = generateNSRForDecl(Decl);
+
+    const auto it = context->usrNodeMap.find(USR);
+    std::shared_ptr<APINode> recordNode =
+        (it != context->usrNodeMap.end()) ? it->second : std::make_shared<APINode>();
+    recordNode->NSR = NSR;
+    recordNode->USR = USR;
+    if (it == context->usrNodeMap.end()) AddNode(recordNode);
+    recordNode->qualifiedName = GetCurrentQualifiedName();
+    context->usrNodeMap.insert_or_assign(std::move(USR), recordNode);
+
+    armor::debug() << "VisitRecordDecl (C): " << recordNode->qualifiedName << "\n";
+
+    if (Decl->isStruct()) {
+        recordNode->kind = NodeKind::Struct;
+    }
+    else if (Decl->isUnion()) {
+        recordNode->kind = NodeKind::Union;
+    }
+
+    PushNode(recordNode);
+    return true;
+}
+
 bool beta::TreeBuilder::BuildCXXRecordNode(clang::CXXRecordDecl* Decl) {
     if (!IsDeclFromMainFileAndNotLocal(Decl)) return false;
     

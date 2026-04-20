@@ -64,6 +64,26 @@ bool alpha::ASTNormalize::TraverseNamespaceDecl(clang::NamespaceDecl *Decl) {
     return true;
 }
 
+bool alpha::ASTNormalize::TraverseRecordDecl(clang::RecordDecl *Decl) {
+    // Only handle pure C RecordDecl — CXXRecordDecl is a subclass and has its own Traverse
+    if (llvm::isa<clang::CXXRecordDecl>(Decl)) {
+        return RecursiveASTVisitor<alpha::ASTNormalize>::TraverseRecordDecl(Decl);
+    }
+
+    RecursiveASTVisitor<alpha::ASTNormalize>::TraverseRecordDecl(Decl);
+
+    llvm::SmallString<128> nameBuf;
+    llvm::raw_svector_ostream OS(nameBuf);
+    Decl->printName(OS);
+
+    if (treeBuilder.IsFromMainFileAndNotLocal(Decl) && Decl->isThisDeclarationADefinition() && !nameBuf.empty()) {
+        treeBuilder.PopName();
+        treeBuilder.PopNode();
+    }
+
+    return true;
+}
+
 bool alpha::ASTNormalize::TraverseCXXRecordDecl(clang::CXXRecordDecl *Decl) {
     
     RecursiveASTVisitor<alpha::ASTNormalize>::TraverseCXXRecordDecl(Decl);
@@ -144,6 +164,12 @@ bool alpha::ASTNormalize::TraverseTypedefDecl(clang::TypedefDecl *Decl){
 
 bool alpha::ASTNormalize::VisitNamespaceDecl(clang::NamespaceDecl *Decl) {
     return false;
+}
+
+bool alpha::ASTNormalize::VisitRecordDecl(clang::RecordDecl *Decl) {
+    // Only handle pure C RecordDecl — skip if this is actually a CXXRecordDecl
+    if (llvm::isa<clang::CXXRecordDecl>(Decl)) return true;
+    return treeBuilder.BuildRecordNode(Decl);
 }
 
 bool alpha::ASTNormalize::VisitCXXRecordDecl(clang::CXXRecordDecl *Decl) {
