@@ -107,6 +107,7 @@ uint64_t ASTNormalizerPreprocessor::generateHashFromOffsets(unsigned startOffset
     else{
         semanticHash = FibonacciHash::hash(sourceText);
     }
+    if(!isActive) TEST_LOG << "(IN-ACTIVE)\n";
     TEST_LOG << semanticHash << "\n";
     TEST_LOG << sourceText << "\n----------------------------------------\n";
     

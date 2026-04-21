@@ -1,6 +1,5 @@
 // Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-3-Clause
-
 #include <iostream>
 #include <vector>
 #include <string>
@@ -16,6 +15,20 @@
 #define TOOL_VERSION ""
 #endif
 
+LANG_OPTIONS stringToLangOption(const std::string& lang) {
+    // Convert to lowercase for case-insensitive comparison
+    std::string lowerLang = lang;
+    std::transform(lowerLang.begin(), lowerLang.end(), lowerLang.begin(),
+                   [](unsigned char c){ return std::tolower(c); });
+    
+    if (lowerLang == LANG_C) {
+        return LANG_OPTIONS::C;
+    } else if (lowerLang == LANG_CPP) {
+        return LANG_OPTIONS::CPP;
+    }
+    return LANG_OPTIONS::CPP; // default to C++
+}
+
 bool filesAreDifferentUsingDiff(const std::string &file1, const std::string &file2) {
     std::string command = "diff -q " + file1 + " " + file2 + " > /dev/null";
     return std::system(command.c_str()) != 0;
@@ -28,6 +41,7 @@ bool runArmorTool(int argc, const char **argv) {
     std::vector<std::string> headers;
     std::string headerSubDir;
     std::string reportFormat = "html";
+    std::string language = LANG_CPP; // default to C++
     bool dumpAstDiff = false;
     std::string debugLevel = "";
     std::vector<std::string> IncludePaths;
@@ -59,6 +73,9 @@ bool runArmorTool(int argc, const char **argv) {
     app.add_option("--report-format,-r", reportFormat, "Report format: html (default).\n"
                                                        "If json is provided, both html and json reports will be generated.")
         ->check(CLI::IsMember({"html", "json"}));
+    app.add_option("--lang,-l", language, "Language mode: cpp (default) or c.\n"
+                                        "Use 'c' for C headers, 'cpp' for C++ headers.")
+    ->transform(CLI::IsMember({LANG_C, LANG_CPP}, CLI::ignore_case));
     app.add_flag("--dump-ast-diff", dumpAstDiff, "Dump AST diff JSON files for debugging");
     app.set_version_flag("--version,-v", TOOL_VERSION);
     app.add_option("--log-level", debugLevel, "Set debug log level: ERROR, LOG, INFO (default), DEBUG")
@@ -97,6 +114,10 @@ bool runArmorTool(int argc, const char **argv) {
         debugConfig.setLevel(DebugConfig::Level::NONE);
     }
 
+    // Convert language string to LANG_OPTIONS enum
+    LANG_OPTIONS langOption = stringToLangOption(language);
+    armor::info() << "Language mode set to: " << language << "\n";
+
     bool processed = false;
     std::vector<std::string> headersToCompare;
     if (!headers.empty()) {
@@ -116,10 +137,12 @@ bool runArmorTool(int argc, const char **argv) {
                 armor::user_error() << "Missing header in newer version: " << file2;
             } else if (filesAreDifferentUsingDiff(file1, file2)) {
                 processHeaderPairAlpha(projectRoot1, file1, projectRoot2, file2, reportFormat,
-                                IncludePaths, macros);
+                                IncludePaths, macros, langOption);
                 processed = true;
-            } else {
+            } 
+            else {
                 armor::user_print() << "No differences found between: " << file1 << " and " << file2;
+                return true;
             }
         }
     }
@@ -141,14 +164,18 @@ bool runArmorTool(int argc, const char **argv) {
             armor::user_print() << "Processing files: " << file1 << " " << file2;
             if (!std::filesystem::exists(file1)) {
                 armor::user_error() << "Missing header in older version: " << file1;
-            } else if (!std::filesystem::exists(file2)) {
+            } 
+            else if (!std::filesystem::exists(file2)) {
                 armor::user_error() << "Missing header in newer version: " << file2;
-            } else if (filesAreDifferentUsingDiff(file1, file2)) {
+            } 
+            else if (filesAreDifferentUsingDiff(file1, file2)) {
                 processHeaderPairAlpha(projectRoot1, file1, projectRoot2, file2, reportFormat,
-                                IncludePaths, macros);
+                                IncludePaths, macros, langOption);
                 processed = true;
-            } else {
+            } 
+            else {
                 armor::user_print() << "No differences found between: " << file1 << " and " << file2;
+                return true;
             }
         }
     }

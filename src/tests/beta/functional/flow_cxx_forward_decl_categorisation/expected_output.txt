@@ -738,6 +738,7 @@ namespace literals {
 11529733944468691740
     #ifdef __GNUC__
 ----------------------------------------
+(IN-ACTIVE)
 2075011373704711983
     #elif defined(_MSC_VER)
         return __FUNCSIG__;

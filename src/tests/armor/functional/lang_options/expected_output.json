@@ -1,0 +1,534 @@
+{
+    "astDiff": [
+        {
+            "children": [
+                {
+                    "dataType": "int",
+                    "nodeType": "Parameter",
+                    "qualifiedName": "fun_new::1"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Parameter",
+                    "qualifiedName": "fun_new::2"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "ReturnType",
+                    "qualifiedName": "fun_new::(ReturnType)"
+                }
+            ],
+            "nodeType": "Function",
+            "qualifiedName": "fun_new",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "int",
+                    "nodeType": "Parameter",
+                    "qualifiedName": "fun_delete::1"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Parameter",
+                    "qualifiedName": "fun_delete::2"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "ReturnType",
+                    "qualifiedName": "fun_delete::(ReturnType)"
+                }
+            ],
+            "nodeType": "Function",
+            "qualifiedName": "fun_delete",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "int",
+                    "nodeType": "Parameter",
+                    "qualifiedName": "fun_namespace::1"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Parameter",
+                    "qualifiedName": "fun_namespace::2"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "ReturnType",
+                    "qualifiedName": "fun_namespace::(ReturnType)"
+                }
+            ],
+            "nodeType": "Function",
+            "qualifiedName": "fun_namespace",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "int",
+                    "nodeType": "Parameter",
+                    "qualifiedName": "fun_cast::1"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Parameter",
+                    "qualifiedName": "fun_cast::2"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "ReturnType",
+                    "qualifiedName": "fun_cast::(ReturnType)"
+                }
+            ],
+            "nodeType": "Function",
+            "qualifiedName": "fun_cast",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "int",
+                    "nodeType": "Parameter",
+                    "qualifiedName": "fun_reinterpret::1"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Parameter",
+                    "qualifiedName": "fun_reinterpret::2"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "ReturnType",
+                    "qualifiedName": "fun_reinterpret::(ReturnType)"
+                }
+            ],
+            "nodeType": "Function",
+            "qualifiedName": "fun_reinterpret",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "int",
+                    "nodeType": "Parameter",
+                    "qualifiedName": "fun_bool::1"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Parameter",
+                    "qualifiedName": "fun_bool::2"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Parameter",
+                    "qualifiedName": "fun_bool::3"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "ReturnType",
+                    "qualifiedName": "fun_bool::(ReturnType)"
+                }
+            ],
+            "nodeType": "Function",
+            "qualifiedName": "fun_bool",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "int",
+                    "nodeType": "Parameter",
+                    "qualifiedName": "fun_try::1"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Parameter",
+                    "qualifiedName": "fun_try::2"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Parameter",
+                    "qualifiedName": "fun_try::3"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "ReturnType",
+                    "qualifiedName": "fun_try::(ReturnType)"
+                }
+            ],
+            "nodeType": "Function",
+            "qualifiedName": "fun_try",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "int",
+                    "nodeType": "Parameter",
+                    "qualifiedName": "fun_access::1"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Parameter",
+                    "qualifiedName": "fun_access::2"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Parameter",
+                    "qualifiedName": "fun_access::3"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "ReturnType",
+                    "qualifiedName": "fun_access::(ReturnType)"
+                }
+            ],
+            "nodeType": "Function",
+            "qualifiedName": "fun_access",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "int",
+                    "nodeType": "Parameter",
+                    "qualifiedName": "fun_misc::1"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Parameter",
+                    "qualifiedName": "fun_misc::2"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "ReturnType",
+                    "qualifiedName": "fun_misc::(ReturnType)"
+                }
+            ],
+            "nodeType": "Function",
+            "qualifiedName": "fun_misc",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "int",
+                    "nodeType": "Parameter",
+                    "qualifiedName": "fun_operator::1"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Parameter",
+                    "qualifiedName": "fun_operator::2"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Parameter",
+                    "qualifiedName": "fun_operator::3"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "ReturnType",
+                    "qualifiedName": "fun_operator::(ReturnType)"
+                }
+            ],
+            "nodeType": "Function",
+            "qualifiedName": "fun_operator",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "int",
+                    "nodeType": "Parameter",
+                    "qualifiedName": "fun_override::1"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Parameter",
+                    "qualifiedName": "fun_override::2"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "ReturnType",
+                    "qualifiedName": "fun_override::(ReturnType)"
+                }
+            ],
+            "nodeType": "Function",
+            "qualifiedName": "fun_override",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "int",
+                    "nodeType": "Field",
+                    "qualifiedName": "cpp_keywords_as_fields_t::new"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Field",
+                    "qualifiedName": "cpp_keywords_as_fields_t::delete"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Field",
+                    "qualifiedName": "cpp_keywords_as_fields_t::class"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Field",
+                    "qualifiedName": "cpp_keywords_as_fields_t::this"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Field",
+                    "qualifiedName": "cpp_keywords_as_fields_t::virtual"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Field",
+                    "qualifiedName": "cpp_keywords_as_fields_t::explicit"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Field",
+                    "qualifiedName": "cpp_keywords_as_fields_t::operator"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Field",
+                    "qualifiedName": "cpp_keywords_as_fields_t::friend"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Field",
+                    "qualifiedName": "cpp_keywords_as_fields_t::namespace"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Field",
+                    "qualifiedName": "cpp_keywords_as_fields_t::template"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Field",
+                    "qualifiedName": "cpp_keywords_as_fields_t::override"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Field",
+                    "qualifiedName": "cpp_keywords_as_fields_t::final"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Field",
+                    "qualifiedName": "cpp_keywords_as_fields_t::true"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Field",
+                    "qualifiedName": "cpp_keywords_as_fields_t::false"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Field",
+                    "qualifiedName": "cpp_keywords_as_fields_t::bool"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Field",
+                    "qualifiedName": "cpp_keywords_as_fields_t::try"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Field",
+                    "qualifiedName": "cpp_keywords_as_fields_t::catch"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Field",
+                    "qualifiedName": "cpp_keywords_as_fields_t::throw"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Field",
+                    "qualifiedName": "cpp_keywords_as_fields_t::public"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Field",
+                    "qualifiedName": "cpp_keywords_as_fields_t::private"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Field",
+                    "qualifiedName": "cpp_keywords_as_fields_t::protected"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Field",
+                    "qualifiedName": "cpp_keywords_as_fields_t::static_cast"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Field",
+                    "qualifiedName": "cpp_keywords_as_fields_t::dynamic_cast"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Field",
+                    "qualifiedName": "cpp_keywords_as_fields_t::reinterpret_cast"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Field",
+                    "qualifiedName": "cpp_keywords_as_fields_t::const_cast"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Field",
+                    "qualifiedName": "cpp_keywords_as_fields_t::typeid"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Field",
+                    "qualifiedName": "cpp_keywords_as_fields_t::typename"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Field",
+                    "qualifiedName": "cpp_keywords_as_fields_t::using"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Field",
+                    "qualifiedName": "cpp_keywords_as_fields_t::export"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Field",
+                    "qualifiedName": "cpp_keywords_as_fields_t::mutable"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Field",
+                    "qualifiedName": "cpp_keywords_as_fields_t::noexcept"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Field",
+                    "qualifiedName": "cpp_keywords_as_fields_t::constexpr"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Field",
+                    "qualifiedName": "cpp_keywords_as_fields_t::decltype"
+                }
+            ],
+            "nodeType": "Struct",
+            "qualifiedName": "cpp_keywords_as_fields_t",
+            "tag": "removed"
+        },
+        {
+            "dataType": "struct cpp_keywords_as_fields_t",
+            "nodeType": "Typedef",
+            "qualifiedName": "cpp_keywords_as_fields_t",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "children": [
+                        {
+                            "dataType": "int",
+                            "nodeType": "Parameter",
+                            "qualifiedName": "fn_new_t::1"
+                        },
+                        {
+                            "dataType": "int",
+                            "nodeType": "Parameter",
+                            "qualifiedName": "fn_new_t::2"
+                        },
+                        {
+                            "dataType": "int",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "fn_new_t::(ReturnType)"
+                        }
+                    ],
+                    "dataType": "*",
+                    "nodeType": "FunctionPointer",
+                    "qualifiedName": "fn_new_t"
+                }
+            ],
+            "nodeType": "Typedef",
+            "qualifiedName": "fn_new_t",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "children": [
+                        {
+                            "dataType": "int",
+                            "nodeType": "Parameter",
+                            "qualifiedName": "fn_class_t::1"
+                        },
+                        {
+                            "dataType": "int",
+                            "nodeType": "Parameter",
+                            "qualifiedName": "fn_class_t::2"
+                        },
+                        {
+                            "dataType": "int",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "fn_class_t::(ReturnType)"
+                        }
+                    ],
+                    "dataType": "*",
+                    "nodeType": "FunctionPointer",
+                    "qualifiedName": "fn_class_t"
+                }
+            ],
+            "nodeType": "Typedef",
+            "qualifiedName": "fn_class_t",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "children": [
+                        {
+                            "dataType": "int",
+                            "nodeType": "Parameter",
+                            "qualifiedName": "fn_virtual_t::1"
+                        },
+                        {
+                            "dataType": "int",
+                            "nodeType": "Parameter",
+                            "qualifiedName": "fn_virtual_t::2"
+                        },
+                        {
+                            "dataType": "int",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "fn_virtual_t::(ReturnType)"
+                        }
+                    ],
+                    "dataType": "*",
+                    "nodeType": "FunctionPointer",
+                    "qualifiedName": "fn_virtual_t"
+                }
+            ],
+            "nodeType": "Typedef",
+            "qualifiedName": "fn_virtual_t",
+            "tag": "removed"
+        }
+    ],
+    "headerResolutionFailures": [],
+    "parsed_status": 2,
+    "unparsed_status": 0
+}

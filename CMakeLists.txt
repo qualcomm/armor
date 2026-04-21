@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.14)
 project(armor)
+set(TOOL_VERSION "0.6.5")
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -11,13 +12,19 @@ execute_process(
     OUTPUT_STRIP_TRAILING_WHITESPACE
 )
 
-set(CLANG_EXTRA_FLAGS
+set(CLANG_EXTRA_FLAGS_CPP
     "-std=c++17 -xc++ -isystem /usr/include/c++/11 -isystem /usr/include -isystem /usr/local/include -isystem /usr/include/x86_64-linux-gnu/c++/11 -I/usr/lib/llvm-14/include -I/usr/lib/clang/14/include"
 )
 
-string(REPLACE "\"" "\\\"" CLANG_EXTRA_FLAGS_ESCAPED "${CLANG_EXTRA_FLAGS}")
+set(CLANG_EXTRA_FLAGS_C
+    "-xc -isystem /usr/include -isystem /usr/local/include -isystem /usr/include/x86_64-linux-gnu -I/usr/lib/llvm-14/include -I/usr/lib/clang/14/include"
+)
 
-add_compile_definitions(CLANG_FLAGS="${CLANG_EXTRA_FLAGS_ESCAPED}")
+string(REPLACE "\"" "\\\"" CLANG_EXTRA_FLAGS_CPP_ESCAPED "${CLANG_EXTRA_FLAGS_CPP}")
+string(REPLACE "\"" "\\\"" CLANG_EXTRA_FLAGS_C_ESCAPED "${CLANG_EXTRA_FLAGS_C}")
+
+add_compile_definitions(CLANG_FLAGS_CPP="${CLANG_EXTRA_FLAGS_CPP_ESCAPED}")
+add_compile_definitions(CLANG_FLAGS_C="${CLANG_EXTRA_FLAGS_C_ESCAPED}")
 
 find_package(LLVM REQUIRED CONFIG)
 find_package(Clang REQUIRED CONFIG)
@@ -38,7 +45,7 @@ llvm_map_components_to_libnames(LLVM_LIBS
   option
 )
 
-add_definitions(-DTOOL_VERSION="0.6.3")
+add_definitions(-DTOOL_VERSION="${TOOL_VERSION}")
 
 add_subdirectory(src/common)
 add_subdirectory(src/alpha)
