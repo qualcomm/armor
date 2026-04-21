@@ -4,19 +4,38 @@
 #include <vector>
 #include <string>
 #include <filesystem>
+#include <algorithm>
+#include <cctype>
 #include "CLI/CLI.hpp"
 #include "llvm/Support/raw_ostream.h"
+#include "comm_def.hpp"
 #include "options_handler.hpp"
 
 #include <session.hpp>
 
 #include "alpha/include/header_processor.hpp"
 #include "beta/include/header_processor.hpp"
+#include "report_utils.hpp"
+#include "diff_utils.hpp"
 #include "logger.hpp"
 
 #ifndef TOOL_VERSION
 #define TOOL_VERSION ""
 #endif
+
+LANG_OPTIONS stringToLangOption(const std::string& lang) {
+    // Convert to lowercase for case-insensitive comparison
+    std::string lowerLang = lang;
+    std::transform(lowerLang.begin(), lowerLang.end(), lowerLang.begin(),
+                   [](unsigned char c){ return std::tolower(c); });
+    
+    if (lowerLang == LANG_C) {
+        return LANG_OPTIONS::C;
+    } else if (lowerLang == LANG_CPP) {
+        return LANG_OPTIONS::CPP;
+    }
+    return LANG_OPTIONS::CPP; // default to C++
+}
 
 bool filesAreDifferentUsingDiff(const std::string &file1, const std::string &file2) {
     std::string command = "diff -q " + file1 + " " + file2 + " > /dev/null";
@@ -30,6 +49,7 @@ bool runArmorTool(int argc, const char **argv) {
     std::vector<std::string> headers;
     std::string headerSubDir;
     std::string reportFormat = "html";
+    std::string language = LANG_CPP; // default to C++
     bool dumpAstDiff = false;
     std::string debugLevel = "";
     std::vector<std::string> IncludePaths;
@@ -61,6 +81,9 @@ bool runArmorTool(int argc, const char **argv) {
     app.add_option("--report-format,-r", reportFormat, "Report format: html (default).\n"
                                                        "If json is provided, both html and json reports will be generated.")
         ->check(CLI::IsMember({"html", "json"}));
+    app.add_option("--lang,-l", language, "Language mode: cpp (default) or c.\n"
+                                          "Use 'c' for C headers, 'cpp' for C++ headers.")
+        ->transform(CLI::IsMember({LANG_C, LANG_CPP}, CLI::ignore_case));
     app.add_flag("--dump-ast-diff", dumpAstDiff, "Dump AST diff JSON files for debugging");
     app.set_version_flag("--version,-v", TOOL_VERSION);
     app.add_option("--log-level", debugLevel, "Set debug log level: ERROR, LOG, INFO (default), DEBUG")
@@ -102,6 +125,10 @@ bool runArmorTool(int argc, const char **argv) {
         debugConfig.setLevel(DebugConfig::Level::NONE);
     }
 
+    // Convert language string to LANG_OPTIONS enum
+    LANG_OPTIONS langOption = stringToLangOption(language);
+    armor::info() << "Language mode set to: " << language << "\n";
+
     bool processed = false;
     std::vector<std::string> headersToCompare;
     if (!headers.empty()) {
@@ -110,31 +137,87 @@ bool runArmorTool(int argc, const char **argv) {
             if (!headerSubDir.empty()) {
                 file1 = projectRoot1 + "/" + headerSubDir + "/" + header;
                 file2 = projectRoot2 + "/" + headerSubDir + "/" + header;
-            } else {
+            } 
+            else {
                 file1 = projectRoot1 + "/" + header;
                 file2 = projectRoot2 + "/" + header;
             }
             armor::user_print() << "Processing files: " << file1 << " " << file2 << "\n";
-            if (!std::filesystem::exists(file1)) {
+            if ( !std::filesystem::exists(file1) && !std::filesystem::exists(file2) ){
+                armor::user_error() << "Missing old and new versions of header : \n" << file1 << "\n" << file2 << "\n";
+                std::filesystem::create_directories("armor_reports/html_reports");
+                std::filesystem::create_directories("armor_reports/json_reports");
+            }
+            else if (!std::filesystem::exists(file1)) {
                 armor::user_error() << "Missing header in older version: " << file1 << "\n";
-            } else if (!std::filesystem::exists(file2)) {
+                std::string headerName = std::filesystem::path(file2).filename().string();
+                const auto& [jsonReportFile, htmlReportFile] = prepare_report_output_dirs(headerName);
+                generate_json_report(
+                        {},
+                          jsonReportFile,
+                          static_cast<int>(ParsedDiffStatus::SUPPORTED_UPDATES),
+                          static_cast<int>(UnParsedDiffStatus::UN_CHANGED),
+                          "backward_compatible",
+                          "BACKWARD_COMPATIBLE",
+                          "Missing header in older version"
+                          );
+                generate_html_report(
+                    {},
+                          htmlReportFile,
+                          NO_PARSER,
+                          static_cast<int>(ParsedDiffStatus::SUPPORTED_UPDATES),
+                          static_cast<int>(UnParsedDiffStatus::UN_CHANGED),
+                          "backward_compatible",
+                          "BACKWARD_COMPATIBLE",
+                          "Missing header in older version",
+                          {false, true}
+                        );
+            } 
+            else if (!std::filesystem::exists(file2)) {
                 armor::user_error() << "Missing header in newer version: " << file2 << "\n";
-            } else if (filesAreDifferentUsingDiff(file1, file2)) {
-                PARSING_STATUS parsingStatus = processHeaderPairAlpha(projectRoot1, file1, projectRoot2, file2, reportFormat,
-                                IncludePaths, macros);
-                switch (parsingStatus) {
-                    case NO_FATAL_ERRORS:
-                        armor::info() << "Processing Headers again via beta parser\n";
-                        processHeaderPairBeta(projectRoot1, file1, projectRoot2, file2, reportFormat,
-                                    IncludePaths, macros);
-                        break;
-                    case FATAL_ERRORS:
-                        armor::info() << "Processing Headers stopped at alpha parser\n";
-                        break;
+                std::string headerName = std::filesystem::path(file1).filename().string();
+                const auto& [jsonReportFile, htmlReportFile] = prepare_report_output_dirs(headerName);
+                generate_json_report(
+                        {},
+                          jsonReportFile,
+                          static_cast<int>(ParsedDiffStatus::SUPPORTED_UPDATES),
+                          static_cast<int>(UnParsedDiffStatus::UN_CHANGED),
+                          "backward_incompatible",
+                          "BACKWARD_INCOMPATIBLE",
+                          "Missing header in newer version"
+                          );
+                generate_html_report(
+                    {},
+                          htmlReportFile,
+                          NO_PARSER,
+                          static_cast<int>(ParsedDiffStatus::SUPPORTED_UPDATES),
+                          static_cast<int>(UnParsedDiffStatus::UN_CHANGED),
+                          "backward_incompatible",
+                          "BACKWARD_INCOMPATIBLE",
+                          "Missing header in newer version",
+                          {true, false}
+                        );
+            }
+            else{ 
+                if (filesAreDifferentUsingDiff(file1, file2)) {
+                    PARSING_STATUS parsingStatus = processHeaderPairAlpha(projectRoot1, file1, projectRoot2, file2, reportFormat,
+                                    IncludePaths, macros, langOption);
+                    switch (parsingStatus) {
+                        case NO_FATAL_ERRORS:
+                            armor::info() << "Processing Headers again via beta parser\n";
+                            processHeaderPairBeta(projectRoot1, file1, projectRoot2, file2, reportFormat,
+                                        IncludePaths, macros, langOption);
+                            break;
+                        case FATAL_ERRORS:
+                            armor::info() << "Processing Headers stopped at alpha parser\n";
+                            break;
+                    }
+                    processed = true;
+                } 
+                else {
+                    armor::user_print() << "No differences found between: " << file1 << " and " << file2 << "\n";
+                    return true;
                 }
-                processed = true;
-            } else {
-                armor::user_print() << "No differences found between: " << file1 << " and " << file2 << "\n";
             }
         }
     }
@@ -154,27 +237,79 @@ bool runArmorTool(int argc, const char **argv) {
             std::string file1 = dir1 + "/" + header;
             std::string file2 = dir2 + "/" + header;
             armor::user_print() << "Processing files: " << file1 << " " << file2 << "\n";
-            if (!std::filesystem::exists(file1)) {
+            if ( !std::filesystem::exists(file1) && !std::filesystem::exists(file2) ){
+                armor::user_error() << "Missing old and new versions of header : \n" << file1 << "\n" << file2 << "\n";
+            }
+            else if (!std::filesystem::exists(file1)) {
                 armor::user_error() << "Missing header in older version: " << file1 << "\n";
+                std::string headerName = std::filesystem::path(file2).filename().string();
+                const auto& [jsonReportFile, htmlReportFile] = prepare_report_output_dirs(headerName);
+                generate_json_report(
+                        {},
+                          jsonReportFile,
+                          static_cast<int>(ParsedDiffStatus::SUPPORTED_UPDATES),
+                          static_cast<int>(UnParsedDiffStatus::UN_CHANGED),
+                          "backward_compatible",
+                          "BACKWARD_COMPATIBLE",
+                          "Missing header in older version"
+                          );
+                generate_html_report(
+                    {},
+                          htmlReportFile,
+                          NO_PARSER,
+                          static_cast<int>(ParsedDiffStatus::SUPPORTED_UPDATES),
+                          static_cast<int>(UnParsedDiffStatus::UN_CHANGED),
+                          "backward_compatible",
+                          "BACKWARD_COMPATIBLE",
+                          "Missing header in older version",
+                          {false, true}
+                        );
             } else if (!std::filesystem::exists(file2)) {
                 armor::user_error() << "Missing header in newer version: " << file2 << "\n";
-            } else if (filesAreDifferentUsingDiff(file1, file2)) {
-                PARSING_STATUS parsingStatus = processHeaderPairAlpha(projectRoot1, file1, projectRoot2, file2, reportFormat,
-                                IncludePaths, macros);
-                switch (parsingStatus) {
-                    case NO_FATAL_ERRORS:
-                        armor::info() << "Processing Headers again via v2\n";
-                        processHeaderPairBeta(projectRoot1, file1, projectRoot2, file2, reportFormat,
-                                    IncludePaths, macros);
-                        break;
-                    case FATAL_ERRORS:
-                        armor::info() << "Processing Headers stopped at v1\n";
-                        break;
+                std::string headerName = std::filesystem::path(file1).filename().string();
+                const auto& [jsonReportFile, htmlReportFile] = prepare_report_output_dirs(headerName);
+                generate_json_report(
+                        {},
+                          jsonReportFile,
+                          static_cast<int>(ParsedDiffStatus::SUPPORTED_UPDATES),
+                          static_cast<int>(UnParsedDiffStatus::UN_CHANGED),
+                          "backward_incompatible",
+                          "BACKWARD_INCOMPATIBLE",
+                          "Missing header in newer version"
+                          );
+                generate_html_report(
+                    {},
+                          htmlReportFile,
+                          NO_PARSER,
+                          static_cast<int>(ParsedDiffStatus::SUPPORTED_UPDATES),
+                          static_cast<int>(UnParsedDiffStatus::UN_CHANGED),
+                          "backward_incompatible",
+                          "BACKWARD_INCOMPATIBLE",
+                          "Missing header in newer version",
+                          {true, false}
+                        );
+            } 
+            else{ 
+                if (filesAreDifferentUsingDiff(file1, file2)) {
+                    PARSING_STATUS parsingStatus = processHeaderPairAlpha(projectRoot1, file1, projectRoot2, file2, reportFormat,
+                                    IncludePaths, macros, langOption);
+                    switch (parsingStatus) {
+                        case NO_FATAL_ERRORS:
+                            armor::info() << "Processing Headers again via v2\n";
+                            processHeaderPairBeta(projectRoot1, file1, projectRoot2, file2, reportFormat,
+                                        IncludePaths, macros, langOption);
+                            break;
+                        case FATAL_ERRORS:
+                            armor::info() << "Processing Headers stopped at v1\n";
+                            break;
+                    }
+                    processed = true;
+                } 
+                else {
+                    llvm::outs()<<"No diff beta\n";
+                    armor::user_print() << "No differences found between: " << file1 << " and " << file2 << "\n";
+                    return true;
                 }
-                processed = true;
-            } else {
-                llvm::outs()<<"No diff beta\n";
-                armor::user_print() << "No differences found between: " << file1 << " and " << file2 << "\n";
             }
         }
     }

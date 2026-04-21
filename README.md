@@ -104,6 +104,10 @@ The tool is invoked directly using the `armor` binary:
   Report format: `html` (default).  
   If `json` is provided, both HTML and JSON reports will be generated.
 
+* **-l, --lang TEXT:{c,cpp}**  
+  Language mode: `cpp` (default) or `c`.  
+  Use `c` for C headers, `cpp` for C++ headers.
+
 * **--dump-ast-diff**  
   Dump AST diff JSON files for debugging
 
@@ -136,7 +140,7 @@ The tool is invoked directly using the `armor` binary:
 
 2. **Comparison with relative header paths:**
    ```bash
-   ./build/src/armor/armor /path/to/old/project /path/to/new/project include/api/foo.h include/api/bar.h
+   ./build/src/armor/armor /path/to/old/project /path/to/new/project include/api/foo.h
    ```
 
 3. **Generate JSON report with include paths:**
@@ -156,6 +160,14 @@ The tool is invoked directly using the `armor` binary:
      --header-dir include \
      --dump-ast-diff \
      --log-level DEBUG \
+     foo.h
+   ```
+
+5. **Comparing C headers:**
+   ```bash
+   ./build/src/armor/armor /path/to/old/project /path/to/new/project \
+     --header-dir include \
+     --lang c \
      foo.h
    ```
 

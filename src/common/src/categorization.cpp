@@ -50,7 +50,7 @@ const char* getOverAllCategory(unsigned int parsedDiffStatus, unsigned int unPar
                     break;
             }
             break;
-        case UnParsedDiffStatus::UN_CHANGES:
+        case UnParsedDiffStatus::UN_CHANGED:
             switch (parsedStatus) {
                 case ParsedDiffStatus::FATAL_ERRORS:
                     overAllStatus = OverAllStatus::FATAL_ERRORS;
@@ -103,7 +103,7 @@ const char* getReasonForCategorization(unsigned int parsedDiffStatus, unsigned i
                     return ERROR_INVALID_PARSED_STATUS;
             }
             break;
-        case UnParsedDiffStatus::UN_CHANGES:
+        case UnParsedDiffStatus::UN_CHANGED:
             switch (parsedStatus) {
                 case ParsedDiffStatus::FATAL_ERRORS:
                     return CRITICAL_PARSING_ERRORS;

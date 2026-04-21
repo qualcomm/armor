@@ -497,6 +497,7 @@
 4697782646697335805
 #define STRINGIFY_EXPANDED(x) STRINGIFY(x)
 ----------------------------------------
+(IN-ACTIVE)
 6477139945075972597
 #ifdef DEBUG
 #define DEBUG_PRINT(x) printf("DEBUG: %s = %d\n", #x, (x))  /* Print variable name and value */
@@ -536,6 +537,7 @@
 9329535409317421868
 #define COMBINED(x, y) CONCAT(STRINGIFY(x), STRINGIFY(y))
 ----------------------------------------
+(IN-ACTIVE)
 13248869921311003807
             #if      defined(FEATURE_A) &&     !defined(FEATURE_B)           // first comments
 #define FEATURE_FLAG 1  /* FEATURE_A has priority when FEATURE_B is not defined */
@@ -549,6 +551,7 @@
 13425203279752416008
       #endif
 ----------------------------------------
+(IN-ACTIVE)
 9474032327556054008
 #ifdef _WIN32
 #define PLATFORM_SPECIFIC_FUNCTION() win32_function()      /* Windows implementation */
@@ -560,6 +563,7 @@
 15838141755185658721
              #define PLATFORM_SPECIFIC_FUNCTION() linux_function()
 ----------------------------------------
+(IN-ACTIVE)
 13005075863160176067
 #else
 #define PLATFORM_SPECIFIC_FUNCTION() generic_function()    /* Fallback for unknown platforms */
@@ -571,6 +575,7 @@
 8192046942710364384
 #define INLINE_ASM(asm_code) __asm__(asm_code)
 ----------------------------------------
+(IN-ACTIVE)
 1074130666721733757
 #else
 #define INLINE_ASM(asm_code)                    /* No-op for unsupported compilers */
@@ -582,6 +587,7 @@
 9006691468829543498
 #define DEPRECATED(func) func __attribute__((deprecated))
 ----------------------------------------
+(IN-ACTIVE)
 1417698705628194800
 #elif defined(_MSC_VER)
 #define DEPRECATED(func) __declspec(deprecated) func       /* MSVC declspec */
@@ -598,6 +604,7 @@
 11777811773461686288
 #define UNLIKELY(x) __builtin_expect(!!(x), 0)
 ----------------------------------------
+(IN-ACTIVE)
 4598632821586868593
 #else
 #define LIKELY(x) (x)                           /* No optimization hints */
@@ -649,6 +656,7 @@
 17786182838777062169
 #define SWAP(a, b) do { typeof(a) temp = (a); (a) = (b); (b) = temp; } while(0)
 ----------------------------------------
+(IN-ACTIVE)
 14637574784572251887
 #if 0
 void inactive_function() {
@@ -657,6 +665,7 @@ void inactive_function() {
 }
 #endif 
 ----------------------------------------
+(IN-ACTIVE)
 677721035919619419
 #ifdef UNDEFINED_MACRO
 void another_inactive_function() {
@@ -677,6 +686,7 @@ void another_inactive_function() {
 17696063952571374410
 #define CONDITION_MET 1
 ----------------------------------------
+(IN-ACTIVE)
 13404186847818870969
 #else 
 #define CONDITION_MET 0  /* Condition is not met */
@@ -691,6 +701,7 @@ void another_inactive_function() {
 2695351812175255397
 #define FEATURE_X_ENABLED 1
 ----------------------------------------
+(IN-ACTIVE)
 9952196420283705679
   #elifndef   LEGACY_FEATURE_Y      /* C23: "else if not defined" */
 #define NEW_FEATURE_X 200           /* Fallback value when legacy feature is undefined */
@@ -699,6 +710,7 @@ void another_inactive_function() {
 #define NEW_FEATURE_X 0             /* Disabled state */
   #endif  
 ----------------------------------------
+(IN-ACTIVE)
 2332983418588728947
      #ifdef     EXPERIMENTAL_MODE     // Checking #ifdef
 #define EXPERIMENTAL_VALUE 999      /* High value for experimental mode */
@@ -714,6 +726,7 @@ void another_inactive_function() {
 13425203279752416008
    #endif
 ----------------------------------------
+(IN-ACTIVE)
 12621194928058068335
 #ifdef LEVEL_1
     #ifdef LEVEL_2
@@ -779,6 +792,7 @@ void another_inactive_function() {
 13425203279752416008
 #endif
 ----------------------------------------
+(IN-ACTIVE)
 12765956525272886779
 #if 0
     #if 1
@@ -789,6 +803,7 @@ void another_inactive_function() {
     #endif
 #endif
 ----------------------------------------
+(IN-ACTIVE)
 3096152467939040003
 #if defined(COMPILER_GCC)
     #define COMPILER_NAME "GCC"
@@ -831,6 +846,7 @@ void another_inactive_function() {
 15897096405968499044
 #define TEMP_VALUE 300
 ----------------------------------------
+(IN-ACTIVE)
 17774308999468338591
 #if (defined(VERSION_MAJOR) && VERSION_MAJOR >= 2) || \
     (defined(VERSION_MAJOR) && VERSION_MAJOR == 1 && \
@@ -861,6 +877,7 @@ void another_inactive_function() {
 2593811414999902229
     #define ARCH_NAME "x86_64"
 ----------------------------------------
+(IN-ACTIVE)
 1465112240517950697
     #ifdef __AVX2__
         #define HAS_AVX2 1
@@ -872,6 +889,7 @@ void another_inactive_function() {
 13425203279752416008
     #endif
 ----------------------------------------
+(IN-ACTIVE)
 10236021034342675268
 #elif defined(__i386__) || defined(_M_IX86) // ok
     #define ARCH_64BIT 0
@@ -887,6 +905,7 @@ void another_inactive_function() {
     #define HAS_AVX2 0
 #endif
 ----------------------------------------
+(IN-ACTIVE)
 16814099614349482556
 #ifdef USE_CUSTOM_ALLOCATOR
     #define ALLOC(size) custom_alloc(size)  /* Use custom memory allocator */
@@ -921,6 +940,7 @@ void another_inactive_function() {
 13473011240135753077
 #define CAT4(a, b, c, d) CAT(CAT3(a, b, c), d)
 ----------------------------------------
+(IN-ACTIVE)
 4769135047991098008
 #ifdef INCLUDE_EXTRA_FEATURES
     #define EXTRA_FEATURE_1 1           /* Enable first extra feature */
@@ -948,6 +968,7 @@ void another_inactive_function() {
 12861544208380990568
 #undef TEMP_C
 ----------------------------------------
+(IN-ACTIVE)
 3656396748884955610
 #ifdef _MSC_VER
     #define PRAGMA_PACK_PUSH _Pragma("pack(push, 1)")  /* MSVC: Push current packing, set to 1 byte */

@@ -5,6 +5,7 @@
 #include "clang/AST/ASTContext.h"
 #include "clang/Basic/SourceManager.h"
 #include <cassert>
+#include <llvm-14/llvm/ADT/StringRef.h>
 #include <llvm-14/llvm/Support/FileSystem.h>
 #include <llvm-14/llvm/Support/Path.h>
 #include <llvm-14/llvm/Support/raw_ostream.h>
@@ -34,8 +35,10 @@ void ASTNormalizerPreprocessor::InclusionDirective(
         if (HashLoc.isValid()) {
             clang::PresumedLoc PLoc = SM->getPresumedLoc(HashLoc);
             if (PLoc.isValid()) {
-                armor::debug() << "Failed include - RelativePath: " << RelativePath << " at " << PLoc.getFilename() << "\n";
-                context->getSourceRangeTracker().addFatalDirective(RelativePath,PLoc.getFilename());
+                if(llvm::StringRef fileName = PLoc.getFilename(); !fileName.empty() && !RelativePath.empty()){
+                    armor::debug() << "Failed include - RelativePath: " << RelativePath << " at " << PLoc.getFilename() << "\n";
+                    context->getSourceRangeTracker().addFatalDirective(RelativePath,PLoc.getFilename());
+                }
             }
         }
     

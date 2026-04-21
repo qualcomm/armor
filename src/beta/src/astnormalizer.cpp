@@ -11,6 +11,7 @@
 #include "tree_builder.hpp"
 #include "comment_handler.hpp"
 #include "preprocesor.hpp"
+#include "clang/AST/APValue.h"
 #include "clang/AST/Decl.h"
 #include "clang/AST/DeclTemplate.h"
 #include "clang/AST/RecursiveASTVisitor.h"
@@ -103,6 +104,18 @@ void beta::NormalizeAction::EndSourceFileAction() {
 // === Visit and Traverse Methods ===
 bool beta::ASTNormalize::TraverseNamespaceDecl(clang::NamespaceDecl *Decl) {
     RecursiveASTVisitor<beta::ASTNormalize>::TraverseNamespaceDecl(Decl);
+    return true;
+}
+
+bool beta::ASTNormalize::TraverseRecordDecl(clang::RecordDecl *Decl) {
+
+    RecursiveASTVisitor<beta::ASTNormalize>::TraverseRecordDecl(Decl);
+
+    if (!llvm::isa<clang::CXXRecordDecl>(Decl) && treeBuilder.IsDeclFromMainFileAndNotLocal(Decl)) {
+        treeBuilder.PopName();
+        treeBuilder.PopNode();
+    }
+
     return true;
 }
 
@@ -246,6 +259,10 @@ bool beta::ASTNormalize::TraverseTemplateTemplateParmDecl(clang::TemplateTemplat
 bool beta::ASTNormalize::VisitNamespaceDecl(clang::NamespaceDecl *Decl) {
     treeBuilder.BuildNamespaceDecl(Decl);
     return true;
+}
+
+bool beta::ASTNormalize::VisitRecordDecl(clang::RecordDecl *Decl) {
+    return treeBuilder.BuildRecordNode(Decl);
 }
 
 bool beta::ASTNormalize::VisitCXXRecordDecl(clang::CXXRecordDecl *Decl) {

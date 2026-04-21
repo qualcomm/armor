@@ -32,17 +32,27 @@ using namespace clang;
 using namespace clang::tooling;
 using namespace llvm;
 
-#ifndef CLANG_FLAGS
-#define CLANG_FLAGS ""
-#endif
-
 namespace {
 
     std::vector<std::string> getClangFlags(const std::vector<std::string>& includePaths,
-                                           const std::vector<std::string>& macroFlags) {
+                                           const std::vector<std::string>& macroFlags,
+                                           const LANG_OPTIONS lang) {
         std::vector<std::string> flags;
 
-        std::istringstream iss(CLANG_FLAGS);
+        const char* rawFlags;
+        switch (lang) {
+            case LANG_OPTIONS::C:
+                rawFlags = CLANG_FLAGS_C;
+                break;
+            case LANG_OPTIONS::CPP:
+                rawFlags = CLANG_FLAGS_CPP;
+                break;
+            default:
+                rawFlags = CLANG_FLAGS_CPP;
+                break;
+        }
+        
+        std::istringstream iss(rawFlags);
         std::string flag;
         while (iss >> flag) {
             flags.emplace_back(std::move(flag));
@@ -116,7 +126,8 @@ PARSING_STATUS processHeaderPairBeta(const std::string& project1,
                        const std::string& file2,
                        const std::string& reportFormat,
                        const std::vector<std::string>& IncludePaths,
-                       const std::vector<std::string>& macroFlags) {
+                       const std::vector<std::string>& macroFlags,
+                       const LANG_OPTIONS lang) {
 
     if (!DebugConfig::getInstance().initialize()) {
         armor::user_error() << "Failed to open diagnostics log <" << LOG_FILE_PATH << ">, using stderr\n";
@@ -128,8 +139,8 @@ PARSING_STATUS processHeaderPairBeta(const std::string& project1,
     std::vector<std::string> inclusionPaths1 = resolveInternalIncludePaths(IncludePaths, project1);
     std::vector<std::string> inclusionPaths2 = resolveInternalIncludePaths(IncludePaths, project2);
 
-    std::vector<std::string> Flags1 = getClangFlags(inclusionPaths1, macroFlags);
-    std::vector<std::string> Flags2 = getClangFlags(inclusionPaths2, macroFlags);
+    std::vector<std::string> Flags1 = getClangFlags(inclusionPaths1, macroFlags, lang);
+    std::vector<std::string> Flags2 = getClangFlags(inclusionPaths2, macroFlags, lang);
 
     Flags1.insert(Flags1.end(), inclusion_paths1.begin(), inclusion_paths1.end());
     Flags2.insert(Flags2.end(), inclusion_paths2.begin(), inclusion_paths2.end());

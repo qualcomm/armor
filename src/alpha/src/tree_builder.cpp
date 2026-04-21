@@ -156,6 +156,48 @@ void alpha::TreeBuilder::normalizeValueDeclNode(const clang::ValueDecl *Decl, un
     PopName();
 }
 
+bool alpha::TreeBuilder::BuildRecordNode(clang::RecordDecl* Decl) {
+    
+    // Building RecordDecl for C specifaically
+    if (llvm::isa<clang::CXXRecordDecl>(Decl)) return true;
+    
+    llvm::SmallString<128> nameBuf;
+    llvm::raw_svector_ostream OS(nameBuf);
+    Decl->printName(OS);
+
+    if (!IsFromMainFileAndNotLocal(Decl) || !Decl->isThisDeclarationADefinition() || nameBuf.empty()) {
+        return false;
+    }
+
+    if (Decl->getTypedefNameForAnonDecl()) {
+        return false;
+    } else {
+        if (Decl->hasNameForLinkage()) {
+            PushName(nameBuf);
+        }
+    }
+
+    const std::string qualifiedName = GetCurrentQualifiedName();
+    auto recordNode = std::make_shared<APINode>();
+
+    recordNode->qualifiedName = qualifiedName;
+
+    armor::debug() << "VisitRecordDecl (C): " << qualifiedName << "\n";
+
+    if (Decl->isStruct()) {
+        recordNode->kind = NodeKind::Struct;
+        recordNode->hash = generateHash(qualifiedName, NodeKind::Struct);
+    } else if (Decl->isUnion()) {
+        recordNode->kind = NodeKind::Union;
+        recordNode->hash = generateHash(qualifiedName, NodeKind::Union);
+    }
+
+    AddNode(recordNode);
+    PushNode(recordNode);
+
+    return true;
+}
+
 bool alpha::TreeBuilder::BuildCXXRecordNode(clang::CXXRecordDecl* Decl) {
 
     llvm::SmallString<128> nameBuf;

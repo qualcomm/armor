@@ -49,6 +49,7 @@ public:
     void normalizeValueDeclNode(const clang::ValueDecl *Decl, unsigned int pos = -1);
 
     // Node building methods
+    bool BuildRecordNode(clang::RecordDecl* Decl);
     bool BuildCXXRecordNode(clang::CXXRecordDecl* Decl);
     bool BuildEnumNode(clang::EnumDecl* Decl);
     bool BuildFunctionNode(clang::FunctionDecl* Decl);

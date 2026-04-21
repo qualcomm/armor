@@ -92,7 +92,7 @@ const std::string serialize(const ParsedDiffStatus& diff_status){
 }
 const std::string serialize(const UnParsedDiffStatus& diff_status){
     switch (diff_status) {
-        case UnParsedDiffStatus::UN_CHANGES: return "UNCHANGED";
+        case UnParsedDiffStatus::UN_CHANGED: return "UNCHANGED";
         case UnParsedDiffStatus::CHANGED:    return "CHANGED";
         default:                             return "FATAL_ERRORS";
     }

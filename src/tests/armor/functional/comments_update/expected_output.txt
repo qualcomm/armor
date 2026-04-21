@@ -408,6 +408,7 @@ inline const char* get_platform() {
 15219203312359965853
 #include <string>
 ----------------------------------------
+(IN-ACTIVE)
 2645106581235657280
 #ifdef _WIN32  // Check if compiling on Windows
     #define MYLIB_PLATFORM "Windows"  // Set platform string for Windows
@@ -417,11 +418,13 @@ inline const char* get_platform() {
 13241275756687149476
     #define MYLIB_PLATFORM "Linux"
 ----------------------------------------
+(IN-ACTIVE)
 12227028146242223846
 #else  // All other platforms
     #define MYLIB_PLATFORM "Unknown"  // Default platform string
 #endif  // End platform detection
 ----------------------------------------
+(IN-ACTIVE)
 2957985788965770067
 #ifdef NDEBUG  // If in release mode (NDEBUG defined)
     #define MYLIB_LOG(msg)  // Empty macro - no logging in release
@@ -906,6 +909,7 @@ inline const char* get_platform() {
 15219203312359965853
 #include <string>
 ----------------------------------------
+(IN-ACTIVE)
 2645106581235657280
 #ifdef _WIN32  // Check if compiling on Windows
     #define MYLIB_PLATFORM "Windows"  // Set platform string for Windows
@@ -915,11 +919,13 @@ inline const char* get_platform() {
 13241275756687149476
     #define MYLIB_PLATFORM "Linux"
 ----------------------------------------
+(IN-ACTIVE)
 12227028146242223846
 #else  // All other platforms
     #define MYLIB_PLATFORM "Unknown"  // Default platform string
 #endif  // End platform detection
 ----------------------------------------
+(IN-ACTIVE)
 2957985788965770067
 #ifdef NDEBUG  // If in release mode (NDEBUG defined)
     #define MYLIB_LOG(msg)  // Empty macro - no logging in release

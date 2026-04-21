@@ -12,4 +12,5 @@ PARSING_STATUS processHeaderPairBeta(const std::string& projectRoot1,
                        const std::string& file2,
                        const std::string& reportFormat,
                        const std::vector<std::string>& IncludePaths,
-                       const std::vector<std::string>& macroFlags);
+                       const std::vector<std::string>& macroFlags,
+                       const LANG_OPTIONS lang);

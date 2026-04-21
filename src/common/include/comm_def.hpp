@@ -57,8 +57,18 @@ enum PARSING_STATUS {
 
 enum PARSER{
     ALPHA_PARSER = 0,
-    BETA_PARSER = 1
+    BETA_PARSER = 1,
+    NO_PARSER = 2
 };
+
+enum LANG_OPTIONS{
+    C = 0,
+    CPP = 1
+};
+
+// Language option string constants
+const std::string LANG_C = "c";
+const std::string LANG_CPP = "cpp";
 
 const std::string LOG_FILE_PATH = "debug_output/logs/diagnostics.log";
 
