@@ -22,7 +22,7 @@
 /**
  * @class TreeBuilder
  * @brief Builds an API node tree from Clang AST declarations.
- * 
+ *
  * This class encapsulates all the logic for creating and organizing APINode objects
  * based on Clang AST declarations. It works with an ASTNormalizedContext to store
  * the resulting nodes.
@@ -38,26 +38,28 @@ private:
 public:
     /**
      * @brief Constructs a TreeBuilder with the given context.
-     * 
+     *
      * @param context The ASTNormalizedContext to store the resulting nodes.
      */
     explicit TreeBuilder(beta::ASTNormalizedContext* context);
-    
+
     // Node management
     void AddNode(const std::shared_ptr<beta::APINode>& node);
     void PushNode(const std::shared_ptr<beta::APINode>& node);
     void PopNode();
-    
+
     // Name management
     void PushName(llvm::StringRef name);
     void PopName();
     const std::string GetCurrentQualifiedName();
-    
+    bool isQualifiedNameOverriden(llvm::StringRef usr);
+    void popOverridenQualifiedName(llvm::StringRef usr);
+
     // Utility methods
     bool IsDeclFromMainFileAndNotLocal(const clang::Decl* Decl);
     bool IsStmtFromMainFile(const clang::Stmt* Stmt);
-    bool isInNameSpaceOrClass(const clang::Decl* Decl);
-    bool isWrittenInClassOrNamespace(const clang::Decl* TD);
+    bool isInTemplatedClass(const clang::Decl* Decl);
+    bool isWrittenInTemplatedClass(const clang::Decl* TD);
     void processUnhandledDecl(const clang::Decl* Decl);
     void processUnhandledStmt(const clang::Stmt* Stmt, const std::shared_ptr<beta::APINode>& node);
     uint64_t generateSemanticHashFromDecl(const clang::Decl* Decl);
@@ -74,9 +76,13 @@ public:
     bool BuildVarDecl(clang::VarDecl *Decl);
     bool BuildFieldDecl(clang::FieldDecl *Decl);
     void BuildReturnTypeNode(clang::QualType type);
-    
+    void BuildBaseClassDecl(clang::CXXBaseSpecifier Decl);
+    void BuildFriendDecl(clang::FriendDecl *Decl);
+    void BuildFriendCxxRecordDecl(const clang::CXXRecordDecl *Decl, const clang::FriendDecl *FriendDecl);
+    void BuildFriendFunctionDecl(const clang::FunctionDecl *Decl, const clang::FriendDecl *FriendDecl);
+
     // Unsupported declaration handlers (hash-only)
-    void BuildNamespaceDecl(clang::NamespaceDecl* Decl);
+    // void BuildNamespaceDecl(clang::NamespaceDecl* Decl);
     void BuildFunctionTemplateDecl(clang::FunctionTemplateDecl* Decl);
     void BuildClassTemplateDecl(clang::ClassTemplateDecl* Decl);
     void BuildClassTemplateSpecializationDecl(clang::ClassTemplateSpecializationDecl* Decl);

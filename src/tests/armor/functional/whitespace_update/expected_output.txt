@@ -43,30 +43,22 @@
 6901770178673578204
 // MYLIB_H
 ----------------------------------------
-NamespaceDecl
-17299654807074593664
-namespace Utils {
-enum LogLevel { DEBUG, INFO, ERROR };
-struct Config {
-  enum LogLevel level;
-  int maxRetries;
-};
-void log(enum LogLevel level, const char *message);
-}
+Var init
+PI
+Get the actual end location (after the last token) startOffset == endOffset 
+1771605423457679277
+3.14159
 ----------------------------------------
-NamespaceDecl
-3710398640382267289
-namespace Math {
-namespace Constants {
-const double PI = 3.14159;
-}
-enum Operation { ADD, SUBTRACT };
+FunctionTemplateDecl
+10862276512256824885
 template <typename T> T add(T a, T b) { return a + b; }
-}
 ----------------------------------------
-NamespaceDecl
-10604276120155732903
-namespace DataStructures {
+FunctionNode
+15106930599695373391
+T add(T a, T b) { return a + b; }
+----------------------------------------
+ClassTemplateDecl
+15761122898322575402
 template <typename T> class Container {
   T *data;
   int size;
@@ -75,8 +67,22 @@ public:
   Container(int cap);
   void add(T element);
   T get(int index) const;
-};
+}
+----------------------------------------
+CXXRecordNode
+14204391628211049742
+class Container {
+  T *data;
+  int size;
 
+public:
+  Container(int cap);
+  void add(T element);
+  T get(int index) const;
+}
+----------------------------------------
+ClassTemplateDecl
+1287973375984045309
 template <typename T1, typename T2> class Pair {
   T1 first;
   T2 second;
@@ -84,18 +90,17 @@ template <typename T1, typename T2> class Pair {
 public:
   Pair(T1 f, T2 s) : first(f), second(s) {}
   T1 getFirst() const { return first; }
-};
 }
 ----------------------------------------
 CXXRecordNode
-15986560873945165328
-class Logger {
-  enum Utils::LogLevel currentLevel;
+9482935576742543321
+class Pair {
+  T1 first;
+  T2 second;
 
 public:
-  Logger();
-  void setLevel(enum Utils::LogLevel level);
-  void log(const char *message);
+  Pair(T1 f, T2 s) : first(f), second(s) {}
+  T1 getFirst() const { return first; }
 }
 ----------------------------------------
 14149454363135089577
@@ -152,40 +157,45 @@ public:
 6901770178673578204
 // MYLIB_H
 ----------------------------------------
-NamespaceDecl
-17299654807074593664
-namespace Utils {
-    enum LogLevel { DEBUG, INFO, ERROR };
-    struct Config {
-        enum LogLevel level; int maxRetries;
-    };
-    void log(enum LogLevel level, const char* message);
-}
+Var init
+PI
+Get the actual end location (after the last token) startOffset == endOffset 
+1771605423457679277
+3.14159
 ----------------------------------------
-NamespaceDecl
-3710398640382267289
-namespace Math {
-    namespace Constants {
-        const double PI = 3.14159;
-    }
-    enum Operation { ADD, SUBTRACT };
-    template<typename T>
+FunctionTemplateDecl
+10862276512256824885
+template<typename T>
     T add(T a, T b) { return a + b; }
-}
 ----------------------------------------
-NamespaceDecl
-10604276120155732903
-namespace DataStructures {
-    template<typename T>
+FunctionNode
+15106930599695373391
+T add(T a, T b) { return a + b; }
+----------------------------------------
+ClassTemplateDecl
+15761122898322575402
+template<typename T>
     class Container {
         T* data; int size;
     public:
         Container(int cap);
         void add(T element);
         T get(int index) const;
-    };
-    
-    template<typename T1, typename T2>
+    }
+----------------------------------------
+CXXRecordNode
+14204391628211049742
+class Container {
+        T* data; int size;
+    public:
+        Container(int cap);
+        void add(T element);
+        T get(int index) const;
+    }
+----------------------------------------
+ClassTemplateDecl
+1287973375984045309
+template<typename T1, typename T2>
     class Pair {
         T1 first; T2 second;
     public:
@@ -193,18 +203,18 @@ namespace DataStructures {
         T1 getFirst() const { 
             return first; 
         }
-    };
-}
+    }
 ----------------------------------------
 CXXRecordNode
-15986560873945165328
-class Logger {
-    enum Utils::LogLevel currentLevel;
-public:
-    Logger();
-    void setLevel(enum Utils::LogLevel level);
-    void log(const char* message);
-}
+9482935576742543321
+class Pair {
+        T1 first; T2 second;
+    public:
+        Pair(T1 f, T2 s) : first(f), second(s) {}
+        T1 getFirst() const { 
+            return first; 
+        }
+    }
 ----------------------------------------
 14149454363135089577
 #ifndef MYLIB_H
@@ -235,12 +245,15 @@ comments1
 12396466098278829438  : 1
 ----------------------------------------
 unhandledDecls1
-17299654807074593664  : 1
 15469631829536770432  : 1
-15986560873945165328  : 1
-3710398640382267289  : 1
-10604276120155732903  : 1
+1771605423457679277  : 1
+14204391628211049742  : 1
+1287973375984045309  : 1
+15761122898322575402  : 1
+9482935576742543321  : 1
 13425203279752416008  : 1
+10862276512256824885  : 1
+15106930599695373391  : 1
 14149454363135089577  : 1
 ----------------------------------------
 inactiveUnhandledDecls1
@@ -266,12 +279,15 @@ comments2
 12396466098278829438  : 1
 ----------------------------------------
 unhandledDecls2
-17299654807074593664  : 1
 15469631829536770432  : 1
-15986560873945165328  : 1
-3710398640382267289  : 1
-10604276120155732903  : 1
+1771605423457679277  : 1
+14204391628211049742  : 1
+1287973375984045309  : 1
+15761122898322575402  : 1
+9482935576742543321  : 1
 13425203279752416008  : 1
+10862276512256824885  : 1
+15106930599695373391  : 1
 14149454363135089577  : 1
 ----------------------------------------
 inactiveUnhandledDecls2

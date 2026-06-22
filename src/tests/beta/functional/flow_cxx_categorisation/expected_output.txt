@@ -211,14 +211,6 @@
 11923386408649115825
 // LIB_H
 ----------------------------------------
-CXXRecordNode
-4805977141514113120
-class Vehicle
-----------------------------------------
-CXXRecordNode
-4805977141514113120
-class Engine
-----------------------------------------
 ClassTemplateDecl
 12605193343577708732
 template<typename T> class Node
@@ -311,52 +303,36 @@ Data
 15521860531219160998
 {}
 ----------------------------------------
-CXXRecordNode
-5466970749997733898
-class Vehicle {
-public:
-    struct Specifications;
-    enum class FuelType;
-    union EngineData;
-    template<typename T> class Component;
-    
-    Vehicle();
-    ~Vehicle();
-    void start();
-    double getSpeed() const;
-    template<typename T> void addComponent(const T& component);
-    static int getVehicleCount();
-    
-private:
-    std::string make;
-    double speed;
-    static int vehicleCount;
-}
+ClassTemplateDecl
+12605193343577708732
+template<typename T> class Component
 ----------------------------------------
 CXXRecordNode
-1662023011201209125
-struct Vehicle::Specifications {
-    int year;
-    double engineSize;
-    typedef int a;
-    Specifications() : year(2020), engineSize(2.0) {}
-    union alpha{
-        int a;
-        alpha() {}
-    };
-}
+4805977141514113120
+class Component
 ----------------------------------------
-EnumNode
-1755532596729387813
-enum class Vehicle::FuelType { GASOLINE, DIESEL, ELECTRIC }
+FunctionTemplateDecl
+13228479159677397156
+template<typename T> void addComponent(const T& component)
 ----------------------------------------
-CXXRecordNode
-5157359261923726028
-union Vehicle::EngineData {
-    int cylinderCount;
-    double batteryCapacity;
-    EngineData() : cylinderCount(4) {}
-}
+FunctionNode
+2049905000207921496
+void addComponent(const T& component)
+----------------------------------------
+Function Body
+Specifications
+15521860531219160998
+{}
+----------------------------------------
+Function Body
+alpha
+15521860531219160998
+{}
+----------------------------------------
+Function Body
+EngineData
+15521860531219160998
+{}
 ----------------------------------------
 ClassTemplateDecl
 6076429139862439662
@@ -594,45 +570,43 @@ struct TemplateStructure {
     TemplateStructure() : state(State::INITIALIZED) {}
 }
 ----------------------------------------
-NamespaceDecl
-8865927588136652071
-namespace Network {
-    class Connection;
-    enum class Protocol;
-    
-    class Connection {
-    public:
-        struct ConnectionInfo;
-        enum class ConnectionState;
-        template<typename T> class Buffer;
-        
-        Connection();
-        void open();
-        
-    private:
-        ConnectionState state;
-    };
-    
-    struct Connection::ConnectionInfo {
-        std::string host;
-        int port;
-        ConnectionInfo() : port(0) {}
-    };
-    
-    enum class Connection::ConnectionState { CLOSED, OPEN };
-    
-    template<typename T>
+ClassTemplateDecl
+12605193343577708732
+template<typename T> class Buffer
+----------------------------------------
+CXXRecordNode
+4805977141514113120
+class Buffer
+----------------------------------------
+Function Body
+ConnectionInfo
+15521860531219160998
+{}
+----------------------------------------
+ClassTemplateDecl
+16908841986078226128
+template<typename T>
     class Connection::Buffer {
     private:
         std::vector<T> data;
     public:
         Buffer() {}
         void push(const T& item) { data.push_back(item); }
-    };
-    
-    enum class Protocol { TCP, UDP };
-    
-    template<typename T>
+    }
+----------------------------------------
+CXXRecordNode
+10205856946156902803
+class Connection::Buffer {
+    private:
+        std::vector<T> data;
+    public:
+        Buffer() {}
+        void push(const T& item) { data.push_back(item); }
+    }
+----------------------------------------
+ClassTemplateDecl
+782102311090469647
+template<typename T>
     class Message {
     public:
         struct Header {
@@ -648,43 +622,43 @@ namespace Network {
         Header header;
         T payload;
         Priority priority;
-    };
-}
+    }
 ----------------------------------------
 CXXRecordNode
-17352412395974784874
-class Engine {
-public:
-    struct EngineSpecs;
-    enum class EngineType;
-    
-    Engine();
-    void start();
-    int getRPM() const;
-    template<typename T> T calculateEfficiency(T fuel, T distance);
-    static EngineType getDefaultType();
-    
-private:
-    EngineType type;
-    int rpm;
-    void updateTemperature();
-}
+10359897562494071136
+class Message {
+    public:
+        struct Header {
+            int messageId;
+            Header() : messageId(0) {}
+        };
+        
+        enum class Priority { LOW, HIGH };
+        
+        Message() : priority(Priority::LOW) {}
+        
+    private:
+        Header header;
+        T payload;
+        Priority priority;
+    }
 ----------------------------------------
-CXXRecordNode
-1695758379726889624
-struct Engine::EngineSpecs {
-    double displacement;
-    EngineSpecs() : displacement(2.0) {}
-}
+FunctionTemplateDecl
+12038727398599026366
+template<typename T> T calculateEfficiency(T fuel, T distance)
 ----------------------------------------
-EnumNode
-9880407378149936682
-enum class Engine::EngineType { INLINE, V_TYPE, ELECTRIC }
+FunctionNode
+12837546955475111755
+T calculateEfficiency(T fuel, T distance)
 ----------------------------------------
-NamespaceDecl
-703687659449626669
-namespace DataStructures {
-    template<typename T>
+Function Body
+EngineSpecs
+15521860531219160998
+{}
+----------------------------------------
+ClassTemplateDecl
+12185188927219005421
+template<typename T>
     class Stack {
     private:
         std::vector<T> elements;
@@ -692,38 +666,59 @@ namespace DataStructures {
         void push(const T& element) { elements.push_back(element); }
         void pop() { if (!elements.empty()) elements.pop_back(); }
         bool empty() const { return elements.empty(); }
-    };
-    
-    template<typename T>
+    }
+----------------------------------------
+CXXRecordNode
+11837821849007928486
+class Stack {
+    private:
+        std::vector<T> elements;
+    public:
+        void push(const T& element) { elements.push_back(element); }
+        void pop() { if (!elements.empty()) elements.pop_back(); }
+        bool empty() const { return elements.empty(); }
+    }
+----------------------------------------
+ClassTemplateDecl
+4604482558021497924
+template<typename T>
     struct TreeNode {
         T data;
         std::shared_ptr<TreeNode<T>> left, right;
         TreeNode(const T& value) : data(value), left(nullptr), right(nullptr) {}
-    };
-}
+    }
 ----------------------------------------
 CXXRecordNode
-4752384078882383325
-class Shape {
-protected:
-    Color color;
-public:
-    Shape(Color c = Color::RED) : color(c) {}
-    virtual ~Shape() = default;
-    virtual double area() const = 0;
-    virtual void draw() const = 0;
-}
+3627255462602978969
+struct TreeNode {
+        T data;
+        std::shared_ptr<TreeNode<T>> left, right;
+        TreeNode(const T& value) : data(value), left(nullptr), right(nullptr) {}
+    }
 ----------------------------------------
-CXXRecordNode
-4806512532351133258
-class Circle : public Shape {
-private:
-    double radius;
-public:
-    Circle(double r) : Shape(), radius(r) {}
-    double area() const override { return 3.14159 * radius * radius; }
-    void draw() const override { std::cout << "Circle\n"; }
-}
+Function Body
+Shape
+15521860531219160998
+{}
+----------------------------------------
+ParamVar init
+14062436690974655544
+Color::RED
+----------------------------------------
+Function Body
+Circle
+15521860531219160998
+{}
+----------------------------------------
+Function Body
+area
+10215012325031142101
+{ return 3.14159 * radius * radius; }
+----------------------------------------
+Function Body
+draw
+14070598970977617868
+{ std::cout << "Circle\n"; }
 ----------------------------------------
 ClassTemplateDecl
 18211485728558967942
@@ -1085,54 +1080,41 @@ public:
     static void destroy(T* p) { delete p; }
 }
 ----------------------------------------
-CXXRecordNode
-15965517114888693573
-class ComplexClass {
-public:
-    struct NestedStruct;
-    class NestedClass;
-    enum class NestedEnum;
-    union NestedUnion;
-    template<typename T> struct NestedTemplateStruct;
-    
-    ComplexClass();
-    void simpleMethod();
-    template<typename T> T templateMethod(T value);
-    
-private:
-    int data;
-}
+ClassTemplateDecl
+11233548948135257636
+template<typename T> struct NestedTemplateStruct
 ----------------------------------------
 CXXRecordNode
-4539632444638239426
-struct ComplexClass::NestedStruct {
-    int x;
-    enum class StructEnum { OPTION_A, OPTION_B };
-    NestedStruct() : x(0) {}
-}
+17997269513964955839
+struct NestedTemplateStruct
 ----------------------------------------
-CXXRecordNode
-8287810358961318475
-class ComplexClass::NestedClass {
-public:
-    struct ClassStruct {
-        double value;
-        ClassStruct() : value(0.0) {}
-    };
-    NestedClass() {}
-}
+FunctionTemplateDecl
+701355740593983949
+template<typename T> T templateMethod(T value)
 ----------------------------------------
-EnumNode
-9917665275889418658
-enum class ComplexClass::NestedEnum { VALUE_1, VALUE_2 }
+FunctionNode
+1273077761817298086
+T templateMethod(T value)
 ----------------------------------------
-CXXRecordNode
-10990975008895002872
-union ComplexClass::NestedUnion {
-    int intValue;
-    float floatValue;
-    NestedUnion() : intValue(0) {}
-}
+Function Body
+NestedStruct
+15521860531219160998
+{}
+----------------------------------------
+Function Body
+ClassStruct
+15521860531219160998
+{}
+----------------------------------------
+Function Body
+NestedClass
+15521860531219160998
+{}
+----------------------------------------
+Function Body
+NestedUnion
+15521860531219160998
+{}
 ----------------------------------------
 ClassTemplateDecl
 6069585415873267415
@@ -1222,25 +1204,34 @@ struct MegaComplexTemplate<T, U>::Container {
     Container() : data(V()), primaryKey(T()) {}
 }
 ----------------------------------------
-NamespaceDecl
-16050176525197454502
-namespace ComplexNamespace {
-    class OuterClass {
-    public:
-        struct InnerStruct {
-            enum class InnerEnum { A, B };
-            template<typename T>
+ClassTemplateDecl
+9094067417009874729
+template<typename T>
             struct InnerTemplateStruct {
                 T value;
                 InnerTemplateStruct() : value(T()) {}
-            };
-            int data;
-            InnerStruct() : data(0) {}
-        };
-        OuterClass() {}
-    };
-    
-    template<typename T>
+            }
+----------------------------------------
+CXXRecordNode
+13512845578056655610
+struct InnerTemplateStruct {
+                T value;
+                InnerTemplateStruct() : value(T()) {}
+            }
+----------------------------------------
+Function Body
+InnerStruct
+15521860531219160998
+{}
+----------------------------------------
+Function Body
+OuterClass
+15521860531219160998
+{}
+----------------------------------------
+ClassTemplateDecl
+16971334898196558832
+template<typename T>
     class OuterTemplate {
     public:
         struct TemplateStruct {
@@ -1260,24 +1251,50 @@ namespace ComplexNamespace {
             InnerTemplate() {}
         };
         OuterTemplate() {}
-    };
-}
+    }
 ----------------------------------------
-FunctionNode
-4069888822055533655
-inline Vehicle::Vehicle() : make(""), speed(0.0) { vehicleCount++; }
+CXXRecordNode
+14900103638475579712
+class OuterTemplate {
+    public:
+        struct TemplateStruct {
+            T value;
+            enum class StructEnum { ALPHA, BETA };
+            TemplateStruct() : value(T()) {}
+        };
+        
+        template<typename U>
+        class InnerTemplate {
+        public:
+            struct InnerStruct {
+                T outerValue;
+                U innerValue;
+                InnerStruct() : outerValue(T()), innerValue(U()) {}
+            };
+            InnerTemplate() {}
+        };
+        OuterTemplate() {}
+    }
 ----------------------------------------
-FunctionNode
-12353893341079534243
-inline Vehicle::~Vehicle() { vehicleCount--; }
+Function Body
+Vehicle
+16696768669402896132
+{ vehicleCount++; }
 ----------------------------------------
-FunctionNode
-12865033956472889335
-inline void Vehicle::start() { std::cout << "Vehicle started\n"; }
+Function Body
+~Vehicle
+11514252906580226743
+{ vehicleCount--; }
 ----------------------------------------
-FunctionNode
-257862531607862694
-inline double Vehicle::getSpeed() const { return speed; }
+Function Body
+start
+17669793312595129168
+{ std::cout << "Vehicle started\n"; }
+----------------------------------------
+Function Body
+getSpeed
+6665413053298678910
+{ return speed; }
 ----------------------------------------
 FunctionTemplateDecl
 272775667123279592
@@ -1288,9 +1305,10 @@ FunctionNode
 14928612496118343298
 inline void Vehicle::addComponent(const T& component) { std::cout << "Component added\n"; }
 ----------------------------------------
-FunctionNode
-13163716222189521484
-inline int Vehicle::getVehicleCount() { return vehicleCount; }
+Function Body
+getVehicleCount
+1625829654175225168
+{ return vehicleCount; }
 ----------------------------------------
 FunctionNode
 15356938917116170020
@@ -1316,25 +1334,30 @@ inline void Graph<T, U>::addNode(const T& nodeData) {
     nodes.push_back(node);
 }
 ----------------------------------------
-FunctionNode
-18104428666849068603
-inline Network::Connection::Connection() : state(ConnectionState::CLOSED) {}
+Function Body
+Connection
+15521860531219160998
+{}
 ----------------------------------------
-FunctionNode
-6622812327605205269
-inline void Network::Connection::open() { state = ConnectionState::OPEN; int a;}
+Function Body
+open
+16727660701638660436
+{ state = ConnectionState::OPEN; int a;}
 ----------------------------------------
-FunctionNode
-4082332567176652847
-inline Engine::Engine() : type(EngineType::INLINE), rpm(0) {}
+Function Body
+Engine
+15521860531219160998
+{}
 ----------------------------------------
-FunctionNode
-6482618853855562265
-inline void Engine::start() { rpm = 1000; }
+Function Body
+start
+7288429287112041955
+{ rpm = 1000; }
 ----------------------------------------
-FunctionNode
-2611161187596204306
-inline int Engine::getRPM() const { return rpm; }
+Function Body
+getRPM
+7789233375667068736
+{ return rpm; }
 ----------------------------------------
 FunctionTemplateDecl
 13486867595198852276
@@ -1351,21 +1374,25 @@ inline T Engine::calculateEfficiency(T fuel, T distance) {
     return fuel == 0 ? 0 : distance / fuel;
 }
 ----------------------------------------
-FunctionNode
-11891806975974435126
-inline Engine::EngineType Engine::getDefaultType() { return EngineType::INLINE; }
+Function Body
+getDefaultType
+8404138225529535260
+{ return EngineType::INLINE; }
 ----------------------------------------
-FunctionNode
-17481230730985743662
-inline void Engine::updateTemperature() {}
+Function Body
+updateTemperature
+15521860531219160998
+{}
 ----------------------------------------
-FunctionNode
-15013679181225524739
-inline ComplexClass::ComplexClass() : data(0) {}
+Function Body
+ComplexClass
+15521860531219160998
+{}
 ----------------------------------------
-FunctionNode
-12491686924645549798
-inline void ComplexClass::simpleMethod() {}
+Function Body
+simpleMethod
+15521860531219160998
+{}
 ----------------------------------------
 FunctionTemplateDecl
 10798050510877401430
@@ -1397,9 +1424,11 @@ inline void MegaComplexTemplate<T, U>::process(const V& value) {
     std::cout << "Processing\n";
 }
 ----------------------------------------
-TemplatedVarDecl
-6174201882005428472
-inline int Vehicle::vehicleCount = 0
+Var init
+vehicleCount
+Get the actual end location (after the last token) startOffset == endOffset 
+12700262454154676125
+0
 ----------------------------------------
 10758921512273883759
 #ifndef LIB_H
@@ -1482,49 +1511,55 @@ comments1
 14091779003214382246  : 1
 ----------------------------------------
 unhandledDecls1
-16050176525197454502  : 1
+15521860531219160998  : 25
 17476549899374261684  : 1
 13486867595198852276  : 1
 14660461255391643157  : 1
-4539632444638239426  : 1
+7455076031092283842  : 1
 9366796490153803119  : 1
-6622812327605205269  : 1
+8404138225529535260  : 1
 8686555848297085980  : 1
 12444467055950197366  : 1
-7455076031092283842  : 1
+16908841986078226128  : 1
 7025845076918227581  : 1
-9880407378149936682  : 1
-6069585415873267415  : 1
 6929564297850302762  : 1
-13586652358942762296  : 1
+6069585415873267415  : 1
 10758921512273883759  : 1
+14062436690974655544  : 1
+13586652358942762296  : 1
+3627255462602978969  : 1
 10961581202184407110  : 1
 5272397575218490784  : 3
 3329847226039882490  : 1
 4788215030051697914  : 1
 5095071917334977447  : 1
 15345377261469055482  : 3
+16727660701638660436  : 1
 17098721222790508538  : 1
 13425203279752416008  : 1
-12605193343577708732  : 1
+782102311090469647  : 1
+12605193343577708732  : 3
 16977924592700156950  : 1
 7982595519259482736  : 2
+13512845578056655610  : 1
+11233548948135257636  : 1
 15356938917116170020  : 1
+6665413053298678910  : 1
 3753469723839970776  : 1
 6257566355350002226  : 3
 8873020043357700153  : 1
-12491686924645549798  : 1
-17247214114941656467  : 1
 3695652685606436153  : 1
+10205856946156902803  : 1
+14900103638475579712  : 1
+12185188927219005421  : 1
 7367341230545235866  : 2
+7789233375667068736  : 1
+17247214114941656467  : 1
 5716938552083040936  : 1
 3150790209381805238  : 1
-17352412395974784874  : 1
 13171510886334721642  : 1
 18142638217897886058  : 1
 15551422226509704042  : 1
-1662023011201209125  : 1
-1755532596729387813  : 1
 15574083583721340543  : 1
 18211485728558967942  : 1
 18356285648718400999  : 3
@@ -1532,51 +1567,47 @@ unhandledDecls1
 6076429139862439662  : 1
 9271550913951296238  : 1
 14720301859668963656  : 1
-9917665275889418658  : 1
-2402079718734375420  : 1
 11728103345505421467  : 1
+2402079718734375420  : 1
 10798050510877401430  : 1
-15013679181225524739  : 1
 2348909900560597168  : 1
 14997840992668204381  : 1
-5466970749997733898  : 1
+11514252906580226743  : 1
 8018770162286268177  : 1
-13486445521944954046  : 1
+12038727398599026366  : 1
 5973506787581904235  : 1
-11799315910370350277  : 1
+13486445521944954046  : 1
 5235906769332250738  : 2
-5157359261923726028  : 1
-703687659449626669  : 1
+14070598970977617868  : 1
+11799315910370350277  : 1
 3175101581008599867  : 1
 272775667123279592  : 1
 8871978419713980565  : 3
-18104428666849068603  : 1
-12353893341079534243  : 1
+17669793312595129168  : 1
+1625829654175225168  : 1
 9648133922898168407  : 1
-4069888822055533655  : 1
+16696768669402896132  : 1
 13895475835413463639  : 1
 1768527129068695992  : 1
-2611161187596204306  : 1
-17997269513964955839  : 1
+17997269513964955839  : 2
 479752941996137151  : 3
 15941537904032972569  : 1
-6482618853855562265  : 1
 12353599670573947936  : 2
 7285016815956655565  : 1
+701355740593983949  : 1
 2728159439989684256  : 1
-8865927588136652071  : 1
 8298700543985316052  : 1
 13177679859764303904  : 1
 1904438604654863150  : 1
 13886175796610652808  : 1
-17481230730985743662  : 1
 16191982836713489129  : 1
 6598808393822532163  : 1
-12700262454154676125  : 2
-4806512532351133258  : 1
-12865033956472889335  : 1
+16971334898196558832  : 1
+12700262454154676125  : 3
 15219203312359965853  : 1
+13228479159677397156  : 1
 566626905490260478  : 1
+2049905000207921496  : 1
 9660469657642679128  : 1
 3769084908470295571  : 1
 8029491364763910765  : 1
@@ -1584,33 +1615,30 @@ unhandledDecls1
 13384612219158656455  : 1
 12502259549525083937  : 1
 16865670814356677914  : 2
+10215012325031142101  : 1
 14928612496118343298  : 1
-4082332567176652847  : 1
 9406353967973437750  : 1
 8456408310805972707  : 1
+7288429287112041955  : 1
 12054803482138171702  : 1
 1138046369232768663  : 1
+4604482558021497924  : 1
 9196402361376957764  : 1
-7404611056483586116  : 1
 5422750735869062046  : 1
-8287810358961318475  : 1
-10990975008895002872  : 1
-6174201882005428472  : 1
-11891806975974435126  : 1
+12837546955475111755  : 1
+7404611056483586116  : 1
 4805977141514113120  : 5
+10359897562494071136  : 1
 12460078231673326868  : 1
 12016066257162099732  : 1
 4446672806696940571  : 1
 11160874710484048764  : 1
+9094067417009874729  : 1
 3957989481460979414  : 1
 9391020816398465494  : 1
-4752384078882383325  : 1
 7907080855383626731  : 1
-1695758379726889624  : 1
-15965517114888693573  : 1
-13163716222189521484  : 1
-257862531607862694  : 1
-15521860531219160998  : 7
+1273077761817298086  : 1
+11837821849007928486  : 1
 ----------------------------------------
 inactiveUnhandledDecls1
 (empty)

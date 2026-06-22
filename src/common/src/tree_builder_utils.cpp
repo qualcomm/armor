@@ -4,8 +4,10 @@
 #include "custom_usr_generator.hpp"
 #include "logger.hpp"
 #include "nsr_generator.hpp"
+#include "qualified_name_generator.hpp"
 
 #include "clang/AST/Decl.h"
+#include "clang/AST/DeclBase.h"
 #include "clang/Lex/Lexer.h"
 #include <llvm-14/llvm/ADT/SmallString.h>
 #include <llvm-14/llvm/Support/raw_ostream.h>
@@ -14,9 +16,9 @@
 
 clang::QualType unwrapType(clang::QualType type) {
     if (type.isNull()) return type;
-    
+
     while (true) {
-        
+
         clang::QualType unqualifiedType = type.getUnqualifiedType();
         if (unqualifiedType != type) {
             type = unqualifiedType;
@@ -25,16 +27,16 @@ clang::QualType unwrapType(clang::QualType type) {
 
         if (const auto* parenType = type->getAs<clang::ParenType>()) {
             type = parenType->getInnerType();
-        } 
+        }
         else if (type->isPointerType() || type->isReferenceType()) {
             type = type->getPointeeType();
-        } 
+        }
         else if (const auto* arrayType = type->getAsArrayTypeUnsafe()) {
             type = arrayType->getElementType();
-        } 
+        }
         else if (const auto* attributedType = type->getAs<clang::AttributedType>()) {
             type = attributedType->getModifiedType();
-        } 
+        }
         else break;
     }
     return type;
@@ -58,7 +60,7 @@ std::pair<std::string, clang::TypeLoc> unwrapTypeLoc(clang::TypeLoc TL) {
             TL = TL.getUnqualifiedLoc();
             unwrappedThisIteration = true;
         }
-        
+
         switch (TL.getTypePtr()->getTypeClass()) {
             case clang::Type::Pointer:
                 modifiers.emplace_back("*");
@@ -86,7 +88,7 @@ std::pair<std::string, clang::TypeLoc> unwrapTypeLoc(clang::TypeLoc TL) {
                 TL = TL.getAs<clang::ArrayTypeLoc>().getElementLoc();
                 unwrappedThisIteration = true;
                 break;
-            
+
             default:
                 break;
         }
@@ -120,14 +122,28 @@ APINodeStorageClass getStorageClass(const clang::StorageClass storage) {
     }
 };
 
-const std::string generateUSRForDecl(const clang::NamedDecl * Decl){
-    
-    if (llvm::isa<clang::ParmVarDecl>(Decl)|| llvm::isa<clang::TemplateTypeParmDecl>(Decl) 
+AccessSpec getAccessSpecifier(const clang::AccessSpecifier spec) {
+    switch (spec) {
+        case clang::AS_public:
+            return AccessSpec::Public;
+        case clang::AS_protected:
+            return AccessSpec::Protected;
+        case clang::AS_private:
+            return AccessSpec::Private;
+        case clang::AS_none:
+        default:
+            return AccessSpec::None;
+    }
+}
+
+const std::string generateUSRForDecl(const clang::Decl * Decl){
+
+    if (llvm::isa<clang::ParmVarDecl>(Decl)|| llvm::isa<clang::TemplateTypeParmDecl>(Decl)
     || llvm::isa<clang::NonTypeTemplateParmDecl>(Decl) || llvm::isa<clang::TemplateTemplateParmDecl>(Decl)) {
         armor::info() << "No USR for Param type declerations \n";
         return std::string{};
     }
-    
+
     llvm::SmallString<256> Buf;
     armor::generateUSRForDecl(Decl, Buf);
 
@@ -135,9 +151,9 @@ const std::string generateUSRForDecl(const clang::NamedDecl * Decl){
 
 }
 
-const std::string generateNSRForDecl(const clang::NamedDecl * Decl){
+const std::string generateNSRForDecl(const clang::Decl * Decl){
 
-    if (llvm::isa<clang::ParmVarDecl>(Decl)|| llvm::isa<clang::TemplateTypeParmDecl>(Decl) 
+    if (llvm::isa<clang::ParmVarDecl>(Decl)|| llvm::isa<clang::TemplateTypeParmDecl>(Decl)
     || llvm::isa<clang::NonTypeTemplateParmDecl>(Decl) || llvm::isa<clang::TemplateTemplateParmDecl>(Decl)) {
         armor::info() << "No NSR for Param type declerations \n";
         return std::string{};
@@ -152,24 +168,24 @@ const std::string generateNSRForDecl(const clang::NamedDecl * Decl){
 
 
 const std::pair<const std::string,const std::string> getTypesWithAndWithoutTypeResolution(const clang::QualType T, const clang::ASTContext &Ctx) {
-    
+
     if (T.isNull()) {
         return {std::string{}, std::string{}};
     }
-    
+
     clang::PrintingPolicy Policy1(Ctx.getLangOpts());
     Policy1.SuppressTagKeyword = false;
     Policy1.SuppressScope = false;
     Policy1.FullyQualifiedName = true;
     Policy1.AnonymousTagLocations = false;
     Policy1.PrintCanonicalTypes = false;
-    
+
     std::string TypeStr;
     llvm::raw_string_ostream OS(TypeStr);
-    
+
     try {
         T.print(OS, Policy1);
-    } 
+    }
     catch (...) {
         TypeStr = std::string{};
     }
@@ -187,22 +203,35 @@ const std::pair<const std::string,const std::string> getTypesWithAndWithoutTypeR
 
     try {
         T.getCanonicalType().print(COS, Policy2);
-    } 
+    }
     catch (...) {
         CanonicalTypeStr = std::string{};
     }
-    
+
     return {TypeStr,CanonicalTypeStr};
-    
+
+}
+
+const std::string generateQualifiedNameForDecl(const clang::NamedDecl *Decl){
+    if (llvm::isa<clang::ParmVarDecl>(Decl)|| llvm::isa<clang::TemplateTypeParmDecl>(Decl)
+    || llvm::isa<clang::NonTypeTemplateParmDecl>(Decl) || llvm::isa<clang::TemplateTemplateParmDecl>(Decl)) {
+        armor::info() << "No QualifiedName for Param type declerations \n";
+        return std::string{};
+    }
+
+    llvm::SmallString<256> Buf;
+    armor::generateQualifiedNameForDecl(Decl, Buf);
+
+    return Buf.c_str();
 }
 
 const std::string generateHash( llvm::StringRef qualifiedName , const NodeKind& node ){
-    
+
     llvm::SmallString<128> hashBuf;
     llvm::raw_svector_ostream OS(hashBuf);
 
     OS << serialize(node) << ":" <<  qualifiedName;
-    
+
     return hashBuf.c_str();
 
 }

@@ -1,0 +1,398 @@
+[
+    {
+        "children": [
+            {
+                "children": [
+                    {
+                        "dataType": "class outer::level1::(anonymous namespace)::alternative::(anonymous namespace)::impl::(anonymous namespace)::ResourceHandler &&",
+                        "nodeType": "Parameter",
+                        "qualifiedName": "outer::level1::(anonymous namespace)::alternative::(anonymous namespace)::impl::(anonymous namespace)::ResourceHandler::ResourceHandler::1"
+                    },
+                    {
+                        "dataType": "void",
+                        "nodeType": "ReturnType",
+                        "qualifiedName": "outer::level1::(anonymous namespace)::alternative::(anonymous namespace)::impl::(anonymous namespace)::ResourceHandler::ResourceHandler::(ReturnType)"
+                    }
+                ],
+                "nodeType": "Function",
+                "qualifiedName": "outer::level1::(anonymous namespace)::alternative::(anonymous namespace)::impl::(anonymous namespace)::ResourceHandler::ResourceHandler",
+                "tag": "removed"
+            },
+            {
+                "children": [
+                    {
+                        "dataType": "class outer::level1::(anonymous namespace)::alternative::(anonymous namespace)::impl::(anonymous namespace)::ResourceHandler &&",
+                        "nodeType": "Parameter",
+                        "qualifiedName": "outer::level1::(anonymous namespace)::alternative::(anonymous namespace)::impl::(anonymous namespace)::ResourceHandler::ResourceHandler::1"
+                    },
+                    {
+                        "dataType": "int",
+                        "nodeType": "Parameter",
+                        "qualifiedName": "outer::level1::(anonymous namespace)::alternative::(anonymous namespace)::impl::(anonymous namespace)::ResourceHandler::ResourceHandler::2"
+                    },
+                    {
+                        "dataType": "void",
+                        "nodeType": "ReturnType",
+                        "qualifiedName": "outer::level1::(anonymous namespace)::alternative::(anonymous namespace)::impl::(anonymous namespace)::ResourceHandler::ResourceHandler::(ReturnType)"
+                    }
+                ],
+                "nodeType": "Function",
+                "qualifiedName": "outer::level1::(anonymous namespace)::alternative::(anonymous namespace)::impl::(anonymous namespace)::ResourceHandler::ResourceHandler",
+                "tag": "added"
+            },
+            {
+                "children": [
+                    {
+                        "dataType": "class outer::level1::(anonymous namespace)::alternative::(anonymous namespace)::impl::(anonymous namespace)::ResourceHandler &&",
+                        "nodeType": "Parameter",
+                        "qualifiedName": "outer::level1::(anonymous namespace)::alternative::(anonymous namespace)::impl::(anonymous namespace)::ResourceHandler::operator+::1"
+                    },
+                    {
+                        "dataType": "class outer::level1::(anonymous namespace)::alternative::(anonymous namespace)::impl::(anonymous namespace)::ResourceHandler &",
+                        "nodeType": "ReturnType",
+                        "qualifiedName": "outer::level1::(anonymous namespace)::alternative::(anonymous namespace)::impl::(anonymous namespace)::ResourceHandler::operator+::(ReturnType)"
+                    }
+                ],
+                "nodeType": "Function",
+                "qualifiedName": "outer::level1::(anonymous namespace)::alternative::(anonymous namespace)::impl::(anonymous namespace)::ResourceHandler::operator+",
+                "tag": "added"
+            }
+        ],
+        "nodeType": "Class",
+        "qualifiedName": "outer::level1::(anonymous namespace)::alternative::(anonymous namespace)::impl::(anonymous namespace)::ResourceHandler",
+        "tag": "modified"
+    },
+    {
+        "children": [
+            {
+                "children": [
+                    {
+                        "children": [
+                            {
+                                "dataType": "int",
+                                "nodeType": "ReturnType",
+                                "qualifiedName": "outer::utilities::(anonymous namespace)::math::Vector::getDimensions::(ReturnType)",
+                                "tag": "removed"
+                            },
+                            {
+                                "dataType": "void",
+                                "nodeType": "ReturnType",
+                                "qualifiedName": "outer::utilities::(anonymous namespace)::math::Vector::getDimensions::(ReturnType)",
+                                "tag": "added"
+                            }
+                        ],
+                        "nodeType": "ReturnType",
+                        "qualifiedName": "outer::utilities::(anonymous namespace)::math::Vector::getDimensions::(ReturnType)",
+                        "tag": "modified"
+                    }
+                ],
+                "nodeType": "Function",
+                "qualifiedName": "outer::utilities::(anonymous namespace)::math::Vector::getDimensions",
+                "tag": "modified"
+            }
+        ],
+        "nodeType": "Class",
+        "qualifiedName": "outer::utilities::(anonymous namespace)::math::Vector",
+        "tag": "modified"
+    },
+    {
+        "children": [
+            {
+                "children": [
+                    {
+                        "dataType": "unsigned int",
+                        "nodeType": "Enumerator",
+                        "qualifiedName": "outer::utilities::(anonymous namespace)::math::(anonymous namespace)::Algorithm::Type::FAST"
+                    },
+                    {
+                        "dataType": "unsigned int",
+                        "nodeType": "Enumerator",
+                        "qualifiedName": "outer::utilities::(anonymous namespace)::math::(anonymous namespace)::Algorithm::Type::ACCURATE"
+                    },
+                    {
+                        "dataType": "unsigned int",
+                        "nodeType": "Enumerator",
+                        "qualifiedName": "outer::utilities::(anonymous namespace)::math::(anonymous namespace)::Algorithm::Type::BALANCED"
+                    }
+                ],
+                "nodeType": "Enum",
+                "qualifiedName": "outer::utilities::(anonymous namespace)::math::(anonymous namespace)::Algorithm::Type"
+            },
+            {
+                "dataType": "enum outer::utilities::(anonymous namespace)::math::(anonymous namespace)::Algorithm::Type",
+                "nodeType": "Field",
+                "qualifiedName": "outer::utilities::(anonymous namespace)::math::(anonymous namespace)::Algorithm::type"
+            },
+            {
+                "dataType": "bool",
+                "nodeType": "Field",
+                "qualifiedName": "outer::utilities::(anonymous namespace)::math::(anonymous namespace)::Algorithm::parallel"
+            }
+        ],
+        "nodeType": "Struct",
+        "qualifiedName": "outer::utilities::(anonymous namespace)::math::(anonymous namespace)::Algorithm",
+        "tag": "removed"
+    },
+    {
+        "dataType": "struct outer::utilities::(anonymous namespace)::math::(anonymous namespace)::Algorithm",
+        "nodeType": "Variable",
+        "qualifiedName": "outer::utilities::(anonymous namespace)::math::(anonymous namespace)::defaultAlgorithm",
+        "tag": "removed"
+    },
+    {
+        "children": [
+            {
+                "children": [
+                    {
+                        "dataType": "void",
+                        "nodeType": "ReturnType",
+                        "qualifiedName": "outer::utilities::(anonymous namespace)::math::(anonymous namespace)::advanced::BaseProcessor::~BaseProcessor::(ReturnType)"
+                    }
+                ],
+                "nodeType": "Function",
+                "qualifiedName": "outer::utilities::(anonymous namespace)::math::(anonymous namespace)::advanced::BaseProcessor::~BaseProcessor"
+            },
+            {
+                "children": [
+                    {
+                        "dataType": "void",
+                        "nodeType": "ReturnType",
+                        "qualifiedName": "outer::utilities::(anonymous namespace)::math::(anonymous namespace)::advanced::BaseProcessor::execute::(ReturnType)"
+                    }
+                ],
+                "nodeType": "Function",
+                "qualifiedName": "outer::utilities::(anonymous namespace)::math::(anonymous namespace)::advanced::BaseProcessor::execute"
+            }
+        ],
+        "nodeType": "Class",
+        "qualifiedName": "outer::utilities::(anonymous namespace)::math::(anonymous namespace)::advanced::BaseProcessor",
+        "tag": "removed"
+    },
+    {
+        "children": [
+            {
+                "dataType": "class outer::utilities::(anonymous namespace)::math::(anonymous namespace)::advanced::BaseProcessor",
+                "nodeType": "BaseClass",
+                "qualifiedName": "outer::utilities::(anonymous namespace)::math::(anonymous namespace)::advanced::BaseProcessor"
+            },
+            {
+                "children": [
+                    {
+                        "dataType": "void",
+                        "nodeType": "ReturnType",
+                        "qualifiedName": "outer::utilities::(anonymous namespace)::math::(anonymous namespace)::advanced::FastProcessor::execute::(ReturnType)"
+                    }
+                ],
+                "nodeType": "Function",
+                "qualifiedName": "outer::utilities::(anonymous namespace)::math::(anonymous namespace)::advanced::FastProcessor::execute"
+            }
+        ],
+        "nodeType": "Class",
+        "qualifiedName": "outer::utilities::(anonymous namespace)::math::(anonymous namespace)::advanced::FastProcessor",
+        "tag": "removed"
+    },
+    {
+        "children": [
+            {
+                "dataType": "class outer::utilities::(anonymous namespace)::math::(anonymous namespace)::advanced::BaseProcessor",
+                "nodeType": "BaseClass",
+                "qualifiedName": "outer::utilities::(anonymous namespace)::math::(anonymous namespace)::advanced::BaseProcessor"
+            },
+            {
+                "children": [
+                    {
+                        "dataType": "void",
+                        "nodeType": "ReturnType",
+                        "qualifiedName": "outer::utilities::(anonymous namespace)::math::(anonymous namespace)::advanced::AccurateProcessor::execute::(ReturnType)"
+                    }
+                ],
+                "nodeType": "Function",
+                "qualifiedName": "outer::utilities::(anonymous namespace)::math::(anonymous namespace)::advanced::AccurateProcessor::execute"
+            }
+        ],
+        "nodeType": "Class",
+        "qualifiedName": "outer::utilities::(anonymous namespace)::math::(anonymous namespace)::advanced::AccurateProcessor",
+        "tag": "removed"
+    },
+    {
+        "children": [
+            {
+                "dataType": "class outer::utilities::(anonymous namespace)::math::(anonymous namespace)::advanced::FastProcessor",
+                "nodeType": "BaseClass",
+                "qualifiedName": "outer::utilities::(anonymous namespace)::math::(anonymous namespace)::advanced::FastProcessor"
+            },
+            {
+                "dataType": "class outer::utilities::(anonymous namespace)::math::(anonymous namespace)::advanced::AccurateProcessor",
+                "nodeType": "BaseClass",
+                "qualifiedName": "outer::utilities::(anonymous namespace)::math::(anonymous namespace)::advanced::AccurateProcessor"
+            },
+            {
+                "children": [
+                    {
+                        "dataType": "void",
+                        "nodeType": "ReturnType",
+                        "qualifiedName": "outer::utilities::(anonymous namespace)::math::(anonymous namespace)::advanced::HybridProcessor::execute::(ReturnType)"
+                    }
+                ],
+                "nodeType": "Function",
+                "qualifiedName": "outer::utilities::(anonymous namespace)::math::(anonymous namespace)::advanced::HybridProcessor::execute"
+            }
+        ],
+        "nodeType": "Class",
+        "qualifiedName": "outer::utilities::(anonymous namespace)::math::(anonymous namespace)::advanced::HybridProcessor",
+        "tag": "removed"
+    },
+    {
+        "children": [
+            {
+                "children": [
+                    {
+                        "dataType": "unsigned int",
+                        "nodeType": "Enumerator",
+                        "qualifiedName": "outer::utilities::(anonymous namespace)::math::new_namespace::Algorithm::Type::FAST"
+                    },
+                    {
+                        "dataType": "unsigned int",
+                        "nodeType": "Enumerator",
+                        "qualifiedName": "outer::utilities::(anonymous namespace)::math::new_namespace::Algorithm::Type::ACCURATE"
+                    },
+                    {
+                        "dataType": "unsigned int",
+                        "nodeType": "Enumerator",
+                        "qualifiedName": "outer::utilities::(anonymous namespace)::math::new_namespace::Algorithm::Type::BALANCED"
+                    }
+                ],
+                "nodeType": "Enum",
+                "qualifiedName": "outer::utilities::(anonymous namespace)::math::new_namespace::Algorithm::Type"
+            },
+            {
+                "dataType": "enum outer::utilities::(anonymous namespace)::math::new_namespace::Algorithm::Type",
+                "nodeType": "Field",
+                "qualifiedName": "outer::utilities::(anonymous namespace)::math::new_namespace::Algorithm::type"
+            },
+            {
+                "dataType": "bool",
+                "nodeType": "Field",
+                "qualifiedName": "outer::utilities::(anonymous namespace)::math::new_namespace::Algorithm::parallel"
+            }
+        ],
+        "nodeType": "Struct",
+        "qualifiedName": "outer::utilities::(anonymous namespace)::math::new_namespace::Algorithm",
+        "tag": "added"
+    },
+    {
+        "children": [
+            {
+                "dataType": "int",
+                "nodeType": "Field",
+                "qualifiedName": "outer::utilities::(anonymous namespace)::math::new_namespace::NewClass::a"
+            }
+        ],
+        "nodeType": "Class",
+        "qualifiedName": "outer::utilities::(anonymous namespace)::math::new_namespace::NewClass",
+        "tag": "added"
+    },
+    {
+        "children": [
+            {
+                "children": [
+                    {
+                        "dataType": "void",
+                        "nodeType": "ReturnType",
+                        "qualifiedName": "outer::utilities::(anonymous namespace)::math::new_namespace::advanced::BaseProcessor::~BaseProcessor::(ReturnType)"
+                    }
+                ],
+                "nodeType": "Function",
+                "qualifiedName": "outer::utilities::(anonymous namespace)::math::new_namespace::advanced::BaseProcessor::~BaseProcessor"
+            },
+            {
+                "children": [
+                    {
+                        "dataType": "void",
+                        "nodeType": "ReturnType",
+                        "qualifiedName": "outer::utilities::(anonymous namespace)::math::new_namespace::advanced::BaseProcessor::execute::(ReturnType)"
+                    }
+                ],
+                "nodeType": "Function",
+                "qualifiedName": "outer::utilities::(anonymous namespace)::math::new_namespace::advanced::BaseProcessor::execute"
+            }
+        ],
+        "nodeType": "Class",
+        "qualifiedName": "outer::utilities::(anonymous namespace)::math::new_namespace::advanced::BaseProcessor",
+        "tag": "added"
+    },
+    {
+        "children": [
+            {
+                "dataType": "class outer::utilities::(anonymous namespace)::math::new_namespace::advanced::BaseProcessor",
+                "nodeType": "BaseClass",
+                "qualifiedName": "outer::utilities::(anonymous namespace)::math::new_namespace::advanced::BaseProcessor"
+            },
+            {
+                "children": [
+                    {
+                        "dataType": "void",
+                        "nodeType": "ReturnType",
+                        "qualifiedName": "outer::utilities::(anonymous namespace)::math::new_namespace::advanced::FastProcessor::execute::(ReturnType)"
+                    }
+                ],
+                "nodeType": "Function",
+                "qualifiedName": "outer::utilities::(anonymous namespace)::math::new_namespace::advanced::FastProcessor::execute"
+            }
+        ],
+        "nodeType": "Class",
+        "qualifiedName": "outer::utilities::(anonymous namespace)::math::new_namespace::advanced::FastProcessor",
+        "tag": "added"
+    },
+    {
+        "children": [
+            {
+                "dataType": "class outer::utilities::(anonymous namespace)::math::new_namespace::advanced::BaseProcessor",
+                "nodeType": "BaseClass",
+                "qualifiedName": "outer::utilities::(anonymous namespace)::math::new_namespace::advanced::BaseProcessor"
+            },
+            {
+                "children": [
+                    {
+                        "dataType": "void",
+                        "nodeType": "ReturnType",
+                        "qualifiedName": "outer::utilities::(anonymous namespace)::math::new_namespace::advanced::AccurateProcessor::execute::(ReturnType)"
+                    }
+                ],
+                "nodeType": "Function",
+                "qualifiedName": "outer::utilities::(anonymous namespace)::math::new_namespace::advanced::AccurateProcessor::execute"
+            }
+        ],
+        "nodeType": "Class",
+        "qualifiedName": "outer::utilities::(anonymous namespace)::math::new_namespace::advanced::AccurateProcessor",
+        "tag": "added"
+    },
+    {
+        "children": [
+            {
+                "dataType": "class outer::utilities::(anonymous namespace)::math::new_namespace::advanced::FastProcessor",
+                "nodeType": "BaseClass",
+                "qualifiedName": "outer::utilities::(anonymous namespace)::math::new_namespace::advanced::FastProcessor"
+            },
+            {
+                "dataType": "class outer::utilities::(anonymous namespace)::math::new_namespace::advanced::AccurateProcessor",
+                "nodeType": "BaseClass",
+                "qualifiedName": "outer::utilities::(anonymous namespace)::math::new_namespace::advanced::AccurateProcessor"
+            },
+            {
+                "children": [
+                    {
+                        "dataType": "void",
+                        "nodeType": "ReturnType",
+                        "qualifiedName": "outer::utilities::(anonymous namespace)::math::new_namespace::advanced::HybridProcessor::execute::(ReturnType)"
+                    }
+                ],
+                "nodeType": "Function",
+                "qualifiedName": "outer::utilities::(anonymous namespace)::math::new_namespace::advanced::HybridProcessor::execute"
+            }
+        ],
+        "nodeType": "Class",
+        "qualifiedName": "outer::utilities::(anonymous namespace)::math::new_namespace::advanced::HybridProcessor",
+        "tag": "added"
+    }
+]

@@ -1,6 +1,6 @@
 // Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-3-Clause
-
+// report_utils.cpp
 #include <cassert>
 #include <iostream>
 #include <sstream>
@@ -20,6 +20,14 @@
 #include "html_template.hpp"
 #include <nlohmann/json.hpp>
 #include "diff_utils.hpp"
+
+#ifndef TOOL_VERSION
+#define TOOL_VERSION ""
+#endif
+
+#ifndef TOOL_DOCS_URL
+#define TOOL_DOCS_URL ""
+#endif
 
 using json = nlohmann::json;
 
@@ -94,6 +102,136 @@ static std::string qn_leaf(const std::string& qn) {
 }
 
 // -----------------------------------------------------------------------------
+// Compatibility classification helpers
+// -----------------------------------------------------------------------------
+
+// Access specifier ordering: public(2) > protected(1) > private/unknown(0)
+static int access_rank(const std::string& acc) {
+    if (acc == "public")    return 2;
+    if (acc == "protected") return 1;
+    return 0;
+}
+
+// Direction-based access specifier compatibility.
+// Moving toward more permissive is compatible; restricting is incompatible.
+static std::string access_spec_compat(const std::string& from, const std::string& to) {
+    return (access_rank(to) > access_rank(from))
+        ? "backward_compatible"
+        : "backward_incompatible";
+}
+
+// Per-attribute backward compatibility rule for function/method attribute changes.
+static std::string classify_attr_compat(const std::string& attr,
+                                        const std::string& oldV,
+                                        const std::string& newV)
+{
+    // explicit: removal relaxes implicit-conversion restrictions (compatible);
+    //           addition prevents previously-valid implicit conversions (incompatible).
+    if (attr == "explicit" || attr == "isExplicit") {
+        if (oldV == "true"  && newV == "false") return "backward_compatible";
+        if (oldV == "false" && newV == "true")  return "backward_incompatible";
+    }
+    // override / isOverride: compiler hint only, no API impact.
+    if (attr == "override" || attr == "isOverride") return "backward_compatible";
+
+    // final / isFinal on a method: adding prevents further overrides (incompatible);
+    //                               removing allows them again (compatible).
+    if (attr == "final" || attr == "isFinal") {
+        if (newV == "true"  && oldV != "true")  return "backward_incompatible";
+        if (newV == "false" && oldV != "false") return "backward_compatible";
+    }
+    // pure / isPure: making a method pure forces derived classes to implement it.
+    if (attr == "pure" || attr == "isPure") {
+        if (newV == "true"  && oldV != "true")  return "backward_incompatible";
+        if (newV == "false" && oldV != "false") return "backward_compatible";
+    }
+    // deleted / isDeleted / isDelete: deleting removes a previously available operation.
+    if (attr == "deleted" || attr == "isDeleted" || attr == "isDelete") {
+        if (newV == "true")  return "backward_incompatible";
+        if (newV == "false") return "backward_compatible";
+    }
+    // defaulted / isDefaulted / isDefault: compiler-generated bodies are an impl detail.
+    if (attr == "defaulted" || attr == "isDefaulted" || attr == "isDefault") return "backward_compatible";
+
+    // cv-qualifiers on a method change its signature; all directions are incompatible.
+    if (attr == "isConst"   || attr == "constQualifier"   ||
+        attr == "isVolatile"|| attr == "volatileQualifier") {
+        return "backward_incompatible";
+    }
+    return "backward_incompatible"; // conservative default
+}
+
+// Extract a boolean JSON field as "true"/"false" or "" if absent.
+static std::string bool_attr_str(const nlohmann::json& j, const std::string& attr) {
+    if (j.contains(attr) && j[attr].is_boolean())
+        return j[attr].get<bool>() ? "true" : "false";
+    return "";
+}
+
+// True when a qualified name lives inside an anonymous namespace.
+// Such symbols have internal linkage and are not part of the public API.
+static bool is_in_anonymous_namespace(const std::string& qn) {
+    return qn.find("(anonymous") != std::string::npos
+        || qn.find("anon_ns")    != std::string::npos;
+}
+
+// True when a Parameter diff node carries a default argument.
+static bool param_has_default(const nlohmann::json& param) {
+    if (param.value("hasDefaultValue", false)) return true;
+    if (param.value("hasDefault",       false)) return true;
+    if (param.contains("defaultValue")) {
+        const auto& dv = param["defaultValue"];
+        if (!dv.is_null() && !(dv.is_string() && dv.get<std::string>().empty()))
+            return true;
+    }
+    return false;
+}
+
+// True when a diff node carries boolean attribute flags directly (isConst, isFinal, etc.)
+// rather than structural children like Parameters/ReturnType.
+static bool is_attr_change_node(const nlohmann::json& node) {
+    static const char* const ATTR_KEYS[] = {
+        "isConst", "isVolatile", "isFinal", "isVirtual", "isPure",
+        "isExplicit", "isDelete", "isDefault", "isOverride",
+        "explicit", "final", "override", "pure", "deleted", "defaulted",
+        nullptr
+    };
+    for (int i = 0; ATTR_KEYS[i]; ++i) {
+        if (node.contains(ATTR_KEYS[i]) && node[ATTR_KEYS[i]].is_boolean())
+            return true;
+    }
+    return false;
+}
+
+// Return a human-readable label for the attribute that changed in a node.
+static std::string attr_node_description(const nlohmann::json& node, const std::string& kind) {
+    struct Entry { const char* key; const char* label; };
+    static const Entry ATTRS[] = {
+        {"isConst",    "const qualifier"},
+        {"isVolatile", "volatile qualifier"},
+        {"isFinal",    "final specifier"},
+        {"isVirtual",  "virtual specifier"},
+        {"isPure",     "pure specifier"},
+        {"isExplicit", "explicit specifier"},
+        {"isDelete",   "delete specifier"},
+        {"isDefault",  "default specifier"},
+        {"isOverride", "override specifier"},
+        {"explicit",   "explicit specifier"},
+        {"final",      "final specifier"},
+        {"override",   "override specifier"},
+        {"pure",       "pure specifier"},
+        {"deleted",    "delete specifier"},
+        {"defaulted",  "default specifier"},
+        {nullptr, nullptr}
+    };
+    for (int i = 0; ATTRS[i].key; ++i) {
+        if (node.value(ATTRS[i].key, false))
+            return std::string(ATTRS[i].label) + " " + kind;
+    }
+    return kind;
+}
+
+// -----------------------------------------------------------------------------
 // Overload & emission helpers (NO LAMBDAS)
 // -----------------------------------------------------------------------------
 
@@ -158,7 +296,7 @@ static void emit_overload_event_line(std::vector<std::string>& lines,
     const std::vector<std::string> params = collect_param_types_ordered(fnNode);
     const std::string ret = collect_return_type(fnNode);
     const std::string sig = format_signature(params, ret);
-    add_desc_line(lines, "Function '" + funcQN + " " + kind + ": " + sig);
+    add_desc_line(lines, "Function '" + funcQN + "' " + kind + ": " + sig);
 }
 
 // Key used to avoid emitting the same function event twice in one recursive pass.
@@ -289,6 +427,36 @@ static std::string inline_to_str(const json& j) {
     return "";
 }
 
+// Like add_attr_change but derives compatibility from classify_attr_compat
+// rather than always defaulting to backward_incompatible.
+static void add_attr_change_compat(std::vector<AtomicChange>& out,
+                                   const std::string& headerFile,
+                                   const std::string& funcName,
+                                   const std::string& attr,
+                                   const std::string& oldV,
+                                   const std::string& newV)
+{
+    if (oldV == newV) return;
+    AtomicChange row;
+    row.headerfile    = headerFile;
+    row.apiName       = funcName;
+    row.rawChange     = "attr_changed";
+    row.topLevel      = false;
+    row.compatibility = classify_attr_compat(attr, oldV, newV);
+
+    std::ostringstream oss;
+    if (!oldV.empty() && newV.empty()) {
+        oss << "Function attribute " << attr << " removed '" << oldV << "'";
+    } else if (oldV.empty() && !newV.empty()) {
+        oss << "Function attribute " << attr << " added '" << newV << "'";
+    } else {
+        oss << "Function attribute " << attr << " changed from '" << oldV
+            << "' to '" << newV << "'";
+    }
+    row.detail = oss.str();
+    out.push_back(std::move(row));
+}
+
 static std::vector<AtomicChange> diff_function_attributes(const std::string& headerFile,
                                                           const std::string& funcName,
                                                           const json& removedFn,
@@ -296,19 +464,70 @@ static std::vector<AtomicChange> diff_function_attributes(const std::string& hea
 {
     std::vector<AtomicChange> out;
     const json& oldJ = removedFn.is_null() ? json::object() : removedFn;
-    const json& newJ = addedFn.is_null() ? json::object() : addedFn;
+    const json& newJ = addedFn.is_null()   ? json::object() : addedFn;
 
+    // Attributes that are always incompatible when changed
     add_attr_change(out, headerFile, funcName, "storageQualifier",
                     oldJ.value("storageQualifier",""),
                     newJ.value("storageQualifier",""));
-
     add_attr_change(out, headerFile, funcName, "functionCallingConvention",
                     oldJ.value("functionCallingConvention",""),
                     newJ.value("functionCallingConvention",""));
-
     add_attr_change(out, headerFile, funcName, "inline",
-                    inline_to_str(oldJ),
-                    inline_to_str(newJ));
+                    inline_to_str(oldJ), inline_to_str(newJ));
+
+    // Attributes whose compatibility depends on the direction of the change
+    add_attr_change_compat(out, headerFile, funcName, "explicit",
+                           bool_attr_str(oldJ, "explicit"),
+                           bool_attr_str(newJ, "explicit"));
+    add_attr_change_compat(out, headerFile, funcName, "isExplicit",
+                           bool_attr_str(oldJ, "isExplicit"),
+                           bool_attr_str(newJ, "isExplicit"));
+    add_attr_change_compat(out, headerFile, funcName, "override",
+                           bool_attr_str(oldJ, "override"),
+                           bool_attr_str(newJ, "override"));
+    add_attr_change_compat(out, headerFile, funcName, "isOverride",
+                           bool_attr_str(oldJ, "isOverride"),
+                           bool_attr_str(newJ, "isOverride"));
+    add_attr_change_compat(out, headerFile, funcName, "final",
+                           bool_attr_str(oldJ, "final"),
+                           bool_attr_str(newJ, "final"));
+    add_attr_change_compat(out, headerFile, funcName, "isFinal",
+                           bool_attr_str(oldJ, "isFinal"),
+                           bool_attr_str(newJ, "isFinal"));
+    add_attr_change_compat(out, headerFile, funcName, "pure",
+                           bool_attr_str(oldJ, "pure"),
+                           bool_attr_str(newJ, "pure"));
+    add_attr_change_compat(out, headerFile, funcName, "isPure",
+                           bool_attr_str(oldJ, "isPure"),
+                           bool_attr_str(newJ, "isPure"));
+    add_attr_change_compat(out, headerFile, funcName, "deleted",
+                           bool_attr_str(oldJ, "deleted"),
+                           bool_attr_str(newJ, "deleted"));
+    add_attr_change_compat(out, headerFile, funcName, "isDeleted",
+                           bool_attr_str(oldJ, "isDeleted"),
+                           bool_attr_str(newJ, "isDeleted"));
+    add_attr_change_compat(out, headerFile, funcName, "isDelete",
+                           bool_attr_str(oldJ, "isDelete"),
+                           bool_attr_str(newJ, "isDelete"));
+    add_attr_change_compat(out, headerFile, funcName, "defaulted",
+                           bool_attr_str(oldJ, "defaulted"),
+                           bool_attr_str(newJ, "defaulted"));
+    add_attr_change_compat(out, headerFile, funcName, "isDefaulted",
+                           bool_attr_str(oldJ, "isDefaulted"),
+                           bool_attr_str(newJ, "isDefaulted"));
+    add_attr_change_compat(out, headerFile, funcName, "isDefault",
+                           bool_attr_str(oldJ, "isDefault"),
+                           bool_attr_str(newJ, "isDefault"));
+    add_attr_change_compat(out, headerFile, funcName, "isConst",
+                           bool_attr_str(oldJ, "isConst"),
+                           bool_attr_str(newJ, "isConst"));
+    add_attr_change_compat(out, headerFile, funcName, "isVolatile",
+                           bool_attr_str(oldJ, "isVolatile"),
+                           bool_attr_str(newJ, "isVolatile"));
+    add_attr_change_compat(out, headerFile, funcName, "isVirtual",
+                           bool_attr_str(oldJ, "isVirtual"),
+                           bool_attr_str(newJ, "isVirtual"));
 
     return out;
 }
@@ -519,6 +738,11 @@ static std::vector<AtomicChange> diff_direct_param_nodes(const std::string& head
         row.topLevel   = false;
         std::ostringstream oss;
         oss << "Parameter '" << an << "' added (type '" << kv.first << "')";
+        if (param_has_default(a)) {
+            oss << " with default value";
+            // Adding a parameter with a default does not break existing call sites.
+            row.compatibility = "backward_compatible";
+        }
         row.detail    = oss.str();
         row.rawChange = "added";
         out.push_back(std::move(row));
@@ -621,6 +845,124 @@ static bool is_enum_only_value_additions(const json& node) {
 }
 
 // -----------------------------------------------------------------------------
+// Non-function node compatibility classifier
+// -----------------------------------------------------------------------------
+
+// Analyse a non-Function diff node and return an explicit compatibility override.
+// Returns "" to defer to the default rule, or "backward_compatible" /
+// "backward_incompatible" to override it.
+//
+// Handles:
+//   - Anonymous namespace members  (always compatible – internal linkage)
+//   - Access specifier changes      (direction-based)
+//   - Class/struct isFinal changes  (added = incompatible, removed = compatible)
+//   - Pure additions with no removal (compatible)
+//   - Any unmatched removal          (incompatible)
+static std::string determine_non_function_compat(const json& node)
+{
+    const std::string tag      = node.value("tag",      "");
+    const std::string nodeType = node.value("nodeType", "");
+    const std::string qn       = node.value("qualifiedName", "");
+
+    // Anonymous namespace content has internal linkage – not public API.
+    if (is_in_anonymous_namespace(qn)) return "backward_compatible";
+
+    if (tag == "removed") return "backward_incompatible";
+    if (tag == "added")   return "backward_compatible";
+    if (tag != "modified") return "";
+
+    const auto& children = node.value("children", json::array());
+
+    using Key = std::pair<std::string, std::string>;
+    std::map<Key, json> removedItems, addedItems;
+    bool hasModifiedChildren = false;
+
+    for (size_t i = 0; i < children.size(); ++i) {
+        const auto& ch      = children[i];
+        const std::string chTag  = ch.value("tag",          "");
+        const std::string chType = ch.value("nodeType",     "");
+        const std::string chQN   = ch.value("qualifiedName","");
+        Key key(chQN, chType);
+        if      (chTag == "removed")  removedItems[key] = ch;
+        else if (chTag == "added")    addedItems[key]   = ch;
+        else if (!chTag.empty())      hasModifiedChildren = true;
+    }
+
+    // Unmatched removals are always incompatible.
+    for (const auto& entry : removedItems) {
+        if (addedItems.find(entry.first) == addedItems.end())
+            return "backward_incompatible";
+    }
+
+    bool sawChange       = false;
+    bool sawIncompatible = false;
+
+    for (const auto& entry : removedItems) {
+        const json& rem = entry.second;
+        auto it = addedItems.find(entry.first);
+        if (it == addedItems.end()) { sawIncompatible = true; continue; }
+        const json& add = it->second;
+        sawChange = true;
+
+        // Access specifier: direction determines compatibility.
+        const std::string accR = rem.value("AccessSpecifier", "");
+        const std::string accA = add.value("AccessSpecifier", "");
+        if (!accR.empty() || !accA.empty()) {
+            if (accR != accA) {
+                if (!accR.empty() && !accA.empty()) {
+                    if (access_rank(accA) < access_rank(accR)) sawIncompatible = true;
+                } else {
+                    sawIncompatible = true;
+                }
+            }
+            // Check data type even when access also changed.
+            const std::string dtR = rem.value("dataType", "");
+            const std::string dtA = add.value("dataType", "");
+            if (!dtR.empty() && !dtA.empty() && dtR != dtA) sawIncompatible = true;
+            continue;
+        }
+
+        // Data type change.
+        const std::string dtR = rem.value("dataType", "");
+        const std::string dtA = add.value("dataType", "");
+        if (!dtR.empty() && !dtA.empty() && dtR != dtA) { sawIncompatible = true; continue; }
+
+        // isFinal on a class/struct: adding it prevents derivation (incompatible).
+        const std::string finR = bool_attr_str(rem, "isFinal");
+        const std::string finA = bool_attr_str(add, "isFinal");
+        if (!finR.empty() && !finA.empty() && finR != finA) {
+            if (finA == "true") sawIncompatible = true;
+            continue;
+        }
+
+        // Generic fallback: if the matched pair differs at all, treat as incompatible.
+        if (rem != add) sawIncompatible = true;
+    }
+
+    // Nested modified children need deeper analysis; defer to default.
+    if (hasModifiedChildren) return "";
+
+    if (sawIncompatible) return "backward_incompatible";
+    if (sawChange)       return "backward_compatible"; // all matched changes were compatible
+
+    // Only pure additions (no removals, no modifications) = new functionality.
+    if (!addedItems.empty() && removedItems.empty()) {
+        // Self-referential attribute additions (e.g. class became final) are incompatible.
+        for (const auto& entry : addedItems) {
+            const json& add = entry.second;
+            if (add.value("qualifiedName","") == qn && is_attr_change_node(add)) {
+                if (bool_attr_str(add, "isFinal") == "true" ||
+                    bool_attr_str(add, "final")   == "true")
+                    return "backward_incompatible";
+            }
+        }
+        return "backward_compatible";
+    }
+
+    return "";
+}
+
+// -----------------------------------------------------------------------------
 // Non-Function recursive describer
 // -----------------------------------------------------------------------------
 
@@ -713,6 +1055,52 @@ static void describe_non_function_recursive(const json& node, std::vector<std::s
         return;
     }
 
+    // Pre-processing: detect attribute-change Function children (those carrying boolean
+    // attribute flags like isConst, isFinal, isExplicit, isDelete, isDefault directly on them,
+    // not through Parameter/ReturnType children).  These represent qualifier/specifier changes
+    // on a method, NOT true function additions or overload churn.
+    std::set<size_t> consumedAttrIndices;
+    {
+        struct AttrEntry { size_t idx; std::string tag; };
+        std::map<std::string, std::vector<AttrEntry>> attrByQN;
+        for (size_t i = 0; i < children.size(); ++i) {
+            const auto& ch = children[i];
+            if (ch.value("nodeType","") != "Function") continue;
+            const std::string chTag = ch.value("tag","");
+            if (chTag != "added" && chTag != "removed") continue;
+            if (!is_attr_change_node(ch)) continue;
+            attrByQN[ch.value("qualifiedName","")].push_back({i, chTag});
+        }
+        for (const auto& kv : attrByQN) {
+            const std::string& funcQN = kv.first;
+            std::vector<AttrEntry> remEntries, addEntries;
+            for (const auto& e : kv.second) {
+                if (e.tag == "removed") remEntries.push_back(e);
+                else                   addEntries.push_back(e);
+            }
+            const size_t n = std::min(remEntries.size(), addEntries.size());
+            for (size_t j = 0; j < n; ++j) {
+                const json& rem = children[remEntries[j].idx];
+                const json& add = children[addEntries[j].idx];
+                add_desc_line(lines, "Function '" + funcQN + "': "
+                    + attr_node_description(rem, "removed")
+                    + ", " + attr_node_description(add, "added"));
+                consumedAttrIndices.insert(remEntries[j].idx);
+                consumedAttrIndices.insert(addEntries[j].idx);
+            }
+            for (size_t j = n; j < remEntries.size(); ++j) {
+                add_desc_line(lines, "Function '" + funcQN + "': "
+                    + attr_node_description(children[remEntries[j].idx], "removed"));
+                consumedAttrIndices.insert(remEntries[j].idx);
+            }
+            for (size_t j = n; j < addEntries.size(); ++j) {
+                add_desc_line(lines, "Function '" + funcQN + "': "
+                    + attr_node_description(children[addEntries[j].idx], "added"));
+                consumedAttrIndices.insert(addEntries[j].idx);
+            }
+        }
+    }
+
     std::set<std::string> emittedFnEvents;
 
     struct FnGroup {
@@ -724,6 +1112,7 @@ static void describe_non_function_recursive(const json& node, std::vector<std::s
 
     // Group by function *leaf* to detect overload churn at this level
     for (size_t i = 0; i < children.size(); ++i) {
+        if (consumedAttrIndices.count(i)) continue;
         const auto& ch = children[i];
         const std::string chType = ch.value("nodeType","");
         if (chType != "Function") continue;
@@ -763,6 +1152,8 @@ static void describe_non_function_recursive(const json& node, std::vector<std::s
         const std::string chTag  = ch.value("tag", "");
         const std::string chType = ch.value("nodeType", "");
         const std::string chQN   = ch.value("qualifiedName", "");
+
+        if (consumedAttrIndices.count(i)) continue;
 
         if (!consumedForOverload.empty()) {
             ChildKey ck = make_child_key(ch);
@@ -852,6 +1243,8 @@ static void describe_non_function_recursive(const json& node, std::vector<std::s
                         const std::string funcQN = qname_stem(paramQN);
                         const std::string paramLeaf= qn_leaf(paramQN);
                         add_desc_line(lines, "Function '" + funcQN + "': Parameter '" + paramLeaf + "' type changed from '" + dtR + "' to '" + dtA + "'");
+                    } else if (subNodeType == "ReturnType") {
+                        add_desc_line(lines, "Function '" + displayQN + "': Return type changed from '" + dtR + "' to '" + dtA + "'");
                     } else {
                         add_desc_line(lines, subNodeType + " '" + displayQN + "' type changed from '" + dtR + "' to '" + dtA + "'");
                     }
@@ -861,7 +1254,19 @@ static void describe_non_function_recursive(const json& node, std::vector<std::s
                         const std::string paramLeaf= qn_leaf(paramQN);
                         add_desc_line(lines, "Function '" + funcQN + "': Parameter '" + paramLeaf + "' modified");
                     } else {
-                        add_desc_line(lines, subNodeType + " modified: '" + displayQN + "'");
+                        const std::string accR = removed.value("AccessSpecifier", "");
+                        const std::string accA = added.value("AccessSpecifier", "");
+                        if (!accR.empty() && !accA.empty() && accR != accA) {
+                            const std::string direction =
+                                (access_rank(accA) > access_rank(accR))
+                                    ? " (more permissive)"
+                                    : " (more restrictive)";
+                            add_desc_line(lines, subNodeType + " '" + displayQN
+                                + "' access specifier changed from '" + accR
+                                + "' to '" + accA + "'" + direction);
+                        } else {
+                            add_desc_line(lines, subNodeType + " modified: '" + displayQN + "'");
+                        }
                     }
                 }
             }
@@ -912,10 +1317,13 @@ static void describe_non_function_recursive(const json& node, std::vector<std::s
                 const std::string paramLeaf= qn_leaf(paramQN);
                 add_desc_line(lines, "Function '" + funcQN + "': Parameter '" + paramLeaf + "' removed" + (dt.empty() ? "" : " (type '" + dt + "')"));
             } else {
-                if (!dt.empty())
-                    add_desc_line(lines, subNodeType + " removed: '" + paramQN + "' with type '" + dt + "'");
-                else
-                    add_desc_line(lines, subNodeType + " removed: '" + paramQN + "'");
+                // Self-referential attribute change (same QN as parent, carries attr flags)
+                if (paramQN == qualifiedName && is_attr_change_node(removed)) {
+                    add_desc_line(lines, subNodeType + " '" + paramQN + "': "
+                        + attr_node_description(removed, "removed"));
+                } else {
+                    describe_non_function_recursive(removed, lines);
+                }
             }
         }
     }
@@ -939,11 +1347,12 @@ static void describe_non_function_recursive(const json& node, std::vector<std::s
                 const std::string funcQN = qname_stem(qn);
                 const std::string paramLeaf= qn_leaf(qn);
                 add_desc_line(lines, "Function '" + funcQN + "': Parameter '" + paramLeaf + "' added" + (dt.empty() ? "" : " (type '" + dt + "')"));
+            } else if (qn == qualifiedName && is_attr_change_node(added)) {
+                // Self-referential attribute change (e.g. class became final)
+                add_desc_line(lines, subNodeType + " '" + qn + "': "
+                    + attr_node_description(added, "added"));
             } else {
-                if (!dt.empty())
-                    add_desc_line(lines, subNodeType + " added: '" + qn + "' with type '" + dt + "'");
-                else
-                    add_desc_line(lines, subNodeType + " added: '" + qn + "'");
+                describe_non_function_recursive(added, lines);
             }
         }
     }
@@ -1062,10 +1471,20 @@ std::vector<json> preprocess_api_changes(const json& api_differences,
             row.rawChange  = tag;
             row.topLevel   = (tag == "added");
 
-            if (tag == "modified" &&
-                (is_enum_only_value_additions(change) ||
-                 is_aggregate_only_field_additions_deep(change))) {
+            // 1. Anonymous namespace content has internal linkage – always compatible.
+            if (is_in_anonymous_namespace(change.value("qualifiedName", ""))) {
                 row.compatibility = "backward_compatible";
+            }
+            // 2. Enum/aggregate additions-only shortcuts.
+            else if (tag == "modified" &&
+                     (is_enum_only_value_additions(change) ||
+                      is_aggregate_only_field_additions_deep(change))) {
+                row.compatibility = "backward_compatible";
+            }
+            // 3. General-purpose classifier (access specifiers, isFinal, etc.).
+            else {
+                const std::string compat = determine_non_function_compat(change);
+                if (!compat.empty()) row.compatibility = compat;
             }
 
             processed.push_back(to_record(row));
@@ -1162,7 +1581,13 @@ void generate_html_report(const std::vector<json>& processed_data,
         const auto& [file1_exists, file2_exists] = files_exists;
 
         if( file1_exists & file2_exists ){
-            html << "<h2 style=\"margin-bottom: 10px;\">ARMOR Report</h2>\n";
+            html << "<h2 style=\"margin-bottom: 10px;\">ARMOR v" << TOOL_VERSION << " Report </h2>\n";
+            html << "<p style='margin:6px 0 12px;font-size:12px;'>"
+                    "<a href='" << TOOL_DOCS_URL << "' target='_blank'"
+                    " style='display:inline-block;padding:3px 10px;border-radius:4px;"
+                    "background:#e8f0fe;color:#1a73e8;text-decoration:none;"
+                    "font-weight:500;border:1px solid #c5d8fd;'>"
+                    "&#128196; Docs: " << TOOL_DOCS_URL << "</a></p>\n";
             html << "<table border=\"1\" style=\"border-collapse: collapse; width: 100%; background-color: #f2f2f2;\">\n";
             html << "  <tr>\n";
             html << "    <td style=\"text-align: center; padding: 10px;\">\n";
@@ -1173,15 +1598,15 @@ void generate_html_report(const std::vector<json>& processed_data,
         }
         else{
             assert( file1_exists | file2_exists );
-            html << SIMPLE_HEADER; 
+            html << SIMPLE_HEADER;
             html << "<div style='margin:12px 0;padding:10px;border:1px solid #ccc;"
             "border-radius:5px;background:#fafafa;font-size:14px;'>\n";
             html << "<b>Overall status:</b> " << overall_status << "<br/>\n";
             html << "<b>Reason:</b> " << reason << "<br/>\n";
             html << "</div>\n";
-            
+
         }
-    } 
+    }
     else {
 
         switch (parser) {
@@ -1194,7 +1619,7 @@ void generate_html_report(const std::vector<json>& processed_data,
             default:
                 break;
         }
-        
+
         auto grouped = group_records_by_function(processed_data);
         for (const auto& entry : grouped) {
             html << "<tr>\n";
@@ -1238,7 +1663,7 @@ void generate_json_report(const std::vector<json>& processed_data,
     wrapper["unparsed_staus"] = serialize(unParsedStatus);
     wrapper["compatibility"]  = agg_compatibility;
     wrapper["overall_status"] = overall_status;
-    wrapper["reason"]         = reason; 
+    wrapper["reason"]         = reason;
     jf << wrapper.dump(4);
     jf.close();
 }

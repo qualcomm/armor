@@ -81,25 +81,25 @@ public:
     }
 
     // Add element to container
-    void add(const T& element) { 
+    void add(const T& element) {
         // Append element to the end of the vector
-        data_.push_back(element); 
+        data_.push_back(element);
     }
 
     // Get element at index
-    T& at(size_t index) { 
+    T& at(size_t index) {
         // Return reference with bounds checking
-        return data_.at(index); 
+        return data_.at(index);
     }
-    const T& at(size_t index) const { 
+    const T& at(size_t index) const {
         // Const version - return const reference
-        return data_.at(index); 
+        return data_.at(index);
     }
 
     // Get size
-    size_t size() const { 
+    size_t size() const {
         // Return num     ber of elements currently stored
-        return data_.size(); 
+        return data_.size();
     }
 };
 
@@ -116,19 +116,19 @@ private:
     U second_;
 
 public:
-    Pair(const T& first, const U& second) 
+    Pair(const T& first, const U& second)
         : first_(first),   // Initialize first member
 
           second_(second)  // Initialize second member
     {}
 
-    T& first() { 
+    T& first() {
         // Return          reference to first element
-        return first_; 
+        return first_;
     }
-    U& second() { 
+    U& second() {
         // Return refer         ence to second element
-        return second_; 
+        return second_;
     }
 };
 
@@ -165,33 +165,33 @@ private:
     bool initialized_;
 
 public:
-    explicit ResourceManager(const std::string& name) 
+    explicit ResourceManager(const std::string& name)
         : name_(name),           // Store resource name
 
 
           initialized_(false)    // Start in uninitialized state
     {}
 
-    ~ResourceManager() { 
+    ~ResourceManager() {
         // Log destruction for debugging
-        MYLIB_LOG("Resource destroyed"); 
+        MYLIB_LOG("Resource destroyed");
     }
 
     // Non-copyable
     ResourceManager(const ResourceManager&) = delete;
     ResourceManager& operator=(const ResourceManager&) = delete;
 
-    bool initialize() { 
+    bool initialize() {
         // Mark resource as initialized
 
 
-        initialized_ = true; 
+        initialized_ = true;
         // Return success status
-        return true; 
+        return true;
     }
-    bool is_initialized() const { 
+    bool is_initialized() const {
         // Check initialization status
-        return initialized_; 
+        return initialized_;
     }
 };
 
@@ -223,17 +223,17 @@ namespace algorithms {
 } // namespace algorithms
 
 // Utility functions
-inline const char* get_version() { 
+inline const char* get_version() {
     // Return the library version string
     // new comments
-    return MYLIB_VERSION; 
+    return MYLIB_VERSION;
 }
-inline const char* get_platform() { 
+inline const char* get_platform() {
     // Return the detected platform name
 
 
     // ok
-    return MYLIB_PLATFORM; 
+    return MYLIB_PLATFORM;
 }
 
 } // namespace mylib

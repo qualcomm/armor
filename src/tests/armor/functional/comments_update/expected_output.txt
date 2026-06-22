@@ -213,34 +213,43 @@
 6901770178673578204
 // MYLIB_H
 ----------------------------------------
-NamespaceDecl
-2374286303243288496
-namespace mylib {
-
-// Forward declarations
-template<typename T> class Container;
-template<typename T, typename U> class Pair;
-class ResourceManager;
-
-/**
- * @namespace detail
- * @brief Internal implementation details
- */
-namespace detail {
-    // Helper for cleanup operations
-    template<typename T>
+ClassTemplateDecl
+12605193343577708732
+template<typename T> class Container
+----------------------------------------
+CXXRecordNode
+4805977141514113120
+class Container
+----------------------------------------
+ClassTemplateDecl
+566626905490260478
+template<typename T, typename U> class Pair
+----------------------------------------
+CXXRecordNode
+4805977141514113120
+class Pair
+----------------------------------------
+FunctionTemplateDecl
+15514022919672172987
+template<typename T>
     inline void cleanup(T* ptr) {
         // Log the cleanup operation (only in debug mode)
         MYLIB_LOG("Cleaning up resource");
         // Deallocate the memory pointed to by ptr
         delete ptr;
     }
-} // namespace detail
-
-/**
- * @brief Generic container template class
- * @tparam T Element type
- */
+----------------------------------------
+FunctionNode
+2351518912583844248
+inline void cleanup(T* ptr) {
+        // Log the cleanup operation (only in debug mode)
+        MYLIB_LOG("Cleaning up resource");
+        // Deallocate the memory pointed to by ptr
+        delete ptr;
+    }
+----------------------------------------
+ClassTemplateDecl
+4816320647197038057
 template<typename T>
 class Container {
 private:
@@ -254,33 +263,66 @@ public:
     }
 
     // Add element to container
-    void add(const T& element) { 
+    void add(const T& element) {
         // Append element to the end of the vector
-        data_.push_back(element); 
+        data_.push_back(element);
     }
 
     // Get element at index
-    T& at(size_t index) { 
+    T& at(size_t index) {
         // Return reference with bounds checking
-        return data_.at(index); 
+        return data_.at(index);
     }
-    const T& at(size_t index) const { 
+    const T& at(size_t index) const {
         // Const version - return const reference
-        return data_.at(index); 
+        return data_.at(index);
     }
 
     // Get size
-    size_t size() const { 
+    size_t size() const {
         // Return number of elements currently stored
-        return data_.size(); 
+        return data_.size();
     }
-};
+}
+----------------------------------------
+CXXRecordNode
+4488271306982985892
+class Container {
+private:
+    std::vector<T> data_;  // Internal storage
 
-/**
- * @brief Template pair class
- * @tparam T First element type
- * @tparam U Second element type
- */
+public:
+    // Constructor
+    explicit Container(size_t capacity = 10) {
+        // Pre-allocate memory to avoid reallocations
+        data_.reserve(capacity);
+    }
+
+    // Add element to container
+    void add(const T& element) {
+        // Append element to the end of the vector
+        data_.push_back(element);
+    }
+
+    // Get element at index
+    T& at(size_t index) {
+        // Return reference with bounds checking
+        return data_.at(index);
+    }
+    const T& at(size_t index) const {
+        // Const version - return const reference
+        return data_.at(index);
+    }
+
+    // Get size
+    size_t size() const {
+        // Return number of elements currently stored
+        return data_.size();
+    }
+}
+----------------------------------------
+ClassTemplateDecl
+13741614371556268723
 template<typename T, typename U>
 class Pair {
 private:
@@ -288,82 +330,108 @@ private:
     U second_;
 
 public:
-    Pair(const T& first, const U& second) 
+    Pair(const T& first, const U& second)
         : first_(first),   // Initialize first member
           second_(second)  // Initialize second member
     {}
 
-    T& first() { 
+    T& first() {
         // Return reference to first element
-        return first_; 
+        return first_;
     }
-    U& second() { 
+    U& second() {
         // Return reference to second element
-        return second_; 
+        return second_;
     }
-};
+}
+----------------------------------------
+CXXRecordNode
+3457130866557034685
+class Pair {
+private:
+    T first_;
+    U second_;
 
-/**
- * @brief Find maximum of two values
- */
+public:
+    Pair(const T& first, const U& second)
+        : first_(first),   // Initialize first member
+          second_(second)  // Initialize second member
+    {}
+
+    T& first() {
+        // Return reference to first element
+        return first_;
+    }
+    U& second() {
+        // Return reference to second element
+        return second_;
+    }
+}
+----------------------------------------
+FunctionTemplateDecl
+3947092427474810631
 template<typename T>
 inline T max(const T& a, const T& b) {
     // Compare and return the larger value
     return (a > b) ? a : b;  // Ternary operator for concise comparison
 }
-
-/**
- * @brief Square a numeric value
- */
+----------------------------------------
+FunctionNode
+18317951000681763498
+inline T max(const T& a, const T& b) {
+    // Compare and return the larger value
+    return (a > b) ? a : b;  // Ternary operator for concise comparison
+}
+----------------------------------------
+FunctionTemplateDecl
+5434704977701434368
 template<typename T>
 inline T square(T value) {
     // Multiply value by itself to get the square
     return value * value;  // Works for any type with operator*
 }
-
-/**
- * @class ResourceManager
- * @brief Manages resources with RAII
- */
-class ResourceManager {
-private:
-    std::string name_;
-    bool initialized_;
-
-public:
-    explicit ResourceManager(const std::string& name) 
-        : name_(name),           // Store resource name
-          initialized_(false)    // Start in uninitialized state
-    {}
-
-    ~ResourceManager() { 
+----------------------------------------
+FunctionNode
+14498989426683820213
+inline T square(T value) {
+    // Multiply value by itself to get the square
+    return value * value;  // Works for any type with operator*
+}
+----------------------------------------
+Function Body
+ResourceManager
+15521860531219160998
+{}
+----------------------------------------
+Function Body
+~ResourceManager
+14873551718313992298
+{
         // Log destruction for debugging
-        MYLIB_LOG("Resource destroyed"); 
+        MYLIB_LOG("Resource destroyed");
     }
-
-    // Non-copyable
-    ResourceManager(const ResourceManager&) = delete;
-    ResourceManager& operator=(const ResourceManager&) = delete;
-
-    bool initialize() { 
+----------------------------------------
+Function Body
+initialize
+3506802292183739806
+{
         // Mark resource as initialized
-        initialized_ = true; 
+        initialized_ = true;
         // Return success status
-        return true; 
+        return true;
     }
-    bool is_initialized() const { 
+----------------------------------------
+Function Body
+is_initialized
+9527585661137399784
+{
         // Check initialization status
-        return initialized_; 
+        return initialized_;
     }
-};
-
-/**
- * @namespace algorithms
- * @brief Algorithm implementations
- */
-namespace algorithms {
-    // Bubble sort implementation
-    template<typename T>
+----------------------------------------
+FunctionTemplateDecl
+2093560887821985962
+template<typename T>
     void sort(Container<T>& container) {
         // Get the number of elements to sort
         size_t n = container.size();
@@ -379,18 +447,39 @@ namespace algorithms {
             }
         }
     }
-} // namespace algorithms
-
-// Utility functions
-inline const char* get_version() { 
+----------------------------------------
+FunctionNode
+10468506837351667504
+void sort(Container<T>& container) {
+        // Get the number of elements to sort
+        size_t n = container.size();
+        // Outer loop - number of passes
+        for (size_t i = 0; i < n - 1; ++i) {
+            // Inner loop - compare adjacent elements
+            for (size_t j = 0; j < n - i - 1; ++j) {
+                // If current element is greater than next
+                if (container.at(j) > container.at(j + 1)) {
+                    // Swap them to move larger element forward
+                    std::swap(container.at(j), container.at(j + 1));
+                }
+            }
+        }
+    }
+----------------------------------------
+Function Body
+get_version
+13759061710294254579
+{
     // Return the library version string
-    return MYLIB_VERSION; 
+    return MYLIB_VERSION;
 }
-inline const char* get_platform() { 
+----------------------------------------
+Function Body
+get_platform
+16985016410176759723
+{
     // Return the detected platform name
-    return MYLIB_PLATFORM; 
-}
-
+    return MYLIB_PLATFORM;
 }
 ----------------------------------------
 14149454363135089577
@@ -691,25 +780,25 @@ Flush :
 15461368897442423950
 // namespace mylib
 ----------------------------------------
-NamespaceDecl
-2374286303243288496
-namespace mylib {
-
-// Forward declarations
-template<typename T> class Container;
-template<typename T, typename U> class Pair;
-class ResourceManager;
-
-/**
- * @namespace detail
- * @brief Internal implementation details
- */
-namespace detail {
-    // Helper for cleanup operations new
-
-
-
-    template<typename T>
+ClassTemplateDecl
+12605193343577708732
+template<typename T> class Container
+----------------------------------------
+CXXRecordNode
+4805977141514113120
+class Container
+----------------------------------------
+ClassTemplateDecl
+566626905490260478
+template<typename T, typename U> class Pair
+----------------------------------------
+CXXRecordNode
+4805977141514113120
+class Pair
+----------------------------------------
+FunctionTemplateDecl
+15514022919672172987
+template<typename T>
     inline void cleanup(T* ptr) {
         // Log the cleanup operation (only in debug mode)
         // new comment
@@ -717,13 +806,19 @@ namespace detail {
         // Deallocate the memory pointed to by ptr
         delete ptr;
     }
-} // namespace detail
-
-/**
- * @brief Generic container template class
-
- * @tparam T Element type
- */
+----------------------------------------
+FunctionNode
+2351518912583844248
+inline void cleanup(T* ptr) {
+        // Log the cleanup operation (only in debug mode)
+        // new comment
+        MYLIB_LOG("Cleaning up resource");
+        // Deallocate the memory pointed to by ptr
+        delete ptr;
+    }
+----------------------------------------
+ClassTemplateDecl
+4816320647197038057
 template<typename T>
 class Container {
 private:
@@ -737,34 +832,66 @@ public:
     }
 
     // Add element to container
-    void add(const T& element) { 
+    void add(const T& element) {
         // Append element to the end of the vector
-        data_.push_back(element); 
+        data_.push_back(element);
     }
 
     // Get element at index
-    T& at(size_t index) { 
+    T& at(size_t index) {
         // Return reference with bounds checking
-        return data_.at(index); 
+        return data_.at(index);
     }
-    const T& at(size_t index) const { 
+    const T& at(size_t index) const {
         // Const version - return const reference
-        return data_.at(index); 
+        return data_.at(index);
     }
 
     // Get size
-    size_t size() const { 
+    size_t size() const {
         // Return num     ber of elements currently stored
-        return data_.size(); 
+        return data_.size();
     }
-};
+}
+----------------------------------------
+CXXRecordNode
+4488271306982985892
+class Container {
+private:
+    std::vector<T> data_;  // Internal             storage
 
-/**
- * @brief Template pair class
+public:
+    // Constructor
+    explicit Container(size_t capacity = 10) {
+        // Pre-allocat       e memory to avo        id         reallocations
+        data_.reserve(capacity);
+    }
 
+    // Add element to container
+    void add(const T& element) {
+        // Append element to the end of the vector
+        data_.push_back(element);
+    }
 
- * @tparam U Second element type
- */
+    // Get element at index
+    T& at(size_t index) {
+        // Return reference with bounds checking
+        return data_.at(index);
+    }
+    const T& at(size_t index) const {
+        // Const version - return const reference
+        return data_.at(index);
+    }
+
+    // Get size
+    size_t size() const {
+        // Return num     ber of elements currently stored
+        return data_.size();
+    }
+}
+----------------------------------------
+ClassTemplateDecl
+13741614371556268723
 template<typename T, typename U>
 class Pair {
 private:
@@ -772,95 +899,112 @@ private:
     U second_;
 
 public:
-    Pair(const T& first, const U& second) 
+    Pair(const T& first, const U& second)
         : first_(first),   // Initialize first member
 
           second_(second)  // Initialize second member
     {}
 
-    T& first() { 
+    T& first() {
         // Return          reference to first element
-        return first_; 
+        return first_;
     }
-    U& second() { 
+    U& second() {
         // Return refer         ence to second element
-        return second_; 
+        return second_;
     }
-};
+}
+----------------------------------------
+CXXRecordNode
+3457130866557034685
+class Pair {
+private:
+    T first_;
+    U second_;
 
-/**
- * @brief Find maximum of two values
- */
+public:
+    Pair(const T& first, const U& second)
+        : first_(first),   // Initialize first member
+
+          second_(second)  // Initialize second member
+    {}
+
+    T& first() {
+        // Return          reference to first element
+        return first_;
+    }
+    U& second() {
+        // Return refer         ence to second element
+        return second_;
+    }
+}
+----------------------------------------
+FunctionTemplateDecl
+3947092427474810631
 template<typename T>
 inline T max(const T& a, const T& b) {
     // Compare and return the larger value
     return (a > b) ? a : b;  // Ternary operator for concise comparison
 }
-
-/**
- * @brief Square a numeric value
-
-
-
- */
+----------------------------------------
+FunctionNode
+18317951000681763498
+inline T max(const T& a, const T& b) {
+    // Compare and return the larger value
+    return (a > b) ? a : b;  // Ternary operator for concise comparison
+}
+----------------------------------------
+FunctionTemplateDecl
+5434704977701434368
 template<typename T>
 inline T square(T value) {
     // Multiply value by itself to get the square
     return value * value;  // Works for any type with operator*
 }
-
-/**
- * @class ResourceManager
-
-
- * @brief Manages resources with RAII
- */
-class ResourceManager {
-private:
-    std::string name_;
-    bool initialized_;
-
-public:
-    explicit ResourceManager(const std::string& name) 
-        : name_(name),           // Store resource name
-
-
-          initialized_(false)    // Start in uninitialized state
-    {}
-
-    ~ResourceManager() { 
+----------------------------------------
+FunctionNode
+14498989426683820213
+inline T square(T value) {
+    // Multiply value by itself to get the square
+    return value * value;  // Works for any type with operator*
+}
+----------------------------------------
+Function Body
+ResourceManager
+15521860531219160998
+{}
+----------------------------------------
+Function Body
+~ResourceManager
+14873551718313992298
+{
         // Log destruction for debugging
-        MYLIB_LOG("Resource destroyed"); 
+        MYLIB_LOG("Resource destroyed");
     }
-
-    // Non-copyable
-    ResourceManager(const ResourceManager&) = delete;
-    ResourceManager& operator=(const ResourceManager&) = delete;
-
-    bool initialize() { 
+----------------------------------------
+Function Body
+initialize
+3506802292183739806
+{
         // Mark resource as initialized
 
 
-        initialized_ = true; 
+        initialized_ = true;
         // Return success status
-        return true; 
+        return true;
     }
-    bool is_initialized() const { 
+----------------------------------------
+Function Body
+is_initialized
+9527585661137399784
+{
         // Check initialization status
-        return initialized_; 
+        return initialized_;
     }
-};
-
-/**
- * @namespace algorithms
- * @brief Algorithm implementations
-
-
-
- */
-namespace algorithms {
-    // Bubble sort implementation
-    template<typename T>
+----------------------------------------
+FunctionTemplateDecl
+2093560887821985962
+template<typename T>
     void sort(Container<T>& container) {
         // Get the number of elements to sort
         size_t n = container.size();
@@ -876,22 +1020,43 @@ namespace algorithms {
             }
         }
     }
-} // namespace algorithms
-
-// Utility functions
-inline const char* get_version() { 
+----------------------------------------
+FunctionNode
+10468506837351667504
+void sort(Container<T>& container) {
+        // Get the number of elements to sort
+        size_t n = container.size();
+        // Outer loop - number of passes
+        for (size_t i = 0; i < n - 1; ++i) {
+            // Inner loop - compare adjacent elements
+            for (size_t j = 0; j < n - i - 1; ++j) {
+                // If current element is greater than next
+                if (container.at(j) > container.at(j + 1)) {
+                    // Swap them to move larger element forward
+                    std::swap(container.at(j), container.at(j + 1));
+                }
+            }
+        }
+    }
+----------------------------------------
+Function Body
+get_version
+13759061710294254579
+{
     // Return the library version string
     // new comments
-    return MYLIB_VERSION; 
+    return MYLIB_VERSION;
 }
-inline const char* get_platform() { 
+----------------------------------------
+Function Body
+get_platform
+16985016410176759723
+{
     // Return the detected platform name
 
 
     // ok
-    return MYLIB_PLATFORM; 
-}
-
+    return MYLIB_PLATFORM;
 }
 ----------------------------------------
 14149454363135089577
@@ -1024,16 +1189,36 @@ comments1
 12817108018769795916  : 1
 ----------------------------------------
 unhandledDecls1
+5434704977701434368  : 1
 15469631829536770432  : 1
 5509917256443608474  : 1
+3947092427474810631  : 1
+15514022919672172987  : 1
+9527585661137399784  : 1
+3457130866557034685  : 1
+18317951000681763498  : 1
+14873551718313992298  : 1
+2093560887821985962  : 1
+3506802292183739806  : 1
+13741614371556268723  : 1
+4805977141514113120  : 2
+13759061710294254579  : 1
 13425203279752416008  : 2
+14498989426683820213  : 1
+12605193343577708732  : 1
+4816320647197038057  : 1
 14149454363135089577  : 1
 16977924592700156950  : 1
-2374286303243288496  : 1
+10468506837351667504  : 1
 15219203312359965853  : 1
+4488271306982985892  : 1
 13241275756687149476  : 1
+566626905490260478  : 1
+16985016410176759723  : 1
+2351518912583844248  : 1
 11799315910370350277  : 1
 13803667629389199692  : 1
+15521860531219160998  : 1
 ----------------------------------------
 inactiveUnhandledDecls1
 2645106581235657280  : 1
@@ -1105,16 +1290,36 @@ comments2
 12817108018769795916  : 1
 ----------------------------------------
 unhandledDecls2
+5434704977701434368  : 1
 15469631829536770432  : 1
 5509917256443608474  : 1
+3947092427474810631  : 1
+15514022919672172987  : 1
+9527585661137399784  : 1
+3457130866557034685  : 1
+18317951000681763498  : 1
+14873551718313992298  : 1
+2093560887821985962  : 1
+3506802292183739806  : 1
+13741614371556268723  : 1
+4805977141514113120  : 2
+13759061710294254579  : 1
 13425203279752416008  : 2
+14498989426683820213  : 1
+12605193343577708732  : 1
+4816320647197038057  : 1
 14149454363135089577  : 1
 16977924592700156950  : 1
-2374286303243288496  : 1
+10468506837351667504  : 1
 15219203312359965853  : 1
+4488271306982985892  : 1
 13241275756687149476  : 1
+566626905490260478  : 1
+16985016410176759723  : 1
+2351518912583844248  : 1
 11799315910370350277  : 1
 13803667629389199692  : 1
+15521860531219160998  : 1
 ----------------------------------------
 inactiveUnhandledDecls2
 2645106581235657280  : 1

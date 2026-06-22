@@ -23,11 +23,20 @@ struct APINode {
     std::string qualifiedName;
     std::string dataType;         // datatype of variables as written .... (int/float/...)
     std::string caonicalType;     // underlying datatype of variable after parsing through typedef/typealias chain
-    bool isInclined = false;
+    bool isInlined = false;
     bool isConstExpr = false;
     AccessSpec access = AccessSpec::None;
     APINodeStorageClass storage = APINodeStorageClass::None;
     VirtualQualifier virtualQualifier = VirtualQualifier::None;
+
+    bool isOveride = false;
+    bool isFinal = false;
+    bool isDelete = false;
+    bool isDefault = false;
+    bool isExplicit = false;
+    bool isVolatile = false;
+    bool isConst = false;
+    bool isFriend = false;
 
     std::string USR;
     std::string NSR;
@@ -43,10 +52,10 @@ struct Range{
     unsigned endOffset;
     uint64_t hash;
     bool isActive;
-    
+
     Range() : startOffset(0), endOffset(0), hash(-1), isActive(false) {}
-    
-    Range(unsigned start, unsigned end, uint64_t hash, bool active) 
+
+    Range(unsigned start, unsigned end, uint64_t hash, bool active)
         : startOffset(start), endOffset(end), hash(hash), isActive(active) {}
 };
 

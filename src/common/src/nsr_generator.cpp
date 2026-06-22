@@ -26,31 +26,31 @@ namespace armor {
 
 static bool printLoc(llvm::raw_ostream &OS, SourceLocation Loc,
                      const SourceManager &SM, bool IncludeOffset) {
-  
+
   if (Loc.isInvalid()) {
     return true;
   }
-  
+
   Loc = SM.getExpansionLoc(Loc);
   const std::pair<FileID, unsigned> &Decomposed = SM.getDecomposedLoc(Loc);
   const FileEntry *FE = SM.getFileEntryForID(Decomposed.first);
-  
+
   if (FE) {
     std::string Filename = llvm::sys::path::filename(FE->getName()).str();
     OS << Filename;
-  } 
+  }
   else {
     // This case really isn't interesting.
     return true;
   }
-  
+
   if (IncludeOffset) {
     // Use the offest into the FileID to represent the location.  Using
     // a line/column can cause us to look back at the original source file,
     // which is expensive.
     OS << '@' << Decomposed.second;
   }
-  
+
   return false;
 }
 
@@ -100,6 +100,7 @@ public:
   void VisitTypedefDecl(const TypedefDecl *D);
   // void VisitTemplateTypeParmDecl(const TemplateTypeParmDecl *D);
   void VisitVarDecl(const VarDecl *D);
+  void VisitFriendDecl(const FriendDecl *D);
   void VisitBindingDecl(const BindingDecl *D);
   // void VisitNonTypeTemplateParmDecl(const NonTypeTemplateParmDecl *D);
   // void VisitTemplateTemplateParmDecl(const TemplateTemplateParmDecl *D);
@@ -163,24 +164,24 @@ bool NSRGenerator::EmitDeclName(const NamedDecl *D) {
 }
 
 bool NSRGenerator::ShouldGenerateLocation(const NamedDecl *D) {
-  
-  if (isa<TemplateTypeParmDecl>(D) || 
-      isa<NonTypeTemplateParmDecl>(D) || 
-      isa<TemplateTemplateParmDecl>(D) || 
+
+  if (isa<TemplateTypeParmDecl>(D) ||
+      isa<NonTypeTemplateParmDecl>(D) ||
+      isa<TemplateTemplateParmDecl>(D) ||
       isa<ParmVarDecl>(D)) {
     return true;
   }
-  
+
   // Always include location for local variables and declarations inside functions
   bool HasParentFunction = D->getParentFunctionOrMethod() != nullptr;
-  
+
   if (HasParentFunction) {
     return true;
   }
-  
+
   // For all other declarations in headers, exclude location information
   return false;
-  
+
 }
 
 void NSRGenerator::VisitDeclContext(const DeclContext *DC) {
@@ -306,7 +307,7 @@ void NSRGenerator::VisitVarDecl(const VarDecl *D) {
   if (s.empty())
     IgnoreResults = true;
   else{
-    if(D->isCXXClassMember()) 
+    if(D->isCXXClassMember())
       Out << "@FI@" << s;
     else
       Out << '@' << s;
@@ -322,6 +323,53 @@ void NSRGenerator::VisitVarDecl(const VarDecl *D) {
   //     VisitTemplateArgument(Args.get(I));
   //   }
   // }
+}
+
+void NSRGenerator::VisitFriendDecl(const FriendDecl *D){
+  // Case 1: Friend is a named declaration (function, function template, class, or class template)
+  if (const NamedDecl* ND = D->getFriendDecl()) {
+    if (const FunctionDecl* FD = dyn_cast<FunctionDecl>(ND)) {
+      VisitFunctionDecl(FD);
+    }
+    else if (const FunctionTemplateDecl* FT = dyn_cast<FunctionTemplateDecl>(ND)) {
+      VisitFunctionTemplateDecl(FT);
+    }
+    else if(const ClassTemplateDecl* CT = dyn_cast<ClassTemplateDecl>(ND)) {
+      VisitClassTemplateDecl(CT);
+    }
+    else IgnoreResults = true;
+  }
+  else if (D->getFriendType()) {
+    clang::QualType QT = D->getFriendType()->getType();
+
+    if (const TagDecl* TD = QT.getTypePtr()->getAsTagDecl()) {
+      VisitTagDecl(TD);
+    }
+    else if (const ElaboratedType* ET = dyn_cast<ElaboratedType>(QT.getTypePtr())) {
+      QualType NamedType = ET->getNamedType();
+      // Try to get a tag declaration from the named type
+      if (const TagDecl* TD = NamedType.getTypePtr()->getAsTagDecl()) {
+        VisitTagDecl(TD);
+      }
+      // Try to handle template specialization in the named type
+      else if (const TemplateSpecializationType* TST = dyn_cast<TemplateSpecializationType>(NamedType.getTypePtr())) {
+        TemplateName TN = TST->getTemplateName();
+        if (TemplateDecl* TD = TN.getAsTemplateDecl()) {
+          if (ClassTemplateDecl* CTD = dyn_cast<ClassTemplateDecl>(TD)) {
+            VisitClassTemplateDecl(CTD);
+          }
+          else IgnoreResults = true;
+        }
+        else IgnoreResults = true;
+      }
+      else VisitType(NamedType);
+    }
+    else VisitType(QT);
+
+  }
+  else IgnoreResults = true;
+
+  Out << "(F)";
 }
 
 void NSRGenerator::VisitBindingDecl(const BindingDecl *D) {
@@ -451,7 +499,7 @@ void NSRGenerator::VisitTagDecl(const TagDecl *D) {
           else{
             printLoc(Out, D->getLocation(), Context->getSourceManager(), true);
           }
-        } 
+        }
         else {
           // Completely anonymous tag decl.
           Buf[off] = 'a';
@@ -492,7 +540,7 @@ void NSRGenerator::GenExtSymbolContainer(const NamedDecl *D) {
 }
 
 bool NSRGenerator::GenLoc(const Decl *D, bool IncludeOffset) {
-  
+
   if (generatedLoc) {
     return IgnoreResults;
   }
@@ -506,7 +554,7 @@ bool NSRGenerator::GenLoc(const Decl *D, bool IncludeOffset) {
 
   // Use the location of canonical decl.
   D = D->getCanonicalDecl();
-  
+
   bool PrevIgnoreResults = IgnoreResults;
   IgnoreResults =
       IgnoreResults || printLoc(Out, D->getBeginLoc(),

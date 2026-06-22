@@ -26,7 +26,7 @@ class ASTNormalize : public clang::RecursiveASTVisitor<ASTNormalize> {
         ASTNormalizedContext* context;
         clang::ASTContext *clangContext;
         beta::TreeBuilder treeBuilder;
-       
+
         ASTNormalize(beta::APISession* session, beta::ASTNormalizedContext* context, clang::ASTContext* clangContext);
 
         bool TraverseNamespaceDecl(clang::NamespaceDecl *Decl);
@@ -39,6 +39,7 @@ class ASTNormalize : public clang::RecursiveASTVisitor<ASTNormalize> {
         bool TraverseFunctionDecl(clang::FunctionDecl *Decl);
         bool TraverseTypeAliasDecl(clang::TypeAliasDecl *Decl);
         bool TraverseVarDecl(clang::VarDecl *Decl);
+        bool TraverseFriendDecl(clang::FriendDecl* Decl);
         bool TraverseFieldDecl(clang::FieldDecl *Decl);
         bool TraverseTypedefDecl(clang::TypedefDecl *Decl);
         bool TraverseClassTemplateDecl(clang::ClassTemplateDecl *Decl);
@@ -56,12 +57,13 @@ class ASTNormalize : public clang::RecursiveASTVisitor<ASTNormalize> {
         bool TraverseTemplateTypeParmDecl(clang::TemplateTypeParmDecl *Decl);
         bool TraverseNonTypeTemplateParmDecl(clang::NonTypeTemplateParmDecl *Decl);
         bool TraverseTemplateTemplateParmDecl(clang::TemplateTemplateParmDecl *Decl);
-       
+
         bool VisitNamespaceDecl(clang::NamespaceDecl *Decl);
         bool VisitRecordDecl(clang::RecordDecl *Decl);
         bool VisitCXXRecordDecl(clang::CXXRecordDecl *Decl);
         bool VisitEnumDecl(clang::EnumDecl *Decl);
         bool VisitFieldDecl(clang::FieldDecl *Decl);
+        bool VisitFriendDecl(clang::FriendDecl* Decl);
         bool VisitFunctionDecl(clang::FunctionDecl *Decl);
         bool VisitTypeAliasDecl(clang::TypeAliasDecl *Decl);
         bool VisitVarDecl(clang::VarDecl *Decl);
@@ -89,7 +91,7 @@ class ASTNormalizeConsumer : public clang::ASTConsumer {
         ASTNormalizeConsumer(beta::APISession* session, beta::ASTNormalizedContext* context);
         void HandleTranslationUnit(clang::ASTContext &Context) override;
 };
-       
+
 
 class NormalizeAction : public clang::ASTFrontendAction {
     public:
@@ -97,11 +99,11 @@ class NormalizeAction : public clang::ASTFrontendAction {
         ASTNormalizedContext* context;
         beta::CommentHandler* commentHandler;
         beta::ASTNormalizerPreprocessor* preprocessor; // Raw pointer, ownership transferred to Preprocessor
-        
+
         NormalizeAction(beta::APISession* session, beta::ASTNormalizedContext* context);
         std::unique_ptr<clang::ASTConsumer> CreateASTConsumer(clang::CompilerInstance &, clang::StringRef) override;
         void EndSourceFileAction() override;
-        
+
     private:
         clang::CompilerInstance* CI; // Store CI reference for cleanup
 };

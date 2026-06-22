@@ -29,6 +29,15 @@ extern std::string UNPARSED_STATUS;
 extern std::string HEADER_RESOLUTION_FAILURES;
 extern std::string AST_DIFF;
 extern std::string CONST_EXPR;
+extern std::string ACCESS_SPECIFIER;
+extern std::string IS_OVERRIDE;
+extern std::string IS_FINAL;
+extern std::string IS_DELETE;
+extern std::string IS_DEFAULT;
+extern std::string IS_EXPLICIT;
+extern std::string IS_VOLATILE;
+extern std::string IS_CONST;
+extern std::string IS_FRIEND;
 
 enum class ParsedDiffStatus {
     FATAL_ERRORS = 0,          // Critical errors occurred (e.g., header resolution failures)
@@ -46,6 +55,8 @@ enum class UnParsedDiffStatus{
 const std::string serialize(const APINodeStorageClass& storageClass);
 
 const std::string serialize(const VirtualQualifier& qualifier);
+
+const std::string serialize(const AccessSpec& accessSpec);
 
 const std::string serialize(const NodeKind& node);
 

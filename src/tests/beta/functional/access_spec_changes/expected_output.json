@@ -1,0 +1,1786 @@
+{
+    "astDiff": [
+        {
+            "children": [
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "BaseClass",
+                            "qualifiedName": "mylib::Serializable",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "BaseClass",
+                            "qualifiedName": "mylib::Serializable",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "BaseClass",
+                    "qualifiedName": "mylib::Serializable",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "BaseClass",
+                            "qualifiedName": "mylib::Loggable",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "BaseClass",
+                            "qualifiedName": "mylib::Loggable",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "BaseClass",
+                    "qualifiedName": "mylib::Loggable",
+                    "tag": "modified"
+                },
+                {
+                    "dataType": "struct mylib::Auditable",
+                    "nodeType": "BaseClass",
+                    "qualifiedName": "mylib::Auditable",
+                    "tag": "removed"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::Config::name",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::Config::name",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "mylib::Config::name",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::Config::version",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::Config::version",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "mylib::Config::version",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::Config::debug_mode",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::Config::debug_mode",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "mylib::Config::debug_mode",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::Config::internal_tag",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::Config::internal_tag",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "mylib::Config::internal_tag",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::Config::retry_count",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::Config::retry_count",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "mylib::Config::retry_count",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::Config::secret_key",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::Config::secret_key",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "mylib::Config::secret_key",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::Config::timeout_seconds",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::Config::timeout_seconds",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "mylib::Config::timeout_seconds",
+                    "tag": "modified"
+                },
+                {
+                    "dataType": "struct mylib::Validatable",
+                    "nodeType": "BaseClass",
+                    "qualifiedName": "mylib::Validatable",
+                    "tag": "added"
+                }
+            ],
+            "nodeType": "Class",
+            "qualifiedName": "mylib::Config",
+            "tag": "modified"
+        },
+        {
+            "children": [
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "BaseClass",
+                            "qualifiedName": "mylib::Loggable",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "BaseClass",
+                            "qualifiedName": "mylib::Loggable",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "BaseClass",
+                    "qualifiedName": "mylib::Loggable",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "BaseClass",
+                            "qualifiedName": "mylib::Auditable",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "BaseClass",
+                            "qualifiedName": "mylib::Auditable",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "BaseClass",
+                    "qualifiedName": "mylib::Auditable",
+                    "tag": "modified"
+                },
+                {
+                    "dataType": "struct mylib::Validatable",
+                    "nodeType": "BaseClass",
+                    "qualifiedName": "mylib::Validatable",
+                    "tag": "removed"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::Logger::log_prefix",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::Logger::log_prefix",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "mylib::Logger::log_prefix",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::Logger::log_level",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::Logger::log_level",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "mylib::Logger::log_level",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::Logger::log_file_path",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::Logger::log_file_path",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "mylib::Logger::log_file_path",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::Logger::append_mode",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::Logger::append_mode",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "mylib::Logger::append_mode",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::Logger::log_buffer",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::Logger::log_buffer",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "mylib::Logger::log_buffer",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::Logger::max_buffer_size",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::Logger::max_buffer_size",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "mylib::Logger::max_buffer_size",
+                    "tag": "modified"
+                },
+                {
+                    "dataType": "struct mylib::Identifiable",
+                    "nodeType": "BaseClass",
+                    "qualifiedName": "mylib::Identifiable",
+                    "tag": "added"
+                },
+                {
+                    "dataType": "struct mylib::Serializable",
+                    "nodeType": "BaseClass",
+                    "qualifiedName": "mylib::Serializable",
+                    "tag": "added"
+                }
+            ],
+            "nodeType": "Class",
+            "qualifiedName": "mylib::Logger",
+            "tag": "modified"
+        },
+        {
+            "children": [
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "BaseClass",
+                            "qualifiedName": "mylib::network::Connectable",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "BaseClass",
+                            "qualifiedName": "mylib::network::Connectable",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "BaseClass",
+                    "qualifiedName": "mylib::network::Connectable",
+                    "tag": "modified"
+                },
+                {
+                    "dataType": "struct mylib::network::Retryable",
+                    "nodeType": "BaseClass",
+                    "qualifiedName": "mylib::network::Retryable",
+                    "tag": "removed"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "BaseClass",
+                            "qualifiedName": "mylib::Loggable",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "BaseClass",
+                            "qualifiedName": "mylib::Loggable",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "BaseClass",
+                    "qualifiedName": "mylib::Loggable",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::network::Socket::host",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::network::Socket::host",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "mylib::network::Socket::host",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::network::Socket::port",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::network::Socket::port",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "mylib::network::Socket::port",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::network::Socket::socket_fd",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::network::Socket::socket_fd",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "mylib::network::Socket::socket_fd",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::network::Socket::blocking",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::network::Socket::blocking",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "mylib::network::Socket::blocking",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::network::Socket::protocol",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::network::Socket::protocol",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "mylib::network::Socket::protocol",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::network::Socket::timeout_ms",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::network::Socket::timeout_ms",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "mylib::network::Socket::timeout_ms",
+                    "tag": "modified"
+                },
+                {
+                    "dataType": "struct mylib::network::Compressible",
+                    "nodeType": "BaseClass",
+                    "qualifiedName": "mylib::network::Compressible",
+                    "tag": "added"
+                }
+            ],
+            "nodeType": "Class",
+            "qualifiedName": "mylib::network::Socket",
+            "tag": "modified"
+        },
+        {
+            "children": [
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "BaseClass",
+                            "qualifiedName": "mylib::network::Connectable",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "BaseClass",
+                            "qualifiedName": "mylib::network::Connectable",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "BaseClass",
+                    "qualifiedName": "mylib::network::Connectable",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "BaseClass",
+                            "qualifiedName": "mylib::network::Retryable",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "BaseClass",
+                            "qualifiedName": "mylib::network::Retryable",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "BaseClass",
+                    "qualifiedName": "mylib::network::Retryable",
+                    "tag": "modified"
+                },
+                {
+                    "dataType": "mylib::Serializable",
+                    "nodeType": "BaseClass",
+                    "qualifiedName": "mylib::Serializable",
+                    "tag": "removed"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "BaseClass",
+                            "qualifiedName": "mylib::Auditable",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "BaseClass",
+                            "qualifiedName": "mylib::Auditable",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "BaseClass",
+                    "qualifiedName": "mylib::Auditable",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::network::HttpClient::base_url",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::network::HttpClient::base_url",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "mylib::network::HttpClient::base_url",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::network::HttpClient::max_redirects",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::network::HttpClient::max_redirects",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "mylib::network::HttpClient::max_redirects",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::network::HttpClient::auth_token",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::network::HttpClient::auth_token",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "mylib::network::HttpClient::auth_token",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::network::HttpClient::verify_ssl",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::network::HttpClient::verify_ssl",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "mylib::network::HttpClient::verify_ssl",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::network::HttpClient::headers",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::network::HttpClient::headers",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "mylib::network::HttpClient::headers",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::network::HttpClient::connection_pool_size",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::network::HttpClient::connection_pool_size",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "mylib::network::HttpClient::connection_pool_size",
+                    "tag": "modified"
+                },
+                {
+                    "dataType": "struct mylib::network::Compressible",
+                    "nodeType": "BaseClass",
+                    "qualifiedName": "mylib::network::Compressible",
+                    "tag": "added"
+                }
+            ],
+            "nodeType": "Class",
+            "qualifiedName": "mylib::network::HttpClient",
+            "tag": "modified"
+        },
+        {
+            "children": [
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "BaseClass",
+                            "qualifiedName": "mylib::storage::Persistable",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "BaseClass",
+                            "qualifiedName": "mylib::storage::Persistable",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "BaseClass",
+                    "qualifiedName": "mylib::storage::Persistable",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "BaseClass",
+                            "qualifiedName": "mylib::Auditable",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "BaseClass",
+                            "qualifiedName": "mylib::Auditable",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "BaseClass",
+                    "qualifiedName": "mylib::Auditable",
+                    "tag": "modified"
+                },
+                {
+                    "dataType": "mylib::Identifiable",
+                    "nodeType": "BaseClass",
+                    "qualifiedName": "mylib::Identifiable",
+                    "tag": "removed"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::storage::Record::id",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::storage::Record::id",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "mylib::storage::Record::id",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::storage::Record::table_name",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::storage::Record::table_name",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "mylib::storage::Record::table_name",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::storage::Record::raw_data",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::storage::Record::raw_data",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "mylib::storage::Record::raw_data",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::storage::Record::is_dirty",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::storage::Record::is_dirty",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "mylib::storage::Record::is_dirty",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::storage::Record::checksum",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::storage::Record::checksum",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "mylib::storage::Record::checksum",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::storage::Record::created_at",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::storage::Record::created_at",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "mylib::storage::Record::created_at",
+                    "tag": "modified"
+                },
+                {
+                    "dataType": "struct mylib::storage::Versionable",
+                    "nodeType": "BaseClass",
+                    "qualifiedName": "mylib::storage::Versionable",
+                    "tag": "added"
+                }
+            ],
+            "nodeType": "Class",
+            "qualifiedName": "mylib::storage::Record",
+            "tag": "modified"
+        },
+        {
+            "children": [
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "BaseClass",
+                            "qualifiedName": "mylib::Cacheable",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "BaseClass",
+                            "qualifiedName": "mylib::Cacheable",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "BaseClass",
+                    "qualifiedName": "mylib::Cacheable",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "BaseClass",
+                            "qualifiedName": "mylib::storage::Versionable",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "BaseClass",
+                            "qualifiedName": "mylib::storage::Versionable",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "BaseClass",
+                    "qualifiedName": "mylib::storage::Versionable",
+                    "tag": "modified"
+                },
+                {
+                    "dataType": "struct mylib::storage::Expirable",
+                    "nodeType": "BaseClass",
+                    "qualifiedName": "mylib::storage::Expirable",
+                    "tag": "removed"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::storage::Cache::capacity",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::storage::Cache::capacity",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "mylib::storage::Cache::capacity",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::storage::Cache::enabled",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::storage::Cache::enabled",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "mylib::storage::Cache::enabled",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::storage::Cache::hit_count",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::storage::Cache::hit_count",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "mylib::storage::Cache::hit_count",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::storage::Cache::miss_count",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::storage::Cache::miss_count",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "mylib::storage::Cache::miss_count",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::storage::Cache::keys",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::storage::Cache::keys",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "mylib::storage::Cache::keys",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::storage::Cache::eviction_ratio",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "Field",
+                            "qualifiedName": "mylib::storage::Cache::eviction_ratio",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "mylib::storage::Cache::eviction_ratio",
+                    "tag": "modified"
+                },
+                {
+                    "dataType": "mylib::Validatable",
+                    "nodeType": "BaseClass",
+                    "qualifiedName": "mylib::Validatable",
+                    "tag": "added"
+                },
+                {
+                    "dataType": "struct mylib::storage::Persistable",
+                    "nodeType": "BaseClass",
+                    "qualifiedName": "mylib::storage::Persistable",
+                    "tag": "added"
+                }
+            ],
+            "nodeType": "Class",
+            "qualifiedName": "mylib::storage::Cache",
+            "tag": "modified"
+        },
+        {
+            "children": [
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "BaseClass",
+                            "qualifiedName": "utils::Measurable",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "BaseClass",
+                            "qualifiedName": "utils::Measurable",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "BaseClass",
+                    "qualifiedName": "utils::Measurable",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "BaseClass",
+                            "qualifiedName": "utils::Resettable",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "BaseClass",
+                            "qualifiedName": "utils::Resettable",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "BaseClass",
+                    "qualifiedName": "utils::Resettable",
+                    "tag": "modified"
+                },
+                {
+                    "dataType": "mylib::Loggable",
+                    "nodeType": "BaseClass",
+                    "qualifiedName": "mylib::Loggable",
+                    "tag": "removed"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "Field",
+                            "qualifiedName": "utils::Timer::label",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "Field",
+                            "qualifiedName": "utils::Timer::label",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "utils::Timer::label",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "Field",
+                            "qualifiedName": "utils::Timer::auto_reset",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "Field",
+                            "qualifiedName": "utils::Timer::auto_reset",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "utils::Timer::auto_reset",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "Field",
+                            "qualifiedName": "utils::Timer::start_time",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "Field",
+                            "qualifiedName": "utils::Timer::start_time",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "utils::Timer::start_time",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "Field",
+                            "qualifiedName": "utils::Timer::elapsed_ms",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "Field",
+                            "qualifiedName": "utils::Timer::elapsed_ms",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "utils::Timer::elapsed_ms",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "Field",
+                            "qualifiedName": "utils::Timer::tick_interval",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "Field",
+                            "qualifiedName": "utils::Timer::tick_interval",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "utils::Timer::tick_interval",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "Field",
+                            "qualifiedName": "utils::Timer::running",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "Field",
+                            "qualifiedName": "utils::Timer::running",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "utils::Timer::running",
+                    "tag": "modified"
+                },
+                {
+                    "dataType": "mylib::Auditable",
+                    "nodeType": "BaseClass",
+                    "qualifiedName": "mylib::Auditable",
+                    "tag": "added"
+                },
+                {
+                    "dataType": "struct utils::Formattable",
+                    "nodeType": "BaseClass",
+                    "qualifiedName": "utils::Formattable",
+                    "tag": "added"
+                }
+            ],
+            "nodeType": "Class",
+            "qualifiedName": "utils::Timer",
+            "tag": "modified"
+        },
+        {
+            "children": [
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "BaseClass",
+                            "qualifiedName": "utils::Formattable",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "BaseClass",
+                            "qualifiedName": "utils::Formattable",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "BaseClass",
+                    "qualifiedName": "utils::Formattable",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "BaseClass",
+                            "qualifiedName": "utils::Encodable",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "BaseClass",
+                            "qualifiedName": "utils::Encodable",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "BaseClass",
+                    "qualifiedName": "utils::Encodable",
+                    "tag": "modified"
+                },
+                {
+                    "dataType": "mylib::Validatable",
+                    "nodeType": "BaseClass",
+                    "qualifiedName": "mylib::Validatable",
+                    "tag": "removed"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "Field",
+                            "qualifiedName": "utils::StringHelper::delimiter",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "Field",
+                            "qualifiedName": "utils::StringHelper::delimiter",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "utils::StringHelper::delimiter",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "Field",
+                            "qualifiedName": "utils::StringHelper::trim_whitespace",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "Field",
+                            "qualifiedName": "utils::StringHelper::trim_whitespace",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "utils::StringHelper::trim_whitespace",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "Field",
+                            "qualifiedName": "utils::StringHelper::locale",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "Field",
+                            "qualifiedName": "utils::StringHelper::locale",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "utils::StringHelper::locale",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "Field",
+                            "qualifiedName": "utils::StringHelper::max_length",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "Field",
+                            "qualifiedName": "utils::StringHelper::max_length",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "utils::StringHelper::max_length",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "Field",
+                            "qualifiedName": "utils::StringHelper::token_cache",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "Field",
+                            "qualifiedName": "utils::StringHelper::token_cache",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "utils::StringHelper::token_cache",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "Field",
+                            "qualifiedName": "utils::StringHelper::case_sensitive",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "Field",
+                            "qualifiedName": "utils::StringHelper::case_sensitive",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "utils::StringHelper::case_sensitive",
+                    "tag": "modified"
+                },
+                {
+                    "dataType": "struct utils::Resettable",
+                    "nodeType": "BaseClass",
+                    "qualifiedName": "utils::Resettable",
+                    "tag": "added"
+                },
+                {
+                    "dataType": "mylib::Loggable",
+                    "nodeType": "BaseClass",
+                    "qualifiedName": "mylib::Loggable",
+                    "tag": "added"
+                }
+            ],
+            "nodeType": "Class",
+            "qualifiedName": "utils::StringHelper",
+            "tag": "modified"
+        },
+        {
+            "children": [
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "BaseClass",
+                            "qualifiedName": "utils::math::Transformable",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "BaseClass",
+                            "qualifiedName": "utils::math::Transformable",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "BaseClass",
+                    "qualifiedName": "utils::math::Transformable",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "BaseClass",
+                            "qualifiedName": "utils::math::Interpolatable",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "BaseClass",
+                            "qualifiedName": "utils::math::Interpolatable",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "BaseClass",
+                    "qualifiedName": "utils::math::Interpolatable",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "BaseClass",
+                            "qualifiedName": "mylib::Serializable",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "BaseClass",
+                            "qualifiedName": "mylib::Serializable",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "BaseClass",
+                    "qualifiedName": "mylib::Serializable",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "Field",
+                            "qualifiedName": "utils::math::Vector3::x",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "Field",
+                            "qualifiedName": "utils::math::Vector3::x",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "utils::math::Vector3::x",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "Field",
+                            "qualifiedName": "utils::math::Vector3::y",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "Field",
+                            "qualifiedName": "utils::math::Vector3::y",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "utils::math::Vector3::y",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "Field",
+                            "qualifiedName": "utils::math::Vector3::magnitude",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "Field",
+                            "qualifiedName": "utils::math::Vector3::magnitude",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "utils::math::Vector3::magnitude",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "Field",
+                            "qualifiedName": "utils::math::Vector3::normalized",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "Field",
+                            "qualifiedName": "utils::math::Vector3::normalized",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "utils::math::Vector3::normalized",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "Field",
+                            "qualifiedName": "utils::math::Vector3::raw_data",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "Field",
+                            "qualifiedName": "utils::math::Vector3::raw_data",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "utils::math::Vector3::raw_data",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "Field",
+                            "qualifiedName": "utils::math::Vector3::precision",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "Field",
+                            "qualifiedName": "utils::math::Vector3::precision",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "utils::math::Vector3::precision",
+                    "tag": "modified"
+                },
+                {
+                    "dataType": "struct utils::math::Projectable",
+                    "nodeType": "BaseClass",
+                    "qualifiedName": "utils::math::Projectable",
+                    "tag": "added"
+                }
+            ],
+            "nodeType": "Class",
+            "qualifiedName": "utils::math::Vector3",
+            "tag": "modified"
+        },
+        {
+            "children": [
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "BaseClass",
+                            "qualifiedName": "utils::math::Projectable",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "BaseClass",
+                            "qualifiedName": "utils::math::Projectable",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "BaseClass",
+                    "qualifiedName": "utils::math::Projectable",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "BaseClass",
+                            "qualifiedName": "utils::math::Interpolatable",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "BaseClass",
+                            "qualifiedName": "utils::math::Interpolatable",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "BaseClass",
+                    "qualifiedName": "utils::math::Interpolatable",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "Field",
+                            "qualifiedName": "utils::math::Matrix4::rows",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "Field",
+                            "qualifiedName": "utils::math::Matrix4::rows",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "utils::math::Matrix4::rows",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "Field",
+                            "qualifiedName": "utils::math::Matrix4::cols",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "Field",
+                            "qualifiedName": "utils::math::Matrix4::cols",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "utils::math::Matrix4::cols",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "Field",
+                            "qualifiedName": "utils::math::Matrix4::determinant",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "Field",
+                            "qualifiedName": "utils::math::Matrix4::determinant",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "utils::math::Matrix4::determinant",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "Field",
+                            "qualifiedName": "utils::math::Matrix4::is_identity",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "Field",
+                            "qualifiedName": "utils::math::Matrix4::is_identity",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "utils::math::Matrix4::is_identity",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "Field",
+                            "qualifiedName": "utils::math::Matrix4::data",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "Field",
+                            "qualifiedName": "utils::math::Matrix4::data",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "utils::math::Matrix4::data",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "Field",
+                            "qualifiedName": "utils::math::Matrix4::transposed",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "Field",
+                            "qualifiedName": "utils::math::Matrix4::transposed",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "utils::math::Matrix4::transposed",
+                    "tag": "modified"
+                },
+                {
+                    "dataType": "mylib::Serializable",
+                    "nodeType": "BaseClass",
+                    "qualifiedName": "mylib::Serializable",
+                    "tag": "added"
+                }
+            ],
+            "nodeType": "Class",
+            "qualifiedName": "utils::math::Matrix4",
+            "tag": "modified"
+        }
+    ],
+    "headerResolutionFailures": [],
+    "parsed_status": 2,
+    "unparsed_status": 0
+}

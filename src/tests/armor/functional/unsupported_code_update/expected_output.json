@@ -4,6 +4,51 @@
             "children": [
                 {
                     "dataType": "int",
+                    "nodeType": "Field",
+                    "qualifiedName": "utils::Logger::flag",
+                    "tag": "added"
+                }
+            ],
+            "nodeType": "Class",
+            "qualifiedName": "utils::Logger",
+            "tag": "modified"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "int",
+                    "nodeType": "Field",
+                    "qualifiedName": "data::DataItem::flag",
+                    "tag": "added"
+                }
+            ],
+            "nodeType": "Class",
+            "qualifiedName": "data::DataItem",
+            "tag": "modified"
+        },
+        {
+            "children": [
+                {
+                    "children": [
+                        {
+                            "dataType": "std::string",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "data::TextData::getContent::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "data::TextData::getContent",
+                    "tag": "removed"
+                }
+            ],
+            "nodeType": "Class",
+            "qualifiedName": "data::TextData",
+            "tag": "modified"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "int",
                     "nodeType": "Enumerator",
                     "qualifiedName": "Status::Corrupt",
                     "tag": "added"

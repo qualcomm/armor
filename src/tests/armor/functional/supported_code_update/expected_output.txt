@@ -67,31 +67,9 @@
 6901770178673578204
 // MYLIB_H
 ----------------------------------------
-NamespaceDecl
-255149993700079628
-namespace Geometry {
-    // Enum for shape types
-    enum ShapeType {
-        CIRCLE,
-        SQUARE,
-        TRIANGLE
-    };
-    
-    // Struct for circle properties
-    struct Circle {
-        struct Point center;
-        double radius;
-    };
-    
-    // Function to calculate area (declaration only)
-    double calculateArea(enum ShapeType type, double dimension);
-}
-----------------------------------------
-NamespaceDecl
-3733523463869372751
-namespace DataStructures {
-    // Class template for a simple container
-    template<typename T>
+ClassTemplateDecl
+5189370169361637452
+template<typename T>
     class Container {
     public:
         T value;
@@ -108,10 +86,31 @@ namespace DataStructures {
         void setValue(T val) {
             value = val;
         }
-    };
-    
-    // Class template for a pair of values
-    template<typename T1, typename T2>
+    }
+----------------------------------------
+CXXRecordNode
+7325576898523339426
+class Container {
+    public:
+        T value;
+        
+        // Constructor
+        Container(T val) : value(val) {}
+        
+        // Get the stored value
+        T getValue() const {
+            return value;
+        }
+        
+        // Set a new value
+        void setValue(T val) {
+            value = val;
+        }
+    }
+----------------------------------------
+ClassTemplateDecl
+2244642721070196810
+template<typename T1, typename T2>
     class Pair {
     private:
         T1 first;
@@ -126,26 +125,37 @@ namespace DataStructures {
         
         // Get second element
         T2 getSecond() const { return second; }
-    };
-}
-----------------------------------------
-NamespaceDecl
-14919458381899508440
-namespace Math {
-    namespace Constants {
-        // Mathematical constants
-        const double PI = 3.14159265359;
-        const double E = 2.71828182846;
     }
-    
-    // Enum for mathematical operations
-    enum Operation {
-        ADD,
-        SUBTRACT,
-        MULTIPLY,
-        DIVIDE
-    };
-}
+----------------------------------------
+CXXRecordNode
+8522544234977770093
+class Pair {
+    private:
+        T1 first;
+        T2 second;
+        
+    public:
+        // Constructor
+        Pair(T1 f, T2 s) : first(f), second(s) {}
+        
+        // Get first element
+        T1 getFirst() const { return first; }
+        
+        // Get second element
+        T2 getSecond() const { return second; }
+    }
+----------------------------------------
+Var init
+PI
+Get the actual end location (after the last token) startOffset == endOffset 
+11971667113246685479
+3.14159265359
+----------------------------------------
+Var init
+E
+Get the actual end location (after the last token) startOffset == endOffset 
+13941356227081248052
+2.71828182846
 ----------------------------------------
 14149454363135089577
 #ifndef MYLIB_H
@@ -231,31 +241,9 @@ namespace Math {
 6901770178673578204
 // MYLIB_H
 ----------------------------------------
-NamespaceDecl
-255149993700079628
-namespace Geometry {
-    // Enum for shape types
-    enum ShapeType {
-        CIRCLE,
-        SQUARE,
-        TRIANGLE
-    };
-    
-    // Struct for circle properties
-    struct Circle {
-        struct Point center;
-        double radius;
-    };
-    
-    // Function to calculate area (declaration only)
-    double calculateArea(enum ShapeType type, double dimension);
-}
-----------------------------------------
-NamespaceDecl
-3733523463869372751
-namespace DataStructures {
-    // Class template for a simple container
-    template<typename T>
+ClassTemplateDecl
+5189370169361637452
+template<typename T>
     class Container {
     public:
         T value;
@@ -273,10 +261,32 @@ namespace DataStructures {
             value = val;
             // may be use a tmp var
         }
-    };
-    
-    // Class template for a pair of values
-    template<typename T1, typename T2>
+    }
+----------------------------------------
+CXXRecordNode
+7325576898523339426
+class Container {
+    public:
+        T value;
+        
+        // Constructor
+        Container(T val) : value(val) {}
+        
+        // Get the stored value
+        T getValue() const {
+            return value;
+        }
+        
+        // Set a new value
+        void setValue(T val) {
+            value = val;
+            // may be use a tmp var
+        }
+    }
+----------------------------------------
+ClassTemplateDecl
+2244642721070196810
+template<typename T1, typename T2>
     class Pair {
     private:
         T1 first;
@@ -293,25 +303,39 @@ namespace DataStructures {
         
         // Get second element
         T2 getSecond() const { return second; }
-    };
-}
-----------------------------------------
-NamespaceDecl
-14919458381899508440
-namespace Math {
-    namespace Constants {
-        // Mathematical constants
-        const double PI = 3.14159265359;
-
-
-        const double E = 2.71828182846;
     }
-    
-    // Enum for mathematical operations
-    enum Operation {
-        ADD,SUBTRACT,MULTIPLY,DIVIDE
-    };
-}
+----------------------------------------
+CXXRecordNode
+8522544234977770093
+class Pair {
+    private:
+        T1 first;
+
+
+        T2 second;
+        
+    public:
+        // Constructor new
+        Pair(T1 f,          T2 s) : first(f), second(s) {}
+        
+        // Get first element
+        T1 getFirst() const { return first; }
+        
+        // Get second element
+        T2 getSecond() const { return second; }
+    }
+----------------------------------------
+Var init
+PI
+Get the actual end location (after the last token) startOffset == endOffset 
+11971667113246685479
+3.14159265359
+----------------------------------------
+Var init
+E
+Get the actual end location (after the last token) startOffset == endOffset 
+13941356227081248052
+2.71828182846
 ----------------------------------------
 14149454363135089577
 #ifndef MYLIB_H
@@ -350,11 +374,14 @@ comments1
 ----------------------------------------
 unhandledDecls1
 15469631829536770432  : 1
+8522544234977770093  : 1
+13941356227081248052  : 1
+11971667113246685479  : 1
 13425203279752416008  : 1
-3733523463869372751  : 1
+7325576898523339426  : 1
 14149454363135089577  : 1
-14919458381899508440  : 1
-255149993700079628  : 1
+2244642721070196810  : 1
+5189370169361637452  : 1
 ----------------------------------------
 inactiveUnhandledDecls1
 (empty)
@@ -390,11 +417,14 @@ comments2
 ----------------------------------------
 unhandledDecls2
 15469631829536770432  : 1
+8522544234977770093  : 1
+13941356227081248052  : 1
+11971667113246685479  : 1
 13425203279752416008  : 1
-3733523463869372751  : 1
+7325576898523339426  : 1
 14149454363135089577  : 1
-14919458381899508440  : 1
-255149993700079628  : 1
+2244642721070196810  : 1
+5189370169361637452  : 1
 ----------------------------------------
 inactiveUnhandledDecls2
 (empty)

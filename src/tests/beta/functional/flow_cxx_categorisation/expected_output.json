@@ -3,6 +3,300 @@
         {
             "children": [
                 {
+                    "children": [
+                        {
+                            "dataType": "int",
+                            "nodeType": "Field",
+                            "qualifiedName": "Vehicle::Specifications::year"
+                        },
+                        {
+                            "dataType": "double",
+                            "nodeType": "Field",
+                            "qualifiedName": "Vehicle::Specifications::engineSize"
+                        },
+                        {
+                            "dataType": "int",
+                            "nodeType": "Typedef",
+                            "qualifiedName": "Vehicle::Specifications::a"
+                        },
+                        {
+                            "children": [
+                                {
+                                    "dataType": "void",
+                                    "nodeType": "ReturnType",
+                                    "qualifiedName": "Vehicle::Specifications::Specifications::(ReturnType)"
+                                }
+                            ],
+                            "nodeType": "Function",
+                            "qualifiedName": "Vehicle::Specifications::Specifications"
+                        },
+                        {
+                            "children": [
+                                {
+                                    "dataType": "int",
+                                    "nodeType": "Field",
+                                    "qualifiedName": "Vehicle::Specifications::alpha::a"
+                                },
+                                {
+                                    "children": [
+                                        {
+                                            "dataType": "void",
+                                            "nodeType": "ReturnType",
+                                            "qualifiedName": "Vehicle::Specifications::alpha::alpha::(ReturnType)"
+                                        }
+                                    ],
+                                    "nodeType": "Function",
+                                    "qualifiedName": "Vehicle::Specifications::alpha::alpha"
+                                }
+                            ],
+                            "nodeType": "Union",
+                            "qualifiedName": "Vehicle::Specifications::alpha"
+                        }
+                    ],
+                    "nodeType": "Struct",
+                    "qualifiedName": "Vehicle::Specifications"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "int",
+                            "nodeType": "Enumerator",
+                            "qualifiedName": "Vehicle::FuelType::GASOLINE"
+                        },
+                        {
+                            "dataType": "int",
+                            "nodeType": "Enumerator",
+                            "qualifiedName": "Vehicle::FuelType::DIESEL"
+                        },
+                        {
+                            "dataType": "int",
+                            "nodeType": "Enumerator",
+                            "qualifiedName": "Vehicle::FuelType::ELECTRIC"
+                        }
+                    ],
+                    "nodeType": "Enum",
+                    "qualifiedName": "Vehicle::FuelType"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "int",
+                            "nodeType": "Field",
+                            "qualifiedName": "Vehicle::EngineData::cylinderCount"
+                        },
+                        {
+                            "dataType": "double",
+                            "nodeType": "Field",
+                            "qualifiedName": "Vehicle::EngineData::batteryCapacity"
+                        },
+                        {
+                            "children": [
+                                {
+                                    "dataType": "void",
+                                    "nodeType": "ReturnType",
+                                    "qualifiedName": "Vehicle::EngineData::EngineData::(ReturnType)"
+                                }
+                            ],
+                            "nodeType": "Function",
+                            "qualifiedName": "Vehicle::EngineData::EngineData"
+                        }
+                    ],
+                    "nodeType": "Union",
+                    "qualifiedName": "Vehicle::EngineData"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "Vehicle::Vehicle::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "Vehicle::Vehicle"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "Vehicle::~Vehicle::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "Vehicle::~Vehicle"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "Vehicle::start::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "Vehicle::start"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "double",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "Vehicle::getSpeed::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "Vehicle::getSpeed"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "int",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "Vehicle::getVehicleCount::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "Vehicle::getVehicleCount"
+                },
+                {
+                    "dataType": "std::string",
+                    "nodeType": "Field",
+                    "qualifiedName": "Vehicle::make"
+                },
+                {
+                    "dataType": "double",
+                    "nodeType": "Field",
+                    "qualifiedName": "Vehicle::speed"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Field",
+                    "qualifiedName": "Vehicle::vehicleCount"
+                }
+            ],
+            "nodeType": "Class",
+            "qualifiedName": "Vehicle",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "children": [
+                        {
+                            "dataType": "double",
+                            "nodeType": "Field",
+                            "qualifiedName": "Engine::EngineSpecs::displacement"
+                        },
+                        {
+                            "children": [
+                                {
+                                    "dataType": "void",
+                                    "nodeType": "ReturnType",
+                                    "qualifiedName": "Engine::EngineSpecs::EngineSpecs::(ReturnType)"
+                                }
+                            ],
+                            "nodeType": "Function",
+                            "qualifiedName": "Engine::EngineSpecs::EngineSpecs"
+                        }
+                    ],
+                    "nodeType": "Struct",
+                    "qualifiedName": "Engine::EngineSpecs"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "int",
+                            "nodeType": "Enumerator",
+                            "qualifiedName": "Engine::EngineType::INLINE"
+                        },
+                        {
+                            "dataType": "int",
+                            "nodeType": "Enumerator",
+                            "qualifiedName": "Engine::EngineType::V_TYPE"
+                        },
+                        {
+                            "dataType": "int",
+                            "nodeType": "Enumerator",
+                            "qualifiedName": "Engine::EngineType::ELECTRIC"
+                        }
+                    ],
+                    "nodeType": "Enum",
+                    "qualifiedName": "Engine::EngineType"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "Engine::Engine::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "Engine::Engine"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "Engine::start::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "Engine::start"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "int",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "Engine::getRPM::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "Engine::getRPM"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "enum Engine::EngineType",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "Engine::getDefaultType::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "Engine::getDefaultType"
+                },
+                {
+                    "dataType": "enum Engine::EngineType",
+                    "nodeType": "Field",
+                    "qualifiedName": "Engine::type"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Field",
+                    "qualifiedName": "Engine::rpm"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "Engine::updateTemperature::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "Engine::updateTemperature"
+                }
+            ],
+            "nodeType": "Class",
+            "qualifiedName": "Engine",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
                     "dataType": "int",
                     "nodeType": "Field",
                     "qualifiedName": "Vertex::id"
@@ -348,6 +642,426 @@
             ],
             "nodeType": "Struct",
             "qualifiedName": "ComplexStructure",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "children": [
+                        {
+                            "dataType": "std::string",
+                            "nodeType": "Field",
+                            "qualifiedName": "Network::Connection::ConnectionInfo::host"
+                        },
+                        {
+                            "dataType": "int",
+                            "nodeType": "Field",
+                            "qualifiedName": "Network::Connection::ConnectionInfo::port"
+                        },
+                        {
+                            "children": [
+                                {
+                                    "dataType": "void",
+                                    "nodeType": "ReturnType",
+                                    "qualifiedName": "Network::Connection::ConnectionInfo::ConnectionInfo::(ReturnType)"
+                                }
+                            ],
+                            "nodeType": "Function",
+                            "qualifiedName": "Network::Connection::ConnectionInfo::ConnectionInfo"
+                        }
+                    ],
+                    "nodeType": "Struct",
+                    "qualifiedName": "Network::Connection::ConnectionInfo"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "int",
+                            "nodeType": "Enumerator",
+                            "qualifiedName": "Network::Connection::ConnectionState::CLOSED"
+                        },
+                        {
+                            "dataType": "int",
+                            "nodeType": "Enumerator",
+                            "qualifiedName": "Network::Connection::ConnectionState::OPEN"
+                        }
+                    ],
+                    "nodeType": "Enum",
+                    "qualifiedName": "Network::Connection::ConnectionState"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "Network::Connection::Connection::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "Network::Connection::Connection"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "Network::Connection::open::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "Network::Connection::open"
+                },
+                {
+                    "dataType": "enum Network::Connection::ConnectionState",
+                    "nodeType": "Field",
+                    "qualifiedName": "Network::Connection::state"
+                }
+            ],
+            "nodeType": "Class",
+            "qualifiedName": "Network::Connection",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "int",
+                    "nodeType": "Enumerator",
+                    "qualifiedName": "Network::Protocol::TCP"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Enumerator",
+                    "qualifiedName": "Network::Protocol::UDP"
+                }
+            ],
+            "nodeType": "Enum",
+            "qualifiedName": "Network::Protocol",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "enum Color",
+                    "nodeType": "Field",
+                    "qualifiedName": "Shape::color"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "enum Color",
+                            "nodeType": "Parameter",
+                            "qualifiedName": "Shape::Shape::1"
+                        },
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "Shape::Shape::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "Shape::Shape"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "Shape::~Shape::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "Shape::~Shape"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "double",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "Shape::area::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "Shape::area"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "Shape::draw::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "Shape::draw"
+                }
+            ],
+            "nodeType": "Class",
+            "qualifiedName": "Shape",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "class Shape",
+                    "nodeType": "BaseClass",
+                    "qualifiedName": "Shape"
+                },
+                {
+                    "dataType": "double",
+                    "nodeType": "Field",
+                    "qualifiedName": "Circle::radius"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "double",
+                            "nodeType": "Parameter",
+                            "qualifiedName": "Circle::Circle::1"
+                        },
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "Circle::Circle::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "Circle::Circle"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "double",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "Circle::area::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "Circle::area"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "Circle::draw::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "Circle::draw"
+                }
+            ],
+            "nodeType": "Class",
+            "qualifiedName": "Circle",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "children": [
+                        {
+                            "dataType": "int",
+                            "nodeType": "Field",
+                            "qualifiedName": "ComplexClass::NestedStruct::x"
+                        },
+                        {
+                            "children": [
+                                {
+                                    "dataType": "int",
+                                    "nodeType": "Enumerator",
+                                    "qualifiedName": "ComplexClass::NestedStruct::StructEnum::OPTION_A"
+                                },
+                                {
+                                    "dataType": "int",
+                                    "nodeType": "Enumerator",
+                                    "qualifiedName": "ComplexClass::NestedStruct::StructEnum::OPTION_B"
+                                }
+                            ],
+                            "nodeType": "Enum",
+                            "qualifiedName": "ComplexClass::NestedStruct::StructEnum"
+                        },
+                        {
+                            "children": [
+                                {
+                                    "dataType": "void",
+                                    "nodeType": "ReturnType",
+                                    "qualifiedName": "ComplexClass::NestedStruct::NestedStruct::(ReturnType)"
+                                }
+                            ],
+                            "nodeType": "Function",
+                            "qualifiedName": "ComplexClass::NestedStruct::NestedStruct"
+                        }
+                    ],
+                    "nodeType": "Struct",
+                    "qualifiedName": "ComplexClass::NestedStruct"
+                },
+                {
+                    "children": [
+                        {
+                            "children": [
+                                {
+                                    "dataType": "double",
+                                    "nodeType": "Field",
+                                    "qualifiedName": "ComplexClass::NestedClass::ClassStruct::value"
+                                },
+                                {
+                                    "children": [
+                                        {
+                                            "dataType": "void",
+                                            "nodeType": "ReturnType",
+                                            "qualifiedName": "ComplexClass::NestedClass::ClassStruct::ClassStruct::(ReturnType)"
+                                        }
+                                    ],
+                                    "nodeType": "Function",
+                                    "qualifiedName": "ComplexClass::NestedClass::ClassStruct::ClassStruct"
+                                }
+                            ],
+                            "nodeType": "Struct",
+                            "qualifiedName": "ComplexClass::NestedClass::ClassStruct"
+                        },
+                        {
+                            "children": [
+                                {
+                                    "dataType": "void",
+                                    "nodeType": "ReturnType",
+                                    "qualifiedName": "ComplexClass::NestedClass::NestedClass::(ReturnType)"
+                                }
+                            ],
+                            "nodeType": "Function",
+                            "qualifiedName": "ComplexClass::NestedClass::NestedClass"
+                        }
+                    ],
+                    "nodeType": "Class",
+                    "qualifiedName": "ComplexClass::NestedClass"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "int",
+                            "nodeType": "Enumerator",
+                            "qualifiedName": "ComplexClass::NestedEnum::VALUE_1"
+                        },
+                        {
+                            "dataType": "int",
+                            "nodeType": "Enumerator",
+                            "qualifiedName": "ComplexClass::NestedEnum::VALUE_2"
+                        }
+                    ],
+                    "nodeType": "Enum",
+                    "qualifiedName": "ComplexClass::NestedEnum"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "int",
+                            "nodeType": "Field",
+                            "qualifiedName": "ComplexClass::NestedUnion::intValue"
+                        },
+                        {
+                            "dataType": "float",
+                            "nodeType": "Field",
+                            "qualifiedName": "ComplexClass::NestedUnion::floatValue"
+                        },
+                        {
+                            "children": [
+                                {
+                                    "dataType": "void",
+                                    "nodeType": "ReturnType",
+                                    "qualifiedName": "ComplexClass::NestedUnion::NestedUnion::(ReturnType)"
+                                }
+                            ],
+                            "nodeType": "Function",
+                            "qualifiedName": "ComplexClass::NestedUnion::NestedUnion"
+                        }
+                    ],
+                    "nodeType": "Union",
+                    "qualifiedName": "ComplexClass::NestedUnion"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "ComplexClass::ComplexClass::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "ComplexClass::ComplexClass"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "ComplexClass::simpleMethod::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "ComplexClass::simpleMethod"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Field",
+                    "qualifiedName": "ComplexClass::data"
+                }
+            ],
+            "nodeType": "Class",
+            "qualifiedName": "ComplexClass",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "children": [
+                        {
+                            "children": [
+                                {
+                                    "dataType": "int",
+                                    "nodeType": "Enumerator",
+                                    "qualifiedName": "ComplexNamespace::OuterClass::InnerStruct::InnerEnum::A"
+                                },
+                                {
+                                    "dataType": "int",
+                                    "nodeType": "Enumerator",
+                                    "qualifiedName": "ComplexNamespace::OuterClass::InnerStruct::InnerEnum::B"
+                                }
+                            ],
+                            "nodeType": "Enum",
+                            "qualifiedName": "ComplexNamespace::OuterClass::InnerStruct::InnerEnum"
+                        },
+                        {
+                            "dataType": "int",
+                            "nodeType": "Field",
+                            "qualifiedName": "ComplexNamespace::OuterClass::InnerStruct::data"
+                        },
+                        {
+                            "children": [
+                                {
+                                    "dataType": "void",
+                                    "nodeType": "ReturnType",
+                                    "qualifiedName": "ComplexNamespace::OuterClass::InnerStruct::InnerStruct::(ReturnType)"
+                                }
+                            ],
+                            "nodeType": "Function",
+                            "qualifiedName": "ComplexNamespace::OuterClass::InnerStruct::InnerStruct"
+                        }
+                    ],
+                    "nodeType": "Struct",
+                    "qualifiedName": "ComplexNamespace::OuterClass::InnerStruct"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "ComplexNamespace::OuterClass::OuterClass::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "ComplexNamespace::OuterClass::OuterClass"
+                }
+            ],
+            "nodeType": "Class",
+            "qualifiedName": "ComplexNamespace::OuterClass",
             "tag": "removed"
         }
     ],

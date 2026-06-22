@@ -109,21 +109,21 @@ namespace mylib {
     // Type aliases
     using byte_t = uint8_t;
     using size_type = std::size_t;
-    
+
     // Enumeration
     enum class ErrorCode : int32_t {
         SUCCESS = 0,
         FAILURE = -1,
         INVALID_ARGUMENT = -2
     };
-    
+
     // Structure
     struct Point3D {
         float x, y, z;
         Point3D() : x(0.0f), y(0.0f), z(0.0f) {}
         Point3D(float x_, float y_, float z_) : x(x_), y(y_), z(z_) {}
     };
-    
+
     // Union
     union DataUnion {
         int32_t i32;
@@ -143,17 +143,17 @@ namespace mylib {
         ~SmartPointer() { delete ptr_; }
         T* get() const { return ptr_; }
     };
-    
+
     // Template Function
     template<typename T>
     MYLIB_FORCE_INLINE void swap(T& a, T& b) {
         T temp = a; a = b; b = temp;
     }
-    
+
     // Function Declarations
     ErrorCode initializeLibrary();
     void* allocateAligned(size_type size, size_type alignment);
-    
+
 } // namespace mylib
 
 // ============================================================================
@@ -168,9 +168,9 @@ inline int processData(void* data, size_t size, int flags) {
         MYLIB_ASSERT(data != nullptr, "Data pointer is null");
         printf("[DEBUG] Processing %zu bytes, Flags: 0x%X\n", size, flags);
     #endif
-    
+
     int result = 0;
-    
+
     // Platform-specific memory allocation
     #ifdef MYLIB_PLATFORM_WINDOWS
         void* buffer = _aligned_malloc(size, 16);
@@ -188,9 +188,9 @@ inline int processData(void* data, size_t size, int flags) {
     #else
         void* buffer = malloc(size);
     #endif
-    
+
     if (!buffer) return -1;
-    
+
     // Threading support
     #ifdef MYLIB_ENABLE_THREADING
         static std::mutex mtx;
@@ -201,7 +201,7 @@ inline int processData(void* data, size_t size, int flags) {
         static int count = 0;
         result = ++count;
     #endif
-    
+
     // Flag-based processing with compiler-specific code
     if (flags & 0x01) {
         #ifdef MYLIB_COMPILER_MSVC
@@ -212,7 +212,7 @@ inline int processData(void* data, size_t size, int flags) {
             result += 300;
         #endif
     }
-    
+
     if (flags & 0x02) {
         #ifdef MYLIB_PLATFORM_WINDOWS
             result += 1000;
@@ -224,21 +224,21 @@ inline int processData(void* data, size_t size, int flags) {
             result += 4000;
         #endif
     }
-    
+
     #ifdef MYLIB_DEBUG
         #define NEW_LIB
         static size_t totalBytes = 0;
         totalBytes += size;
         printf("[DEBUG] Total processed: %zu bytes, Result: %d\n", totalBytes, result);
     #endif
-    
+
     // Platform-specific cleanup
     #ifdef MYLIB_PLATFORM_WINDOWS
         _aligned_free(buffer);
     #else
         free(buffer);
     #endif
-    
+
     return result;
 }
 

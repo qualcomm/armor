@@ -1,0 +1,384 @@
+[
+    {
+        "children": [
+            {
+                "children": [
+                    {
+                        "children": [
+                            {
+                                "dataType": "void",
+                                "nodeType": "ReturnType",
+                                "qualifiedName": "mylib::displayPersonDetails::(ReturnType)",
+                                "tag": "removed"
+                            },
+                            {
+                                "dataType": "bool",
+                                "nodeType": "ReturnType",
+                                "qualifiedName": "mylib::displayPersonDetails::(ReturnType)",
+                                "tag": "added"
+                            }
+                        ],
+                        "nodeType": "ReturnType",
+                        "qualifiedName": "mylib::displayPersonDetails::(ReturnType)",
+                        "tag": "modified"
+                    }
+                ],
+                "nodeType": "FriendFunction",
+                "qualifiedName": "mylib::displayPersonDetails",
+                "tag": "modified"
+            },
+            {
+                "dataType": "std::vector<std::string>",
+                "nodeType": "Field",
+                "qualifiedName": "mylib::Person::hobbies",
+                "tag": "added"
+            },
+            {
+                "children": [
+                    {
+                        "dataType": "const std::string &",
+                        "nodeType": "Parameter",
+                        "qualifiedName": "mylib::Person::addHobby::1"
+                    },
+                    {
+                        "dataType": "void",
+                        "nodeType": "ReturnType",
+                        "qualifiedName": "mylib::Person::addHobby::(ReturnType)"
+                    }
+                ],
+                "nodeType": "Function",
+                "qualifiedName": "mylib::Person::addHobby",
+                "tag": "added"
+            }
+        ],
+        "nodeType": "Class",
+        "qualifiedName": "mylib::Person",
+        "tag": "modified"
+    },
+    {
+        "children": [
+            {
+                "children": [
+                    {
+                        "dataType": "void",
+                        "nodeType": "ReturnType",
+                        "qualifiedName": "mylib::displayPersonDetails::(ReturnType)",
+                        "tag": "removed"
+                    },
+                    {
+                        "dataType": "bool",
+                        "nodeType": "ReturnType",
+                        "qualifiedName": "mylib::displayPersonDetails::(ReturnType)",
+                        "tag": "added"
+                    }
+                ],
+                "nodeType": "ReturnType",
+                "qualifiedName": "mylib::displayPersonDetails::(ReturnType)",
+                "tag": "modified"
+            }
+        ],
+        "nodeType": "Function",
+        "qualifiedName": "mylib::displayPersonDetails",
+        "tag": "modified"
+    },
+    {
+        "children": [
+            {
+                "children": [
+                    {
+                        "dataType": "const std::string &",
+                        "nodeType": "Parameter",
+                        "qualifiedName": "mylib::Complex::Complex::3",
+                        "tag": "added"
+                    }
+                ],
+                "nodeType": "Function",
+                "qualifiedName": "mylib::Complex::Complex",
+                "tag": "modified"
+            },
+            {
+                "children": [
+                    {
+                        "dataType": "const class mylib::Complex &",
+                        "nodeType": "Parameter",
+                        "qualifiedName": "mylib::operator*::1"
+                    },
+                    {
+                        "dataType": "const class mylib::Complex &",
+                        "nodeType": "Parameter",
+                        "qualifiedName": "mylib::operator*::2"
+                    },
+                    {
+                        "dataType": "class mylib::Complex",
+                        "nodeType": "ReturnType",
+                        "qualifiedName": "mylib::operator*::(ReturnType)"
+                    }
+                ],
+                "nodeType": "FriendFunction",
+                "qualifiedName": "mylib::operator*",
+                "tag": "added"
+            },
+            {
+                "dataType": "std::string",
+                "nodeType": "Field",
+                "qualifiedName": "mylib::Complex::label",
+                "tag": "added"
+            }
+        ],
+        "nodeType": "Class",
+        "qualifiedName": "mylib::Complex",
+        "tag": "modified"
+    },
+    {
+        "children": [
+            {
+                "children": [
+                    {
+                        "children": [
+                            {
+                                "children": [
+                                    {
+                                        "dataType": "int",
+                                        "nodeType": "Parameter",
+                                        "qualifiedName": "mylib::serviceCar::3::2",
+                                        "tag": "removed"
+                                    }
+                                ],
+                                "nodeType": "FunctionPointer",
+                                "qualifiedName": "mylib::serviceCar::3",
+                                "tag": "modified"
+                            }
+                        ],
+                        "nodeType": "Parameter",
+                        "qualifiedName": "mylib::serviceCar::3",
+                        "tag": "modified"
+                    }
+                ],
+                "nodeType": "FriendFunction",
+                "qualifiedName": "mylib::serviceCar",
+                "tag": "modified"
+            },
+            {
+                "children": [
+                    {
+                        "dataType": "const std::string &",
+                        "nodeType": "Parameter",
+                        "qualifiedName": "mylib::Engine::Engine::2",
+                        "tag": "added"
+                    }
+                ],
+                "nodeType": "Function",
+                "qualifiedName": "mylib::Engine::Engine",
+                "tag": "modified"
+            },
+            {
+                "dataType": "std::string",
+                "nodeType": "Field",
+                "qualifiedName": "mylib::Engine::manufacturer",
+                "tag": "added"
+            },
+            {
+                "children": [
+                    {
+                        "dataType": "std::string",
+                        "nodeType": "ReturnType",
+                        "qualifiedName": "mylib::Engine::getManufacturer::(ReturnType)"
+                    }
+                ],
+                "nodeType": "Function",
+                "qualifiedName": "mylib::Engine::getManufacturer",
+                "tag": "added"
+            }
+        ],
+        "nodeType": "Class",
+        "qualifiedName": "mylib::Engine",
+        "tag": "modified"
+    },
+    {
+        "children": [
+            {
+                "children": [
+                    {
+                        "children": [
+                            {
+                                "children": [
+                                    {
+                                        "dataType": "int",
+                                        "nodeType": "Parameter",
+                                        "qualifiedName": "mylib::serviceCar::3::2",
+                                        "tag": "removed"
+                                    }
+                                ],
+                                "nodeType": "FunctionPointer",
+                                "qualifiedName": "mylib::serviceCar::3",
+                                "tag": "modified"
+                            }
+                        ],
+                        "nodeType": "Parameter",
+                        "qualifiedName": "mylib::serviceCar::3",
+                        "tag": "modified"
+                    }
+                ],
+                "nodeType": "FriendFunction",
+                "qualifiedName": "mylib::serviceCar",
+                "tag": "modified"
+            },
+            {
+                "children": [
+                    {
+                        "dataType": "const std::string &",
+                        "nodeType": "Parameter",
+                        "qualifiedName": "mylib::Car::Car::3",
+                        "tag": "added"
+                    }
+                ],
+                "nodeType": "Function",
+                "qualifiedName": "mylib::Car::Car",
+                "tag": "modified"
+            },
+            {
+                "dataType": "std::string",
+                "nodeType": "Field",
+                "qualifiedName": "mylib::Car::color",
+                "tag": "added"
+            },
+            {
+                "children": [
+                    {
+                        "dataType": "std::string",
+                        "nodeType": "ReturnType",
+                        "qualifiedName": "mylib::Car::getColor::(ReturnType)"
+                    }
+                ],
+                "nodeType": "Function",
+                "qualifiedName": "mylib::Car::getColor",
+                "tag": "added"
+            }
+        ],
+        "nodeType": "Class",
+        "qualifiedName": "mylib::Car",
+        "tag": "modified"
+    },
+    {
+        "children": [
+            {
+                "children": [
+                    {
+                        "children": [
+                            {
+                                "dataType": "int",
+                                "nodeType": "Parameter",
+                                "qualifiedName": "mylib::serviceCar::3::2",
+                                "tag": "removed"
+                            }
+                        ],
+                        "nodeType": "FunctionPointer",
+                        "qualifiedName": "mylib::serviceCar::3",
+                        "tag": "modified"
+                    }
+                ],
+                "nodeType": "Parameter",
+                "qualifiedName": "mylib::serviceCar::3",
+                "tag": "modified"
+            }
+        ],
+        "nodeType": "Function",
+        "qualifiedName": "mylib::serviceCar",
+        "tag": "modified"
+    },
+    {
+        "children": [
+            {
+                "children": [
+                    {
+                        "dataType": "double",
+                        "nodeType": "Parameter",
+                        "qualifiedName": "mylib::BankAccount::BankAccount::3",
+                        "tag": "added"
+                    }
+                ],
+                "nodeType": "Function",
+                "qualifiedName": "mylib::BankAccount::BankAccount",
+                "tag": "modified"
+            },
+            {
+                "dataType": "double",
+                "nodeType": "Field",
+                "qualifiedName": "mylib::BankAccount::interestRate",
+                "tag": "added"
+            }
+        ],
+        "nodeType": "Class",
+        "qualifiedName": "mylib::BankAccount",
+        "tag": "modified"
+    },
+    {
+        "children": [
+            {
+                "dataType": "std::string",
+                "nodeType": "Field",
+                "qualifiedName": "mylib::BankManager::branchCode",
+                "tag": "added"
+            },
+            {
+                "children": [
+                    {
+                        "dataType": "const std::string &",
+                        "nodeType": "Parameter",
+                        "qualifiedName": "mylib::BankManager::BankManager::1"
+                    },
+                    {
+                        "dataType": "void",
+                        "nodeType": "ReturnType",
+                        "qualifiedName": "mylib::BankManager::BankManager::(ReturnType)"
+                    }
+                ],
+                "nodeType": "Function",
+                "qualifiedName": "mylib::BankManager::BankManager",
+                "tag": "added"
+            },
+            {
+                "children": [
+                    {
+                        "dataType": "class mylib::BankAccount &",
+                        "nodeType": "Parameter",
+                        "qualifiedName": "mylib::BankManager::applyInterest::1"
+                    },
+                    {
+                        "dataType": "void",
+                        "nodeType": "ReturnType",
+                        "qualifiedName": "mylib::BankManager::applyInterest::(ReturnType)"
+                    }
+                ],
+                "nodeType": "Function",
+                "qualifiedName": "mylib::BankManager::applyInterest",
+                "tag": "added"
+            }
+        ],
+        "nodeType": "Class",
+        "qualifiedName": "mylib::BankManager",
+        "tag": "modified"
+    },
+    {
+        "children": [
+            {
+                "dataType": "const class mylib::Complex &",
+                "nodeType": "Parameter",
+                "qualifiedName": "mylib::operator*::1"
+            },
+            {
+                "dataType": "const class mylib::Complex &",
+                "nodeType": "Parameter",
+                "qualifiedName": "mylib::operator*::2"
+            },
+            {
+                "dataType": "class mylib::Complex",
+                "nodeType": "ReturnType",
+                "qualifiedName": "mylib::operator*::(ReturnType)"
+            }
+        ],
+        "nodeType": "Function",
+        "qualifiedName": "mylib::operator*",
+        "tag": "added"
+    }
+]

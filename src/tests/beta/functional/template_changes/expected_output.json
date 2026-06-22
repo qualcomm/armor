@@ -63,6 +63,47 @@
     {
         "children": [
             {
+                "children": [
+                    {
+                        "dataType": "double",
+                        "nodeType": "Parameter",
+                        "qualifiedName": "Point::setX::1"
+                    },
+                    {
+                        "dataType": "void",
+                        "nodeType": "ReturnType",
+                        "qualifiedName": "Point::setX::(ReturnType)"
+                    }
+                ],
+                "nodeType": "Function",
+                "qualifiedName": "Point::setX",
+                "tag": "added"
+            },
+            {
+                "children": [
+                    {
+                        "dataType": "double",
+                        "nodeType": "Parameter",
+                        "qualifiedName": "Point::setY::1"
+                    },
+                    {
+                        "dataType": "void",
+                        "nodeType": "ReturnType",
+                        "qualifiedName": "Point::setY::(ReturnType)"
+                    }
+                ],
+                "nodeType": "Function",
+                "qualifiedName": "Point::setY",
+                "tag": "added"
+            }
+        ],
+        "nodeType": "Class",
+        "qualifiedName": "Point",
+        "tag": "modified"
+    },
+    {
+        "children": [
+            {
                 "dataType": "int",
                 "nodeType": "Parameter",
                 "qualifiedName": "add::1"

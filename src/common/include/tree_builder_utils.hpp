@@ -6,6 +6,7 @@
 
 #include "clang/AST/ASTContext.h"
 #include "clang/AST/Decl.h"
+#include "clang/AST/DeclBase.h"
 #include "clang/AST/Type.h"
 #include "clang/AST/TypeLoc.h"
 
@@ -14,13 +15,17 @@
 
 APINodeStorageClass getStorageClass(const clang::StorageClass storage);
 
+AccessSpec getAccessSpecifier(const clang::AccessSpecifier spec);
+
 clang::QualType unwrapType(clang::QualType type);
 
 std::pair<std::string, clang::TypeLoc> unwrapTypeLoc(clang::TypeLoc TL);
 
-const std::string generateUSRForDecl(const clang::NamedDecl * Decl);
+const std::string generateUSRForDecl(const clang::Decl * Decl);
 
-const std::string generateNSRForDecl(const clang::NamedDecl * Decl);
+const std::string generateNSRForDecl(const clang::Decl * Decl);
+
+const std::string generateQualifiedNameForDecl(const clang::NamedDecl *Decl);
 
 const std::pair<const std::string,const std::string> getTypesWithAndWithoutTypeResolution(const clang::QualType T, const clang::ASTContext &Ctx);
 
