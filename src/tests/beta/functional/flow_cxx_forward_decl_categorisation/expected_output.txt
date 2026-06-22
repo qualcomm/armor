@@ -76,53 +76,86 @@
 16327800532607047903
 // ADVANCED_LIBRARY_HPP
 ----------------------------------------
-NamespaceDecl
-2129729101834559661
-namespace core {
-    template<typename T>
-    class SmartContainer;
-    
-    template<typename Key, typename Value>
-    class CacheManager;
-    
-    class ResourceManager;
-    class ThreadPool;
-}
+ClassTemplateDecl
+12605193343577708732
+template<typename T>
+    class SmartContainer
 ----------------------------------------
-NamespaceDecl
-7520808121768448977
-namespace utils {
-    template<typename... Args>
-    class TypeList;
-    
-    template<typename T>
-    struct TypeTraits;
-    
-    class Logger;
-}
+CXXRecordNode
+4805977141514113120
+class SmartContainer
 ----------------------------------------
-NamespaceDecl
-13830217567161408020
-namespace algorithms {
-    template<typename Iterator, typename Predicate>
-    class FilterIterator;
-    
-    template<typename T, template<typename> class Container>
-    class SortedContainer;
-}
+ClassTemplateDecl
+6777471705316382140
+template<typename Key, typename Value>
+    class CacheManager
 ----------------------------------------
-NamespaceDecl
-15041612493158612964
-namespace patterns {
-    template<typename T>
-    class Singleton;
-    
-    template<typename Event>
-    class Observer;
-    
-    template<typename Event>
-    class Subject;
-}
+CXXRecordNode
+4805977141514113120
+class CacheManager
+----------------------------------------
+ClassTemplateDecl
+15330433887295909833
+template<typename... Args>
+    class TypeList
+----------------------------------------
+CXXRecordNode
+4805977141514113120
+class TypeList
+----------------------------------------
+ClassTemplateDecl
+11233548948135257636
+template<typename T>
+    struct TypeTraits
+----------------------------------------
+CXXRecordNode
+17997269513964955839
+struct TypeTraits
+----------------------------------------
+ClassTemplateDecl
+12829587491514012807
+template<typename Iterator, typename Predicate>
+    class FilterIterator
+----------------------------------------
+CXXRecordNode
+4805977141514113120
+class FilterIterator
+----------------------------------------
+ClassTemplateDecl
+5172161306758569
+template<typename T, template<typename> class Container>
+    class SortedContainer
+----------------------------------------
+CXXRecordNode
+4805977141514113120
+class SortedContainer
+----------------------------------------
+ClassTemplateDecl
+12605193343577708732
+template<typename T>
+    class Singleton
+----------------------------------------
+CXXRecordNode
+4805977141514113120
+class Singleton
+----------------------------------------
+ClassTemplateDecl
+6792005687551858551
+template<typename Event>
+    class Observer
+----------------------------------------
+CXXRecordNode
+4805977141514113120
+class Observer
+----------------------------------------
+ClassTemplateDecl
+6792005687551858551
+template<typename Event>
+    class Subject
+----------------------------------------
+CXXRecordNode
+4805977141514113120
+class Subject
 ----------------------------------------
 ClassTemplateDecl
 6976754890114598739
@@ -247,31 +280,61 @@ TemplatedVarDecl
 13777058166482422898
 constexpr bool is_hashable_v = is_hashable<T>::value
 ----------------------------------------
-NamespaceDecl
-12125070630336335434
-namespace core {
-    
-    // SFINAE helper templates
-    template<typename T, typename = void>
-    struct has_size : std::false_type {};
-    
-    template<typename T>
-    struct has_size<T, decltype(std::declval<T>().size(), void())> : std::true_type {};
-    
-    template<typename T>
-    constexpr bool has_size_v = has_size<T>::value;
-    
-    // Variadic template for type manipulation
-    template<typename... Types>
+ClassTemplateDecl
+7248860737130795655
+template<typename T, typename = void>
+    struct has_size : std::false_type {}
+----------------------------------------
+CXXRecordNode
+5228774787850348500
+struct has_size : std::false_type {}
+----------------------------------------
+CXXRecordNode
+12121066701742457565
+template<typename T>
+    struct has_size<T, decltype(std::declval<T>().size(), void())> : std::true_type {}
+----------------------------------------
+ClassTemplateSpecializationDecl
+12121066701742457565
+template<typename T>
+    struct has_size<T, decltype(std::declval<T>().size(), void())> : std::true_type {}
+----------------------------------------
+ClassTemplatePartialSpecializationDecl
+12121066701742457565
+template<typename T>
+    struct has_size<T, decltype(std::declval<T>().size(), void())> : std::true_type {}
+----------------------------------------
+VarTemplateDecl
+5475486312854161822
+template<typename T>
+    constexpr bool has_size_v = has_size<T>::value
+----------------------------------------
+TemplatedVarDecl
+7768499307285948366
+constexpr bool has_size_v = has_size<T>::value
+----------------------------------------
+ClassTemplateDecl
+1020362817077519952
+template<typename... Types>
     struct TypePack {
         static constexpr std::size_t size = sizeof...(Types);
         
         template<std::size_t N>
         using type_at = std::tuple_element_t<N, std::tuple<Types...>>;
-    };
-     
-    // Cache manager with LRU eviction policy
-    template<typename Key, typename Value>
+    }
+----------------------------------------
+CXXRecordNode
+15883954513678912815
+struct TypePack {
+        static constexpr std::size_t size = sizeof...(Types);
+        
+        template<std::size_t N>
+        using type_at = std::tuple_element_t<N, std::tuple<Types...>>;
+    }
+----------------------------------------
+ClassTemplateDecl
+2811320887414440846
+template<typename Key, typename Value>
     class CacheManager {
     private:
         struct CacheNode {
@@ -317,65 +380,102 @@ namespace core {
         };
         
         Statistics get_statistics() const;
-    };
-    
-    // Resource manager with RAII
-    class ResourceManager {
+    }
+----------------------------------------
+CXXRecordNode
+7492185790156506743
+class CacheManager {
     private:
-        struct Resource {
-            std::string name;
-            std::function<void()> deleter;
-            std::chrono::steady_clock::time_point created_at;
+        struct CacheNode {
+            Key key;
+            Value value;
+            std::chrono::steady_clock::time_point timestamp;
+            std::size_t access_count{0};
             
-            Resource(std::string n, std::function<void()> d)
-                : name(std::move(n)), deleter(std::move(d)),
-                  created_at(std::chrono::steady_clock::now()) {}
+            CacheNode(Key k, Value v) 
+                : key(std::move(k)), value(std::move(v)), 
+                  timestamp(std::chrono::steady_clock::now()) {}
         };
         
-        std::vector<std::unique_ptr<Resource>> resources_;
+        std::unordered_map<Key, std::unique_ptr<CacheNode>> cache_;
+        std::size_t max_size_;
         mutable std::mutex mutex_;
         
-    public:
-        template<typename T, typename... Args>
-        std::shared_ptr<T> create_resource(const std::string& name, Args&&... args);
-        
-        void release_resource(const std::string& name);
-        void release_all();
-        
-        std::size_t resource_count() const;
-        std::vector<std::string> get_resource_names() const;
-        
-        ~ResourceManager();
-    };
-    
-    // Thread pool implementation
-    class ThreadPool {
-    private:
-        std::vector<std::thread> workers_;
-        std::queue<std::function<void()>> tasks_;
-        std::mutex queue_mutex_;
-        std::condition_variable condition_;
-        std::atomic<bool> stop_{false};
+        void evict_lru();
         
     public:
-        explicit ThreadPool(std::size_t num_threads = std::thread::hardware_concurrency());
+        explicit CacheManager(std::size_t max_size = 1000);
         
-        template<typename F, typename... Args>
-        auto enqueue(F&& f, Args&&... args) 
-            -> std::future<typename std::result_of<F(Args...)>::type>;
+        void put(const Key& key, const Value& value);
+        void put(Key&& key, Value&& value);
         
-        std::size_t size() const { return workers_.size(); }
+        bool get(const Key& key, Value& value);
         
-        ~ThreadPool();
-    };
-}
+        bool contains(const Key& key) const;
+        void remove(const Key& key);
+        void clear();
+        
+        std::size_t size() const;
+        std::size_t max_size() const { return max_size_; }
+        
+        // Statistics
+        struct Statistics {
+            std::size_t hits{0};
+            std::size_t misses{0};
+            std::size_t evictions{0};
+            double hit_ratio() const { 
+                return hits + misses > 0 ? static_cast<double>(hits) / (hits + misses) : 0.0; 
+            }
+        };
+        
+        Statistics get_statistics() const;
+    }
 ----------------------------------------
-NamespaceDecl
-4723799125552439417
-namespace utils {
-    
-    // Compile-time type list manipulation
-    template<typename... Args>
+Function Body
+Resource
+15521860531219160998
+{}
+----------------------------------------
+FunctionTemplateDecl
+8250654207950227207
+template<typename T, typename... Args>
+        std::shared_ptr<T> create_resource(const std::string& name, Args&&... args)
+----------------------------------------
+FunctionNode
+17677482306689474963
+std::shared_ptr<T> create_resource(const std::string& name, Args&&... args)
+----------------------------------------
+Field init
+stop_
+(ARG-EXPR) : 1
+----------------------------------------
+Get the actual end location (after the last token) startOffset == endOffset 
+7991989128205614838
+false
+----------------------------------------
+ParamVar init
+2735805985059657017
+std::thread::hardware_concurrency()
+----------------------------------------
+FunctionTemplateDecl
+6278105099568094572
+template<typename F, typename... Args>
+        auto enqueue(F&& f, Args&&... args) 
+            -> std::future<typename std::result_of<F(Args...)>::type>
+----------------------------------------
+FunctionNode
+17411520664678263814
+auto enqueue(F&& f, Args&&... args) 
+            -> std::future<typename std::result_of<F(Args...)>::type>
+----------------------------------------
+Function Body
+size
+6652890178428182657
+{ return workers_.size(); }
+----------------------------------------
+ClassTemplateDecl
+12455802062917318865
+template<typename... Args>
     class TypeList {
     public:
         static constexpr std::size_t size = sizeof...(Args);
@@ -394,10 +494,33 @@ namespace utils {
         
         template<template<typename> class Predicate>
         static constexpr std::size_t count_if = count_if_helper<Predicate>::value;
-    };
-    
-    // Advanced type traits
-    template<typename T>
+    }
+----------------------------------------
+CXXRecordNode
+8301659572985331352
+class TypeList {
+    public:
+        static constexpr std::size_t size = sizeof...(Args);
+        
+        template<std::size_t N>
+        using at = std::tuple_element_t<N, std::tuple<Args...>>;
+        
+        template<typename T>
+        struct contains_helper;
+        
+        template<typename T>
+        static constexpr bool contains = contains_helper<T>::value;
+        
+        template<template<typename> class Predicate>
+        struct count_if_helper;
+        
+        template<template<typename> class Predicate>
+        static constexpr std::size_t count_if = count_if_helper<Predicate>::value;
+    }
+----------------------------------------
+ClassTemplateDecl
+8046944065153024717
+template<typename T>
     struct TypeTraits {
         static constexpr bool is_pointer = std::is_pointer<T>::value;
         static constexpr bool is_reference = std::is_reference<T>::value;
@@ -411,63 +534,116 @@ namespace utils {
         
         template<typename U>
         static constexpr bool is_same_bare = std::is_same<bare_type, typename TypeTraits<U>::bare_type>::value;
-    };
-    
-    // Logging utility with different levels
-    enum class LogLevel {
-        DEBUG, INFO, WARNING, ERROR, CRITICAL
-    };
-    
-    class Logger {
-    private:
-        LogLevel min_level_;
-        std::mutex mutex_;
-        std::vector<std::function<void(LogLevel, const std::string&)>> handlers_;
+    }
+----------------------------------------
+CXXRecordNode
+1977583402495253529
+struct TypeTraits {
+        static constexpr bool is_pointer = std::is_pointer<T>::value;
+        static constexpr bool is_reference = std::is_reference<T>::value;
+        static constexpr bool is_const = std::is_const<typename std::remove_reference<T>::type>::value;
+        static constexpr bool is_volatile = std::is_volatile<typename std::remove_reference<T>::type>::value;
         
-    public:
-        explicit Logger(LogLevel min_level = LogLevel::INFO);
+        using bare_type = typename std::remove_cv<typename std::remove_reference<T>::type>::type;
+        using const_type = typename std::add_const<T>::type;
+        using reference_type = typename std::add_lvalue_reference<T>::type;
+        using pointer_type = typename std::add_pointer<T>::type;
         
-        void add_handler(std::function<void(LogLevel, const std::string&)> handler);
-        
-        template<typename... Args>
-        void log(LogLevel level, const std::string& format, Args&&... args);
-        
-        template<typename... Args>
+        template<typename U>
+        static constexpr bool is_same_bare = std::is_same<bare_type, typename TypeTraits<U>::bare_type>::value;
+    }
+----------------------------------------
+ParamVar init
+16976510941244498087
+LogLevel::INFO
+----------------------------------------
+FunctionTemplateDecl
+18347533187990389238
+template<typename... Args>
+        void log(LogLevel level, const std::string& format, Args&&... args)
+----------------------------------------
+FunctionNode
+7547254652410625324
+void log(LogLevel level, const std::string& format, Args&&... args)
+----------------------------------------
+FunctionTemplateDecl
+10005188907803257957
+template<typename... Args>
         void debug(const std::string& format, Args&&... args) {
             log(LogLevel::DEBUG, format, std::forward<Args>(args)...);
         }
-        
-        template<typename... Args>
+----------------------------------------
+FunctionNode
+2875144771015706332
+void debug(const std::string& format, Args&&... args) {
+            log(LogLevel::DEBUG, format, std::forward<Args>(args)...);
+        }
+----------------------------------------
+FunctionTemplateDecl
+11269239267647842420
+template<typename... Args>
         void info(const std::string& format, Args&&... args) {
             log(LogLevel::INFO, format, std::forward<Args>(args)...);
         }
-        
-        template<typename... Args>
+----------------------------------------
+FunctionNode
+16901983672680523453
+void info(const std::string& format, Args&&... args) {
+            log(LogLevel::INFO, format, std::forward<Args>(args)...);
+        }
+----------------------------------------
+FunctionTemplateDecl
+2382408566172436937
+template<typename... Args>
         void warning(const std::string& format, Args&&... args) {
             log(LogLevel::WARNING, format, std::forward<Args>(args)...);
         }
-        
-        template<typename... Args>
+----------------------------------------
+FunctionNode
+12084249494991010960
+void warning(const std::string& format, Args&&... args) {
+            log(LogLevel::WARNING, format, std::forward<Args>(args)...);
+        }
+----------------------------------------
+FunctionTemplateDecl
+11737980331357774759
+template<typename... Args>
         void error(const std::string& format, Args&&... args) {
             log(LogLevel::ERROR, format, std::forward<Args>(args)...);
         }
-        
-        template<typename... Args>
+----------------------------------------
+FunctionNode
+1184099757034920852
+void error(const std::string& format, Args&&... args) {
+            log(LogLevel::ERROR, format, std::forward<Args>(args)...);
+        }
+----------------------------------------
+FunctionTemplateDecl
+7869585302857142224
+template<typename... Args>
         void critical(const std::string& format, Args&&... args) {
             log(LogLevel::CRITICAL, format, std::forward<Args>(args)...);
         }
-        
-        void set_min_level(LogLevel level) { min_level_ = level; }
-        LogLevel get_min_level() const { return min_level_; }
-    };
-}
 ----------------------------------------
-NamespaceDecl
-8723477149437007377
-namespace algorithms {
-    
-    // Filter iterator for lazy evaluation
-    template<typename Iterator, typename Predicate>
+FunctionNode
+6973316203774496896
+void critical(const std::string& format, Args&&... args) {
+            log(LogLevel::CRITICAL, format, std::forward<Args>(args)...);
+        }
+----------------------------------------
+Function Body
+set_min_level
+6505157486138999808
+{ min_level_ = level; }
+----------------------------------------
+Function Body
+get_min_level
+9784590098430791173
+{ return min_level_; }
+----------------------------------------
+ClassTemplateDecl
+10639084468275003002
+template<typename Iterator, typename Predicate>
     class FilterIterator {
     private:
         Iterator current_;
@@ -514,10 +690,61 @@ namespace algorithms {
         bool operator!=(const FilterIterator& other) const {
             return !(*this == other);
         }
-    };
-    
-    // Sorted container maintaining order
-    template<typename T, template<typename> class Container = std::vector>
+    }
+----------------------------------------
+CXXRecordNode
+13336618370294984318
+class FilterIterator {
+    private:
+        Iterator current_;
+        Iterator end_;
+        Predicate predicate_;
+        
+        void advance_to_valid() {
+            while (current_ != end_ && !predicate_(*current_)) {
+                ++current_;
+            }
+        }
+        
+    public:
+        using iterator_category = std::forward_iterator_tag;
+        using value_type = typename std::iterator_traits<Iterator>::value_type;
+        using difference_type = typename std::iterator_traits<Iterator>::difference_type;
+        using pointer = typename std::iterator_traits<Iterator>::pointer;
+        using reference = typename std::iterator_traits<Iterator>::reference;
+        
+        FilterIterator(Iterator current, Iterator end, Predicate pred)
+            : current_(current), end_(end), predicate_(pred) {
+            advance_to_valid();
+        }
+        
+        reference operator*() const { return *current_; }
+        pointer operator->() const { return &(*current_); }
+        
+        FilterIterator& operator++() {
+            ++current_;
+            advance_to_valid();
+            return *this;
+        }
+        
+        FilterIterator operator++(int) {
+            auto temp = *this;
+            ++(*this);
+            return temp;
+        }
+        
+        bool operator==(const FilterIterator& other) const {
+            return current_ == other.current_;
+        }
+        
+        bool operator!=(const FilterIterator& other) const {
+            return !(*this == other);
+        }
+    }
+----------------------------------------
+ClassTemplateDecl
+706524489213400830
+template<typename T, template<typename> class Container = std::vector>
     class SortedContainer {
     private:
         Container<T> data_;
@@ -553,15 +780,50 @@ namespace algorithms {
         const_iterator end() const { return data_.end(); }
         const_iterator cbegin() const { return data_.cbegin(); }
         const_iterator cend() const { return data_.cend(); }
-    };
-}
+    }
 ----------------------------------------
-NamespaceDecl
-10219142768800247134
-namespace patterns {
-    
-    // Thread-safe singleton
-    template<typename T>
+CXXRecordNode
+6931558145536022388
+class SortedContainer {
+    private:
+        Container<T> data_;
+        std::function<bool(const T&, const T&)> comparator_;
+        
+    public:
+        using value_type = T;
+        using iterator = typename Container<T>::iterator;
+        using const_iterator = typename Container<T>::const_iterator;
+        
+        explicit SortedContainer(std::function<bool(const T&, const T&)> comp = std::less<T>{})
+            : comparator_(std::move(comp)) {}
+        
+        void insert(const T& value);
+        void insert(T&& value);
+        
+        template<typename... Args>
+        void emplace(Args&&... args);
+        
+        bool remove(const T& value);
+        
+        template<typename Predicate>
+        std::size_t remove_if(Predicate pred);
+        
+        const_iterator find(const T& value) const;
+        const_iterator lower_bound(const T& value) const;
+        const_iterator upper_bound(const T& value) const;
+        
+        std::size_t size() const { return data_.size(); }
+        bool empty() const { return data_.empty(); }
+        
+        const_iterator begin() const { return data_.begin(); }
+        const_iterator end() const { return data_.end(); }
+        const_iterator cbegin() const { return data_.cbegin(); }
+        const_iterator cend() const { return data_.cend(); }
+    }
+----------------------------------------
+ClassTemplateDecl
+2668711862720771489
+template<typename T>
     class Singleton {
     private:
         static std::once_flag initialized_;
@@ -581,23 +843,61 @@ namespace patterns {
         Singleton& operator=(const Singleton&) = delete;
         Singleton(Singleton&&) = delete;
         Singleton& operator=(Singleton&&) = delete;
-    };
-    
-    template<typename T>
-    std::once_flag Singleton<T>::initialized_;
-    
-    template<typename T>
-    std::unique_ptr<T> Singleton<T>::instance_;
-    
-    // Observer pattern implementation
-    template<typename Event>
+    }
+----------------------------------------
+CXXRecordNode
+10586734625655983205
+class Singleton {
+    private:
+        static std::once_flag initialized_;
+        static std::unique_ptr<T> instance_;
+        
+        Singleton() = default;
+        
+    public:
+        static T& get_instance() {
+            std::call_once(initialized_, []() {
+                instance_ = std::make_unique<T>();
+            });
+            return *instance_;
+        }
+        
+        Singleton(const Singleton&) = delete;
+        Singleton& operator=(const Singleton&) = delete;
+        Singleton(Singleton&&) = delete;
+        Singleton& operator=(Singleton&&) = delete;
+    }
+----------------------------------------
+TemplatedVarDecl
+15309347854699193174
+template<typename T>
+    std::once_flag Singleton<T>::initialized_
+----------------------------------------
+TemplatedVarDecl
+7478975278292304854
+template<typename T>
+    std::unique_ptr<T> Singleton<T>::instance_
+----------------------------------------
+ClassTemplateDecl
+7338071944098439561
+template<typename Event>
     class Observer {
     public:
         virtual ~Observer() = default;
         virtual void on_event(const Event& event) = 0;
-    };
-    
-    template<typename Event>
+    }
+----------------------------------------
+CXXRecordNode
+3684880059700623026
+class Observer {
+    public:
+        virtual ~Observer() = default;
+        virtual void on_event(const Event& event) = 0;
+    }
+----------------------------------------
+ClassTemplateDecl
+4443176547382721714
+template<typename Event>
     class Subject {
     private:
         std::vector<std::weak_ptr<Observer<Event>>> observers_;
@@ -612,8 +912,33 @@ namespace patterns {
         void notify(const Event& event);
         
         std::size_t observer_count() const;
-    };
-}
+    }
+----------------------------------------
+CXXRecordNode
+10719287339769139624
+class Subject {
+    private:
+        std::vector<std::weak_ptr<Observer<Event>>> observers_;
+        mutable std::mutex mutex_;
+        
+        void cleanup_expired_observers() const;
+        
+    public:
+        void attach(std::shared_ptr<Observer<Event>> observer);
+        void detach(std::shared_ptr<Observer<Event>> observer);
+        
+        void notify(const Event& event);
+        
+        std::size_t observer_count() const;
+    }
+----------------------------------------
+TemplatedVarDecl
+9251915499844436466
+std::once_flag Singleton<T>::initialized_
+----------------------------------------
+TemplatedVarDecl
+3685702211898712168
+std::unique_ptr<T> Singleton<T>::instance_
 ----------------------------------------
 FunctionTemplateDecl
 6723014979661487720
@@ -673,13 +998,12 @@ Get the actual end location (after the last token) startOffset == endOffset
 7994135643699250697
 5381
 ----------------------------------------
-NamespaceDecl
-11723415236979416242
-namespace literals {
-    constexpr std::size_t operator""_hash(const char* str, std::size_t) {
+Function Body
+operator""_hash
+9249262511850603123
+{
         return hash_string(str);
     }
-}
 ----------------------------------------
 17851490697122203654
 #ifndef ADVANCED_LIBRARY_HPP
@@ -787,54 +1111,105 @@ comments1
 ----------------------------------------
 unhandledDecls1
 3025526572965096704  : 1
-2129729101834559661  : 1
-11313419071240529038  : 3
+6505157486138999808  : 1
+8250654207950227207  : 1
+3685702211898712168  : 1
 6723014979661487720  : 1
-11595598145597959234  : 1
 11529733944468691740  : 1
-10219142768800247134  : 1
-10080149307725374309  : 1
+15330433887295909833  : 1
+2382408566172436937  : 1
+7869585302857142224  : 1
 13203816676784424338  : 1
-17683337103810379642  : 1
+16976510941244498087  : 1
+11737980331357774759  : 1
 18360782245610798503  : 1
 4261445862557897051  : 1
-8964816057146264539  : 1
 13425203279752416008  : 1
+12605193343577708732  : 2
+6777471705316382140  : 1
 16977924592700156950  : 1
-15219203312359965853  : 1
-9150774209331408970  : 1
-12125070630336335434  : 1
-7520808121768448977  : 1
-9660469657642679128  : 1
-4988325853876951813  : 1
-11723415236979416242  : 1
-13572214080254915257  : 1
+6792005687551858551  : 2
+11233548948135257636  : 1
+12455802062917318865  : 1
+7492185790156506743  : 1
+13336618370294984318  : 1
+2735805985059657017  : 1
+17677482306689474963  : 1
 10764051201130023751  : 1
-8370400199979850612  : 1
+2668711862720771489  : 1
 4888668241540035745  : 1
-13544717825848035022  : 1
-12788162654959180494  : 1
+10719287339769139624  : 1
 14739081299819845724  : 1
 7994135643699250697  : 1
 1534571395697470646  : 1
+16901983672680523453  : 1
 11051953839184485745  : 1
 18305035471494891038  : 1
 8855065885663048485  : 1
-17851490697122203654  : 1
-4008932565536524135  : 1
-13830217567161408020  : 1
-11684411490072968046  : 1
+7547254652410625324  : 1
+1184099757034920852  : 1
 12814579946915968411  : 1
 9847865152406409973  : 3
-11160874710484048764  : 1
+5172161306758569  : 1
 2159956319926189142  : 3
+15309347854699193174  : 1
 2348909900560597168  : 1
-15041612493158612964  : 1
-8723477149437007377  : 1
-2400695533500063557  : 1
 13777058166482422898  : 1
 11640119571084491122  : 1
-4723799125552439417  : 1
+6973316203774496896  : 1
+12829587491514012807  : 1
+7248860737130795655  : 1
+11313419071240529038  : 3
+2811320887414440846  : 1
+11595598145597959234  : 1
+7991989128205614838  : 1
+18347533187990389238  : 1
+1020362817077519952  : 1
+10005188907803257957  : 1
+10586734625655983205  : 1
+17997269513964955839  : 1
+6278105099568094572  : 1
+1977583402495253529  : 1
+9249262511850603123  : 1
+8046944065153024717  : 1
+10639084468275003002  : 1
+17683337103810379642  : 1
+5228774787850348500  : 1
+6652890178428182657  : 1
+8964816057146264539  : 1
+10080149307725374309  : 1
+15219203312359965853  : 1
+9150774209331408970  : 1
+706524489213400830  : 1
+9660469657642679128  : 1
+9784590098430791173  : 1
+3684880059700623026  : 1
+4443176547382721714  : 1
+4988325853876951813  : 1
+13572214080254915257  : 1
+11269239267647842420  : 1
+6931558145536022388  : 1
+13544717825848035022  : 1
+7768499307285948366  : 1
+12788162654959180494  : 1
+8370400199979850612  : 1
+15883954513678912815  : 1
+2875144771015706332  : 1
+7338071944098439561  : 1
+12084249494991010960  : 1
+5475486312854161822  : 1
+17411520664678263814  : 1
+17851490697122203654  : 1
+4805977141514113120  : 8
+4008932565536524135  : 1
+11684411490072968046  : 1
+11160874710484048764  : 1
+7478975278292304854  : 1
+12121066701742457565  : 3
+8301659572985331352  : 1
+2400695533500063557  : 1
+9251915499844436466  : 1
+15521860531219160998  : 1
 6976754890114598739  : 1
 ----------------------------------------
 inactiveUnhandledDecls1

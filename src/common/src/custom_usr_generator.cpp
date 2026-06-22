@@ -26,31 +26,31 @@ namespace armor {
 
 static bool printLoc(llvm::raw_ostream &OS, SourceLocation Loc,
                      const SourceManager &SM, bool IncludeOffset) {
-  
+
   if (Loc.isInvalid()) {
     return true;
   }
-  
+
   Loc = SM.getExpansionLoc(Loc);
   const std::pair<FileID, unsigned> &Decomposed = SM.getDecomposedLoc(Loc);
   const FileEntry *FE = SM.getFileEntryForID(Decomposed.first);
-  
+
   if (FE) {
     std::string Filename = llvm::sys::path::filename(FE->getName()).str();
     OS << Filename;
-  } 
+  }
   else {
     // This case really isn't interesting.
     return true;
   }
-  
+
   if (IncludeOffset) {
     // Use the offest into the FileID to represent the location.  Using
     // a line/column can cause us to look back at the original source file,
     // which is expensive.
     OS << '@' << Decomposed.second;
   }
-  
+
   return false;
 }
 
@@ -100,6 +100,7 @@ public:
   void VisitTypedefDecl(const TypedefDecl *D);
   void VisitTemplateTypeParmDecl(const TemplateTypeParmDecl *D);
   void VisitVarDecl(const VarDecl *D);
+  void VisitFriendDecl(const FriendDecl *D);
   void VisitBindingDecl(const BindingDecl *D);
   void VisitNonTypeTemplateParmDecl(const NonTypeTemplateParmDecl *D);
   void VisitTemplateTemplateParmDecl(const TemplateTemplateParmDecl *D);
@@ -165,20 +166,20 @@ bool USRGenerator::EmitDeclName(const NamedDecl *D) {
 bool USRGenerator::ShouldGenerateLocation(const NamedDecl *D) {
   // Always include location for parameters and template parameters
   if (isa<ParmVarDecl>(D)||
-    isa<TemplateTypeParmDecl>(D) || 
-      isa<NonTypeTemplateParmDecl>(D) || 
+    isa<TemplateTypeParmDecl>(D) ||
+      isa<NonTypeTemplateParmDecl>(D) ||
       isa<TemplateTemplateParmDecl>(D)) {
     return true;
   }
-  
+
   // Always include location for local variables and declarations inside functions
   if (D->getParentFunctionOrMethod() != nullptr) {
     return true;
   }
-  
+
   // For all other declarations in headers, exclude location information
   return false;
-  
+
 }
 
 void USRGenerator::VisitDeclContext(const DeclContext *DC) {
@@ -309,7 +310,7 @@ void USRGenerator::VisitVarDecl(const VarDecl *D) {
   if (s.empty())
     IgnoreResults = true;
   else{
-    if(D->isCXXClassMember()) 
+    if(D->isCXXClassMember())
       Out << "@FI@" << s;
     else
       Out << '@' << s;
@@ -325,6 +326,53 @@ void USRGenerator::VisitVarDecl(const VarDecl *D) {
       VisitTemplateArgument(Args.get(I));
     }
   }
+}
+
+void USRGenerator::VisitFriendDecl(const FriendDecl *D){
+  // Case 1: Friend is a named declaration (function, function template, class, or class template)
+  if (const NamedDecl* ND = D->getFriendDecl()) {
+    if (const FunctionDecl* FD = dyn_cast<FunctionDecl>(ND)) {
+      VisitFunctionDecl(FD);
+    }
+    else if (const FunctionTemplateDecl* FT = dyn_cast<FunctionTemplateDecl>(ND)) {
+      VisitFunctionTemplateDecl(FT);
+    }
+    else if(const ClassTemplateDecl* CT = dyn_cast<ClassTemplateDecl>(ND)) {
+      VisitClassTemplateDecl(CT);
+    }
+    else IgnoreResults = true;
+  }
+  else if (D->getFriendType()) {
+    clang::QualType QT = D->getFriendType()->getType();
+
+    if (const TagDecl* TD = QT.getTypePtr()->getAsTagDecl()) {
+      VisitTagDecl(TD);
+    }
+    else if (const ElaboratedType* ET = dyn_cast<ElaboratedType>(QT.getTypePtr())) {
+      QualType NamedType = ET->getNamedType();
+      // Try to get a tag declaration from the named type
+      if (const TagDecl* TD = NamedType.getTypePtr()->getAsTagDecl()) {
+        VisitTagDecl(TD);
+      }
+      // Try to handle template specialization in the named type
+      else if (const TemplateSpecializationType* TST = dyn_cast<TemplateSpecializationType>(NamedType.getTypePtr())) {
+        TemplateName TN = TST->getTemplateName();
+        if (TemplateDecl* TD = TN.getAsTemplateDecl()) {
+          if (ClassTemplateDecl* CTD = dyn_cast<ClassTemplateDecl>(TD)) {
+            VisitClassTemplateDecl(CTD);
+          }
+          else IgnoreResults = true;
+        }
+        else IgnoreResults = true;
+      }
+      else VisitType(NamedType);
+    }
+    else VisitType(QT);
+
+  }
+  else IgnoreResults = true;
+
+  Out << "(F)";
 }
 
 void USRGenerator::VisitBindingDecl(const BindingDecl *D) {
@@ -454,7 +502,7 @@ void USRGenerator::VisitTagDecl(const TagDecl *D) {
           else{
             printLoc(Out, D->getLocation(), Context->getSourceManager(), true);
           }
-        } 
+        }
         else {
           // Completely anonymous tag decl.
           Buf[off] = 'a';
@@ -495,12 +543,12 @@ void USRGenerator::GenExtSymbolContainer(const NamedDecl *D) {
 }
 
 bool USRGenerator::GenLoc(const Decl *D, bool IncludeOffset) {
-  llvm::outs() << "[DEBUG] GenLoc called for: " 
-               << (D ? D->getDeclKindName() : "null") 
-               << ", IncludeOffset: " << (IncludeOffset ? "true" : "false") 
-               << ", generatedLoc: " << (generatedLoc ? "true" : "false") 
+  llvm::outs() << "[DEBUG] GenLoc called for: "
+               << (D ? D->getDeclKindName() : "null")
+               << ", IncludeOffset: " << (IncludeOffset ? "true" : "false")
+               << ", generatedLoc: " << (generatedLoc ? "true" : "false")
                << ", IgnoreResults: " << (IgnoreResults ? "true" : "false") << "\n";
-  
+
   if (generatedLoc) {
     llvm::outs() << "[DEBUG] GenLoc returning early because generatedLoc is true\n";
     return IgnoreResults;
@@ -520,17 +568,17 @@ bool USRGenerator::GenLoc(const Decl *D, bool IncludeOffset) {
   if (const NamedDecl *ND = dyn_cast<NamedDecl>(D)) {
     llvm::outs() << "[DEBUG] GenLoc for named decl: " << ND->getNameAsString() << "\n";
   }
-  
-  llvm::outs() << "[DEBUG] GenLoc calling printLoc with BeginLoc: " 
+
+  llvm::outs() << "[DEBUG] GenLoc calling printLoc with BeginLoc: "
                << (D->getBeginLoc().isValid() ? "valid" : "invalid") << "\n";
-  
+
   bool PrevIgnoreResults = IgnoreResults;
   IgnoreResults =
       IgnoreResults || printLoc(Out, D->getBeginLoc(),
                                 Context->getSourceManager(), IncludeOffset);
-  
-  llvm::outs() << "[DEBUG] GenLoc after printLoc, IgnoreResults changed from " 
-               << (PrevIgnoreResults ? "true" : "false") 
+
+  llvm::outs() << "[DEBUG] GenLoc after printLoc, IgnoreResults changed from "
+               << (PrevIgnoreResults ? "true" : "false")
                << " to " << (IgnoreResults ? "true" : "false") << "\n";
 
   return IgnoreResults;

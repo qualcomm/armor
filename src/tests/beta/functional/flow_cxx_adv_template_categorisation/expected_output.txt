@@ -288,104 +288,89 @@ AnonymousUnionExample
 15521860531219160998
 {}
 ----------------------------------------
-CXXRecordNode
-6729547780656959418
-class Shape {
-public:
-    virtual ~Shape() = default;
-    virtual double area() const = 0;  // Pure virtual
-    virtual double perimeter() const = 0;  // Pure virtual
-    virtual void draw() const { std::cout << "Drawing shape\n"; }  // Virtual with default
-    
-    // Non-virtual function
-    void info() const { std::cout << "This is a shape\n"; }
-}
+Function Body
+draw
+17483541689205901387
+{ std::cout << "Drawing shape\n"; }
 ----------------------------------------
-CXXRecordNode
-11868969600101753308
-class Rectangle : public Shape {
-private:
-    double width_, height_;
-    
-public:
-    Rectangle(double w, double h) : width_(w), height_(h) {}
-    
-    double area() const override { return width_ * height_; }
-    double perimeter() const override { return 2 * (width_ + height_); }
-    void draw() const override { std::cout << "Drawing rectangle\n"; }
-    
-    // Additional method
-    double diagonal() const { return std::sqrt(width_ * width_ + height_ * height_); }
-}
+Function Body
+info
+9459270768757567952
+{ std::cout << "This is a shape\n"; }
 ----------------------------------------
-CXXRecordNode
-10341399895611101361
-class Drawable {
-public:
-    virtual ~Drawable() = default;
-    virtual void render() const = 0;
-}
+Function Body
+Rectangle
+15521860531219160998
+{}
 ----------------------------------------
-CXXRecordNode
-1703868323125425019
-class Serializable {
-public:
-    virtual ~Serializable() = default;
-    virtual std::string serialize() const = 0;
-    virtual void deserialize(const std::string& data) = 0;
-}
+Function Body
+area
+4538083635788374335
+{ return width_ * height_; }
 ----------------------------------------
-CXXRecordNode
-6324557409392423089
-class DrawableRectangle : public Rectangle, public Drawable, public Serializable {
-public:
-    DrawableRectangle(double w, double h) : Rectangle(w, h) {}
-    
-    void render() const override { draw(); }
-    
-    std::string serialize() const override {
+Function Body
+perimeter
+18398075552301239682
+{ return 2 * (width_ + height_); }
+----------------------------------------
+Function Body
+draw
+15009742605879914000
+{ std::cout << "Drawing rectangle\n"; }
+----------------------------------------
+Function Body
+diagonal
+6224948722456512613
+{ return std::sqrt(width_ * width_ + height_ * height_); }
+----------------------------------------
+Function Body
+DrawableRectangle
+15521860531219160998
+{}
+----------------------------------------
+Function Body
+render
+7549420886903940650
+{ draw(); }
+----------------------------------------
+Function Body
+serialize
+6595420973845864694
+{
         return "Rectangle(" + std::to_string(width_) + "," + std::to_string(height_) + ")";
     }
-    
-    void deserialize(const std::string& data) override {
+----------------------------------------
+Function Body
+deserialize
+15521860531219160998
+{
         // Simple parsing logic would go here
     }
-    
-private:
-    double width_, height_;  // Redeclared for access
-}
 ----------------------------------------
-CXXRecordNode
-17218841254141763400
-class BaseException : public std::exception {
-protected:
-    std::string message_;
-    
-public:
-    explicit BaseException(const std::string& msg) : message_(msg) {}
-    const char* what() const noexcept override { return message_.c_str(); }
-}
+Function Body
+BaseException
+15521860531219160998
+{}
 ----------------------------------------
-CXXRecordNode
-14115858030185735514
-class ValidationError : public BaseException {
-public:
-    explicit ValidationError(const std::string& msg) 
-        : BaseException("Validation Error: " + msg) {}
-}
+Function Body
+what
+10431000437112096645
+{ return message_.c_str(); }
 ----------------------------------------
-CXXRecordNode
-13813199116550789988
-class NetworkError : public BaseException {
-private:
-    int error_code_;
-    
-public:
-    NetworkError(const std::string& msg, int code) 
-        : BaseException("Network Error: " + msg), error_code_(code) {}
-    
-    int getErrorCode() const { return error_code_; }
-}
+Function Body
+ValidationError
+15521860531219160998
+{}
+----------------------------------------
+Function Body
+NetworkError
+15521860531219160998
+{}
+----------------------------------------
+Function Body
+getErrorCode
+11668784403447985365
+{ return error_code_; }
 ----------------------------------------
 FunctionTemplateDecl
 7750474127759925789
@@ -406,30 +391,33 @@ T safe_divide(T a, T b) {
     return a / b;
 }
 ----------------------------------------
-CXXRecordNode
-4881733589162099498
-class ResourceManager {
-private:
-    int* resource_;
-    
-public:
-    explicit ResourceManager(size_t size) : resource_(new int[size]) {
+Function Body
+ResourceManager
+12146993358241839796
+{
         if (!resource_) {
             throw std::bad_alloc();
         }
     }
-    
-    ~ResourceManager() noexcept {
+----------------------------------------
+Function Body
+~ResourceManager
+1605393177258941778
+{
         delete[] resource_;
     }
-    
-    // Move constructor
-    ResourceManager(ResourceManager&& other) noexcept : resource_(other.resource_) {
+----------------------------------------
+Function Body
+ResourceManager
+8826364117685386406
+{
         other.resource_ = nullptr;
     }
-    
-    // Move assignment
-    ResourceManager& operator=(ResourceManager&& other) noexcept {
+----------------------------------------
+Function Body
+operator=
+8472310890208344133
+{
         if (this != &other) {
             delete[] resource_;
             resource_ = other.resource_;
@@ -437,13 +425,11 @@ public:
         }
         return *this;
     }
-    
-    // Delete copy operations
-    ResourceManager(const ResourceManager&) = delete;
-    ResourceManager& operator=(const ResourceManager&) = delete;
-    
-    int* get() const { return resource_; }
-}
+----------------------------------------
+Function Body
+get
+7483601570682362834
+{ return resource_; }
 ----------------------------------------
 ClassTemplateDecl
 11059637842122172337
@@ -582,11 +568,10 @@ TypeAliasDecl
 5643335536656467175
 using Value = std::variant<int, double, std::string>
 ----------------------------------------
-CXXRecordNode
-7809163442427489086
-class VariantProcessor {
-public:
-    static void process(const Value& v) {
+Function Body
+process
+9063025977719545702
+{
         std::visit([](const auto& value) {
             using T = std::decay_t<decltype(value)>;
             if constexpr (std::is_same_v<T, int>) {
@@ -598,7 +583,6 @@ public:
             }
         }, v);
     }
-}
 ----------------------------------------
 FunctionTemplateDecl
 7216266635772902375
@@ -656,29 +640,50 @@ T operator()(T value) const {
         return value * static_cast<T>(factor);
     }
 ----------------------------------------
-CXXRecordNode
-202027446608545319
-class FunctionUtils {
-public:
-    template<typename Container, typename Func>
+FunctionTemplateDecl
+13816479023391194073
+template<typename Container, typename Func>
     static auto transform_container(const Container& container, Func func) {
         std::vector<decltype(func(*container.begin()))> result;
         std::transform(container.begin(), container.end(), 
                       std::back_inserter(result), func);
         return result;
     }
-    
-    // Higher-order function
-    template<typename Func>
+----------------------------------------
+FunctionNode
+16649687398004155503
+static auto transform_container(const Container& container, Func func) {
+        std::vector<decltype(func(*container.begin()))> result;
+        std::transform(container.begin(), container.end(), 
+                      std::back_inserter(result), func);
+        return result;
+    }
+----------------------------------------
+FunctionTemplateDecl
+12329583953825197689
+template<typename Func>
     static auto compose(Func f) {
         return [f](auto x) { return f(x); };
     }
-    
-    template<typename Func1, typename Func2>
+----------------------------------------
+FunctionNode
+1297845711644468568
+static auto compose(Func f) {
+        return [f](auto x) { return f(x); };
+    }
+----------------------------------------
+FunctionTemplateDecl
+1281043136692401119
+template<typename Func1, typename Func2>
     static auto compose(Func1 f1, Func2 f2) {
         return [f1, f2](auto x) { return f1(f2(x)); };
     }
-}
+----------------------------------------
+FunctionNode
+11442841472222897421
+static auto compose(Func1 f1, Func2 f2) {
+        return [f1, f2](auto x) { return f1(f2(x)); };
+    }
 ----------------------------------------
 FunctionTemplateDecl
 3186347411073196804
@@ -958,17 +963,20 @@ comments1
 15663536434674602451  : 1
 ----------------------------------------
 unhandledDecls1
-14115858030185735514  : 1
+18241077227437770918  : 1
+12146993358241839796  : 1
 13626083506679473294  : 1
+16649687398004155503  : 1
+6595420973845864694  : 1
 5141200042933997091  : 1
-4881733589162099498  : 1
+9459270768757567952  : 1
+7549420886903940650  : 1
 3186347411073196804  : 1
-10341399895611101361  : 1
-6324557409392423089  : 1
 11059637842122172337  : 1
+6224948722456512613  : 1
+4538083635788374335  : 1
 16390664270760828787  : 1
 17683337103810379642  : 1
-202027446608545319  : 1
 2123223742695244628  : 1
 379429906857865096  : 1
 13425203279752416008  : 1
@@ -977,35 +985,43 @@ unhandledDecls1
 14634401375250260547  : 1
 7750474127759925789  : 1
 18024777515863882359  : 1
+1297845711644468568  : 1
+10431000437112096645  : 1
+1281043136692401119  : 1
 13103261512013926239  : 1
 3819078911002632972  : 1
+9063025977719545702  : 1
 3924185869214740167  : 1
-1703868323125425019  : 1
-11868969600101753308  : 1
+11668784403447985365  : 1
+18398075552301239682  : 1
+15009742605879914000  : 1
 5524124380847091728  : 1
 569359803562095677  : 1
 18305035471494891038  : 1
+17483541689205901387  : 1
 17330938420637483467  : 1
 3268740722546936101  : 1
+1605393177258941778  : 1
+7483601570682362834  : 1
 6732842362608267820  : 1
 16097920601617933913  : 1
-6729547780656959418  : 1
+13816479023391194073  : 1
+11442841472222897421  : 1
 12073625207878275815  : 1
 5643335536656467175  : 1
 7216266635772902375  : 1
 12814579946915968411  : 1
-17218841254141763400  : 1
 11160874710484048764  : 1
 5592908019062377859  : 1
 232158585818830723  : 1
 7739102919376461533  : 1
 7909654482965650615  : 1
-13813199116550789988  : 1
-7809163442427489086  : 1
-11799315910370350277  : 1
 2348909900560597168  : 1
-15521860531219160998  : 5
-18241077227437770918  : 1
+8472310890208344133  : 1
+11799315910370350277  : 1
+12329583953825197689  : 1
+8826364117685386406  : 1
+15521860531219160998  : 11
 ----------------------------------------
 inactiveUnhandledDecls1
 4552978047279620817  : 1

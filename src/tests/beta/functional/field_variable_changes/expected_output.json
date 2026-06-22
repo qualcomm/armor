@@ -70,6 +70,7 @@
                             "tag": "removed"
                         },
                         {
+                            "AccessSpecifier": "Public",
                             "dataType": "int",
                             "nodeType": "Field",
                             "qualifiedName": "Device::MAX_BUFFER_SIZE",
@@ -91,6 +92,7 @@
                             "tag": "removed"
                         },
                         {
+                            "AccessSpecifier": "Public",
                             "dataType": "float",
                             "nodeType": "Field",
                             "qualifiedName": "Device::DEFAULT_TEMP",

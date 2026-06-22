@@ -4,8 +4,12 @@
 #include <llvm-14/llvm/Support/Casting.h>
 #include <llvm-14/llvm/Support/raw_ostream.h>
 #include <memory>
+#include <string>
 
 #include "astnormalizer.hpp"
+#include "logger.hpp"
+#include "tree_builder_utils.hpp"
+#include "custom_usr_generator.hpp"
 #include "node.hpp"
 #include "session.hpp"
 #include "tree_builder.hpp"
@@ -46,12 +50,12 @@ beta::NormalizeAction::NormalizeAction(APISession* session, beta::ASTNormalizedC
 std::unique_ptr<clang::ASTConsumer> beta::NormalizeAction::CreateASTConsumer(clang::CompilerInstance& CI, clang::StringRef) {
     // Store CI reference for cleanup
     this->CI = &CI;
-    
+
     // Set up comment handler
     auto commentHandlerPtr = std::make_unique<beta::CommentHandler>(&CI.getSourceManager(), context);
     commentHandler = commentHandlerPtr.get(); // Store reference before releasing
     CI.getPreprocessor().addCommentHandler(commentHandlerPtr.release());
-    
+
     // Set up preprocessor callbacks
     auto preprocessorPtr = std::make_unique<beta::ASTNormalizerPreprocessor>(&CI.getSourceManager(), context);
     preprocessor = preprocessorPtr.get(); // Store reference before moving
@@ -67,7 +71,7 @@ beta::NormalizeActionFactory::NormalizeActionFactory(APISession* session, const 
 std::unique_ptr<clang::FrontendAction> beta::NormalizeActionFactory::create() {
     // 2. Use the filename to get the pre-existing context from the session.
     beta::ASTNormalizedContext* contextForThisFile = session->getContext(fileName);
-    
+
     // --- Error Handling ---
     if (!contextForThisFile) {
         // This is a critical logic error. The context should have been created before processing.
@@ -94,16 +98,33 @@ void beta::NormalizeAction::EndSourceFileAction() {
         delete commentHandler; // Now we can safely delete it
         commentHandler = nullptr;
     }
-    
+
     filterCommentsInInactiveRegions(context, &context->getClangASTContext()->getSourceManager());
-    
+
     // Call parent implementation
     clang::ASTFrontendAction::EndSourceFileAction();
 }
 
 // === Visit and Traverse Methods ===
 bool beta::ASTNormalize::TraverseNamespaceDecl(clang::NamespaceDecl *Decl) {
+    if(treeBuilder.IsDeclFromMainFileAndNotLocal(Decl)){
+        if(Decl->isAnonymousNamespace()){
+            treeBuilder.PushName("(anonymous namespace)");
+        }
+        else{
+            llvm::SmallString<128> nameBuf;
+            llvm::raw_svector_ostream OS(nameBuf);
+            Decl->printName(OS);
+            treeBuilder.PushName(nameBuf);
+        }
+    }
+
     RecursiveASTVisitor<beta::ASTNormalize>::TraverseNamespaceDecl(Decl);
+
+    if(treeBuilder.IsDeclFromMainFileAndNotLocal(Decl)){
+        treeBuilder.PopName();
+    }
+
     return true;
 }
 
@@ -112,7 +133,11 @@ bool beta::ASTNormalize::TraverseRecordDecl(clang::RecordDecl *Decl) {
     RecursiveASTVisitor<beta::ASTNormalize>::TraverseRecordDecl(Decl);
 
     if (!llvm::isa<clang::CXXRecordDecl>(Decl) && treeBuilder.IsDeclFromMainFileAndNotLocal(Decl)) {
-        treeBuilder.PopName();
+        const std::string USR = generateUSRForDecl(Decl);
+        if( treeBuilder.isQualifiedNameOverriden(USR) ){
+            treeBuilder.popOverridenQualifiedName(USR);
+        }
+        else treeBuilder.PopName();
         treeBuilder.PopNode();
     }
 
@@ -120,11 +145,15 @@ bool beta::ASTNormalize::TraverseRecordDecl(clang::RecordDecl *Decl) {
 }
 
 bool beta::ASTNormalize::TraverseCXXRecordDecl(clang::CXXRecordDecl *Decl) {
-    
+
     RecursiveASTVisitor<beta::ASTNormalize>::TraverseCXXRecordDecl(Decl);
-    if(treeBuilder.IsDeclFromMainFileAndNotLocal(Decl) && !Decl->isClass() 
-    && !Decl->isTemplated() && !llvm::isa<clang::ClassTemplateSpecializationDecl>(Decl)){
-        treeBuilder.PopName();
+    if(treeBuilder.IsDeclFromMainFileAndNotLocal(Decl) && !Decl->isTemplated()
+    && !llvm::isa<clang::ClassTemplateSpecializationDecl>(Decl)){
+        const std::string USR = generateUSRForDecl(Decl);
+        if( treeBuilder.isQualifiedNameOverriden(USR) ){
+            treeBuilder.popOverridenQualifiedName(USR);
+        }
+        else treeBuilder.PopName();
         treeBuilder.PopNode();
     }
 
@@ -183,6 +212,11 @@ bool beta::ASTNormalize::TraverseVarDecl(clang::VarDecl *Decl){
 
 bool beta::ASTNormalize::TraverseFieldDecl(clang::FieldDecl *Decl){
     RecursiveASTVisitor<beta::ASTNormalize>::TraverseFieldDecl(Decl);
+    return true;
+}
+
+bool beta::ASTNormalize::TraverseFriendDecl(clang::FriendDecl* Decl){
+    RecursiveASTVisitor<ASTNormalize>::TraverseFriendDecl(Decl);
     return true;
 }
 
@@ -257,7 +291,7 @@ bool beta::ASTNormalize::TraverseTemplateTemplateParmDecl(clang::TemplateTemplat
 // }
 
 bool beta::ASTNormalize::VisitNamespaceDecl(clang::NamespaceDecl *Decl) {
-    treeBuilder.BuildNamespaceDecl(Decl);
+    if(!treeBuilder.IsDeclFromMainFileAndNotLocal(Decl)) return false;
     return true;
 }
 
@@ -274,7 +308,8 @@ bool beta::ASTNormalize::VisitEnumDecl(clang::EnumDecl *Decl) {
 }
 
 bool beta::ASTNormalize::VisitFunctionDecl(clang::FunctionDecl *Decl) {
-    return treeBuilder.BuildFunctionNode(Decl);
+    treeBuilder.BuildFunctionNode(Decl);
+    return true;
 }
 
 bool beta::ASTNormalize::VisitTypeAliasDecl(clang::TypeAliasDecl *Decl) {
@@ -292,6 +327,11 @@ bool beta::ASTNormalize::VisitVarDecl(clang::VarDecl *Decl) {
 
 bool beta::ASTNormalize::VisitFieldDecl(clang::FieldDecl *Decl) {
     return treeBuilder.BuildFieldDecl(Decl);
+}
+
+bool beta::ASTNormalize::VisitFriendDecl(clang::FriendDecl *Decl){
+    treeBuilder.BuildFriendDecl(Decl);
+    return false;
 }
 
 bool beta::ASTNormalize::VisitFunctionTemplateDecl(clang::FunctionTemplateDecl *Decl){

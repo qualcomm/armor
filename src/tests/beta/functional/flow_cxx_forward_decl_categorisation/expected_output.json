@@ -3,6 +3,308 @@
         {
             "children": [
                 {
+                    "children": [
+                        {
+                            "dataType": "std::string",
+                            "nodeType": "Field",
+                            "qualifiedName": "core::ResourceManager::Resource::name"
+                        },
+                        {
+                            "dataType": "std::function<void ()>",
+                            "nodeType": "Field",
+                            "qualifiedName": "core::ResourceManager::Resource::deleter"
+                        },
+                        {
+                            "dataType": "std::chrono::struct steady_clock::time_point",
+                            "nodeType": "Field",
+                            "qualifiedName": "core::ResourceManager::Resource::created_at"
+                        },
+                        {
+                            "children": [
+                                {
+                                    "dataType": "std::string",
+                                    "nodeType": "Parameter",
+                                    "qualifiedName": "core::ResourceManager::Resource::Resource::1"
+                                },
+                                {
+                                    "dataType": "std::function<void ()>",
+                                    "nodeType": "Parameter",
+                                    "qualifiedName": "core::ResourceManager::Resource::Resource::2"
+                                },
+                                {
+                                    "dataType": "void",
+                                    "nodeType": "ReturnType",
+                                    "qualifiedName": "core::ResourceManager::Resource::Resource::(ReturnType)"
+                                }
+                            ],
+                            "nodeType": "Function",
+                            "qualifiedName": "core::ResourceManager::Resource::Resource"
+                        }
+                    ],
+                    "nodeType": "Struct",
+                    "qualifiedName": "core::ResourceManager::Resource"
+                },
+                {
+                    "dataType": "std::vector<std::unique_ptr<Resource>>",
+                    "nodeType": "Field",
+                    "qualifiedName": "core::ResourceManager::resources_"
+                },
+                {
+                    "dataType": "std::mutex",
+                    "nodeType": "Field",
+                    "qualifiedName": "core::ResourceManager::mutex_"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "const std::string &",
+                            "nodeType": "Parameter",
+                            "qualifiedName": "core::ResourceManager::release_resource::1"
+                        },
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "core::ResourceManager::release_resource::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "core::ResourceManager::release_resource"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "core::ResourceManager::release_all::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "core::ResourceManager::release_all"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "std::size_t",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "core::ResourceManager::resource_count::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "core::ResourceManager::resource_count"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "std::vector<std::string>",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "core::ResourceManager::get_resource_names::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "core::ResourceManager::get_resource_names"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "core::ResourceManager::~ResourceManager::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "core::ResourceManager::~ResourceManager"
+                }
+            ],
+            "nodeType": "Class",
+            "qualifiedName": "core::ResourceManager",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "std::vector<std::thread>",
+                    "nodeType": "Field",
+                    "qualifiedName": "core::ThreadPool::workers_"
+                },
+                {
+                    "dataType": "std::queue<std::function<void ()>>",
+                    "nodeType": "Field",
+                    "qualifiedName": "core::ThreadPool::tasks_"
+                },
+                {
+                    "dataType": "std::mutex",
+                    "nodeType": "Field",
+                    "qualifiedName": "core::ThreadPool::queue_mutex_"
+                },
+                {
+                    "dataType": "std::condition_variable",
+                    "nodeType": "Field",
+                    "qualifiedName": "core::ThreadPool::condition_"
+                },
+                {
+                    "dataType": "std::atomic<bool>",
+                    "nodeType": "Field",
+                    "qualifiedName": "core::ThreadPool::stop_"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "std::size_t",
+                            "nodeType": "Parameter",
+                            "qualifiedName": "core::ThreadPool::ThreadPool::1"
+                        },
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "core::ThreadPool::ThreadPool::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "core::ThreadPool::ThreadPool"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "std::size_t",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "core::ThreadPool::size::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "core::ThreadPool::size"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "core::ThreadPool::~ThreadPool::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "core::ThreadPool::~ThreadPool"
+                }
+            ],
+            "nodeType": "Class",
+            "qualifiedName": "core::ThreadPool",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "enum utils::LogLevel",
+                    "nodeType": "Field",
+                    "qualifiedName": "utils::Logger::min_level_"
+                },
+                {
+                    "dataType": "std::mutex",
+                    "nodeType": "Field",
+                    "qualifiedName": "utils::Logger::mutex_"
+                },
+                {
+                    "dataType": "std::vector<std::function<void (LogLevel, const std::string &)>>",
+                    "nodeType": "Field",
+                    "qualifiedName": "utils::Logger::handlers_"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "enum utils::LogLevel",
+                            "nodeType": "Parameter",
+                            "qualifiedName": "utils::Logger::Logger::1"
+                        },
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "utils::Logger::Logger::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "utils::Logger::Logger"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "std::function<void (LogLevel, const std::string &)>",
+                            "nodeType": "Parameter",
+                            "qualifiedName": "utils::Logger::add_handler::1"
+                        },
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "utils::Logger::add_handler::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "utils::Logger::add_handler"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "enum utils::LogLevel",
+                            "nodeType": "Parameter",
+                            "qualifiedName": "utils::Logger::set_min_level::1"
+                        },
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "utils::Logger::set_min_level::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "utils::Logger::set_min_level"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "enum utils::LogLevel",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "utils::Logger::get_min_level::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "utils::Logger::get_min_level"
+                }
+            ],
+            "nodeType": "Class",
+            "qualifiedName": "utils::Logger",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "int",
+                    "nodeType": "Enumerator",
+                    "qualifiedName": "utils::LogLevel::DEBUG"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Enumerator",
+                    "qualifiedName": "utils::LogLevel::INFO"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Enumerator",
+                    "qualifiedName": "utils::LogLevel::WARNING"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Enumerator",
+                    "qualifiedName": "utils::LogLevel::ERROR"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Enumerator",
+                    "qualifiedName": "utils::LogLevel::CRITICAL"
+                }
+            ],
+            "nodeType": "Enum",
+            "qualifiedName": "utils::LogLevel",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
                     "dataType": "const char *",
                     "nodeType": "Parameter",
                     "qualifiedName": "hash_string::1"
@@ -20,6 +322,28 @@
             ],
             "nodeType": "Function",
             "qualifiedName": "hash_string",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "const char *",
+                    "nodeType": "Parameter",
+                    "qualifiedName": "literals::operator\"\"_hash::1"
+                },
+                {
+                    "dataType": "std::size_t",
+                    "nodeType": "Parameter",
+                    "qualifiedName": "literals::operator\"\"_hash::2"
+                },
+                {
+                    "dataType": "std::size_t",
+                    "nodeType": "ReturnType",
+                    "qualifiedName": "literals::operator\"\"_hash::(ReturnType)"
+                }
+            ],
+            "nodeType": "Function",
+            "qualifiedName": "literals::operator\"\"_hash",
             "tag": "removed"
         }
     ],

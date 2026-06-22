@@ -1,6 +1,7 @@
 // Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-3-Clause
 #include "diff_utils.hpp"
+#include "comm_def.hpp"
 #include <llvm-14/llvm/ADT/SmallString.h>
 #include <llvm-14/llvm/Support/raw_ostream.h>
 
@@ -26,6 +27,15 @@ std::string UNPARSED_STATUS = "unparsed_status";
 std::string HEADER_RESOLUTION_FAILURES = "headerResolutionFailures";
 std::string AST_DIFF = "astDiff";
 std::string CONST_EXPR = "constexpr";
+std::string ACCESS_SPECIFIER = "AccessSpecifier";
+std::string IS_OVERRIDE = "isOverride";
+std::string IS_FINAL = "isFinal";
+std::string IS_DELETE = "isDelete";
+std::string IS_DEFAULT = "isDefault";
+std::string IS_EXPLICIT = "isExplicit";
+std::string IS_VOLATILE = "isVolatile";
+std::string IS_CONST = "isConst";
+std::string IS_FRIEND = "isFriend";
 
 const std::string serialize(const APINodeStorageClass& storageClass) {
     switch (storageClass) {
@@ -49,6 +59,10 @@ const std::string serialize(const VirtualQualifier& qualifier) {
 const std::string serialize(const NodeKind& node) {
     switch (node) {
         case NodeKind::Namespace:              return "Namespace";
+        case NodeKind::FriendFunction:         return "FriendFunction";
+        case NodeKind::FriendClass:            return "FriendClass";
+        case NodeKind::FriendUnion:            return "FriendUnion";
+        case NodeKind::FriendStruct:           return "FriendStruct";
         case NodeKind::Class:                  return "Class";
         case NodeKind::Struct:                 return "Struct";
         case NodeKind::Union:                  return "Union";
@@ -78,6 +92,16 @@ const std::string serialize(const std::string& str){
 
 const bool serialize(const bool& val){
     return val;
+}
+
+const std::string serialize(const AccessSpec& accessSpec) {
+    switch (accessSpec) {
+        case AccessSpec::Public:    return "Public";
+        case AccessSpec::Protected: return "Protected";
+        case AccessSpec::Private:   return "Private";
+        case AccessSpec::None:      return "None";
+        default:                    return std::string{};
+    }
 }
 
 const std::string serialize(const ParsedDiffStatus& diff_status){

@@ -61,7 +61,7 @@
 /** Implementation helper for recursive macro to avoid infinite recursion */
 ----------------------------------------
 12375706446858875039
-/** 
+/**
  * Multi-line macro using do-while(0) idiom for safe statement-like behavior
  * Compares two values and prints their names using stringification
  */
@@ -75,7 +75,7 @@
  * ============================================================================ */
 ----------------------------------------
 1819030656786636544
-/** 
+/**
  * Feature flag system demonstrating complex conditional logic
  * Priority: FEATURE_A (without FEATURE_B) > FEATURE_B > default
  */
@@ -92,7 +92,7 @@
  * ============================================================================ */
 ----------------------------------------
 15867639998127961002
-/** 
+/**
  * Platform detection and function mapping
  * Provides a unified interface that calls platform-specific implementations
  */
@@ -138,7 +138,7 @@
 /* Checks if FEATURE_x is enabled */
 ----------------------------------------
 1468902666567839053
-/** 
+/**
  * Semantic version comparison macro
  * Returns true if the given version is greater than or equal to the current version
  */
@@ -169,7 +169,7 @@
  * ============================================================================ */
 ----------------------------------------
 5618260811080810154
-/** 
+/**
  * Error handling macro - evaluates expression and returns early if non-zero
  * Useful for functions that return error codes
  */
@@ -192,13 +192,13 @@
  * ============================================================================ */
 ----------------------------------------
 13481390582155633132
-/** 
+/**
  * Code block disabled at compile time using #if 0
  * Useful for temporarily disabling code without deleting it
  */
 ----------------------------------------
 6488133082346357306
-/** 
+/**
  * Code block that's only compiled if UNDEFINED_MACRO is defined
  * Since UNDEFINED_MACRO is not defined, this code is inactive
  */
@@ -213,7 +213,7 @@
 /* Immediately undefine */
 ----------------------------------------
 4001337971161916468
-/** 
+/**
  * Complex conditional check combining multiple conditions
  * Checks if SIMPLE_MACRO exists but TEMPORARY_MACRO doesn't
  */
@@ -230,7 +230,7 @@
  * ============================================================================ */
 ----------------------------------------
 15978540144529877769
-/** 
+/**
  * Demonstrates #ifndef/#elifndef usage (C23 feature)
  * Priority: NEW_FEATURE_X > LEGACY_FEATURE_Y fallback > disabled
  */
@@ -245,7 +245,7 @@
 /* C23: "else if not defined" */
 ----------------------------------------
 15356048372947200293
-/** 
+/**
  * Demonstrates #ifdef/#elifdef usage (C23 feature)
  * Mode selection: experimental > stable > default
  */
@@ -273,7 +273,7 @@
 /** Complex macro with nested conditionals */
 ----------------------------------------
 15879941064938195855
-/** 
+/**
  * Advanced macro demonstrating:
  * - Pragma directives within macros
  * - Compiler warning suppression
@@ -541,9 +541,9 @@
 13248869921311003807
             #if      defined(FEATURE_A) &&     !defined(FEATURE_B)           // first comments
 #define FEATURE_FLAG 1  /* FEATURE_A has priority when FEATURE_B is not defined */
-       #elif      defined(FEATURE_B)           
+       #elif      defined(FEATURE_B)
 #define FEATURE_FLAG 2  /* FEATURE_B is secondary priority */
-      #else        
+      #else
 ----------------------------------------
 1376508550064147215
 #define FEATURE_FLAG 0
@@ -555,7 +555,7 @@
 9474032327556054008
 #ifdef _WIN32
 #define PLATFORM_SPECIFIC_FUNCTION() win32_function()      /* Windows implementation */
-  #elif    defined(__APPLE__)     
+  #elif    defined(__APPLE__)
 #define PLATFORM_SPECIFIC_FUNCTION() macos_function()      /* macOS implementation */
 #elif defined(__linux__)
 
@@ -663,7 +663,7 @@ void inactive_function() {
     int x = 42;
     printf("This function is in an inactive block\n");
 }
-#endif 
+#endif
 ----------------------------------------
 (IN-ACTIVE)
 677721035919619419
@@ -681,14 +681,14 @@ void another_inactive_function() {
 ----------------------------------------
 15076778412017214536
 #if defined(SIMPLE_MACRO) && \
- !defined(TEMPORARY_MACRO) 
+ !defined(TEMPORARY_MACRO)
 ----------------------------------------
 17696063952571374410
 #define CONDITION_MET 1
 ----------------------------------------
 (IN-ACTIVE)
 13404186847818870969
-#else 
+#else
 #define CONDITION_MET 0  /* Condition is not met */
 #endif
 ----------------------------------------
@@ -706,9 +706,9 @@ void another_inactive_function() {
   #elifndef   LEGACY_FEATURE_Y      /* C23: "else if not defined" */
 #define NEW_FEATURE_X 200           /* Fallback value when legacy feature is undefined */
 #define FEATURE_Y_FALLBACK 1        /* Flag indicating fallback mode */
-   #else   
+   #else
 #define NEW_FEATURE_X 0             /* Disabled state */
-  #endif  
+  #endif
 ----------------------------------------
 (IN-ACTIVE)
 2332983418588728947
@@ -718,7 +718,7 @@ void another_inactive_function() {
     #elifdef      STABLE_MODE       /* C23: "else if defined" */
 #define EXPERIMENTAL_VALUE 500      /* Moderate value for stable mode */
 #define USE_STABLE 1                /* Flag for stable features */
-     #else    
+     #else
 ----------------------------------------
 1925339001391660172
 #define EXPERIMENTAL_VALUE 0

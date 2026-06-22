@@ -1,4 +1,4 @@
-[
+ [
     {
         "children": [
             {
@@ -217,6 +217,31 @@
         "tag": "modified"
     },
     {
+        "children": [
+            {
+                "dataType": "int",
+                "nodeType": "Field",
+                "qualifiedName": "GlobalConfig::configValue",
+                "tag": "removed"
+            },
+            {
+                "children": [
+                    {
+                        "dataType": "int",
+                        "nodeType": "ReturnType",
+                        "qualifiedName": "GlobalConfig::newFunc::(ReturnType)"
+                    }
+                ],
+                "nodeType": "Function",
+                "qualifiedName": "GlobalConfig::newFunc",
+                "tag": "added"
+            }
+        ],
+        "nodeType": "Class",
+        "qualifiedName": "GlobalConfig",
+        "tag": "modified"
+    },
+    {
         "dataType": "const double",
         "nodeType": "Variable",
         "qualifiedName": "PI",
@@ -330,6 +355,96 @@
     {
         "children": [
             {
+                "children": [
+                    {
+                        "dataType": "void",
+                        "nodeType": "ReturnType",
+                        "qualifiedName": "AlphaProcessor::clear::(ReturnType)"
+                    }
+                ],
+                "nodeType": "Function",
+                "qualifiedName": "AlphaProcessor::clear",
+                "tag": "removed"
+            },
+            {
+                "dataType": "int",
+                "nodeType": "Field",
+                "qualifiedName": "AlphaProcessor::a",
+                "tag": "added"
+            }
+        ],
+        "nodeType": "Class",
+        "qualifiedName": "AlphaProcessor",
+        "tag": "modified"
+    },
+    {
+        "children": [
+            {
+                "children": [
+                    {
+                        "dataType": "int",
+                        "nodeType": "Parameter",
+                        "qualifiedName": "PacketHandler::handlePacket::2",
+                        "tag": "added"
+                    }
+                ],
+                "nodeType": "Function",
+                "qualifiedName": "PacketHandler::handlePacket",
+                "tag": "modified"
+            },
+            {
+                "children": [
+                    {
+                        "dataType": "custom::DataPacket &",
+                        "nodeType": "ReturnType",
+                        "qualifiedName": "PacketHandler::getCurrentPacket::(ReturnType)"
+                    }
+                ],
+                "nodeType": "Function",
+                "qualifiedName": "PacketHandler::getCurrentPacket",
+                "tag": "removed"
+            },
+            {
+                "dataType": "int",
+                "nodeType": "Field",
+                "qualifiedName": "PacketHandler::a",
+                "tag": "added"
+            }
+        ],
+        "nodeType": "Class",
+        "qualifiedName": "PacketHandler",
+        "tag": "modified"
+    },
+    {
+        "children": [
+            {
+                "dataType": "int",
+                "nodeType": "Parameter",
+                "qualifiedName": "utils::generatePointGrid::1"
+            },
+            {
+                "dataType": "int",
+                "nodeType": "Parameter",
+                "qualifiedName": "utils::generatePointGrid::2"
+            },
+            {
+                "dataType": "double",
+                "nodeType": "Parameter",
+                "qualifiedName": "utils::generatePointGrid::3"
+            },
+            {
+                "dataType": "std::vector<Point>",
+                "nodeType": "ReturnType",
+                "qualifiedName": "utils::generatePointGrid::(ReturnType)"
+            }
+        ],
+        "nodeType": "Function",
+        "qualifiedName": "utils::generatePointGrid",
+        "tag": "removed"
+    },
+    {
+        "children": [
+            {
                 "dataType": "double",
                 "nodeType": "Parameter",
                 "qualifiedName": "calculateArea::1"
@@ -347,6 +462,12 @@
         ],
         "nodeType": "Function",
         "qualifiedName": "calculateArea",
+        "tag": "added"
+    },
+    {
+        "dataType": "int",
+        "nodeType": "Variable",
+        "qualifiedName": "utils::alpha",
         "tag": "added"
     },
     {

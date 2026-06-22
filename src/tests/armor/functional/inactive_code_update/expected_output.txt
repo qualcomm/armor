@@ -139,38 +139,48 @@
 2354681959671418142
 // End of mylib.h - Compact version with preprocessing, templates, classes, structs, unions
 ----------------------------------------
-NamespaceDecl
-10604277362686129786
-namespace mylib {
-
-    // Type aliases
-    using byte_t = uint8_t;
-    using size_type = std::size_t;
-    
-    // Enumeration
-    enum class ErrorCode : int32_t {
-        SUCCESS = 0,
-        FAILURE = -1,
-        INVALID_ARGUMENT = -2
-    };
-    
-    // Structure
-    struct Point3D {
-        float x, y, z;
-        Point3D() : x(0.0f), y(0.0f), z(0.0f) {}
-        Point3D(float x_, float y_, float z_) : x(x_), y(y_), z(z_) {}
-    };
-    
-    // Union
-    union DataUnion {
-        int32_t i32;
-        float f32;
-        byte_t bytes[4];
-        DataUnion() : i32(0) {}
-    };
-
-    // Template Class
-    template<typename T>
+TypeAliasDecl
+4778056794275737411
+using byte_t = uint8_t
+----------------------------------------
+TypeAliasDecl
+12067307721732456158
+using size_type = std::size_t
+----------------------------------------
+EnumConst
+ErrorCode:SUCCESS
+Get the actual end location (after the last token) startOffset == endOffset 
+12700262454154676125
+0
+----------------------------------------
+EnumConst
+ErrorCode:FAILURE
+5066976971417005513
+-1
+----------------------------------------
+EnumConst
+ErrorCode:INVALID_ARGUMENT
+5066976971417005513
+-2
+----------------------------------------
+Function Body
+Point3D
+15521860531219160998
+{}
+----------------------------------------
+Function Body
+Point3D
+15521860531219160998
+{}
+----------------------------------------
+Function Body
+DataUnion
+15521860531219160998
+{}
+----------------------------------------
+ClassTemplateDecl
+1536865203605014055
+template<typename T>
     class SmartPointer {
     private:
         T* ptr_;
@@ -179,19 +189,32 @@ namespace mylib {
         explicit SmartPointer(T* ptr) : ptr_(ptr) {}
         ~SmartPointer() { delete ptr_; }
         T* get() const { return ptr_; }
-    };
-    
-    // Template Function
-    template<typename T>
+    }
+----------------------------------------
+CXXRecordNode
+1402593494274183058
+class SmartPointer {
+    private:
+        T* ptr_;
+    public:
+        SmartPointer() : ptr_(nullptr) {}
+        explicit SmartPointer(T* ptr) : ptr_(ptr) {}
+        ~SmartPointer() { delete ptr_; }
+        T* get() const { return ptr_; }
+    }
+----------------------------------------
+FunctionTemplateDecl
+8733956534700832650
+template<typename T>
     MYLIB_FORCE_INLINE void swap(T& a, T& b) {
         T temp = a; a = b; b = temp;
     }
-    
-    // Function Declarations
-    ErrorCode initializeLibrary();
-    void* allocateAligned(size_type size, size_type alignment);
-    
-}
+----------------------------------------
+FunctionNode
+2829184814572912309
+MYLIB_FORCE_INLINE void swap(T& a, T& b) {
+        T temp = a; a = b; b = temp;
+    }
 ----------------------------------------
 Function Body
 processData
@@ -201,9 +224,9 @@ processData
         MYLIB_ASSERT(data != nullptr, "Data pointer is null");
         printf("[DEBUG] Processing %zu bytes, Flags: 0x%X\n", size, flags);
     #endif
-    
+
     int result = 0;
-    
+
     // Platform-specific memory allocation
     #ifdef MYLIB_PLATFORM_WINDOWS
         void* buffer = _aligned_malloc(size, 16);
@@ -221,9 +244,9 @@ processData
     #else
         void* buffer = malloc(size);
     #endif
-    
+
     if (!buffer) return -1;
-    
+
     // Threading support
     #ifdef MYLIB_ENABLE_THREADING
         static std::mutex mtx;
@@ -234,7 +257,7 @@ processData
         static int count = 0;
         result = ++count;
     #endif
-    
+
     // Flag-based processing with compiler-specific code
     if (flags & 0x01) {
         #ifdef MYLIB_COMPILER_MSVC
@@ -245,7 +268,7 @@ processData
             result += 300;
         #endif
     }
-    
+
     if (flags & 0x02) {
         #ifdef MYLIB_PLATFORM_WINDOWS
             result += 1000;
@@ -257,20 +280,20 @@ processData
             result += 4000;
         #endif
     }
-    
+
     #ifdef MYLIB_DEBUG
         static size_t totalBytes = 0;
         totalBytes += size;
         printf("[DEBUG] Total processed: %zu bytes, Result: %d\n", totalBytes, result);
     #endif
-    
+
     // Platform-specific cleanup
     #ifdef MYLIB_PLATFORM_WINDOWS
         _aligned_free(buffer);
     #else
         free(buffer);
     #endif
-    
+
     return result;
 }
 ----------------------------------------
@@ -689,38 +712,48 @@ processData
 2354681959671418142
 // End of mylib.h - Compact version with preprocessing, templates, classes, structs, unions
 ----------------------------------------
-NamespaceDecl
-10604277362686129786
-namespace mylib {
-
-    // Type aliases
-    using byte_t = uint8_t;
-    using size_type = std::size_t;
-    
-    // Enumeration
-    enum class ErrorCode : int32_t {
-        SUCCESS = 0,
-        FAILURE = -1,
-        INVALID_ARGUMENT = -2
-    };
-    
-    // Structure
-    struct Point3D {
-        float x, y, z;
-        Point3D() : x(0.0f), y(0.0f), z(0.0f) {}
-        Point3D(float x_, float y_, float z_) : x(x_), y(y_), z(z_) {}
-    };
-    
-    // Union
-    union DataUnion {
-        int32_t i32;
-        float f32;
-        byte_t bytes[4];
-        DataUnion() : i32(0) {}
-    };
-
-    // Template Class
-    template<typename T>
+TypeAliasDecl
+4778056794275737411
+using byte_t = uint8_t
+----------------------------------------
+TypeAliasDecl
+12067307721732456158
+using size_type = std::size_t
+----------------------------------------
+EnumConst
+ErrorCode:SUCCESS
+Get the actual end location (after the last token) startOffset == endOffset 
+12700262454154676125
+0
+----------------------------------------
+EnumConst
+ErrorCode:FAILURE
+5066976971417005513
+-1
+----------------------------------------
+EnumConst
+ErrorCode:INVALID_ARGUMENT
+5066976971417005513
+-2
+----------------------------------------
+Function Body
+Point3D
+15521860531219160998
+{}
+----------------------------------------
+Function Body
+Point3D
+15521860531219160998
+{}
+----------------------------------------
+Function Body
+DataUnion
+15521860531219160998
+{}
+----------------------------------------
+ClassTemplateDecl
+1536865203605014055
+template<typename T>
     class SmartPointer {
     private:
         T* ptr_;
@@ -729,19 +762,32 @@ namespace mylib {
         explicit SmartPointer(T* ptr) : ptr_(ptr) {}
         ~SmartPointer() { delete ptr_; }
         T* get() const { return ptr_; }
-    };
-    
-    // Template Function
-    template<typename T>
+    }
+----------------------------------------
+CXXRecordNode
+1402593494274183058
+class SmartPointer {
+    private:
+        T* ptr_;
+    public:
+        SmartPointer() : ptr_(nullptr) {}
+        explicit SmartPointer(T* ptr) : ptr_(ptr) {}
+        ~SmartPointer() { delete ptr_; }
+        T* get() const { return ptr_; }
+    }
+----------------------------------------
+FunctionTemplateDecl
+8733956534700832650
+template<typename T>
     MYLIB_FORCE_INLINE void swap(T& a, T& b) {
         T temp = a; a = b; b = temp;
     }
-    
-    // Function Declarations
-    ErrorCode initializeLibrary();
-    void* allocateAligned(size_type size, size_type alignment);
-    
-}
+----------------------------------------
+FunctionNode
+2829184814572912309
+MYLIB_FORCE_INLINE void swap(T& a, T& b) {
+        T temp = a; a = b; b = temp;
+    }
 ----------------------------------------
 Function Body
 processData
@@ -751,9 +797,9 @@ processData
         MYLIB_ASSERT(data != nullptr, "Data pointer is null");
         printf("[DEBUG] Processing %zu bytes, Flags: 0x%X\n", size, flags);
     #endif
-    
+
     int result = 0;
-    
+
     // Platform-specific memory allocation
     #ifdef MYLIB_PLATFORM_WINDOWS
         void* buffer = _aligned_malloc(size, 16);
@@ -771,9 +817,9 @@ processData
     #else
         void* buffer = malloc(size);
     #endif
-    
+
     if (!buffer) return -1;
-    
+
     // Threading support
     #ifdef MYLIB_ENABLE_THREADING
         static std::mutex mtx;
@@ -784,7 +830,7 @@ processData
         static int count = 0;
         result = ++count;
     #endif
-    
+
     // Flag-based processing with compiler-specific code
     if (flags & 0x01) {
         #ifdef MYLIB_COMPILER_MSVC
@@ -795,7 +841,7 @@ processData
             result += 300;
         #endif
     }
-    
+
     if (flags & 0x02) {
         #ifdef MYLIB_PLATFORM_WINDOWS
             result += 1000;
@@ -807,21 +853,21 @@ processData
             result += 4000;
         #endif
     }
-    
+
     #ifdef MYLIB_DEBUG
         #define NEW_LIB
         static size_t totalBytes = 0;
         totalBytes += size;
         printf("[DEBUG] Total processed: %zu bytes, Result: %d\n", totalBytes, result);
     #endif
-    
+
     // Platform-specific cleanup
     #ifdef MYLIB_PLATFORM_WINDOWS
         _aligned_free(buffer);
     #else
         free(buffer);
     #endif
-    
+
     return result;
 }
 ----------------------------------------
@@ -1136,6 +1182,7 @@ comments1
 1748340414771073951  : 1
 ----------------------------------------
 unhandledDecls1
+11044959451838826049  : 1
 5527843489271040135  : 1
 1567017602521651188  : 1
 5323582179407016097  : 1
@@ -1143,29 +1190,36 @@ unhandledDecls1
 8117690025819232206  : 1
 3183707768050378562  : 1
 5080493645433298524  : 1
+5066976971417005513  : 2
 17944720968709299593  : 1
 10293515776437698621  : 1
 11687501982600197290  : 1
 10705571255276855191  : 4
 10585965716865580119  : 1
 7497696533842709105  : 1
+12067307721732456158  : 1
+1402593494274183058  : 1
 13074568307166890559  : 1
 14191502057406420813  : 1
-10604277362686129786  : 1
-7414587302142641895  : 1
+1536865203605014055  : 1
 10086833846338844820  : 1
 14829674419287529409  : 1
-15464300162902583911  : 1
+7414587302142641895  : 1
 6656654353517034452  : 1
 13425203279752416008  : 10
+2829184814572912309  : 1
 4988823174612510581  : 1
 4504840211387841570  : 1
-13117341127079206593  : 1
+15464300162902583911  : 1
 8068769666068225577  : 1
-11044959451838826049  : 1
-15219203312359965853  : 1
+4778056794275737411  : 1
+12700262454154676125  : 1
+8733956534700832650  : 1
 15173472626001195300  : 1
+15219203312359965853  : 1
+13117341127079206593  : 1
 9884558697256544607  : 1
+15521860531219160998  : 3
 8717144482643656166  : 1
 ----------------------------------------
 inactiveUnhandledDecls1
@@ -1224,6 +1278,7 @@ comments2
 1748340414771073951  : 1
 ----------------------------------------
 unhandledDecls2
+11044959451838826049  : 1
 5527843489271040135  : 1
 1567017602521651188  : 1
 5323582179407016097  : 1
@@ -1231,29 +1286,36 @@ unhandledDecls2
 8117690025819232206  : 1
 3183707768050378562  : 1
 5080493645433298524  : 1
+5066976971417005513  : 2
 17944720968709299593  : 1
 10293515776437698621  : 1
 11687501982600197290  : 1
 10705571255276855191  : 4
 10585965716865580119  : 1
+12067307721732456158  : 1
+1402593494274183058  : 1
 13074568307166890559  : 1
 14191502057406420813  : 1
-10604277362686129786  : 1
-7414587302142641895  : 1
+1536865203605014055  : 1
 10086833846338844820  : 1
 14829674419287529409  : 1
-15464300162902583911  : 1
+7414587302142641895  : 1
 6656654353517034452  : 1
 13425203279752416008  : 10
+2829184814572912309  : 1
 4988823174612510581  : 1
 4504840211387841570  : 1
-13117341127079206593  : 1
+15464300162902583911  : 1
 8068769666068225577  : 1
-11044959451838826049  : 1
-15219203312359965853  : 1
+4778056794275737411  : 1
+12700262454154676125  : 1
+8733956534700832650  : 1
 15173472626001195300  : 1
+15219203312359965853  : 1
+13117341127079206593  : 1
 618311601172597535  : 1
 9884558697256544607  : 1
+15521860531219160998  : 3
 8717144482643656166  : 1
 ----------------------------------------
 inactiveUnhandledDecls2

@@ -25,6 +25,10 @@ enum class NodeKind {
     Macro,
     Comment,
     Templet,
+    FriendFunction,
+    FriendClass,
+    FriendStruct,
+    FriendUnion,
     Unknown
 };
 

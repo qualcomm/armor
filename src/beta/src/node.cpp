@@ -14,7 +14,7 @@ nlohmann::json beta::APINode::diff(const std::shared_ptr<const beta::APINode>& o
         node[NODE_TYPE] = serialize(kind);
         node[QUALIFIED_NAME] = qualifiedName;
     };
-    
+
     // Define a lambda function to compare fields
     auto compare = [&](const std::string& field, const auto &lhs, const auto &rhs, const auto &emptyValue) {
         if (lhs != rhs) {
@@ -39,31 +39,40 @@ nlohmann::json beta::APINode::diff(const std::shared_ptr<const beta::APINode>& o
             compare(DATA_TYPE, caonicalType, other->caonicalType, std::string{});
         }
     }
-    
+
     compare(
-        STORAGE_QUALIFIER, 
-        storage, 
-        other->storage, 
+        STORAGE_QUALIFIER,
+        storage,
+        other->storage,
         APINodeStorageClass::None
     );
     compare(
-        VIRTUAL_QUALIFIER, 
-        virtualQualifier, 
-        other->virtualQualifier, 
+        VIRTUAL_QUALIFIER,
+        virtualQualifier,
+        other->virtualQualifier,
         VirtualQualifier::None
     );
     compare(
-        INLINE, 
-        isInclined, 
-        other->isInclined, 
+        INLINE,
+        isInlined,
+        other->isInlined,
         false
     );
     compare(
-        CONST_EXPR, 
-        isConstExpr, 
-        other->isConstExpr, 
+        CONST_EXPR,
+        isConstExpr,
+        other->isConstExpr,
         false
     );
+    compare(ACCESS_SPECIFIER, access, other->access, AccessSpec::None);
+    compare(IS_OVERRIDE, isOveride, other->isOveride, false);
+    compare(IS_FINAL, isFinal, other->isFinal, false);
+    compare(IS_DELETE, isDelete, other->isDelete, false);
+    compare(IS_DEFAULT, isDefault, other->isDefault, false);
+    compare(IS_EXPLICIT, isExplicit, other->isExplicit, false);
+    compare(IS_VOLATILE, isVolatile, other->isVolatile, false);
+    compare(IS_CONST, isConst, other->isConst, false);
+    compare(IS_FRIEND, isFriend, other->isFriend, false);
     // If there are any changes
     if (!removed.empty() || !added.empty()) {
         // Helper to process removed and added changes
@@ -89,7 +98,7 @@ nlohmann::json beta::APINode::diff(const std::shared_ptr<const beta::APINode>& o
                 appendNodeMetadata(result);
                 result[TAG] = MODIFIED;
             }
-        } 
+        }
         else {
             result = nlohmann::json::array();
             processChanges(result);

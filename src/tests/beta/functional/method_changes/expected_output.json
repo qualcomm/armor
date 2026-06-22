@@ -1,0 +1,573 @@
+{
+    "astDiff": [
+        {
+            "children": [
+                {
+                    "children": [
+                        {
+                            "isConst": true,
+                            "nodeType": "Function",
+                            "qualifiedName": "Base::finalInDerived",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "Base::finalInDerived",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "Base::newVirtualMethod::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "Base::newVirtualMethod",
+                    "tag": "added"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "Base::volatileMethod::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "Base::volatileMethod",
+                    "tag": "added"
+                }
+            ],
+            "nodeType": "Class",
+            "qualifiedName": "Base",
+            "tag": "modified"
+        },
+        {
+            "children": [
+                {
+                    "children": [
+                        {
+                            "isConst": true,
+                            "nodeType": "Function",
+                            "qualifiedName": "Derived::finalInDerived",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "Derived::finalInDerived",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "isFinal": true,
+                            "nodeType": "Function",
+                            "qualifiedName": "Derived::virtualMethod",
+                            "tag": "removed"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "Derived::virtualMethod",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "Derived::newDerivedMethod::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "Derived::newDerivedMethod",
+                    "tag": "added"
+                }
+            ],
+            "nodeType": "Class",
+            "qualifiedName": "Derived",
+            "tag": "modified"
+        },
+        {
+            "children": [
+                {
+                    "children": [
+                        {
+                            "isConst": true,
+                            "nodeType": "Function",
+                            "qualifiedName": "TestQualifiers::constMethod",
+                            "tag": "removed"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "TestQualifiers::constMethod",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "isConst": true,
+                            "nodeType": "Function",
+                            "qualifiedName": "TestQualifiers::volatileMethod",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "TestQualifiers::volatileMethod",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "isVolatile": true,
+                            "nodeType": "Function",
+                            "qualifiedName": "TestQualifiers::constVolatileMethod",
+                            "tag": "removed"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "TestQualifiers::constVolatileMethod",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "isExplicit": true,
+                            "nodeType": "Function",
+                            "qualifiedName": "TestQualifiers::TestQualifiers",
+                            "tag": "removed"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "TestQualifiers::TestQualifiers",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "isDelete": true,
+                            "nodeType": "Function",
+                            "qualifiedName": "TestQualifiers::TestQualifiers",
+                            "tag": "removed"
+                        },
+                        {
+                            "isDefault": true,
+                            "nodeType": "Function",
+                            "qualifiedName": "TestQualifiers::TestQualifiers",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "TestQualifiers::TestQualifiers",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "isDefault": true,
+                            "nodeType": "Function",
+                            "qualifiedName": "TestQualifiers::TestQualifiers",
+                            "tag": "removed"
+                        },
+                        {
+                            "isDelete": true,
+                            "nodeType": "Function",
+                            "qualifiedName": "TestQualifiers::TestQualifiers",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "TestQualifiers::TestQualifiers",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "int",
+                            "nodeType": "Parameter",
+                            "qualifiedName": "TestQualifiers::TestQualifiers::1"
+                        },
+                        {
+                            "dataType": "float",
+                            "nodeType": "Parameter",
+                            "qualifiedName": "TestQualifiers::TestQualifiers::2"
+                        },
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "TestQualifiers::TestQualifiers::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "TestQualifiers::TestQualifiers",
+                    "tag": "removed"
+                },
+                {
+                    "children": [
+                        {
+                            "isExplicit": true,
+                            "nodeType": "Function",
+                            "qualifiedName": "TestQualifiers::operator bool",
+                            "tag": "removed"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "TestQualifiers::operator bool",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "children": [
+                                {
+                                    "dataType": "int",
+                                    "nodeType": "ReturnType",
+                                    "qualifiedName": "TestQualifiers::staticWithImpl::(ReturnType)",
+                                    "tag": "removed"
+                                },
+                                {
+                                    "dataType": "double",
+                                    "nodeType": "ReturnType",
+                                    "qualifiedName": "TestQualifiers::staticWithImpl::(ReturnType)",
+                                    "tag": "added"
+                                }
+                            ],
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "TestQualifiers::staticWithImpl::(ReturnType)",
+                            "tag": "modified"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "TestQualifiers::staticWithImpl",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "int",
+                            "nodeType": "Parameter",
+                            "qualifiedName": "TestQualifiers::TestQualifiers::1"
+                        },
+                        {
+                            "dataType": "int",
+                            "nodeType": "Parameter",
+                            "qualifiedName": "TestQualifiers::TestQualifiers::2"
+                        },
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "TestQualifiers::TestQualifiers::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "TestQualifiers::TestQualifiers",
+                    "tag": "added"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "TestQualifiers::newMethod::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "TestQualifiers::newMethod",
+                    "tag": "added"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "TestQualifiers::newStaticMethod::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "TestQualifiers::newStaticMethod",
+                    "tag": "added"
+                }
+            ],
+            "nodeType": "Class",
+            "qualifiedName": "TestQualifiers",
+            "tag": "modified"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "class NewFriendClass",
+                    "nodeType": "FriendClass",
+                    "qualifiedName": "NewFriendClass",
+                    "tag": "added"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "class FriendTest &",
+                            "nodeType": "Parameter",
+                            "qualifiedName": "newFriendFunction::1"
+                        },
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "newFriendFunction::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "FriendFunction",
+                    "qualifiedName": "newFriendFunction",
+                    "tag": "added"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Field",
+                    "qualifiedName": "FriendTest::newPrivateData",
+                    "tag": "added"
+                }
+            ],
+            "nodeType": "Class",
+            "qualifiedName": "FriendTest",
+            "tag": "modified"
+        },
+        {
+            "children": [
+                {
+                    "children": [
+                        {
+                            "dataType": "char *",
+                            "nodeType": "Parameter",
+                            "qualifiedName": "FunctionPointerType::3",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "FunctionPointer",
+                    "qualifiedName": "FunctionPointerType",
+                    "tag": "modified"
+                }
+            ],
+            "nodeType": "Typedef",
+            "qualifiedName": "FunctionPointerType",
+            "tag": "modified"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "int",
+                    "nodeType": "Variable",
+                    "qualifiedName": "globalVariable",
+                    "tag": "removed"
+                },
+                {
+                    "dataType": "double",
+                    "nodeType": "Variable",
+                    "qualifiedName": "globalVariable",
+                    "tag": "added"
+                }
+            ],
+            "nodeType": "Variable",
+            "qualifiedName": "globalVariable",
+            "tag": "modified"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "const int",
+                    "nodeType": "Variable",
+                    "qualifiedName": "staticConstGlobalVariable",
+                    "tag": "removed"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Variable",
+                    "qualifiedName": "staticConstGlobalVariable",
+                    "tag": "added"
+                }
+            ],
+            "nodeType": "Variable",
+            "qualifiedName": "staticConstGlobalVariable",
+            "tag": "modified"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "unsigned int",
+                    "nodeType": "Enumerator",
+                    "qualifiedName": "TestEnum::VALUE1"
+                },
+                {
+                    "dataType": "unsigned int",
+                    "nodeType": "Enumerator",
+                    "qualifiedName": "TestEnum::VALUE2"
+                },
+                {
+                    "dataType": "unsigned int",
+                    "nodeType": "Enumerator",
+                    "qualifiedName": "TestEnum::VALUE3"
+                }
+            ],
+            "nodeType": "Enum",
+            "qualifiedName": "TestEnum",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "unsigned int",
+                    "nodeType": "Enumerator",
+                    "qualifiedName": "AnonEnum::ANON_VALUE1"
+                },
+                {
+                    "dataType": "unsigned int",
+                    "nodeType": "Enumerator",
+                    "qualifiedName": "AnonEnum::ANON_VALUE2"
+                }
+            ],
+            "nodeType": "Enum",
+            "qualifiedName": "AnonEnum",
+            "tag": "removed"
+        },
+        {
+            "dataType": "enum AnonEnum",
+            "nodeType": "Typedef",
+            "qualifiedName": "AnonEnum",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "int",
+                    "nodeType": "Field",
+                    "qualifiedName": "TestStruct::field1"
+                },
+                {
+                    "dataType": "double",
+                    "nodeType": "Field",
+                    "qualifiedName": "TestStruct::field2"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "TestStruct::staticStructMethod::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "TestStruct::staticStructMethod"
+                }
+            ],
+            "nodeType": "Struct",
+            "qualifiedName": "TestStruct",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "int",
+                    "nodeType": "Field",
+                    "qualifiedName": "TestUnion::intValue"
+                },
+                {
+                    "dataType": "float",
+                    "nodeType": "Field",
+                    "qualifiedName": "TestUnion::floatValue"
+                }
+            ],
+            "nodeType": "Union",
+            "qualifiedName": "TestUnion",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "isFinal": true,
+                    "nodeType": "Class",
+                    "qualifiedName": "FinalClass",
+                    "tag": "added"
+                }
+            ],
+            "nodeType": "Class",
+            "qualifiedName": "FinalClass",
+            "tag": "modified"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "class FriendTest &",
+                    "nodeType": "Parameter",
+                    "qualifiedName": "newFriendFunction::1"
+                },
+                {
+                    "dataType": "void",
+                    "nodeType": "ReturnType",
+                    "qualifiedName": "newFriendFunction::(ReturnType)"
+                }
+            ],
+            "nodeType": "Function",
+            "qualifiedName": "newFriendFunction",
+            "tag": "added"
+        },
+        {
+            "children": [
+                {
+                    "children": [
+                        {
+                            "dataType": "class FriendTest &",
+                            "nodeType": "Parameter",
+                            "qualifiedName": "NewFriendClass::accessNewPrivateData::1"
+                        },
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "NewFriendClass::accessNewPrivateData::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "NewFriendClass::accessNewPrivateData"
+                }
+            ],
+            "nodeType": "Class",
+            "qualifiedName": "NewFriendClass",
+            "tag": "added"
+        },
+        {
+            "children": [
+                {
+                    "children": [
+                        {
+                            "dataType": "const char *",
+                            "nodeType": "Parameter",
+                            "qualifiedName": "NewFunctionPointerType::1"
+                        },
+                        {
+                            "dataType": "int",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "NewFunctionPointerType::(ReturnType)"
+                        }
+                    ],
+                    "dataType": "*",
+                    "nodeType": "FunctionPointer",
+                    "qualifiedName": "NewFunctionPointerType"
+                }
+            ],
+            "nodeType": "Typedef",
+            "qualifiedName": "NewFunctionPointerType",
+            "tag": "added"
+        },
+        {
+            "dataType": "int",
+            "nodeType": "Variable",
+            "qualifiedName": "newGlobalVariable",
+            "tag": "added"
+        },
+        {
+            "dataType": "char",
+            "nodeType": "Variable",
+            "qualifiedName": "staticNewGlobal",
+            "tag": "added"
+        }
+    ],
+    "headerResolutionFailures": [],
+    "parsed_status": 1,
+    "unparsed_status": 0
+}

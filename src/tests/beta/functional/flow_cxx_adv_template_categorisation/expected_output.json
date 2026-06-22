@@ -301,6 +301,578 @@
         {
             "children": [
                 {
+                    "children": [
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "Shape::~Shape::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "Shape::~Shape"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "double",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "Shape::area::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "Shape::area"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "double",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "Shape::perimeter::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "Shape::perimeter"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "Shape::draw::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "Shape::draw"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "Shape::info::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "Shape::info"
+                }
+            ],
+            "nodeType": "Class",
+            "qualifiedName": "Shape",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "class Shape",
+                    "nodeType": "BaseClass",
+                    "qualifiedName": "Shape"
+                },
+                {
+                    "dataType": "double",
+                    "nodeType": "Field",
+                    "qualifiedName": "Rectangle::width_"
+                },
+                {
+                    "dataType": "double",
+                    "nodeType": "Field",
+                    "qualifiedName": "Rectangle::height_"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "double",
+                            "nodeType": "Parameter",
+                            "qualifiedName": "Rectangle::Rectangle::1"
+                        },
+                        {
+                            "dataType": "double",
+                            "nodeType": "Parameter",
+                            "qualifiedName": "Rectangle::Rectangle::2"
+                        },
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "Rectangle::Rectangle::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "Rectangle::Rectangle"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "double",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "Rectangle::area::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "Rectangle::area"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "double",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "Rectangle::perimeter::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "Rectangle::perimeter"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "Rectangle::draw::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "Rectangle::draw"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "double",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "Rectangle::diagonal::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "Rectangle::diagonal"
+                }
+            ],
+            "nodeType": "Class",
+            "qualifiedName": "Rectangle",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "children": [
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "Drawable::~Drawable::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "Drawable::~Drawable"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "Drawable::render::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "Drawable::render"
+                }
+            ],
+            "nodeType": "Class",
+            "qualifiedName": "Drawable",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "children": [
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "Serializable::~Serializable::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "Serializable::~Serializable"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "std::string",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "Serializable::serialize::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "Serializable::serialize"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "const std::string &",
+                            "nodeType": "Parameter",
+                            "qualifiedName": "Serializable::deserialize::1"
+                        },
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "Serializable::deserialize::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "Serializable::deserialize"
+                }
+            ],
+            "nodeType": "Class",
+            "qualifiedName": "Serializable",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "class Rectangle",
+                    "nodeType": "BaseClass",
+                    "qualifiedName": "Rectangle"
+                },
+                {
+                    "dataType": "class Drawable",
+                    "nodeType": "BaseClass",
+                    "qualifiedName": "Drawable"
+                },
+                {
+                    "dataType": "class Serializable",
+                    "nodeType": "BaseClass",
+                    "qualifiedName": "Serializable"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "double",
+                            "nodeType": "Parameter",
+                            "qualifiedName": "DrawableRectangle::DrawableRectangle::1"
+                        },
+                        {
+                            "dataType": "double",
+                            "nodeType": "Parameter",
+                            "qualifiedName": "DrawableRectangle::DrawableRectangle::2"
+                        },
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "DrawableRectangle::DrawableRectangle::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "DrawableRectangle::DrawableRectangle"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "DrawableRectangle::render::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "DrawableRectangle::render"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "std::string",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "DrawableRectangle::serialize::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "DrawableRectangle::serialize"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "const std::string &",
+                            "nodeType": "Parameter",
+                            "qualifiedName": "DrawableRectangle::deserialize::1"
+                        },
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "DrawableRectangle::deserialize::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "DrawableRectangle::deserialize"
+                },
+                {
+                    "dataType": "double",
+                    "nodeType": "Field",
+                    "qualifiedName": "DrawableRectangle::width_"
+                },
+                {
+                    "dataType": "double",
+                    "nodeType": "Field",
+                    "qualifiedName": "DrawableRectangle::height_"
+                }
+            ],
+            "nodeType": "Class",
+            "qualifiedName": "DrawableRectangle",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "std::exception",
+                    "nodeType": "BaseClass",
+                    "qualifiedName": "std::exception"
+                },
+                {
+                    "dataType": "std::string",
+                    "nodeType": "Field",
+                    "qualifiedName": "BaseException::message_"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "const std::string &",
+                            "nodeType": "Parameter",
+                            "qualifiedName": "BaseException::BaseException::1"
+                        },
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "BaseException::BaseException::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "BaseException::BaseException"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "const char *",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "BaseException::what::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "BaseException::what"
+                }
+            ],
+            "nodeType": "Class",
+            "qualifiedName": "BaseException",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "class BaseException",
+                    "nodeType": "BaseClass",
+                    "qualifiedName": "BaseException"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "const std::string &",
+                            "nodeType": "Parameter",
+                            "qualifiedName": "ValidationError::ValidationError::1"
+                        },
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "ValidationError::ValidationError::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "ValidationError::ValidationError"
+                }
+            ],
+            "nodeType": "Class",
+            "qualifiedName": "ValidationError",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "class BaseException",
+                    "nodeType": "BaseClass",
+                    "qualifiedName": "BaseException"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Field",
+                    "qualifiedName": "NetworkError::error_code_"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "const std::string &",
+                            "nodeType": "Parameter",
+                            "qualifiedName": "NetworkError::NetworkError::1"
+                        },
+                        {
+                            "dataType": "int",
+                            "nodeType": "Parameter",
+                            "qualifiedName": "NetworkError::NetworkError::2"
+                        },
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "NetworkError::NetworkError::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "NetworkError::NetworkError"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "int",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "NetworkError::getErrorCode::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "NetworkError::getErrorCode"
+                }
+            ],
+            "nodeType": "Class",
+            "qualifiedName": "NetworkError",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "int *",
+                    "nodeType": "Field",
+                    "qualifiedName": "ResourceManager::resource_"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "size_t",
+                            "nodeType": "Parameter",
+                            "qualifiedName": "ResourceManager::ResourceManager::1"
+                        },
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "ResourceManager::ResourceManager::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "ResourceManager::ResourceManager"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "ResourceManager::~ResourceManager::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "ResourceManager::~ResourceManager"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "class ResourceManager &&",
+                            "nodeType": "Parameter",
+                            "qualifiedName": "ResourceManager::ResourceManager::1"
+                        },
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "ResourceManager::ResourceManager::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "ResourceManager::ResourceManager"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "class ResourceManager &&",
+                            "nodeType": "Parameter",
+                            "qualifiedName": "ResourceManager::operator=::1"
+                        },
+                        {
+                            "dataType": "class ResourceManager &",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "ResourceManager::operator=::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "ResourceManager::operator="
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "const class ResourceManager &",
+                            "nodeType": "Parameter",
+                            "qualifiedName": "ResourceManager::ResourceManager::1"
+                        },
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "ResourceManager::ResourceManager::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "ResourceManager::ResourceManager"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "const class ResourceManager &",
+                            "nodeType": "Parameter",
+                            "qualifiedName": "ResourceManager::operator=::1"
+                        },
+                        {
+                            "dataType": "class ResourceManager &",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "ResourceManager::operator=::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "ResourceManager::operator="
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "int *",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "ResourceManager::get::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "ResourceManager::get"
+                }
+            ],
+            "nodeType": "Class",
+            "qualifiedName": "ResourceManager",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "children": [
+                        {
+                            "dataType": "const Value &",
+                            "nodeType": "Parameter",
+                            "qualifiedName": "VariantProcessor::process::1"
+                        },
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "VariantProcessor::process::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "VariantProcessor::process"
+                }
+            ],
+            "nodeType": "Class",
+            "qualifiedName": "VariantProcessor",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
                     "dataType": "int",
                     "nodeType": "Field",
                     "qualifiedName": "Multiplier::factor"
@@ -340,6 +912,11 @@
             ],
             "nodeType": "Struct",
             "qualifiedName": "Multiplier",
+            "tag": "removed"
+        },
+        {
+            "nodeType": "Class",
+            "qualifiedName": "FunctionUtils",
             "tag": "removed"
         }
     ],

@@ -7,6 +7,7 @@
 #include "llvm/ADT/SmallString.h"
 #include "llvm/ADT/SmallVector.h"
 #include "llvm/ADT/StringRef.h"
+#include "llvm/ADT/StringMap.h"
 
 class StringBuilder {
 public:
@@ -15,7 +16,17 @@ public:
     llvm::StringRef get() const;
     std::string getAsString() const;
 
+    void overridePush(llvm::StringRef newName, llvm::StringRef usr);
+    void overridePop(llvm::StringRef usr);
+    bool isOverrideActive(llvm::StringRef usr);
+
 private:
     llvm::SmallString<256> buffer;
     llvm::SmallVector<size_t, 16> offsets;
+
+    struct SavedState {
+        llvm::SmallString<256> buffer;
+        llvm::SmallVector<size_t, 16> offsets;
+    };
+    llvm::StringMap<SavedState> contextMap;
 };

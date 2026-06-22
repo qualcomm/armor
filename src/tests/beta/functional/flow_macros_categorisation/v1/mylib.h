@@ -4,8 +4,8 @@
 #include  <set>
 #include <bits/stdc++.h>
 
-        #ifndef       MACRO_TEST_H       
-         #define               MACRO_TEST_H         
+        #ifndef       MACRO_TEST_H
+         #define               MACRO_TEST_H
 
 /* ============================================================================
  * BASIC MACROS
@@ -58,7 +58,7 @@
 /** Implementation helper for recursive macro to avoid infinite recursion */
 #define RECURSIVE_MACRO_IMPL(x) ((x) + RECURSIVE_MACRO((x) - 1))
 
-/** 
+/**
  * Multi-line macro using do-while(0) idiom for safe statement-like behavior
  * Compares two values and prints their names using stringification
  */
@@ -78,29 +78,29 @@
  * CONDITIONAL COMPILATION - FEATURE FLAGS
  * ============================================================================ */
 
-/** 
+/**
  * Feature flag system demonstrating complex conditional logic
  * Priority: FEATURE_A (without FEATURE_B) > FEATURE_B > default
  */
             #if      defined(FEATURE_A) &&     !defined(FEATURE_B)           // first comments
 #define FEATURE_FLAG 1  /* FEATURE_A has priority when FEATURE_B is not defined */
-       #elif      defined(FEATURE_B)           
+       #elif      defined(FEATURE_B)
 #define FEATURE_FLAG 2  /* FEATURE_B is secondary priority */
-      #else        
+      #else
 #define FEATURE_FLAG 0  /* Default when no features are enabled */
-      #endif     
+      #endif
 
 /* ============================================================================
  * PLATFORM-SPECIFIC DEFINITIONS
  * ============================================================================ */
 
-/** 
+/**
  * Platform detection and function mapping
  * Provides a unified interface that calls platform-specific implementations
  */
 #ifdef _WIN32
 #define PLATFORM_SPECIFIC_FUNCTION() win32_function()      /* Windows implementation */
-  #elif    defined(__APPLE__)     
+  #elif    defined(__APPLE__)
 #define PLATFORM_SPECIFIC_FUNCTION() macos_function()      /* macOS implementation */
 #elif defined(__linux__)
              #define PLATFORM_SPECIFIC_FUNCTION() linux_function()  /* Linux implementation */
@@ -144,7 +144,7 @@
 /** Generic feature detection using token pasting */
 #define HAS_FEATURE(x) (FEATURE_##x == 1)  /* Checks if FEATURE_x is enabled */
 
-/** 
+/**
  * Semantic version comparison macro
  * Returns true if the given version is greater than or equal to the current version
  */
@@ -176,7 +176,7 @@
  * UTILITY MACROS
  * ============================================================================ */
 
-/** 
+/**
  * Error handling macro - evaluates expression and returns early if non-zero
  * Useful for functions that return error codes
  */
@@ -204,7 +204,7 @@
  * INACTIVE CODE BLOCKS AND CONDITIONAL DEFINITIONS
  * ============================================================================ */
 
-/** 
+/**
  * Code block disabled at compile time using #if 0
  * Useful for temporarily disabling code without deleting it
  */
@@ -213,9 +213,9 @@ void inactive_function() {
     int x = 42;
     printf("This function is in an inactive block\n");
 }
-#endif 
+#endif
 
-/** 
+/**
  * Code block that's only compiled if UNDEFINED_MACRO is defined
  * Since UNDEFINED_MACRO is not defined, this code is inactive
  */
@@ -229,14 +229,14 @@ void another_inactive_function() {
 #define TEMPORARY_MACRO 123  /* Define temporarily */
 #undef TEMPORARY_MACRO       /* Immediately undefine */
 
-/** 
+/**
  * Complex conditional check combining multiple conditions
  * Checks if SIMPLE_MACRO exists but TEMPORARY_MACRO doesn't
  */
 #if defined(SIMPLE_MACRO) && \
- !defined(TEMPORARY_MACRO) 
+ !defined(TEMPORARY_MACRO)
 #define CONDITION_MET 1  /* Condition is satisfied */
-#else 
+#else
 #define CONDITION_MET 0  /* Condition is not met */
 #endif
 
@@ -247,21 +247,21 @@ int fun();
  * MODERN CONDITIONAL COMPILATION (C23 features)
  * ============================================================================ */
 
-/** 
+/**
  * Demonstrates #ifndef/#elifndef usage (C23 feature)
  * Priority: NEW_FEATURE_X > LEGACY_FEATURE_Y fallback > disabled
  */
-   #ifndef    NEW_FEATURE_X  
+   #ifndef    NEW_FEATURE_X
    #define NEW_FEATURE_X 100        /* Primary feature value */
 #define FEATURE_X_ENABLED 1         /* Flag indicating feature is active */
   #elifndef   LEGACY_FEATURE_Y      /* C23: "else if not defined" */
 #define NEW_FEATURE_X 200           /* Fallback value when legacy feature is undefined */
 #define FEATURE_Y_FALLBACK 1        /* Flag indicating fallback mode */
-   #else   
+   #else
 #define NEW_FEATURE_X 0             /* Disabled state */
-  #endif  
+  #endif
 
-/** 
+/**
  * Demonstrates #ifdef/#elifdef usage (C23 feature)
  * Mode selection: experimental > stable > default
  */
@@ -271,9 +271,9 @@ int fun();
     #elifdef      STABLE_MODE       /* C23: "else if defined" */
 #define EXPERIMENTAL_VALUE 500      /* Moderate value for stable mode */
 #define USE_STABLE 1                /* Flag for stable features */
-     #else    
+     #else
 #define EXPERIMENTAL_VALUE 0        /* Default/disabled value */
-   #endif   
+   #endif
 
 /* ============================================================================
  * NESTED CONDITIONAL COMPILATION
@@ -299,7 +299,7 @@ int fun();
  * ============================================================================ */
 
 /** Complex macro with nested conditionals */
-/** 
+/**
  * Advanced macro demonstrating:
  * - Pragma directives within macros
  * - Compiler warning suppression

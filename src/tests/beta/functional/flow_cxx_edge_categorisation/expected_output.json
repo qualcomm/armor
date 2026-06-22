@@ -7,6 +7,98 @@
             "tag": "removed"
         },
         {
+            "children": [
+                {
+                    "dataType": "double",
+                    "nodeType": "Field",
+                    "qualifiedName": "ComplexNumber::real_"
+                },
+                {
+                    "dataType": "double",
+                    "nodeType": "Field",
+                    "qualifiedName": "ComplexNumber::imag_"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "double",
+                            "nodeType": "Parameter",
+                            "qualifiedName": "ComplexNumber::ComplexNumber::1"
+                        },
+                        {
+                            "dataType": "double",
+                            "nodeType": "Parameter",
+                            "qualifiedName": "ComplexNumber::ComplexNumber::2"
+                        },
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "ComplexNumber::ComplexNumber::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "ComplexNumber::ComplexNumber"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "void",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "ComplexNumber::print_impl::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "ComplexNumber::print_impl"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "const class ComplexNumber &",
+                            "nodeType": "Parameter",
+                            "qualifiedName": "ComplexNumber::operator+::1"
+                        },
+                        {
+                            "dataType": "class ComplexNumber",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "ComplexNumber::operator+::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "ComplexNumber::operator+"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "const class ComplexNumber &",
+                            "nodeType": "Parameter",
+                            "qualifiedName": "ComplexNumber::operator*::1"
+                        },
+                        {
+                            "dataType": "class ComplexNumber",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "ComplexNumber::operator*::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "ComplexNumber::operator*"
+                },
+                {
+                    "children": [
+                        {
+                            "dataType": "double",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "ComplexNumber::magnitude::(ReturnType)"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "ComplexNumber::magnitude"
+                }
+            ],
+            "nodeType": "Class",
+            "qualifiedName": "ComplexNumber",
+            "tag": "removed"
+        },
+        {
             "dataType": "class ComplexNumber",
             "nodeType": "Variable",
             "qualifiedName": "complex_unit_i",
