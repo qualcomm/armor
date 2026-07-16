@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.14)
 project(armor)
-set(TOOL_VERSION "0.6.8")
+set(TOOL_VERSION "0.6.9")
 set(TOOL_DOCS_URL "https://github.com/qualcomm/armor/blob/main/README.md")
 
 set(CMAKE_CXX_STANDARD 17)

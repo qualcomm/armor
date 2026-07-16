@@ -1,0 +1,569 @@
+{
+    "astDiff": [
+        {
+            "children": [
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "Enum",
+                            "qualifiedName": "mylib::Device::PowerLevel",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "Enum",
+                            "qualifiedName": "mylib::Device::PowerLevel",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Enum",
+                    "qualifiedName": "mylib::Device::PowerLevel",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "Enum",
+                            "qualifiedName": "mylib::Device::State",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "Enum",
+                            "qualifiedName": "mylib::Device::State",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Enum",
+                    "qualifiedName": "mylib::Device::State",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "Enum",
+                            "qualifiedName": "mylib::Device::ErrorCode",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "Enum",
+                            "qualifiedName": "mylib::Device::ErrorCode",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Enum",
+                    "qualifiedName": "mylib::Device::ErrorCode",
+                    "tag": "modified"
+                }
+            ],
+            "nodeType": "Class",
+            "qualifiedName": "mylib::Device",
+            "tag": "modified"
+        },
+        {
+            "children": [
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "Typedef",
+                            "qualifiedName": "mylib::Processor::TaskId",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "Typedef",
+                            "qualifiedName": "mylib::Processor::TaskId",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Typedef",
+                    "qualifiedName": "mylib::Processor::TaskId",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "Typedef",
+                            "qualifiedName": "mylib::Processor::ClockFreq",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "Typedef",
+                            "qualifiedName": "mylib::Processor::ClockFreq",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Typedef",
+                    "qualifiedName": "mylib::Processor::ClockFreq",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "Typedef",
+                            "qualifiedName": "mylib::Processor::CoreMask",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "Typedef",
+                            "qualifiedName": "mylib::Processor::CoreMask",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Typedef",
+                    "qualifiedName": "mylib::Processor::CoreMask",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "Typedef",
+                            "qualifiedName": "mylib::Processor::CycleCount",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "Typedef",
+                            "qualifiedName": "mylib::Processor::CycleCount",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Typedef",
+                    "qualifiedName": "mylib::Processor::CycleCount",
+                    "tag": "modified"
+                }
+            ],
+            "nodeType": "Class",
+            "qualifiedName": "mylib::Processor",
+            "tag": "modified"
+        },
+        {
+            "children": [
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "Typedef",
+                            "qualifiedName": "mylib::Controller::HandleId",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "Typedef",
+                            "qualifiedName": "mylib::Controller::HandleId",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Typedef",
+                    "qualifiedName": "mylib::Controller::HandleId",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "Enum",
+                            "qualifiedName": "mylib::Controller::Mode",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "Enum",
+                            "qualifiedName": "mylib::Controller::Mode",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Enum",
+                    "qualifiedName": "mylib::Controller::Mode",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "Typedef",
+                            "qualifiedName": "mylib::Controller::SampleRate",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "Typedef",
+                            "qualifiedName": "mylib::Controller::SampleRate",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Typedef",
+                    "qualifiedName": "mylib::Controller::SampleRate",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "Enum",
+                            "qualifiedName": "mylib::Controller::Status",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "Enum",
+                            "qualifiedName": "mylib::Controller::Status",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Enum",
+                    "qualifiedName": "mylib::Controller::Status",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "Typedef",
+                            "qualifiedName": "mylib::Controller::RegValue",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "Typedef",
+                            "qualifiedName": "mylib::Controller::RegValue",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Typedef",
+                    "qualifiedName": "mylib::Controller::RegValue",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "Enum",
+                            "qualifiedName": "mylib::Controller::Priority",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "Enum",
+                            "qualifiedName": "mylib::Controller::Priority",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Enum",
+                    "qualifiedName": "mylib::Controller::Priority",
+                    "tag": "modified"
+                }
+            ],
+            "nodeType": "Class",
+            "qualifiedName": "mylib::Controller",
+            "tag": "modified"
+        },
+        {
+            "children": [
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "Enum",
+                            "qualifiedName": "mylib::Packet::Type",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "Enum",
+                            "qualifiedName": "mylib::Packet::Type",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Enum",
+                    "qualifiedName": "mylib::Packet::Type",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "Enum",
+                            "qualifiedName": "mylib::Packet::Encoding",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "Enum",
+                            "qualifiedName": "mylib::Packet::Encoding",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Enum",
+                    "qualifiedName": "mylib::Packet::Encoding",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "Enum",
+                            "qualifiedName": "mylib::Packet::Compression",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "Enum",
+                            "qualifiedName": "mylib::Packet::Compression",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Enum",
+                    "qualifiedName": "mylib::Packet::Compression",
+                    "tag": "modified"
+                }
+            ],
+            "nodeType": "Struct",
+            "qualifiedName": "mylib::Packet",
+            "tag": "modified"
+        },
+        {
+            "children": [
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "Function",
+                            "qualifiedName": "mylib::Service::start",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "Function",
+                            "qualifiedName": "mylib::Service::start",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "mylib::Service::start",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "Function",
+                            "qualifiedName": "mylib::Service::getStatus",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "Function",
+                            "qualifiedName": "mylib::Service::getStatus",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "mylib::Service::getStatus",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "Function",
+                            "qualifiedName": "mylib::Service::reset",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "Function",
+                            "qualifiedName": "mylib::Service::reset",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "mylib::Service::reset",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "Function",
+                            "qualifiedName": "mylib::Service::shutdown",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "Function",
+                            "qualifiedName": "mylib::Service::shutdown",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Function",
+                    "qualifiedName": "mylib::Service::shutdown",
+                    "tag": "modified"
+                }
+            ],
+            "nodeType": "Class",
+            "qualifiedName": "mylib::Service",
+            "tag": "modified"
+        },
+        {
+            "children": [
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "Enum",
+                            "qualifiedName": "utils::Scheduler::Policy",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "Enum",
+                            "qualifiedName": "utils::Scheduler::Policy",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Enum",
+                    "qualifiedName": "utils::Scheduler::Policy",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "Enum",
+                            "qualifiedName": "utils::Scheduler::Clock",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "Enum",
+                            "qualifiedName": "utils::Scheduler::Clock",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Enum",
+                    "qualifiedName": "utils::Scheduler::Clock",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "Enum",
+                            "qualifiedName": "utils::Scheduler::QueueKind",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "Enum",
+                            "qualifiedName": "utils::Scheduler::QueueKind",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Enum",
+                    "qualifiedName": "utils::Scheduler::QueueKind",
+                    "tag": "modified"
+                }
+            ],
+            "nodeType": "Class",
+            "qualifiedName": "utils::Scheduler",
+            "tag": "modified"
+        },
+        {
+            "children": [
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "Typedef",
+                            "qualifiedName": "utils::Allocator::RawPtr",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "Typedef",
+                            "qualifiedName": "utils::Allocator::RawPtr",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Typedef",
+                    "qualifiedName": "utils::Allocator::RawPtr",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "Typedef",
+                            "qualifiedName": "utils::Allocator::BlockSize",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "Typedef",
+                            "qualifiedName": "utils::Allocator::BlockSize",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Typedef",
+                    "qualifiedName": "utils::Allocator::BlockSize",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Protected",
+                            "nodeType": "Typedef",
+                            "qualifiedName": "utils::Allocator::AlignVal",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "Typedef",
+                            "qualifiedName": "utils::Allocator::AlignVal",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Typedef",
+                    "qualifiedName": "utils::Allocator::AlignVal",
+                    "tag": "modified"
+                },
+                {
+                    "children": [
+                        {
+                            "AccessSpecifier": "Private",
+                            "nodeType": "Typedef",
+                            "qualifiedName": "utils::Allocator::Offset",
+                            "tag": "removed"
+                        },
+                        {
+                            "AccessSpecifier": "Public",
+                            "nodeType": "Typedef",
+                            "qualifiedName": "utils::Allocator::Offset",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Typedef",
+                    "qualifiedName": "utils::Allocator::Offset",
+                    "tag": "modified"
+                }
+            ],
+            "nodeType": "Class",
+            "qualifiedName": "utils::Allocator",
+            "tag": "modified"
+        }
+    ],
+    "headerResolutionFailures": [],
+    "parsed_status": 2,
+    "unparsed_status": 0
+}
