@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.14)
 project(armor)
-set(TOOL_VERSION "0.6.8")
+set(TOOL_VERSION "0.6.9")
 set(TOOL_DOCS_URL "https://github.com/qualcomm/armor/blob/main/README.md")
 
 set(CMAKE_CXX_STANDARD 17)
@@ -47,6 +47,7 @@ llvm_map_components_to_libnames(LLVM_LIBS
 )
 
 add_definitions(-DTOOL_VERSION="${TOOL_VERSION}")
+add_definitions(-DTOOL_DOCS_URL="${TOOL_DOCS_URL}")
 
 add_subdirectory(src/common)
 add_subdirectory(src/alpha)
