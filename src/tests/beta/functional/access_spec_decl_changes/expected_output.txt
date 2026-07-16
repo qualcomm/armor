@@ -1,0 +1,106 @@
+11404736249108278501
+// Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+----------------------------------------
+252520090170005577
+// SPDX-License-Identifier: BSD-3-Clause
+----------------------------------------
+2394147551527703550
+// Class with nested enums at all three access levels
+----------------------------------------
+14456904372539435164
+// Class with nested typedefs at all three access levels
+----------------------------------------
+13665638201297397354
+// Class mixing nested enums and typedefs
+----------------------------------------
+13170528745392673094
+// Struct with nested enums (struct members are public by default)
+----------------------------------------
+17027921307080421046
+// Class with methods at all three access levels
+----------------------------------------
+6142002387527776188
+// Class with only enums — all change access
+----------------------------------------
+14141516541700967057
+// Class with only typedefs — all change access
+----------------------------------------
+15219203312359965853
+#include <string>
+----------------------------------------
+11404736249108278501
+// Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+----------------------------------------
+252520090170005577
+// SPDX-License-Identifier: BSD-3-Clause
+----------------------------------------
+7710412217437324749
+// Access specifiers shuffled: public->protected, protected->private, private->public
+----------------------------------------
+16155094459652271739
+// Typedef access shuffled: public->private, protected->public, private->protected
+----------------------------------------
+4823867554785128073
+// Mixed: typedef public->protected, enum public->private,
+----------------------------------------
+16741957012327425661
+//        typedef protected->public, enum protected->public,
+----------------------------------------
+4658178815253221506
+//        typedef private->public, enum private->protected
+----------------------------------------
+1615380052615763745
+// Struct nested enums shuffled: public->private, protected->public, private->protected
+----------------------------------------
+4448683053636579898
+// Methods shuffled: public->private, protected->public, private->protected
+----------------------------------------
+12429960490140525018
+// Scheduler enums shuffled: public->private, protected->public, private->protected
+----------------------------------------
+17796187518562796514
+// Allocator typedefs shuffled: public->protected, protected->private, private->public
+----------------------------------------
+15219203312359965853
+#include <string>
+----------------------------------------
+
+############ CONTEXT 1 MAPS ############
+comments1
+14456904372539435164  : 1
+252520090170005577  : 1
+17027921307080421046  : 1
+13665638201297397354  : 1
+11404736249108278501  : 1
+13170528745392673094  : 1
+6142002387527776188  : 1
+14141516541700967057  : 1
+2394147551527703550  : 1
+----------------------------------------
+unhandledDecls1
+15219203312359965853  : 1
+----------------------------------------
+inactiveUnhandledDecls1
+(empty)
+----------------------------------------
+
+############ CONTEXT 2 MAPS ############
+comments2
+12429960490140525018  : 1
+1615380052615763745  : 1
+16155094459652271739  : 1
+4658178815253221506  : 1
+252520090170005577  : 1
+4823867554785128073  : 1
+16741957012327425661  : 1
+11404736249108278501  : 1
+7710412217437324749  : 1
+4448683053636579898  : 1
+17796187518562796514  : 1
+----------------------------------------
+unhandledDecls2
+15219203312359965853  : 1
+----------------------------------------
+inactiveUnhandledDecls2
+(empty)
+----------------------------------------

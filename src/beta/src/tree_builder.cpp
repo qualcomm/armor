@@ -494,6 +494,7 @@ bool beta::TreeBuilder::BuildCXXRecordNode(clang::CXXRecordDecl* Decl) {
 
     cxxRecordNode->access = getAccessSpecifier(Decl->getAccess());
     cxxRecordNode->isFinal = Decl->isEffectivelyFinal();
+    cxxRecordNode->access = getAccessSpecifier(Decl->getAccess());
 
     if( Decl->isStruct() ){
         cxxRecordNode->kind = NodeKind::Struct;
@@ -599,6 +600,7 @@ bool beta::TreeBuilder::BuildEnumNode(clang::EnumDecl* Decl){
 
     const clang::QualType enumType = Decl->getIntegerType();
     std::string enumaratorDataType = enumType.getAsString();
+    enumNode->access = getAccessSpecifier(Decl->getAccess());
 
     for (const auto* EnumConstDecl : Decl->enumerators()) {
         if(!Decl->isThisDeclarationADefinition()) continue;
@@ -750,6 +752,7 @@ bool beta::TreeBuilder::BuildTypedefDecl(clang::TypedefDecl *Decl) {
     typeDefNode->caonicalType = canonicalType;
     typeDefNode->USR = USR;
     typeDefNode->NSR = generateNSRForDecl(Decl);
+    typeDefNode->access = getAccessSpecifier(Decl->getAccess());
     context->usrNodeMap.insert_or_assign(std::move(USR), typeDefNode);
 
     armor::debug() << "VisitTypeDefDecl V2: " << typeDefNode->qualifiedName << "\n";
@@ -872,6 +875,7 @@ void beta::TreeBuilder::BuildFriendCxxRecordDecl(const clang::CXXRecordDecl *Dec
     std::shared_ptr<APINode> friendCxxRecordNode = (it != context->usrNodeMap.end()) ? it->second : std::make_shared<APINode>();
     friendCxxRecordNode->NSR = NSR;
     friendCxxRecordNode->USR = USR;
+    friendCxxRecordNode->access = getAccessSpecifier(Decl->getAccess());
 
     const clang::QualType Type = FriendDecl->getFriendType()->getType();
     auto [dataType, canonicalType] = getTypesWithAndWithoutTypeResolution(Type, Decl->getASTContext());
