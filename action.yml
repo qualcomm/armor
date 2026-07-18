@@ -32,14 +32,14 @@ runs:
   using: "composite"
   steps:
     - name: Checkout base commit
-      uses: actions/checkout@v4
+      uses: actions/checkout@v7
       with:
         ref: ${{ inputs.base-sha }}
         path: base
         fetch-depth: 0
 
     - name: Checkout head commit
-      uses: actions/checkout@v4
+      uses: actions/checkout@v7
       with:
         ref: ${{ inputs.head-sha }}
         path: head
