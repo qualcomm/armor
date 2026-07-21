@@ -6,6 +6,8 @@
 #include <vector>
 #include "session.hpp"
 
+namespace armor { namespace beta {
+
 PARSING_STATUS processHeaderPairBeta(const std::string& projectRoot1,
                        const std::string& file1,
                        const std::string& projectRoot2,
@@ -14,3 +16,5 @@ PARSING_STATUS processHeaderPairBeta(const std::string& projectRoot1,
                        const std::vector<std::string>& IncludePaths,
                        const std::vector<std::string>& macroFlags,
                        const LANG_OPTIONS lang);
+
+} } // namespace armor::beta

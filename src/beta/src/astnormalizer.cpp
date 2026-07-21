@@ -23,15 +23,17 @@
 #include "clang/Basic/SourceManager.h"
 #include "clang/Frontend/CompilerInstance.h"
 
+namespace armor { namespace beta {
+
 // --- beta::ASTNormalize ---
-beta::ASTNormalize::ASTNormalize(beta::APISession* session, beta::ASTNormalizedContext* context, clang::ASTContext* clangContext)
+beta::ASTNormalize::ASTNormalize(armor::APISession* session, armor::ASTNormalizedContext* context, clang::ASTContext* clangContext)
     : session(session), context(context), clangContext(clangContext), treeBuilder(beta::TreeBuilder(context)) {}
 // (Implementation of visitor methods remains the same conceptually)
 
 
 // --- beta::ASTNormalizeConsumer ---
 // Constructor simply stores the pointers.
-beta::ASTNormalizeConsumer::ASTNormalizeConsumer(APISession* session, beta::ASTNormalizedContext* context)
+beta::ASTNormalizeConsumer::ASTNormalizeConsumer(armor::APISession* session, armor::ASTNormalizedContext* context)
     : session(session), context(context) {}
 
 void beta::ASTNormalizeConsumer::HandleTranslationUnit(clang::ASTContext &clangContext) {
@@ -44,18 +46,18 @@ void beta::ASTNormalizeConsumer::HandleTranslationUnit(clang::ASTContext &clangC
 
 // --- NormalizeAction ---
 // Constructor now receives the pre-existing context pointer.
-beta::NormalizeAction::NormalizeAction(APISession* session, beta::ASTNormalizedContext* context)
+beta::NormalizeAction::NormalizeAction(armor::APISession* session, armor::ASTNormalizedContext* context)
     : session(session), context(context), commentHandler(nullptr), preprocessor(nullptr), CI(nullptr) {}
 
 std::unique_ptr<clang::ASTConsumer> beta::NormalizeAction::CreateASTConsumer(clang::CompilerInstance& CI, clang::StringRef) {
     // Store CI reference for cleanup
     this->CI = &CI;
-
+    
     // Set up comment handler
     auto commentHandlerPtr = std::make_unique<beta::CommentHandler>(&CI.getSourceManager(), context);
     commentHandler = commentHandlerPtr.get(); // Store reference before releasing
     CI.getPreprocessor().addCommentHandler(commentHandlerPtr.release());
-
+    
     // Set up preprocessor callbacks
     auto preprocessorPtr = std::make_unique<beta::ASTNormalizerPreprocessor>(&CI.getSourceManager(), context);
     preprocessor = preprocessorPtr.get(); // Store reference before moving
@@ -66,20 +68,25 @@ std::unique_ptr<clang::ASTConsumer> beta::NormalizeAction::CreateASTConsumer(cla
 }
 
 // --- NormalizeActionFactory (The "Get and Pass" Logic) ---
-beta::NormalizeActionFactory::NormalizeActionFactory(APISession* session, const std::string& fileName) : session(session), fileName(fileName) {}
+beta::NormalizeActionFactory::NormalizeActionFactory(armor::APISession* session, const std::string& fileName) : session(session), fileName(fileName) {}
 
 std::unique_ptr<clang::FrontendAction> beta::NormalizeActionFactory::create() {
     // 2. Use the filename to get the pre-existing context from the session.
-    beta::ASTNormalizedContext* contextForThisFile = session->getContext(fileName);
+    armor::ASTNormalizedContext* contextForThisFile = session->getBetaContext(fileName);
 
     // --- Error Handling ---
     if (!contextForThisFile) {
         // This is a critical logic error. The context should have been created before processing.
-        throw std::runtime_error("No beta::ASTNormalizedContext was created for file: " + fileName);
+        throw std::runtime_error("No armor::ASTNormalizedContext was created for file: " + fileName);
     }
 
     // 3. Create the action, efficiently passing pointers to the session and the retrieved context.
     return std::make_unique<NormalizeAction>(session, contextForThisFile);
+}
+
+std::unique_ptr<clang::tooling::FrontendActionFactory>
+createNormalizeActionFactory(armor::APISession* session, const std::string& fileName) {
+    return std::make_unique<NormalizeActionFactory>(session, fileName);
 }
 
 void beta::NormalizeAction::EndSourceFileAction() {
@@ -98,9 +105,9 @@ void beta::NormalizeAction::EndSourceFileAction() {
         delete commentHandler; // Now we can safely delete it
         commentHandler = nullptr;
     }
-
+    
     filterCommentsInInactiveRegions(context, &context->getClangASTContext()->getSourceManager());
-
+    
     // Call parent implementation
     clang::ASTFrontendAction::EndSourceFileAction();
 }
@@ -133,7 +140,7 @@ bool beta::ASTNormalize::TraverseRecordDecl(clang::RecordDecl *Decl) {
     RecursiveASTVisitor<beta::ASTNormalize>::TraverseRecordDecl(Decl);
 
     if (!llvm::isa<clang::CXXRecordDecl>(Decl) && treeBuilder.IsDeclFromMainFileAndNotLocal(Decl)) {
-        const std::string USR = generateUSRForDecl(Decl);
+        const std::string USR = ::generateUSRForDecl(Decl);
         if( treeBuilder.isQualifiedNameOverriden(USR) ){
             treeBuilder.popOverridenQualifiedName(USR);
         }
@@ -145,11 +152,11 @@ bool beta::ASTNormalize::TraverseRecordDecl(clang::RecordDecl *Decl) {
 }
 
 bool beta::ASTNormalize::TraverseCXXRecordDecl(clang::CXXRecordDecl *Decl) {
-
+    
     RecursiveASTVisitor<beta::ASTNormalize>::TraverseCXXRecordDecl(Decl);
-    if(treeBuilder.IsDeclFromMainFileAndNotLocal(Decl) && !Decl->isTemplated()
+    if(treeBuilder.IsDeclFromMainFileAndNotLocal(Decl) && !Decl->isTemplated() 
     && !llvm::isa<clang::ClassTemplateSpecializationDecl>(Decl)){
-        const std::string USR = generateUSRForDecl(Decl);
+        const std::string USR = ::generateUSRForDecl(Decl);
         if( treeBuilder.isQualifiedNameOverriden(USR) ){
             treeBuilder.popOverridenQualifiedName(USR);
         }
@@ -393,3 +400,5 @@ bool beta::ASTNormalize::VisitTypeAliasTemplateDecl(clang::TypeAliasTemplateDecl
     treeBuilder.BuildTypeAliasTemplateDecl(Decl);
     return true;
 }
+
+} } // namespace armor::beta

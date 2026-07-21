@@ -1,10 +1,5 @@
 // Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-3-Clause
-/* Test header: valid C code using C++ keywords as identifiers */
-
-/* --- Functions using C++ keywords as parameter names --- */
-
-/* access/object keywords */
 int fun_new(int new, int this);
 int fun_delete(int delete, int class);
 int fun_namespace(int namespace, int template);

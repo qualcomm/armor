@@ -36,7 +36,9 @@
 #include <utility>
 #include "logger.hpp"
 
-beta::TreeBuilder::TreeBuilder(beta::ASTNormalizedContext* context): context(context) {}
+namespace armor { namespace beta {
+
+beta::TreeBuilder::TreeBuilder(armor::ASTNormalizedContext* context): context(context) {}
 
 inline bool beta::TreeBuilder::IsDeclFromMainFileAndNotLocal(const clang::Decl* Decl) {
     clang::ASTContext* clangContext = &Decl->getASTContext();
@@ -45,10 +47,10 @@ inline bool beta::TreeBuilder::IsDeclFromMainFileAndNotLocal(const clang::Decl* 
 
 inline bool beta::TreeBuilder::IsStmtFromMainFile(const clang::Stmt* Stmt) {
     if (!Stmt) return false;
-
+    
     clang::SourceManager& SM = context->getClangASTContext()->getSourceManager();
     clang::SourceLocation StartLoc = Stmt->getBeginLoc();
-
+    
     return StartLoc.isValid() && SM.isInMainFile(StartLoc);
 }
 
@@ -58,11 +60,11 @@ inline bool beta::TreeBuilder::isInTemplatedClass(const clang::Decl* Decl){
 
     while(DC && !DC->isTranslationUnit()){
 
-        if(const clang::CXXRecordDecl* RD =
+        if(const clang::CXXRecordDecl* RD = 
             llvm::dyn_cast_or_null<clang::CXXRecordDecl>(DC); RD && RD->isTemplateDecl()){
             return true;
         }
-
+        
         if(llvm::isa<clang::ClassTemplateSpecializationDecl>(DC)){
             return true;
         }
@@ -75,25 +77,25 @@ inline bool beta::TreeBuilder::isInTemplatedClass(const clang::Decl* Decl){
 }
 
 inline bool beta::TreeBuilder::isWrittenInTemplatedClass(const clang::Decl* D) {
-
+    
     if (!D) return false;
-
+    
     const clang::DeclContext* LexicalDC = D->getLexicalDeclContext();
-
+    
     while (LexicalDC && !LexicalDC->isTranslationUnit()) {
-
-        if (const clang::CXXRecordDecl* RD =
+        
+        if (const clang::CXXRecordDecl* RD = 
             llvm::dyn_cast<clang::CXXRecordDecl>(LexicalDC); RD && RD->isTemplated()) {
             return true;
         }
-
+        
         if (llvm::isa<clang::ClassTemplateSpecializationDecl>(LexicalDC)) {
             return true;
         }
-
+        
         LexicalDC = LexicalDC->getParent();
     }
-
+    
     return false;
 
 }
@@ -102,12 +104,12 @@ uint64_t beta::TreeBuilder::generateSemanticHashFromDecl(const clang::Decl* Decl
     clang::SourceManager& SM = Decl->getASTContext().getSourceManager();
     clang::SourceLocation StartLoc = Decl->getBeginLoc();
     clang::SourceLocation EndLoc = Decl->getEndLoc();
-
+    
     llvm::StringRef sourceText;
-
+    
     llvm::SmallString<128> nameBuf;
     llvm::raw_svector_ostream OS(nameBuf);
-
+    
     if(llvm::isa<clang::NamedDecl>(Decl)){
         llvm::dyn_cast<clang::NamedDecl>(Decl)->printName(OS);
         armor::debug()<< "Excluding : " << nameBuf << "\n";
@@ -130,13 +132,13 @@ uint64_t beta::TreeBuilder::generateSemanticHashFromDecl(const clang::Decl* Decl
 
 uint64_t beta::TreeBuilder::generateSemanticHashFromStmt(const clang::Stmt* Stmt) {
     if (!Stmt) return 0;
-
+    
     clang::SourceManager& SM = context->getClangASTContext()->getSourceManager();
     clang::SourceLocation StartLoc = Stmt->getBeginLoc();
     clang::SourceLocation EndLoc = Stmt->getEndLoc();
-
+    
     llvm::StringRef sourceText;
-
+    
     if (StartLoc.isValid() && EndLoc.isValid()) {
         clang::CharSourceRange Range = clang::CharSourceRange::getTokenRange(StartLoc, EndLoc);
         sourceText = clang::Lexer::getSourceText(Range, SM, context->getClangASTContext()->getLangOpts());
@@ -154,28 +156,28 @@ void beta::TreeBuilder::processUnhandledDecl(const clang::Decl* Decl) {
     context->getSourceRangeTracker().addUnhandledDeclHash(hash);
 }
 
-void beta::TreeBuilder::processUnhandledStmt(const clang::Stmt* Stmt, const std::shared_ptr<beta::APINode>& node) {
+void beta::TreeBuilder::processUnhandledStmt(const clang::Stmt* Stmt, const std::shared_ptr<armor::APINode>& node) {
     uint64_t hash = generateSemanticHashFromStmt(Stmt);
     context->getSourceRangeTracker().addUnhandledDeclHash(hash);
     node->stmtHashes.emplace_back(hash);
 }
 
-inline void beta::TreeBuilder::AddNode(const std::shared_ptr<APINode>& node) {
-
+inline void beta::TreeBuilder::AddNode(const std::shared_ptr<armor::APINode>& node) {
+    
     assert(!node->NSR.empty());
-
+    
     if (!nodeStack.empty()) {
         if (nodeStack.back()->children == nullptr) {
-            nodeStack.back()->children = std::make_unique<llvm::SmallVector<std::shared_ptr<const APINode>, 16>>();
+            nodeStack.back()->children = std::make_unique<llvm::SmallVector<std::shared_ptr<const armor::APINode>, 16>>();
         }
         nodeStack.back()->children->push_back(node);
     }
     else context->addRootNode(node);
-
+    
     if (nodeStack.empty()) context->addNode(node->NSR, node);
 }
 
-inline void beta::TreeBuilder::PushNode(const std::shared_ptr<APINode>& node) {
+inline void beta::TreeBuilder::PushNode(const std::shared_ptr<armor::APINode>& node) {
     nodeStack.push_back(node);
 }
 
@@ -206,9 +208,9 @@ void beta::TreeBuilder::popOverridenQualifiedName(llvm::StringRef usr){
 }
 
 void beta::TreeBuilder::BuildReturnTypeNode(clang::QualType type) {
-    auto returnNode = std::make_shared<APINode>();
+    auto returnNode = std::make_shared<armor::APINode>();
     returnNode->kind = NodeKind::ReturnType;
-    auto [dataType,canonicalType] = getTypesWithAndWithoutTypeResolution(type, *context->getClangASTContext());
+    auto [dataType,canonicalType] = getTypesWithAndWithoutTypeResolution(type, *context->getClangASTContext());    
     PushName("(ReturnType)");
     returnNode->dataType = dataType;
     returnNode->caonicalType = canonicalType;
@@ -221,7 +223,7 @@ void beta::TreeBuilder::BuildReturnTypeNode(clang::QualType type) {
 }
 
 void beta::TreeBuilder::normalizeFunctionPointerType(std::string_view typeModifiers, const clang::FunctionProtoTypeLoc FTL, const clang::NamedDecl* Decl) {
-    auto functionPointerNode = std::make_shared<APINode>();
+    auto functionPointerNode = std::make_shared<armor::APINode>();
     functionPointerNode->kind = NodeKind::FunctionPointer;
     functionPointerNode->qualifiedName = GetCurrentQualifiedName();
     functionPointerNode->dataType = typeModifiers;
@@ -230,30 +232,30 @@ void beta::TreeBuilder::normalizeFunctionPointerType(std::string_view typeModifi
         functionPointerNode->NSR = functionPointerNode->qualifiedName;
     }
     else{
-        functionPointerNode->NSR = generateNSRForDecl(Decl);
-        functionPointerNode->USR = generateUSRForDecl(Decl);
+        functionPointerNode->NSR = ::generateNSRForDecl(Decl);
+        functionPointerNode->USR = ::generateUSRForDecl(Decl);
     }
-
+    
     AddNode(functionPointerNode);
     PushNode(functionPointerNode);
-
+    
     armor::debug() << "BuildFunctionPointerType V2: " << functionPointerNode->qualifiedName << "\n";
-
+    
     const size_t numParams = FTL.getNumParams();
     for (unsigned int pos=0 ; pos < numParams ; ++pos) {
         normalizeValueDeclNode(FTL.getParam(pos),pos);
     }
-
+    
     BuildReturnTypeNode(FTL.getReturnLoc().getType());
     PopNode();
 }
 
 void beta::TreeBuilder::normalizeValueDeclNode(const clang::ValueDecl *Decl, unsigned int pos) {
-
-    const std::string USR = generateUSRForDecl(Decl);
+    
+    const std::string USR = ::generateUSRForDecl(Decl);
     const auto it = context->usrNodeMap.find(USR);
     bool isCached = (it != context->usrNodeMap.end());
-    std::shared_ptr<APINode> ValueNode = isCached ? it->second : std::make_shared<APINode>();
+    std::shared_ptr<armor::APINode> ValueNode = isCached ? it->second : std::make_shared<armor::APINode>();
     clang::QualType unDecayedDeclType = clang::QualType();
     clang::TypeSourceInfo *TSI = nullptr;
     llvm::SmallString<128> nameBuf;
@@ -271,7 +273,7 @@ void beta::TreeBuilder::normalizeValueDeclNode(const clang::ValueDecl *Decl, uns
             TEST_LOG<<"ParamVar init\n";
             BuildValueInitExpr( paramDecl->getInit(),ValueNode);
         }
-    }
+    } 
     else if (const auto *fieldDecl = llvm::dyn_cast_or_null<clang::FieldDecl>(Decl)) {
         ValueNode->kind = NodeKind::Field;
         unDecayedDeclType = fieldDecl->getType();
@@ -299,7 +301,7 @@ void beta::TreeBuilder::normalizeValueDeclNode(const clang::ValueDecl *Decl, uns
             TEST_LOG<<"Var init\n" << nameBuf << "\n";
             BuildValueInitExpr(varDecl->getInit(), ValueNode);
         }
-    }
+    } 
     else return;
 
     auto [dataType, canonicalType] = getTypesWithAndWithoutTypeResolution(unDecayedDeclType, Decl->getASTContext());
@@ -309,21 +311,21 @@ void beta::TreeBuilder::normalizeValueDeclNode(const clang::ValueDecl *Decl, uns
         ValueNode->NSR = std::to_string(pos);
         if (it == context->usrNodeMap.end()) ValueNode->qualifiedName = GetCurrentQualifiedName();
         armor::debug() << "VisitParamDecl V2: " << ValueNode->qualifiedName << "\n";
-    }
+    } 
     else if (llvm::isa<clang::FieldDecl>(Decl)) {
         if (it == context->usrNodeMap.end()) ValueNode->qualifiedName = GetCurrentQualifiedName();
-        ValueNode->NSR = generateNSRForDecl(Decl);
+        ValueNode->NSR = ::generateNSRForDecl(Decl);
         ValueNode->USR = USR;
         context->usrNodeMap.insert_or_assign(std::move(USR),ValueNode);
         armor::debug() << "VisitFeildDecl V2: " << ValueNode->qualifiedName << "\n";
-    }
+    } 
     else if (llvm::dyn_cast_or_null<clang::VarDecl>(Decl)) {
         if (it == context->usrNodeMap.end()) ValueNode->qualifiedName = GetCurrentQualifiedName();
-        ValueNode->NSR = generateNSRForDecl(Decl);
+        ValueNode->NSR = ::generateNSRForDecl(Decl);
         ValueNode->USR = USR;
         context->usrNodeMap.insert_or_assign(std::move(USR),ValueNode);
         armor::debug() << "VisitVarDecl V2: " << ValueNode->qualifiedName << "\n";
-    }
+    } 
 
     if(!isCached){
 
@@ -342,19 +344,19 @@ void beta::TreeBuilder::normalizeValueDeclNode(const clang::ValueDecl *Decl, uns
             }
         }
     }
-
+    
     PopName();
 }
 
 bool beta::TreeBuilder::BuildRecordNode(clang::RecordDecl* Decl) {
-
+    
     // Building RecordDecl for C specifaically
     if (!IsDeclFromMainFileAndNotLocal(Decl)) return false;
 
     if(llvm::isa<clang::CXXRecordDecl>(Decl)) return true;
 
-    const std::string USR = generateUSRForDecl(Decl);
-    const std::string NSR = generateNSRForDecl(Decl);
+    const std::string USR = ::generateUSRForDecl(Decl);
+    const std::string NSR = ::generateNSRForDecl(Decl);
     const auto it = context->usrNodeMap.find(USR);
     const bool isCached = (it != context->usrNodeMap.end());
 
@@ -398,7 +400,7 @@ bool beta::TreeBuilder::BuildRecordNode(clang::RecordDecl* Decl) {
         }
     }
 
-    std::shared_ptr<APINode> recordNode = isCached ? it->second : std::make_shared<APINode>();
+    std::shared_ptr<armor::APINode> recordNode = isCached ? it->second : std::make_shared<armor::APINode>();
     recordNode->NSR = NSR;
     recordNode->USR = USR;
     if (!isCached) {
@@ -424,7 +426,7 @@ bool beta::TreeBuilder::BuildRecordNode(clang::RecordDecl* Decl) {
 
 bool beta::TreeBuilder::BuildCXXRecordNode(clang::CXXRecordDecl* Decl) {
     if (!IsDeclFromMainFileAndNotLocal(Decl)) return false;
-
+    
     if( isInTemplatedClass(Decl) || Decl->isTemplated() || llvm::isa<clang::ClassTemplateSpecializationDecl>(Decl) ){
         if(!isWrittenInTemplatedClass(Decl)){
             armor::debug()<<"Excluding CXXRecordNode\n";
@@ -433,11 +435,12 @@ bool beta::TreeBuilder::BuildCXXRecordNode(clang::CXXRecordDecl* Decl) {
         }
         return true;
     }
-
-    const std::string USR = generateUSRForDecl(Decl);
-    const std::string NSR = generateNSRForDecl(Decl);
+    
+    const std::string USR = ::generateUSRForDecl(Decl);
+    const std::string NSR = ::generateNSRForDecl(Decl);
     const auto it = context->usrNodeMap.find(USR);
     const bool isCached = (it != context->usrNodeMap.end());
+    const bool isForwardDeclUsedAsAdjacentDeclType = isInlineForwardDeclOfDeclType(Decl);
 
     llvm::SmallString<128> nameBuf;
     llvm::raw_svector_ostream OS(nameBuf);
@@ -445,13 +448,18 @@ bool beta::TreeBuilder::BuildCXXRecordNode(clang::CXXRecordDecl* Decl) {
 
     if (!isCached) {
         if(!nameBuf.empty()){
-            PushName(nameBuf);
-        }
+            if(isForwardDeclUsedAsAdjacentDeclType){
+                armor::debug() << "If Embededed ForwardDecl Field is found\n";
+            }
+            else{
+                PushName(nameBuf);
+            }
+        } 
         else{
             if (const auto *typedefForAnon = Decl->getTypedefNameForAnonDecl()) {
                 typedefForAnon->printName(OS);
                 PushName(nameBuf);
-            }
+            } 
             else{
                 if(Decl->isEmbeddedInDeclarator() && !Decl->isFreeStanding()){
                     if(const clang::ValueDecl * ValueDecl = llvm::dyn_cast_or_null<clang::ValueDecl>(Decl->getNextDeclInContext())){
@@ -476,15 +484,20 @@ bool beta::TreeBuilder::BuildCXXRecordNode(clang::CXXRecordDecl* Decl) {
             }
         }
     }
-
-    std::shared_ptr<APINode> cxxRecordNode = isCached ? it->second : std::make_shared<APINode>();
+    
+    std::shared_ptr<armor::APINode> cxxRecordNode = isCached ? it->second : std::make_shared<armor::APINode>();
     cxxRecordNode->NSR = NSR;
     cxxRecordNode->USR = USR;
-
+    
     if (!isCached) {
-        cxxRecordNode->qualifiedName = GetCurrentQualifiedName();
+        if(isForwardDeclUsedAsAdjacentDeclType){
+            cxxRecordNode->qualifiedName = nameBuf.c_str();
+        }
+        else{
+            cxxRecordNode->qualifiedName = GetCurrentQualifiedName();
+        }
         AddNode(cxxRecordNode);
-    }
+    } 
     else {
         qualifiedName.overridePush(cxxRecordNode->qualifiedName, USR);
     }
@@ -505,7 +518,7 @@ bool beta::TreeBuilder::BuildCXXRecordNode(clang::CXXRecordDecl* Decl) {
     else{
         cxxRecordNode->kind = NodeKind::Class;
     }
-
+    
     PushNode(cxxRecordNode);
 
     if ( (Decl->isClass() || Decl->isStruct()) && Decl->isThisDeclarationADefinition()){
@@ -538,8 +551,8 @@ bool beta::TreeBuilder::BuildEnumNode(clang::EnumDecl* Decl){
         return true;
     }
 
-    const std::string USR = generateUSRForDecl(Decl);
-    const std::string NSR = generateNSRForDecl(Decl);
+    const std::string USR = ::generateUSRForDecl(Decl);
+    const std::string NSR = ::generateNSRForDecl(Decl);
     const auto it = context->usrNodeMap.find(USR);
     const bool isCached = (it != context->usrNodeMap.end());
 
@@ -550,12 +563,12 @@ bool beta::TreeBuilder::BuildEnumNode(clang::EnumDecl* Decl){
     if (!isCached) {
         if(!nameBuf.empty()){
             PushName(nameBuf);
-        }
+        } 
         else{
             if (const auto *typedefForAnon = Decl->getTypedefNameForAnonDecl()) {
                 typedefForAnon->printName(OS);
                 PushName(nameBuf);
-            }
+            } 
             else{
                 if(Decl->isEmbeddedInDeclarator() && !Decl->isFreeStanding()){
                     if(const clang::ValueDecl * ValueDecl = llvm::dyn_cast_or_null<clang::ValueDecl>(Decl->getNextDeclInContext())){
@@ -580,7 +593,7 @@ bool beta::TreeBuilder::BuildEnumNode(clang::EnumDecl* Decl){
         }
     }
 
-    std::shared_ptr<APINode> enumNode = isCached ? it->second : std::make_shared<APINode>();
+    std::shared_ptr<armor::APINode> enumNode = isCached ? it->second : std::make_shared<armor::APINode>();
     enumNode->NSR = NSR;
     enumNode->USR = USR;
 
@@ -592,25 +605,25 @@ bool beta::TreeBuilder::BuildEnumNode(clang::EnumDecl* Decl){
         qualifiedName.overridePush(enumNode->qualifiedName, USR);
     }
     context->usrNodeMap.insert_or_assign(std::move(USR), enumNode);
-
+    
     armor::debug() << "VisitEnumDecl V2: " << enumNode->qualifiedName << "\n";
-
+    
     enumNode->kind = NodeKind::Enum;
     PushNode(enumNode);
 
     const clang::QualType enumType = Decl->getIntegerType();
     std::string enumaratorDataType = enumType.getAsString();
     enumNode->access = getAccessSpecifier(Decl->getAccess());
-
+     
     for (const auto* EnumConstDecl : Decl->enumerators()) {
         if(!Decl->isThisDeclarationADefinition()) continue;
-        auto enumValNode = std::make_shared<APINode>();
+        auto enumValNode = std::make_shared<armor::APINode>();
         llvm::StringRef enumConstName = EnumConstDecl->getName();
         PushName(enumConstName);
         enumValNode->qualifiedName = GetCurrentQualifiedName();
         enumValNode->dataType = enumaratorDataType;
-        enumValNode->NSR = generateNSRForDecl(EnumConstDecl);
-        enumValNode->USR = generateUSRForDecl(EnumConstDecl);
+        enumValNode->NSR = ::generateNSRForDecl(EnumConstDecl);
+        enumValNode->USR = ::generateUSRForDecl(EnumConstDecl);
         const clang::Expr* expr = EnumConstDecl->getInitExpr();
         if(expr){
             armor::debug() << "Excluding EnumConst\n" << nameBuf << ":" << enumConstName << "\n";
@@ -649,16 +662,16 @@ bool beta::TreeBuilder::BuildFunctionNode(clang::FunctionDecl* Decl){
         return true;
     }
 
-    const std::string USR = generateUSRForDecl(Decl);
+    const std::string USR = ::generateUSRForDecl(Decl);
     const auto it = context->usrNodeMap.find(USR);
     const bool isCached = (it != context->usrNodeMap.end());
 
     llvm::SmallString<128> nameBuf;
     llvm::raw_svector_ostream OS(nameBuf);
 
-    auto functionNode = isCached ? it->second : std::make_shared<APINode>();
+    auto functionNode = isCached ? it->second : std::make_shared<armor::APINode>();
     Decl->printName(OS);
-
+    
     if(Decl->isThisDeclarationADefinition() && Decl->getBody() && !Decl->isExplicitlyDefaulted()){
         armor::debug()<<"Excluding Function Body : "<< nameBuf << "\n";
         TEST_LOG<<"Function Body\n" << nameBuf << "\n";
@@ -668,7 +681,7 @@ bool beta::TreeBuilder::BuildFunctionNode(clang::FunctionDecl* Decl){
     functionNode->kind = NodeKind::Function;
     functionNode->isInlined = Decl->isInlined();
     functionNode->storage = getStorageClass(Decl->getStorageClass());
-    functionNode->NSR = generateNSRForDecl(Decl);
+    functionNode->NSR = ::generateNSRForDecl(Decl);
     functionNode->USR = USR;
     functionNode->access = getAccessSpecifier(Decl->getAccess());
     functionNode->virtualQualifier = Decl->isPure() ? VirtualQualifier::PureVirtual : VirtualQualifier::None;
@@ -680,7 +693,7 @@ bool beta::TreeBuilder::BuildFunctionNode(clang::FunctionDecl* Decl){
         functionNode->isVolatile = methodDecl->isVolatile();
         if (const auto *constructorDecl = llvm::dyn_cast<clang::CXXConstructorDecl>(methodDecl)) {
             functionNode->isExplicit = constructorDecl->isExplicit();
-        }
+        } 
         else if (const auto *conversionDecl = llvm::dyn_cast<clang::CXXConversionDecl>(methodDecl)) {
             functionNode->isExplicit = conversionDecl->isExplicit();
         }
@@ -705,12 +718,12 @@ bool beta::TreeBuilder::BuildFunctionNode(clang::FunctionDecl* Decl){
     if(!isCached){
         AddNode(functionNode);
         PushNode(functionNode);
-
+        
         const size_t numParams = Decl->param_size();
         for (unsigned int pos = 0; pos < numParams ; ++pos) {
             normalizeValueDeclNode(Decl->getParamDecl(pos), pos);
         }
-
+        
         BuildReturnTypeNode(Decl->getReturnType());
         PopName();
         PopNode();
@@ -718,7 +731,7 @@ bool beta::TreeBuilder::BuildFunctionNode(clang::FunctionDecl* Decl){
     else{
         qualifiedName.overridePop(USR);
     }
-
+    
     return true;
 }
 
@@ -734,7 +747,7 @@ bool beta::TreeBuilder::BuildTypedefDecl(clang::TypedefDecl *Decl) {
         return false;
     }
 
-    const std::string USR = generateUSRForDecl(Decl);
+    const std::string USR = ::generateUSRForDecl(Decl);
     if( context->usrNodeMap.find(USR) != context->usrNodeMap.end() ) return true;
 
     llvm::SmallString<128> nameBuf;
@@ -742,7 +755,7 @@ bool beta::TreeBuilder::BuildTypedefDecl(clang::TypedefDecl *Decl) {
 
     const clang::QualType underlyingType = Decl->getUnderlyingType();
 
-    auto typeDefNode = std::make_shared<APINode>();
+    auto typeDefNode = std::make_shared<armor::APINode>();
     Decl->printName(OS);
     PushName(nameBuf);
     typeDefNode->qualifiedName = GetCurrentQualifiedName();
@@ -751,10 +764,10 @@ bool beta::TreeBuilder::BuildTypedefDecl(clang::TypedefDecl *Decl) {
     typeDefNode->dataType = dataType;
     typeDefNode->caonicalType = canonicalType;
     typeDefNode->USR = USR;
-    typeDefNode->NSR = generateNSRForDecl(Decl);
+    typeDefNode->NSR = ::generateNSRForDecl(Decl);
     typeDefNode->access = getAccessSpecifier(Decl->getAccess());
     context->usrNodeMap.insert_or_assign(std::move(USR), typeDefNode);
-
+    
     armor::debug() << "VisitTypeDefDecl V2: " << typeDefNode->qualifiedName << "\n";
 
     if (!llvm::isa<clang::TypedefType>(underlyingType)) {
@@ -771,23 +784,23 @@ bool beta::TreeBuilder::BuildTypedefDecl(clang::TypedefDecl *Decl) {
 
     PopName();
     AddNode(typeDefNode);
-
+    
     return true;
 }
 
 bool beta::TreeBuilder::BuildVarDecl(clang::VarDecl *Decl) {
 
-    if (!IsDeclFromMainFileAndNotLocal(Decl) || isInTemplatedClass(Decl) || !Decl->hasGlobalStorage()
+    if (!IsDeclFromMainFileAndNotLocal(Decl) || isInTemplatedClass(Decl) || !Decl->hasGlobalStorage() 
     || Decl->isTemplated()){
         if(Decl->hasGlobalStorage() && IsDeclFromMainFileAndNotLocal(Decl) && !isWrittenInTemplatedClass(Decl) && (isInTemplatedClass(Decl) || Decl->isTemplated())){
             armor::debug()<<"Excluding TemplatedVarDecl\n";
             TEST_LOG<<"TemplatedVarDecl\n";
             processUnhandledDecl(Decl);
-        }
+        } 
         return false;
     }
 
-    if(llvm::isa<clang::VarTemplateDecl>(Decl) || llvm::isa<clang::VarTemplatePartialSpecializationDecl>(Decl)
+    if(llvm::isa<clang::VarTemplateDecl>(Decl) || llvm::isa<clang::VarTemplatePartialSpecializationDecl>(Decl) 
     || llvm::isa<clang::VarTemplateSpecializationDecl>(Decl)){
         if(!isWrittenInTemplatedClass(Decl)){
             armor::debug()<<"Excluding TempletSpecVarDecl\n";
@@ -802,7 +815,7 @@ bool beta::TreeBuilder::BuildVarDecl(clang::VarDecl *Decl) {
 }
 
 bool beta::TreeBuilder::BuildFieldDecl(clang::FieldDecl *Decl) {
-    if (!IsDeclFromMainFileAndNotLocal(Decl) || isInTemplatedClass(Decl)
+    if (!IsDeclFromMainFileAndNotLocal(Decl) || isInTemplatedClass(Decl) 
     || Decl->isTemplated()){
         return false;
     }
@@ -816,12 +829,12 @@ void inline beta::TreeBuilder::BuildBaseClassDecl(clang::CXXBaseSpecifier Decl){
     if(Type->getAsCXXRecordDecl() == nullptr) return;
 
     const clang::CXXRecordDecl * cxxBaseRecordDecl = Type->getAsCXXRecordDecl();
-    const auto cxxBaseRecord = std::make_shared<APINode>();
-    cxxBaseRecord->qualifiedName = generateQualifiedNameForDecl(cxxBaseRecordDecl);
+    const auto cxxBaseRecord = std::make_shared<armor::APINode>();
+    cxxBaseRecord->qualifiedName = ::generateQualifiedNameForDecl(cxxBaseRecordDecl);
     cxxBaseRecord->kind = NodeKind::BaseClass;
-    cxxBaseRecord->NSR = generateNSRForDecl(cxxBaseRecordDecl);
+    cxxBaseRecord->NSR = ::generateNSRForDecl(cxxBaseRecordDecl);
     cxxBaseRecord->access = getAccessSpecifier(Decl.getAccessSpecifier());
-
+    
     armor::info()<<"VisitBaseClassDecl V2 : "<< cxxBaseRecord->qualifiedName << "\n";
 
     auto [dataType, canonicalType] = getTypesWithAndWithoutTypeResolution(Type, *context->getClangASTContext());
@@ -839,7 +852,7 @@ void inline beta::TreeBuilder::BuildFriendDecl(clang::FriendDecl *Decl){
             TEST_LOG<<"FriendDecl\n";
             processUnhandledDecl(Decl);
         }
-        return;
+        return; 
     }
 
     if (const clang::NamedDecl* namedDecl = Decl->getFriendDecl()) {
@@ -856,15 +869,15 @@ void inline beta::TreeBuilder::BuildFriendDecl(clang::FriendDecl *Decl){
         else return;
     }
     else return;
-
+    
    armor::debug()<<"VisitFriendDecl V2 \n";
 
 }
 
 void beta::TreeBuilder::BuildFriendCxxRecordDecl(const clang::CXXRecordDecl *Decl, const clang::FriendDecl *FriendDecl){
     // Friend Decl can be in the same file or a different file as well
-    const std::string USR = generateUSRForDecl(FriendDecl);
-    const std::string NSR = generateNSRForDecl(FriendDecl);
+    const std::string USR = ::generateUSRForDecl(FriendDecl);
+    const std::string NSR = ::generateNSRForDecl(FriendDecl);
 
     llvm::SmallString<256> keyBuf;
     llvm::raw_svector_ostream OS(keyBuf);
@@ -872,11 +885,11 @@ void beta::TreeBuilder::BuildFriendCxxRecordDecl(const clang::CXXRecordDecl *Dec
     OS << nodeStack.back()->USR << ':' << USR;
 
     const auto it = context->usrNodeMap.find(keyBuf);
-    std::shared_ptr<APINode> friendCxxRecordNode = (it != context->usrNodeMap.end()) ? it->second : std::make_shared<APINode>();
+    std::shared_ptr<armor::APINode> friendCxxRecordNode = (it != context->usrNodeMap.end()) ? it->second : std::make_shared<armor::APINode>();
     friendCxxRecordNode->NSR = NSR;
     friendCxxRecordNode->USR = USR;
     friendCxxRecordNode->access = getAccessSpecifier(Decl->getAccess());
-
+    
     const clang::QualType Type = FriendDecl->getFriendType()->getType();
     auto [dataType, canonicalType] = getTypesWithAndWithoutTypeResolution(Type, Decl->getASTContext());
     friendCxxRecordNode->dataType = dataType;
@@ -892,8 +905,8 @@ void beta::TreeBuilder::BuildFriendCxxRecordDecl(const clang::CXXRecordDecl *Dec
     }
 
     if(it == context->usrNodeMap.end()) AddNode(friendCxxRecordNode);
-
-    friendCxxRecordNode->qualifiedName = generateQualifiedNameForDecl(Decl);
+    
+    friendCxxRecordNode->qualifiedName = ::generateQualifiedNameForDecl(Decl);
     context->usrNodeMap.insert_or_assign(std::move(keyBuf),friendCxxRecordNode);
 
     armor::debug()<<"VisitFriendCxxRecordDecl V2 : " << friendCxxRecordNode->qualifiedName << "\n";
@@ -901,7 +914,7 @@ void beta::TreeBuilder::BuildFriendCxxRecordDecl(const clang::CXXRecordDecl *Dec
 
 void beta::TreeBuilder::BuildFriendFunctionDecl(const clang::FunctionDecl *Decl, const clang::FriendDecl *FriendDecl){
 
-    const std::string USR = generateUSRForDecl(FriendDecl);
+    const std::string USR = ::generateUSRForDecl(FriendDecl);
 
     llvm::SmallString<256> keyBuf;
     llvm::raw_svector_ostream OS(keyBuf);
@@ -910,14 +923,14 @@ void beta::TreeBuilder::BuildFriendFunctionDecl(const clang::FunctionDecl *Decl,
 
     if( context->usrNodeMap.find(keyBuf) != context->usrNodeMap.end() ) return;
 
-    auto friendFunctionNode = std::make_shared<APINode>();
-    friendFunctionNode->qualifiedName = generateQualifiedNameForDecl(Decl);
+    auto friendFunctionNode = std::make_shared<armor::APINode>();
+    friendFunctionNode->qualifiedName = ::generateQualifiedNameForDecl(Decl);
 
     qualifiedName.overridePush(friendFunctionNode->qualifiedName, USR);
 
     friendFunctionNode->kind = NodeKind::FriendFunction;
     friendFunctionNode->storage = getStorageClass(Decl->getStorageClass());
-    friendFunctionNode->NSR = generateNSRForDecl(FriendDecl);
+    friendFunctionNode->NSR = ::generateNSRForDecl(FriendDecl);
     friendFunctionNode->USR = USR;
     friendFunctionNode->access = getAccessSpecifier(Decl->getAccess());
     friendFunctionNode->virtualQualifier = Decl->isPure() ? VirtualQualifier::PureVirtual : VirtualQualifier::None;
@@ -928,7 +941,7 @@ void beta::TreeBuilder::BuildFriendFunctionDecl(const clang::FunctionDecl *Decl,
         friendFunctionNode->isVolatile = methodDecl->isVolatile();
         if (const auto *constructorDecl = llvm::dyn_cast<clang::CXXConstructorDecl>(methodDecl)) {
             friendFunctionNode->isExplicit = constructorDecl->isExplicit();
-        }
+        } 
         else if (const auto *conversionDecl = llvm::dyn_cast<clang::CXXConversionDecl>(methodDecl)) {
             friendFunctionNode->isExplicit = conversionDecl->isExplicit();
         }
@@ -944,12 +957,12 @@ void beta::TreeBuilder::BuildFriendFunctionDecl(const clang::FunctionDecl *Decl,
 
     AddNode(friendFunctionNode);
     PushNode(friendFunctionNode);
-
+    
     const size_t numParams = Decl->param_size();
     for (unsigned int pos = 0; pos < numParams ; ++pos) {
         normalizeValueDeclNode(Decl->getParamDecl(pos), pos);
     }
-
+    
     BuildReturnTypeNode(Decl->getReturnType());
 
     PopNode();
@@ -961,7 +974,7 @@ void beta::TreeBuilder::BuildFriendFunctionDecl(const clang::FunctionDecl *Decl,
 
 // void beta::TreeBuilder::BuildNamespaceDecl(clang::NamespaceDecl* Decl) {
 //     if (!IsDeclFromMainFileAndNotLocal(Decl) || isWrittenInTemplatedClass(Decl)) return;
-
+    
 //     armor::debug()<<"Excluding NamespaceDecl\n";
 //     TEST_LOG<<"NamespaceDecl\n";
 
@@ -979,25 +992,25 @@ void beta::TreeBuilder::BuildFunctionTemplateDecl(clang::FunctionTemplateDecl* D
 
 void beta::TreeBuilder::BuildClassTemplateDecl(clang::ClassTemplateDecl* Decl) {
     if (!IsDeclFromMainFileAndNotLocal(Decl) || isWrittenInTemplatedClass(Decl)) return;
-
+    
     armor::debug() << "Excluding ClassTemplateDecl\n";
     TEST_LOG << "ClassTemplateDecl\n";
-
+        
     processUnhandledDecl(Decl);
 }
 
 void beta::TreeBuilder::BuildClassTemplateSpecializationDecl(clang::ClassTemplateSpecializationDecl* Decl) {
     if (!IsDeclFromMainFileAndNotLocal(Decl) || isWrittenInTemplatedClass(Decl)) return;
-
+    
     armor::debug() << "Excluding ClassTemplateSpecializationDecl\n";
     TEST_LOG << "ClassTemplateSpecializationDecl\n";
-
+    
     processUnhandledDecl(Decl);
 }
 
 void beta::TreeBuilder::BuildClassTemplatePartialSpecializationDecl(clang::ClassTemplatePartialSpecializationDecl* Decl) {
     if (!IsDeclFromMainFileAndNotLocal(Decl) || isWrittenInTemplatedClass(Decl)) return;
-
+    
     armor::debug() << "Excluding ClassTemplatePartialSpecializationDecl\n";
     TEST_LOG << "ClassTemplatePartialSpecializationDecl\n";
 
@@ -1006,7 +1019,7 @@ void beta::TreeBuilder::BuildClassTemplatePartialSpecializationDecl(clang::Class
 
 void beta::TreeBuilder::BuildTypeAliasDecl(clang::TypeAliasDecl* Decl) {
     if (!IsDeclFromMainFileAndNotLocal(Decl) || isWrittenInTemplatedClass(Decl)) return;
-
+    
     armor::debug() << "Excluding TypeAliasDecl\n";
     TEST_LOG << "TypeAliasDecl\n";
 
@@ -1015,25 +1028,25 @@ void beta::TreeBuilder::BuildTypeAliasDecl(clang::TypeAliasDecl* Decl) {
 
 void beta::TreeBuilder::BuildUsingDecl(clang::UsingDecl* Decl) {
     if (!IsDeclFromMainFileAndNotLocal(Decl) || isWrittenInTemplatedClass(Decl)) return;
-
+    
     armor::debug() << "Excluding UsingDecl\n";
     TEST_LOG << "UsingDecl\n";
-
+    
     processUnhandledDecl(Decl);
 }
 
 void beta::TreeBuilder::BuildUsingDirectiveDecl(clang::UsingDirectiveDecl* Decl) {
     if (!IsDeclFromMainFileAndNotLocal(Decl) || isWrittenInTemplatedClass(Decl)) return;
-
+    
     armor::debug() << "Excluding UsingDirectiveDecl\n";
     TEST_LOG << "UsingDirectiveDecl\n";
-
+    
     processUnhandledDecl(Decl);
 }
 
 void beta::TreeBuilder::BuildNamespaceAliasDecl(clang::NamespaceAliasDecl* Decl) {
     if (!IsDeclFromMainFileAndNotLocal(Decl) || isWrittenInTemplatedClass(Decl)) return;
-
+    
     armor::debug() << "Excluding NamespaceAliasDecl\n";
     TEST_LOG << "NamespaceAliasDecl\n";
 
@@ -1042,50 +1055,50 @@ void beta::TreeBuilder::BuildNamespaceAliasDecl(clang::NamespaceAliasDecl* Decl)
 
 void beta::TreeBuilder::BuildStaticAssertDecl(clang::StaticAssertDecl* Decl) {
     if (!IsDeclFromMainFileAndNotLocal(Decl) || isWrittenInTemplatedClass(Decl)) return;
-
+    
     armor::debug() << "Excluding StaticAssertDecl\n";
     TEST_LOG << "StaticAssertDecl\n";
-
+    
     processUnhandledDecl(Decl);
 }
 
 void beta::TreeBuilder::BuildVarTemplateDecl(clang::VarTemplateDecl* Decl) {
     if (!IsDeclFromMainFileAndNotLocal(Decl) || isWrittenInTemplatedClass(Decl)) return;
-
+    
     armor::debug() << "Excluding VarTemplateDecl\n";
     TEST_LOG << "VarTemplateDecl\n";
-
+    
     processUnhandledDecl(Decl);
 }
 
 void beta::TreeBuilder::BuildVarTemplateSpecializationDecl(clang::VarTemplateSpecializationDecl* Decl) {
     if (!IsDeclFromMainFileAndNotLocal(Decl) || isWrittenInTemplatedClass(Decl)) return;
-
+    
     armor::debug() << "Excluding VarTemplateSpecializationDecl\n";
     TEST_LOG << "VarTemplateSpecializationDecl\n";
-
+    
     processUnhandledDecl(Decl);
 }
 
 void beta::TreeBuilder::BuildVarTemplatePartialSpecializationDecl(clang::VarTemplatePartialSpecializationDecl* Decl) {
     if (!IsDeclFromMainFileAndNotLocal(Decl) || isWrittenInTemplatedClass(Decl)) return;
-
+    
     armor::debug() << "Excluding VarTemplatePartialSpecializationDecl\n";
     TEST_LOG << "VarTemplatePartialSpecializationDecl\n";
-
+    
     processUnhandledDecl(Decl);
 }
 
 void beta::TreeBuilder::BuildTypeAliasTemplateDecl(clang::TypeAliasTemplateDecl* Decl) {
     if (!IsDeclFromMainFileAndNotLocal(Decl) || isWrittenInTemplatedClass(Decl)) return;
-
+    
     armor::debug() << "Excluding TypeAliasTemplateDecl\n";
     TEST_LOG << "TypeAliasTemplateDecl\n";
-
+    
     processUnhandledDecl(Decl);
 }
 
-void beta::TreeBuilder::BuildValueInitExpr(const clang::Expr* Expr, const std::shared_ptr<beta::APINode>& node){
+void beta::TreeBuilder::BuildValueInitExpr(const clang::Expr* Expr, const std::shared_ptr<armor::APINode>& node){
     if (Expr && !IsStmtFromMainFile(Expr)) return;
 
     if (const clang::CXXConstructExpr* cxxConstructExpr = llvm::dyn_cast<clang::CXXConstructExpr>(Expr)) {
@@ -1104,3 +1117,5 @@ void beta::TreeBuilder::BuildValueInitExpr(const clang::Expr* Expr, const std::s
         processUnhandledStmt(Expr, node);
     }
 }
+
+} } // namespace armor::beta

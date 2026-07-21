@@ -18,8 +18,6 @@ add_executable(common_unit_tests
 
 target_include_directories(common_unit_tests PRIVATE
   ${CMAKE_SOURCE_DIR}/src/common/include
-  ${CMAKE_SOURCE_DIR}/src/alpha/include
-  ${CMAKE_SOURCE_DIR}/src/beta/include
   ${LLVM_INCLUDE_DIRS}
   ${CLANG_INCLUDE_DIRS}
 )

@@ -11,39 +11,36 @@
 #include <llvm-14/llvm/Support/raw_ostream.h>
 #include "logger.hpp"
 
-namespace alpha{
+namespace armor { namespace alpha {
 
-ASTNormalizerPreprocessor::ASTNormalizerPreprocessor(clang::SourceManager* SM, ASTNormalizedContext* context) 
+ASTNormalizerPreprocessor::ASTNormalizerPreprocessor(clang::SourceManager* SM, armor::ASTNormalizedContext* context)
 : SM(SM), context(context) {}
 
 void ASTNormalizerPreprocessor::InclusionDirective(
-    clang::SourceLocation HashLoc, 
-    const clang::Token &IncludeTok, 
-    clang::StringRef FileName, 
-    bool IsAngled, 
-    clang::CharSourceRange FilenameRange, 
-    const clang::FileEntry *File, 
-    clang::StringRef SearchPath, 
-    clang::StringRef RelativePath, 
-    const clang::Module *Imported, 
-    clang::SrcMgr::CharacteristicKind FileType){
-    
-    if (!HashLoc.isValid()) return;
-    
-    if(!File){
+    clang::SourceLocation HashLoc,
+    const clang::Token &IncludeTok,
+    clang::StringRef FileName,
+    bool IsAngled,
+    clang::CharSourceRange FilenameRange,
+    const clang::FileEntry *File,
+    clang::StringRef SearchPath,
+    clang::StringRef RelativePath,
+    const clang::Module *Imported,
+    clang::SrcMgr::CharacteristicKind FileType) {
 
+    if (!HashLoc.isValid()) return;
+
+    if (!File) {
         if (HashLoc.isValid()) {
             clang::PresumedLoc PLoc = SM->getPresumedLoc(HashLoc);
             if (PLoc.isValid()) {
-                if(llvm::StringRef fileName = PLoc.getFilename(); !fileName.empty() && !RelativePath.empty()){
+                if (llvm::StringRef fileName = PLoc.getFilename(); !fileName.empty() && !RelativePath.empty()) {
                     armor::debug() << "Failed include - RelativePath: " << RelativePath << " at " << PLoc.getFilename() << "\n";
-                    context->getSourceRangeTracker().addFatalDirective(RelativePath,PLoc.getFilename());
+                    context->getSourceRangeTracker().addFatalDirective(RelativePath, PLoc.getFilename());
                 }
             }
         }
-    
     }
-
 }
 
-}
+} } // namespace armor::alpha

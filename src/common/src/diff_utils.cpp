@@ -36,6 +36,8 @@ std::string IS_EXPLICIT = "isExplicit";
 std::string IS_VOLATILE = "isVolatile";
 std::string IS_CONST = "isConst";
 std::string IS_FRIEND = "isFriend";
+std::string HEADER = "header";
+std::string FILE_PATH = "file";
 
 const std::string serialize(const APINodeStorageClass& storageClass) {
     switch (storageClass) {

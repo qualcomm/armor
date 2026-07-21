@@ -12,13 +12,13 @@
 #include "node.hpp"
 #include "ast_normalized_context.hpp"
 
-namespace beta {
+namespace armor { namespace beta {
 
 class ASTNormalizerPreprocessor : public clang::PPCallbacks {
 
     public:
 
-    ASTNormalizerPreprocessor(clang::SourceManager* SM, ASTNormalizedContext* context);
+    ASTNormalizerPreprocessor(clang::SourceManager* SM, armor::ASTNormalizedContext* context);
     
     void InclusionDirective(
         clang::SourceLocation HashLoc,
@@ -65,11 +65,11 @@ class ASTNormalizerPreprocessor : public clang::PPCallbacks {
     private:
 
     clang::SourceManager* SM;
-    ASTNormalizedContext* context;
+    armor::ASTNormalizedContext* context;
 
     // Temporary storage for preprocessing
-    llvm::SmallVector<beta::Range, 16> PPDirectives;
-    std::map<unsigned, beta::Range> inactivePPDirectives;
+    llvm::SmallVector<armor::Range, 16> PPDirectives;
+    std::map<unsigned, armor::Range> inactivePPDirectives;
     llvm::DenseMap<uint64_t, int> inactiveUnhandledDeclsHash;
     
     uint64_t generateHashFromOffsets(unsigned startOffset, unsigned endOffset, bool isActive);
@@ -78,4 +78,4 @@ class ASTNormalizerPreprocessor : public clang::PPCallbacks {
     void printRanges();
 };
 
-}
+} } // namespace armor::beta

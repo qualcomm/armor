@@ -1,0 +1,298 @@
+{
+    "astDiff": [
+        {
+            "children": [
+                {
+                    "children": [
+                        {
+                            "children": [
+                                {
+                                    "dataType": "int",
+                                    "nodeType": "Field",
+                                    "qualifiedName": "EmbeddedField::a",
+                                    "tag": "removed"
+                                },
+                                {
+                                    "dataType": "long",
+                                    "nodeType": "Field",
+                                    "qualifiedName": "EmbeddedField::a",
+                                    "tag": "added"
+                                }
+                            ],
+                            "nodeType": "Field",
+                            "qualifiedName": "EmbeddedField::a",
+                            "tag": "modified"
+                        }
+                    ],
+                    "nodeType": "Struct",
+                    "qualifiedName": "EmbeddedField",
+                    "tag": "modified"
+                }
+            ],
+            "nodeType": "Struct",
+            "qualifiedName": "FieldOwner",
+            "tag": "modified"
+        },
+        {
+            "children": [
+                {
+                    "children": [
+                        {
+                            "dataType": "struct EmbeddedFieldNeverDefined *",
+                            "nodeType": "Field",
+                            "qualifiedName": "fptr",
+                            "tag": "removed"
+                        },
+                        {
+                            "dataType": "struct EmbeddedFieldNeverDefined **",
+                            "nodeType": "Field",
+                            "qualifiedName": "fptr",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "fptr",
+                    "tag": "modified"
+                }
+            ],
+            "nodeType": "Struct",
+            "qualifiedName": "FieldOwnerSad",
+            "tag": "modified"
+        },
+        {
+            "children": [
+                {
+                    "children": [
+                        {
+                            "dataType": "int",
+                            "nodeType": "Field",
+                            "qualifiedName": "RetOwnerHelper::val",
+                            "tag": "removed"
+                        },
+                        {
+                            "dataType": "long",
+                            "nodeType": "Field",
+                            "qualifiedName": "RetOwnerHelper::val",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "RetOwnerHelper::val",
+                    "tag": "modified"
+                }
+            ],
+            "nodeType": "Struct",
+            "qualifiedName": "RetOwnerHelper",
+            "tag": "modified"
+        },
+        {
+            "children": [
+                {
+                    "children": [
+                        {
+                            "dataType": "struct RetOwnerHelperSad *",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "retFnSad::(ReturnType)",
+                            "tag": "removed"
+                        },
+                        {
+                            "dataType": "struct RetOwnerHelperSad **",
+                            "nodeType": "ReturnType",
+                            "qualifiedName": "retFnSad::(ReturnType)",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "ReturnType",
+                    "qualifiedName": "retFnSad::(ReturnType)",
+                    "tag": "modified"
+                }
+            ],
+            "nodeType": "Function",
+            "qualifiedName": "retFnSad",
+            "tag": "modified"
+        },
+        {
+            "children": [
+                {
+                    "children": [
+                        {
+                            "dataType": "int",
+                            "nodeType": "Field",
+                            "qualifiedName": "VarHelper::val",
+                            "tag": "removed"
+                        },
+                        {
+                            "dataType": "long",
+                            "nodeType": "Field",
+                            "qualifiedName": "VarHelper::val",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "VarHelper::val",
+                    "tag": "modified"
+                }
+            ],
+            "nodeType": "Struct",
+            "qualifiedName": "VarHelper",
+            "tag": "modified"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "struct VarHelperSad *",
+                    "nodeType": "Variable",
+                    "qualifiedName": "varGlobalSad",
+                    "tag": "removed"
+                },
+                {
+                    "dataType": "struct VarHelperSad **",
+                    "nodeType": "Variable",
+                    "qualifiedName": "varGlobalSad",
+                    "tag": "added"
+                }
+            ],
+            "nodeType": "Variable",
+            "qualifiedName": "varGlobalSad",
+            "tag": "modified"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "int",
+                    "nodeType": "Variable",
+                    "qualifiedName": "interveningVar",
+                    "tag": "removed"
+                },
+                {
+                    "dataType": "long",
+                    "nodeType": "Variable",
+                    "qualifiedName": "interveningVar",
+                    "tag": "added"
+                }
+            ],
+            "nodeType": "Variable",
+            "qualifiedName": "interveningVar",
+            "tag": "modified"
+        },
+        {
+            "children": [
+                {
+                    "children": [
+                        {
+                            "dataType": "int",
+                            "nodeType": "Field",
+                            "qualifiedName": "AfterVarNotAdjacent::val",
+                            "tag": "removed"
+                        },
+                        {
+                            "dataType": "long",
+                            "nodeType": "Field",
+                            "qualifiedName": "AfterVarNotAdjacent::val",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "AfterVarNotAdjacent::val",
+                    "tag": "modified"
+                }
+            ],
+            "nodeType": "Struct",
+            "qualifiedName": "AfterVarNotAdjacent",
+            "tag": "modified"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "int",
+                    "nodeType": "Variable",
+                    "qualifiedName": "anotherInterveningVar",
+                    "tag": "removed"
+                },
+                {
+                    "dataType": "long",
+                    "nodeType": "Variable",
+                    "qualifiedName": "anotherInterveningVar",
+                    "tag": "added"
+                }
+            ],
+            "nodeType": "Variable",
+            "qualifiedName": "anotherInterveningVar",
+            "tag": "modified"
+        },
+        {
+            "children": [
+                {
+                    "children": [
+                        {
+                            "dataType": "int",
+                            "nodeType": "Field",
+                            "qualifiedName": "TdHelper::val",
+                            "tag": "removed"
+                        },
+                        {
+                            "dataType": "long",
+                            "nodeType": "Field",
+                            "qualifiedName": "TdHelper::val",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "TdHelper::val",
+                    "tag": "modified"
+                }
+            ],
+            "nodeType": "Struct",
+            "qualifiedName": "TdHelper",
+            "tag": "modified"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "struct TdHelperSad *",
+                    "nodeType": "Typedef",
+                    "qualifiedName": "TdHelperSad_t",
+                    "tag": "removed"
+                },
+                {
+                    "dataType": "struct TdHelperSad **",
+                    "nodeType": "Typedef",
+                    "qualifiedName": "TdHelperSad_t",
+                    "tag": "added"
+                }
+            ],
+            "nodeType": "Typedef",
+            "qualifiedName": "TdHelperSad_t",
+            "tag": "modified"
+        },
+        {
+            "children": [
+                {
+                    "children": [
+                        {
+                            "dataType": "int",
+                            "nodeType": "Field",
+                            "qualifiedName": "RedeclaredRetHelper::val",
+                            "tag": "removed"
+                        },
+                        {
+                            "dataType": "long",
+                            "nodeType": "Field",
+                            "qualifiedName": "RedeclaredRetHelper::val",
+                            "tag": "added"
+                        }
+                    ],
+                    "nodeType": "Field",
+                    "qualifiedName": "RedeclaredRetHelper::val",
+                    "tag": "modified"
+                }
+            ],
+            "nodeType": "Struct",
+            "qualifiedName": "RedeclaredRetHelper",
+            "tag": "modified"
+        }
+    ],
+    "headerResolutionFailures": [],
+    "parsed_status": 2,
+    "unparsed_status": 0
+}

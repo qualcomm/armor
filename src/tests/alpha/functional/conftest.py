@@ -20,7 +20,7 @@ def get_build_dir():
 @pytest.fixture
 def binary_path():
     """Returns the absolute path to the binary."""
-    return os.path.join(get_build_dir(), "src/tests/alpha/src/alpha")
+    return os.path.join(get_build_dir(), "src/tests/alpha/alpha")
 
 @pytest.fixture
 def binary_args(request):
@@ -36,7 +36,7 @@ def dependent_binary_args(request):
     curr_dir = os.path.dirname(request.fspath)
     prj_root1 = os.path.join(curr_dir, "v1")
     prj_root2 = os.path.join(curr_dir, "v2")
-    return [prj_root1, prj_root2, "mylib.h","-Iinclude", "--dump-ast-diff", "-r", "json"]
+    return [prj_root1, prj_root2, "mylib.h","-Iinclude"]
 
 @pytest.fixture
 def binary_args_c(request):
@@ -44,4 +44,4 @@ def binary_args_c(request):
     curr_dir = os.path.dirname(request.fspath)
     prj_root1 = os.path.join(curr_dir, "v1")
     prj_root2 = os.path.join(curr_dir, "v2")
-    return [prj_root1, prj_root2, "mylib.h", "--lang", "c", "--dump-ast-diff", "-r", "json"]
+    return [prj_root1, prj_root2, "mylib.h", "--lang", "c"]

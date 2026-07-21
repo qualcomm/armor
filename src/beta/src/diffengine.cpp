@@ -18,7 +18,9 @@
 
 using json = nlohmann::json;
 
-const bool inline hasChildren(const std::shared_ptr<const beta::APINode>& node) {
+namespace armor { namespace beta {
+
+const bool inline hasChildren(const std::shared_ptr<const armor::APINode>& node) {
     return node->children == nullptr ? false : !node->children->empty();
 }
 
@@ -38,7 +40,7 @@ namespace{
         }
     #endif
 
-    const json toJson(const std::shared_ptr<const beta::APINode>& node) {
+    const json toJson(const std::shared_ptr<const armor::APINode>& node) {
     
         json json_node;
 
@@ -57,14 +59,14 @@ namespace{
         return json_node;
     }
 
-    const json get_json_from_node(const std::shared_ptr<const beta::APINode> node, const std::string& tag) {
+    const json get_json_from_node(const std::shared_ptr<const armor::APINode> node, const std::string& tag) {
         json json_node = toJson(node);
         json_node[TAG] = tag;
         return json_node;
     }
 
-    void reconcileUnhandledDeclHashes(beta::ASTNormalizedContext* context, const std::shared_ptr<const beta::APINode>& node){
-        beta::SourceRangeTracker& tracker = context->getSourceRangeTracker();
+    void reconcileUnhandledDeclHashes(armor::ASTNormalizedContext* context, const std::shared_ptr<const armor::APINode>& node){
+        armor::SourceRangeTracker& tracker = context->getSourceRangeTracker();
         llvm::DenseMap<uint64_t, int>& unhandledDeclsHashMap = tracker.getUnhandledDeclsHashMap();
         if(node->stmtHashes.size()) TEST_LOG << "reconcileUnhandledDeclHashes\n" << node->qualifiedName << "\n";
         for(uint64_t stmtHash : node->stmtHashes ){
@@ -116,10 +118,10 @@ namespace{
 }
 
 json diffNodes(
-    beta::ASTNormalizedContext* contextA,
-    beta::ASTNormalizedContext* contextB,
-    const std::shared_ptr<const beta::APINode>& a, 
-    const std::shared_ptr<const beta::APINode>& b) // we are not using the map for now.
+    armor::ASTNormalizedContext* contextA,
+    armor::ASTNormalizedContext* contextB,
+    const std::shared_ptr<const armor::APINode>& a, 
+    const std::shared_ptr<const armor::APINode>& b) // we are not using the map for now.
 {
     
     // Any node can have children.
@@ -129,10 +131,10 @@ json diffNodes(
         json childrenDiff = json::array();
 
         // Create StringMaps for a->children and b->children
-        llvm::StringMap<llvm::SmallVector<std::shared_ptr<const beta::APINode>,16>> aNSRMap;
-        llvm::StringMap<llvm::SmallVector<std::shared_ptr<const beta::APINode>,16>> bNSRMap;
-        llvm::StringMap<std::shared_ptr<const beta::APINode>> aUSRMap;
-        llvm::StringMap<std::shared_ptr<const beta::APINode>> bUSRMap;
+        llvm::StringMap<llvm::SmallVector<std::shared_ptr<const armor::APINode>,16>> aNSRMap;
+        llvm::StringMap<llvm::SmallVector<std::shared_ptr<const armor::APINode>,16>> bNSRMap;
+        llvm::StringMap<std::shared_ptr<const armor::APINode>> aUSRMap;
+        llvm::StringMap<std::shared_ptr<const armor::APINode>> bUSRMap;
         
         // Populate maps
         for (const auto& childNode : *a->children) {
@@ -163,7 +165,7 @@ json diffNodes(
                     key = childNodeA->USR;
                     auto usrIt = bUSRMap.find(key);
                     if (usrIt != bUSRMap.end()) {
-                        const std::shared_ptr<const beta::APINode> childNodeB = usrIt->second;
+                        const std::shared_ptr<const armor::APINode> childNodeB = usrIt->second;
                         json sameScopeDiff = diffNodes(contextA, contextB,childNodeA, childNodeB);
                         if (!sameScopeDiff.is_null() && !sameScopeDiff.empty()) {
                             if (sameScopeDiff.is_array()) {
@@ -180,7 +182,7 @@ json diffNodes(
                 } 
                 else {
                     assert(countA+countB == 2);
-                    const std::shared_ptr<const beta::APINode> childNodeB = it->second[0];
+                    const std::shared_ptr<const armor::APINode> childNodeB = it->second[0];
                     json sameScopeDiff = diffNodes(contextA, contextB,childNodeA, childNodeB);
                     if (!sameScopeDiff.is_null() && !sameScopeDiff.empty()) {
                         if (sameScopeDiff.is_array()) {
@@ -282,13 +284,13 @@ json diffNodes(
 
 
 json diffTrees(
-    beta::ASTNormalizedContext* context1,
-    beta::ASTNormalizedContext* context2
+    armor::ASTNormalizedContext* context1,
+    armor::ASTNormalizedContext* context2
 ) {
     
     json astDiff = json::array();
-    llvm::StringMap<llvm::SmallVector<std::shared_ptr<beta::APINode>,16>> tree1 = context1->getTree();
-    llvm::StringMap<llvm::SmallVector<std::shared_ptr<beta::APINode>,16>> tree2 = context2->getTree();
+    llvm::StringMap<llvm::SmallVector<std::shared_ptr<armor::APINode>,16>> tree1 = context1->getTree();
+    llvm::StringMap<llvm::SmallVector<std::shared_ptr<armor::APINode>,16>> tree2 = context2->getTree();
 
     for (auto const &rootNode1 : context1->getRootNodes()) {
 
@@ -306,7 +308,7 @@ json diffTrees(
                 key = rootNode1->USR;
                 auto usrIt = context2->usrNodeMap.find(key);
                 if (usrIt != context2->usrNodeMap.end()) {
-                    const std::shared_ptr<const beta::APINode> rootNode2 = usrIt->second;
+                    const std::shared_ptr<const armor::APINode> rootNode2 = usrIt->second;
                     json sameScopeDiff = diffNodes(context1, context2, rootNode1, rootNode2);
                     if (!sameScopeDiff.is_null() && !sameScopeDiff.empty()){
                         if (sameScopeDiff.is_array()){ 
@@ -319,7 +321,7 @@ json diffTrees(
             } 
             else {
                 assert(count1+count2 == 2);
-                const std::shared_ptr<const beta::APINode> rootNode2 = it->second[0];
+                const std::shared_ptr<const armor::APINode> rootNode2 = it->second[0];
                 json sameScopeDiff = diffNodes(context1, context2, rootNode1, rootNode2);
                 if (!sameScopeDiff.is_null() && !sameScopeDiff.empty()){
                     if (sameScopeDiff.is_array()){ 
@@ -356,8 +358,8 @@ json diffTrees(
         }
     }
 
-    const beta::SourceRangeTracker& tracker1 = context1->getSourceRangeTracker();
-    const beta::SourceRangeTracker& tracker2 = context2->getSourceRangeTracker();
+    const armor::SourceRangeTracker& tracker1 = context1->getSourceRangeTracker();
+    const armor::SourceRangeTracker& tracker2 = context2->getSourceRangeTracker();
     
     const llvm::DenseMap<uint64_t, int>& commentsHashMap1 = tracker1.getCommentsHashMap();
     const llvm::DenseMap<uint64_t, int>& commentsHashMap2 = tracker2.getCommentsHashMap();
@@ -402,3 +404,5 @@ json diffTrees(
 
     return result;
 }
+
+} } // namespace armor::beta

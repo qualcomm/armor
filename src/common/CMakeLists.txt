@@ -14,13 +14,13 @@ FetchContent_Declare(
 
 FetchContent_MakeAvailable(nlohmann_json CLI11)
 
-file(GLOB_RECURSE SOURCES "src/*.cpp")
+file(GLOB_RECURSE COMMON_SOURCES "src/*.cpp")
 
 add_library(common_lib STATIC
-  ${SOURCES}
+  ${COMMON_SOURCES}
 )
 
-target_include_directories(common_lib PRIVATE
+target_include_directories(common_lib PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
 
@@ -28,15 +28,16 @@ target_link_libraries(common_lib
   ${LLVM_LIBS}
   clangTooling
   clangIndex
+  clangFrontend
   nlohmann_json::nlohmann_json
   CLI11::CLI11
 )
 
 add_library(common_lib_test STATIC
-  ${SOURCES}
+  ${COMMON_SOURCES}
 )
 
-target_include_directories(common_lib_test PRIVATE
+target_include_directories(common_lib_test PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
 
@@ -46,6 +47,7 @@ target_link_libraries(common_lib_test
   ${LLVM_LIBS}
   clangTooling
   clangIndex
+  clangFrontend
   nlohmann_json::nlohmann_json
   CLI11::CLI11
 )

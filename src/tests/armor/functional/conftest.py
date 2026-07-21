@@ -20,7 +20,7 @@ def get_build_dir():
 @pytest.fixture
 def binary_path():
     """Returns the absolute path to the binary."""
-    return os.path.join(get_build_dir(), "src/tests/armor/src/armor_debug")
+    return os.path.join(get_build_dir(), "src/tests/armor/armor_debug")
 
 @pytest.fixture
 def binary_args(request):
