@@ -10,9 +10,9 @@
 #include <cassert>
 #include <llvm-14/llvm/Support/raw_ostream.h>
 
-namespace beta {
+namespace armor { namespace beta {
 
-CommentHandler::CommentHandler(clang::SourceManager* SM, beta::ASTNormalizedContext* context)
+CommentHandler::CommentHandler(clang::SourceManager* SM, armor::ASTNormalizedContext* context)
     : SM(SM), context(context) {}
 
 uint64_t CommentHandler::generateHashFromSourceRange(clang::SourceRange Range) {
@@ -63,25 +63,25 @@ bool CommentHandler::HandleComment(clang::Preprocessor& PP, clang::SourceRange C
     uint64_t hash = generateHashFromSourceRange(Comment);
     unsigned startOffset = SM->getFileOffset(Comment.getBegin());
     unsigned endOffset = SM->getFileOffset(Comment.getEnd());
-    comments.emplace_back(beta::Range(startOffset,endOffset,hash,true));
+    comments.emplace_back(armor::Range(startOffset,endOffset,hash,true));
     commentsHashMap[hash]++;
 
     return false;
 }
 
 void CommentHandler::finalize(){
-    beta::SourceRangeTracker& SRT = context->getSourceRangeTracker();
+    armor::SourceRangeTracker& SRT = context->getSourceRangeTracker();
     SRT.moveComments(comments);
     SRT.moveCommentsHashMap(commentsHashMap);
 }
 
-void filterCommentsInInactiveRegions(beta::ASTNormalizedContext* context, clang::SourceManager* SM) {
+void filterCommentsInInactiveRegions(armor::ASTNormalizedContext* context, clang::SourceManager* SM) {
     
     if (!context || !SM) return;
     
     auto& tracker = context->getSourceRangeTracker();
-    const llvm::SmallVector<beta::Range, 32>& comments = tracker.getComments();
-    const std::map<unsigned,beta::Range>& inactiveRegions = tracker.getInactivePPDirectives();
+    const llvm::SmallVector<armor::Range, 32>& comments = tracker.getComments();
+    const std::map<unsigned,armor::Range>& inactiveRegions = tracker.getInactivePPDirectives();
     llvm::DenseMap<uint64_t, int>& commentsHashMap = tracker.getCommentsHashMap();
     
     if (inactiveRegions.empty()) return;
@@ -123,4 +123,4 @@ void filterCommentsInInactiveRegions(beta::ASTNormalizedContext* context, clang:
     
 }
 
-}
+} } // namespace armor::beta

@@ -1,6 +1,5 @@
 // Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-3-Clause
-// report_utils.cpp
 #include <cassert>
 #include <iostream>
 #include <sstream>
@@ -1598,15 +1597,15 @@ void generate_html_report(const std::vector<json>& processed_data,
         }
         else{
             assert( file1_exists | file2_exists );
-            html << SIMPLE_HEADER;
+            html << SIMPLE_HEADER; 
             html << "<div style='margin:12px 0;padding:10px;border:1px solid #ccc;"
             "border-radius:5px;background:#fafafa;font-size:14px;'>\n";
             html << "<b>Overall status:</b> " << overall_status << "<br/>\n";
             html << "<b>Reason:</b> " << reason << "<br/>\n";
             html << "</div>\n";
-
+            
         }
-    }
+    } 
     else {
 
         switch (parser) {
@@ -1619,7 +1618,7 @@ void generate_html_report(const std::vector<json>& processed_data,
             default:
                 break;
         }
-
+        
         auto grouped = group_records_by_function(processed_data);
         for (const auto& entry : grouped) {
             html << "<tr>\n";
@@ -1663,7 +1662,7 @@ void generate_json_report(const std::vector<json>& processed_data,
     wrapper["unparsed_staus"] = serialize(unParsedStatus);
     wrapper["compatibility"]  = agg_compatibility;
     wrapper["overall_status"] = overall_status;
-    wrapper["reason"]         = reason;
+    wrapper["reason"]         = reason; 
     jf << wrapper.dump(4);
     jf.close();
 }

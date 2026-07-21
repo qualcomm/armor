@@ -1,6 +1,6 @@
 // Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-3-Clause
-#include <string>
+#pragma once
 
 constexpr const char* CRITICAL_PARSING_ERRORS = "Critical parsing errors occurred.";
 

@@ -7,6 +7,8 @@
 #include "comm_def.hpp"
 #include "session.hpp"
 
+namespace armor { namespace alpha {
+
 PARSING_STATUS processHeaderPairAlpha(const std::string& projectRoot1,
                        const std::string& file1,
                        const std::string& projectRoot2,
@@ -15,3 +17,5 @@ PARSING_STATUS processHeaderPairAlpha(const std::string& projectRoot1,
                        const std::vector<std::string>& IncludePaths,
                        const std::vector<std::string>& macroFlags,
                        const LANG_OPTIONS lang);
+
+} } // namespace armor::alpha
