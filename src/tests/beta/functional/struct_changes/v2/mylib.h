@@ -1,11 +1,5 @@
 // Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-3-Clause
-
-// - Removed status field
-// - Added timestamp field
-// - Changed order of fields
-// - Changed type of id from int to long
-// - Removed int diag_uart_tbl_t
 struct Record{
 
     float value;         // moved

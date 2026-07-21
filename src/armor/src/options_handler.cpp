@@ -14,7 +14,7 @@
 #include "git_utils.hpp"
 #include <nlohmann/json.hpp>
 
-#include <session.hpp>
+#include "session.hpp"
 
 #include "alpha/include/header_processor.hpp"
 #include "beta/include/header_processor.hpp"
@@ -31,7 +31,7 @@ LANG_OPTIONS stringToLangOption(const std::string& lang) {
     std::string lowerLang = lang;
     std::transform(lowerLang.begin(), lowerLang.end(), lowerLang.begin(),
                    [](unsigned char c){ return std::tolower(c); });
-
+    
     if (lowerLang == LANG_C) {
         return LANG_OPTIONS::C;
     } else if (lowerLang == LANG_CPP) {
@@ -270,7 +270,7 @@ bool runArmorTool(int argc, const char **argv) {
     }
 
     // Set level and announce (now goes to the file)
-
+    
     DebugConfig& debugConfig = DebugConfig::getInstance();
     debugConfig.initialize();
 
@@ -326,7 +326,7 @@ bool runArmorTool(int argc, const char **argv) {
             if (!headerSubDir.empty()) {
                 file1 = projectRoot1 + "/" + headerSubDir + "/" + header;
                 file2 = projectRoot2 + "/" + headerSubDir + "/" + header;
-            }
+            } 
             else {
                 file1 = projectRoot1 + "/" + header;
                 file2 = projectRoot2 + "/" + header;
@@ -361,7 +361,7 @@ bool runArmorTool(int argc, const char **argv) {
                           "Missing header in older version",
                           {false, true}
                         );
-            }
+            } 
             else if (!std::filesystem::exists(file2)) {
                 armor::user_error() << "Missing header in newer version: " << file2 << "\n";
                 std::string headerName = std::filesystem::path(file1).filename().string();
@@ -389,12 +389,12 @@ bool runArmorTool(int argc, const char **argv) {
             }
             else{
                 if (filesAreDifferentUsingDiff(file1, file2)) {
-                    PARSING_STATUS parsingStatus = processHeaderPairAlpha(projectRoot1, file1, projectRoot2, file2, reportFormat,
+                    PARSING_STATUS parsingStatus = armor::alpha::processHeaderPairAlpha(projectRoot1, file1, projectRoot2, file2, reportFormat,
                                     IncludePaths, macros, langOption);
                     switch (parsingStatus) {
                         case NO_FATAL_ERRORS:
                             armor::info() << "Processing Headers again via beta parser\n";
-                            processHeaderPairBeta(projectRoot1, file1, projectRoot2, file2, reportFormat,
+                            armor::beta::processHeaderPairBeta(projectRoot1, file1, projectRoot2, file2, reportFormat,
                                         IncludePaths, macros, langOption);
                             break;
                         case FATAL_ERRORS:
@@ -404,7 +404,7 @@ bool runArmorTool(int argc, const char **argv) {
                     processed = true;
                     if (gitDiff)
                         printHeaderSummary(header);
-                }
+                } 
                 else {
                     armor::user_print() << "No differences found between: " << file1 << " and " << file2 << "\n";
                     return true;
@@ -479,15 +479,15 @@ bool runArmorTool(int argc, const char **argv) {
                           "Missing header in newer version",
                           {true, false}
                         );
-            }
+            } 
             else{
                 if (filesAreDifferentUsingDiff(file1, file2)) {
-                    PARSING_STATUS parsingStatus = processHeaderPairAlpha(projectRoot1, file1, projectRoot2, file2, reportFormat,
+                    PARSING_STATUS parsingStatus = armor::alpha::processHeaderPairAlpha(projectRoot1, file1, projectRoot2, file2, reportFormat,
                                     IncludePaths, macros, langOption);
                     switch (parsingStatus) {
                         case NO_FATAL_ERRORS:
                             armor::info() << "Processing Headers again via v2\n";
-                            processHeaderPairBeta(projectRoot1, file1, projectRoot2, file2, reportFormat,
+                            armor::beta::processHeaderPairBeta(projectRoot1, file1, projectRoot2, file2, reportFormat,
                                         IncludePaths, macros, langOption);
                             break;
                         case FATAL_ERRORS:
@@ -497,7 +497,7 @@ bool runArmorTool(int argc, const char **argv) {
                     processed = true;
                     if (gitDiff)
                         printHeaderSummary(header);
-                }
+                } 
                 else {
                     llvm::outs()<<"No diff beta\n";
                     armor::user_print() << "No differences found between: " << file1 << " and " << file2 << "\n";

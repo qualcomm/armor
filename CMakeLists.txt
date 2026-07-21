@@ -1,11 +1,13 @@
 cmake_minimum_required(VERSION 3.14)
 project(armor)
-set(TOOL_VERSION "0.6.9")
+set(TOOL_VERSION "0.7.1")
 set(TOOL_DOCS_URL "https://github.com/qualcomm/armor/blob/main/README.md")
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -isystem /usr/include/c++/11 -isystem /usr/include/x86_64-linux-gnu/c++/11")
 
 execute_process(
     COMMAND ${CMAKE_CXX_COMPILER} -dumpversion
@@ -47,15 +49,16 @@ llvm_map_components_to_libnames(LLVM_LIBS
 )
 
 add_definitions(-DTOOL_VERSION="${TOOL_VERSION}")
+add_definitions(-DTOOL_DOCS_URL="${TOOL_DOCS_URL}")
 
 add_subdirectory(src/common)
 add_subdirectory(src/alpha)
 add_subdirectory(src/beta)
 add_subdirectory(src/armor)
 
-add_subdirectory(src/tests/alpha/src)
-add_subdirectory(src/tests/beta/src)
-add_subdirectory(src/tests/armor/src)
+add_subdirectory(src/tests/alpha)
+add_subdirectory(src/tests/beta)
+add_subdirectory(src/tests/armor)
 add_subdirectory(src/tests/common)
 
 

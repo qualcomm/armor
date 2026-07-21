@@ -25,6 +25,7 @@ target_link_libraries(armor
   ${LLVM_LIBS}
   clangTooling
   clangIndex
+  clangFrontend
   nlohmann_json::nlohmann_json
   CLI11::CLI11
 )

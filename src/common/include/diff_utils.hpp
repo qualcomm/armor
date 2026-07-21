@@ -38,6 +38,8 @@ extern std::string IS_EXPLICIT;
 extern std::string IS_VOLATILE;
 extern std::string IS_CONST;
 extern std::string IS_FRIEND;
+extern std::string HEADER;
+extern std::string FILE_PATH;
 
 enum class ParsedDiffStatus {
     FATAL_ERRORS = 0,          // Critical errors occurred (e.g., header resolution failures)
