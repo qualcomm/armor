@@ -13,15 +13,15 @@
 #include "clang/Basic/SourceManager.h"
 #include "clang/Lex/Preprocessor.h"
 
-namespace beta {
+namespace armor { namespace beta {
 
-void filterCommentsInInactiveRegions(beta::ASTNormalizedContext* context, clang::SourceManager* SM);
+void filterCommentsInInactiveRegions(armor::ASTNormalizedContext* context, clang::SourceManager* SM);
 
 class CommentHandler : public clang::CommentHandler {
 
     public:
-        explicit CommentHandler(clang::SourceManager* SM, beta::ASTNormalizedContext* context);
-        
+        explicit CommentHandler(clang::SourceManager* SM, armor::ASTNormalizedContext* context);
+
         bool HandleComment(clang::Preprocessor& PP, clang::SourceRange Comment) override;
 
         uint64_t generateHashFromSourceRange(clang::SourceRange Range);
@@ -31,11 +31,11 @@ class CommentHandler : public clang::CommentHandler {
 
     private:
 
-        llvm::SmallVector<beta::Range, 32> comments;
+        llvm::SmallVector<armor::Range, 32> comments;
         llvm::DenseMap<uint64_t, int> commentsHashMap;
-        
+
         clang::SourceManager* SM;
-        beta::ASTNormalizedContext* context;
+        armor::ASTNormalizedContext* context;
 };
 
-} 
+} } // namespace armor::beta

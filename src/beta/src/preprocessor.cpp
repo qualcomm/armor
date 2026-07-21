@@ -19,7 +19,7 @@
 #include <utility>
 #include "logger.hpp"
 
-namespace beta{
+namespace armor { namespace beta {
 
 inline bool isLocationInMainFile(clang::SourceManager* SM, clang::SourceLocation Loc) {
     if (!Loc.isValid()) return false;
@@ -63,17 +63,17 @@ inline bool isBuiltinOrPredefinedInclude(clang::SourceManager* SM, clang::Source
     return false;
 }
 
-ASTNormalizerPreprocessor::ASTNormalizerPreprocessor(clang::SourceManager* SM, ASTNormalizedContext* context) 
+ASTNormalizerPreprocessor::ASTNormalizerPreprocessor(clang::SourceManager* SM, armor::ASTNormalizedContext* context) 
 : SM(SM), context(context) {}
 
 void ASTNormalizerPreprocessor::finalize(){
     
     removeNestedRanges();
-    beta::SourceRangeTracker& SRT = context->getSourceRangeTracker();
+    armor::SourceRangeTracker& SRT = context->getSourceRangeTracker();
     
     llvm::StringRef buffer = SM->getBufferData(SM->getMainFileID());
     
-    for(beta::Range& R : PPDirectives){
+    for(armor::Range& R : PPDirectives){
         uint64_t hash = generateHashFromOffsets(R.startOffset, R.endOffset,R.isActive);
         if(hash != 0) {
             R.hash = hash;
@@ -123,13 +123,13 @@ void ASTNormalizerPreprocessor::addRange(clang::SourceRange range, bool active) 
         range.getEnd(), 0, *SM, clang::LangOptions());
 
     unsigned endOffset = SM->getFileOffset(endLoc);
-    PPDirectives.emplace_back(beta::Range(startOffset, endOffset, -1, active));
+    PPDirectives.emplace_back(armor::Range(startOffset, endOffset, -1, active));
 }
 
 void ASTNormalizerPreprocessor::removeNestedRanges() {
     if (PPDirectives.size() <= 1) return;
     
-    llvm::SmallVector<beta::Range, 16> filteredRanges;
+    llvm::SmallVector<armor::Range, 16> filteredRanges;
     
     size_t size = PPDirectives.size();
     unsigned refStartOffset = PPDirectives[size-1].startOffset;
@@ -147,7 +147,7 @@ void ASTNormalizerPreprocessor::removeNestedRanges() {
             continue;
         }
         else if (currentStart < refStartOffset && (currentEnd <= refStartOffset || refStartOffset < currentEnd)) {
-            filteredRanges.emplace_back(beta::Range(refStartOffset, refEndOffset,-1,refStatus));
+            filteredRanges.emplace_back(armor::Range(refStartOffset, refEndOffset,-1,refStatus));
             refStatus = currentStatus;
             refStartOffset = currentStart;
             refEndOffset = currentEnd;
@@ -162,7 +162,7 @@ void ASTNormalizerPreprocessor::removeNestedRanges() {
     }
     
     filteredRanges.emplace_back(
-        beta::Range(
+        armor::Range(
             refStartOffset, 
             refEndOffset ,
             -1,
@@ -427,4 +427,4 @@ void ASTNormalizerPreprocessor::SourceRangeSkipped(clang::SourceRange Range, cla
 
 }
 
-}
+} } // namespace armor::beta

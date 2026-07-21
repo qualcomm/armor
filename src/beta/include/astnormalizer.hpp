@@ -17,17 +17,17 @@
 #include "comment_handler.hpp"
 #include "preprocesor.hpp"
 
-namespace beta{
+namespace armor { namespace beta {
 
 class ASTNormalize : public clang::RecursiveASTVisitor<ASTNormalize> {
     public:
 
-        beta::APISession* session;
-        ASTNormalizedContext* context;
+        armor::APISession* session;
+        armor::ASTNormalizedContext* context;
         clang::ASTContext *clangContext;
         beta::TreeBuilder treeBuilder;
 
-        ASTNormalize(beta::APISession* session, beta::ASTNormalizedContext* context, clang::ASTContext* clangContext);
+        ASTNormalize(armor::APISession* session, armor::ASTNormalizedContext* context, clang::ASTContext* clangContext);
 
         bool TraverseNamespaceDecl(clang::NamespaceDecl *Decl);
         bool TraverseRecordDecl(clang::RecordDecl *Decl);
@@ -80,40 +80,42 @@ class ASTNormalize : public clang::RecursiveASTVisitor<ASTNormalize> {
         bool VisitVarTemplateSpecializationDecl(clang::VarTemplateSpecializationDecl *Decl);
         bool VisitVarTemplatePartialSpecializationDecl(clang::VarTemplatePartialSpecializationDecl *Decl);
         bool VisitTypeAliasTemplateDecl(clang::TypeAliasTemplateDecl *Decl);
-
 };
 
 class ASTNormalizeConsumer : public clang::ASTConsumer {
     public:
-        beta::APISession* session;
-        ASTNormalizedContext* context;
+        armor::APISession* session;
+        armor::ASTNormalizedContext* context;
         ASTNormalize *visitor;
-        ASTNormalizeConsumer(beta::APISession* session, beta::ASTNormalizedContext* context);
+        ASTNormalizeConsumer(armor::APISession* session, armor::ASTNormalizedContext* context);
         void HandleTranslationUnit(clang::ASTContext &Context) override;
 };
 
 
 class NormalizeAction : public clang::ASTFrontendAction {
     public:
-        beta::APISession* session;
-        ASTNormalizedContext* context;
+        armor::APISession* session;
+        armor::ASTNormalizedContext* context;
         beta::CommentHandler* commentHandler;
-        beta::ASTNormalizerPreprocessor* preprocessor; // Raw pointer, ownership transferred to Preprocessor
+        beta::ASTNormalizerPreprocessor* preprocessor;
 
-        NormalizeAction(beta::APISession* session, beta::ASTNormalizedContext* context);
+        NormalizeAction(armor::APISession* session, armor::ASTNormalizedContext* context);
         std::unique_ptr<clang::ASTConsumer> CreateASTConsumer(clang::CompilerInstance &, clang::StringRef) override;
         void EndSourceFileAction() override;
 
     private:
-        clang::CompilerInstance* CI; // Store CI reference for cleanup
+        clang::CompilerInstance* CI;
 };
 
 class NormalizeActionFactory : public clang::tooling::FrontendActionFactory {
     public:
-        beta::APISession* session;
+        armor::APISession* session;
         const std::string& fileName;
-        explicit NormalizeActionFactory(beta::APISession* session, const std::string& fileName);
+        explicit NormalizeActionFactory(armor::APISession* session, const std::string& fileName);
         std::unique_ptr<clang::FrontendAction> create() override;
 };
 
-}
+std::unique_ptr<clang::tooling::FrontendActionFactory>
+createNormalizeActionFactory(armor::APISession* session, const std::string& fileName);
+
+} } // namespace armor::beta

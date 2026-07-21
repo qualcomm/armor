@@ -19,33 +19,19 @@
 #include "qualified_name_builder.hpp"
 #include "fibonacci_hash.hpp"
 
-/**
- * @class TreeBuilder
- * @brief Builds an API node tree from Clang AST declarations.
- *
- * This class encapsulates all the logic for creating and organizing APINode objects
- * based on Clang AST declarations. It works with an ASTNormalizedContext to store
- * the resulting nodes.
- */
-
-namespace beta{
+namespace armor { namespace beta {
 
 class TreeBuilder {
 private:
-    beta::ASTNormalizedContext* context;
+    armor::ASTNormalizedContext* context;
     StringBuilder qualifiedName;
-    std::vector<std::shared_ptr<beta::APINode>> nodeStack;
+    std::vector<std::shared_ptr<armor::APINode>> nodeStack;
 public:
-    /**
-     * @brief Constructs a TreeBuilder with the given context.
-     *
-     * @param context The ASTNormalizedContext to store the resulting nodes.
-     */
-    explicit TreeBuilder(beta::ASTNormalizedContext* context);
+    explicit TreeBuilder(armor::ASTNormalizedContext* context);
 
     // Node management
-    void AddNode(const std::shared_ptr<beta::APINode>& node);
-    void PushNode(const std::shared_ptr<beta::APINode>& node);
+    void AddNode(const std::shared_ptr<armor::APINode>& node);
+    void PushNode(const std::shared_ptr<armor::APINode>& node);
     void PopNode();
 
     // Name management
@@ -61,7 +47,7 @@ public:
     bool isInTemplatedClass(const clang::Decl* Decl);
     bool isWrittenInTemplatedClass(const clang::Decl* TD);
     void processUnhandledDecl(const clang::Decl* Decl);
-    void processUnhandledStmt(const clang::Stmt* Stmt, const std::shared_ptr<beta::APINode>& node);
+    void processUnhandledStmt(const clang::Stmt* Stmt, const std::shared_ptr<armor::APINode>& node);
     uint64_t generateSemanticHashFromDecl(const clang::Decl* Decl);
     uint64_t generateSemanticHashFromStmt(const clang::Stmt* Stmt);
     void normalizeFunctionPointerType(std::string_view typeModifiers, clang::FunctionProtoTypeLoc FTL, const clang::NamedDecl* Decl);
@@ -82,7 +68,6 @@ public:
     void BuildFriendFunctionDecl(const clang::FunctionDecl *Decl, const clang::FriendDecl *FriendDecl);
 
     // Unsupported declaration handlers (hash-only)
-    // void BuildNamespaceDecl(clang::NamespaceDecl* Decl);
     void BuildFunctionTemplateDecl(clang::FunctionTemplateDecl* Decl);
     void BuildClassTemplateDecl(clang::ClassTemplateDecl* Decl);
     void BuildClassTemplateSpecializationDecl(clang::ClassTemplateSpecializationDecl* Decl);
@@ -96,7 +81,7 @@ public:
     void BuildVarTemplateSpecializationDecl(clang::VarTemplateSpecializationDecl* Decl);
     void BuildVarTemplatePartialSpecializationDecl(clang::VarTemplatePartialSpecializationDecl* Decl);
     void BuildTypeAliasTemplateDecl(clang::TypeAliasTemplateDecl* Decl);
-    void BuildValueInitExpr(const clang::Expr* Expr, const std::shared_ptr<beta::APINode>& node);
+    void BuildValueInitExpr(const clang::Expr* Expr, const std::shared_ptr<armor::APINode>& node);
 };
 
-}
+} } // namespace armor::beta

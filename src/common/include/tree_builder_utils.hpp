@@ -30,3 +30,5 @@ const std::string generateQualifiedNameForDecl(const clang::NamedDecl *Decl);
 const std::pair<const std::string,const std::string> getTypesWithAndWithoutTypeResolution(const clang::QualType T, const clang::ASTContext &Ctx);
 
 const std::string generateHash( llvm::StringRef qualifiedName , const NodeKind& node );
+
+bool isInlineForwardDeclOfDeclType(const clang::CXXRecordDecl* Decl);

@@ -145,12 +145,12 @@ bool runArmorTool(int argc, const char **argv) {
                 armor::user_error() << "Missing header in newer version: " << file2 << "\n";
             } 
             else if (filesAreDifferentUsingDiff(file1, file2)) {
-                PARSING_STATUS parsingStatus = processHeaderPairAlpha(projectRoot1, file1, projectRoot2, file2, reportFormat,
+                PARSING_STATUS parsingStatus = armor::alpha::processHeaderPairAlpha(projectRoot1, file1, projectRoot2, file2, reportFormat,
                                 IncludePaths, macros, langOption);
                 switch (parsingStatus) {
                     case NO_FATAL_ERRORS:
                         armor::info() << "Processing Headers again via beta parser\n";
-                        processHeaderPairBeta(projectRoot1, file1, projectRoot2, file2, reportFormat,
+                        armor::beta::processHeaderPairBeta(projectRoot1, file1, projectRoot2, file2, reportFormat,
                                     IncludePaths, macros, langOption);
                         break;
                     case FATAL_ERRORS:
@@ -188,12 +188,12 @@ bool runArmorTool(int argc, const char **argv) {
                 armor::user_error() << "Missing header in newer version: " << file2 << "\n";
             } 
             else if (filesAreDifferentUsingDiff(file1, file2)) {
-                PARSING_STATUS parsingStatus = processHeaderPairAlpha(projectRoot1, file1, projectRoot2, file2, reportFormat,
+                PARSING_STATUS parsingStatus = armor::alpha::processHeaderPairAlpha(projectRoot1, file1, projectRoot2, file2, reportFormat,
                                 IncludePaths, macros, langOption);
                 switch (parsingStatus) {
                     case NO_FATAL_ERRORS:
                         armor::info() << "Processing Headers again via v2\n";
-                        processHeaderPairBeta(projectRoot1, file1, projectRoot2, file2, reportFormat,
+                        armor::beta::processHeaderPairBeta(projectRoot1, file1, projectRoot2, file2, reportFormat,
                                     IncludePaths, macros, langOption);
                         break;
                     case FATAL_ERRORS:

@@ -3,7 +3,6 @@
 #pragma once
 
 #include "clang/AST/ASTContext.h"
-#include "clang/AST/DeclVisitor.h"
 #include "clang/Lex/PreprocessingRecord.h"
 #include "llvm/ADT/SmallVector.h"
 #include "llvm/ADT/StringRef.h"
