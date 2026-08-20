@@ -612,7 +612,7 @@ bool beta::TreeBuilder::BuildEnumNode(clang::EnumDecl* Decl){
     PushNode(enumNode);
 
     const clang::QualType enumType = Decl->getIntegerType();
-    std::string enumaratorDataType = enumType.getAsString();
+    auto [enumDataType, enumCanonicalType] = getTypesWithAndWithoutTypeResolution(enumType, Decl->getASTContext());
     enumNode->access = getAccessSpecifier(Decl->getAccess());
      
     for (const auto* EnumConstDecl : Decl->enumerators()) {
@@ -621,7 +621,8 @@ bool beta::TreeBuilder::BuildEnumNode(clang::EnumDecl* Decl){
         llvm::StringRef enumConstName = EnumConstDecl->getName();
         PushName(enumConstName);
         enumValNode->qualifiedName = GetCurrentQualifiedName();
-        enumValNode->dataType = enumaratorDataType;
+        enumValNode->dataType = enumDataType;
+        enumValNode->caonicalType = enumCanonicalType;
         enumValNode->NSR = ::generateNSRForDecl(EnumConstDecl);
         enumValNode->USR = ::generateUSRForDecl(EnumConstDecl);
         const clang::Expr* expr = EnumConstDecl->getInitExpr();

@@ -17,3 +17,8 @@ enum Color2 {
     I,
     J
 };
+enum color3{
+    K,
+    L,
+    M
+};

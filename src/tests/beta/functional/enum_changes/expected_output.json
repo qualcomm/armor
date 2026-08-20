@@ -24,5 +24,69 @@
         "nodeType": "Enum",
         "qualifiedName": "Color1",
         "tag": "modified"
+    },
+    {
+        "children": [
+            {
+                "children": [
+                    {
+                        "dataType": "unsigned int",
+                        "nodeType": "Enumerator",
+                        "qualifiedName": "color3::K",
+                        "tag": "removed"
+                    },
+                    {
+                        "dataType": "int",
+                        "nodeType": "Enumerator",
+                        "qualifiedName": "color3::K",
+                        "tag": "added"
+                    }
+                ],
+                "nodeType": "Enumerator",
+                "qualifiedName": "color3::K",
+                "tag": "modified"
+            },
+            {
+                "children": [
+                    {
+                        "dataType": "unsigned int",
+                        "nodeType": "Enumerator",
+                        "qualifiedName": "color3::L",
+                        "tag": "removed"
+                    },
+                    {
+                        "dataType": "int",
+                        "nodeType": "Enumerator",
+                        "qualifiedName": "color3::L",
+                        "tag": "added"
+                    }
+                ],
+                "nodeType": "Enumerator",
+                "qualifiedName": "color3::L",
+                "tag": "modified"
+            },
+            {
+                "children": [
+                    {
+                        "dataType": "unsigned int",
+                        "nodeType": "Enumerator",
+                        "qualifiedName": "color3::M",
+                        "tag": "removed"
+                    },
+                    {
+                        "dataType": "int",
+                        "nodeType": "Enumerator",
+                        "qualifiedName": "color3::M",
+                        "tag": "added"
+                    }
+                ],
+                "nodeType": "Enumerator",
+                "qualifiedName": "color3::M",
+                "tag": "modified"
+            }
+        ],
+        "nodeType": "Enum",
+        "qualifiedName": "color3",
+        "tag": "modified"
     }
 ]
