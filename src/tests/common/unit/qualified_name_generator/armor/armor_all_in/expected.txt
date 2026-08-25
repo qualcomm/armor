@@ -1,0 +1,440 @@
+Declaration: Container<T>
+Location: Line 94, Column 5
+Kind: CXXConstructor
+Armor QualifiedName: mylib::Container::Container
+Clang QUalifiedName: mylib::Container::Container<T>
+Clang USR : c:@N@mylib@ST>1#T@Container@F@Container#
+-------------------------------------------
+
+Declaration: NumericValue<T>
+Location: Line 137, Column 5
+Kind: CXXConstructor
+Armor QualifiedName: mylib::NumericValue::NumericValue
+Clang QUalifiedName: mylib::NumericValue::NumericValue<T>
+Clang USR : c:@N@mylib@ST>1#T@NumericValue@F@NumericValue#t0.0#
+-------------------------------------------
+
+Declaration: Container
+Location: Line 145, Column 7
+Kind: ClassTemplateSpecialization
+Armor QualifiedName: mylib::Container<bool>
+Clang QUalifiedName: mylib::Container
+Clang USR : c:@N@mylib@S@Container>#b
+-------------------------------------------
+
+Declaration: DEFAULT_VALUE
+Location: Line 162, Column 15
+Kind: VarTemplateSpecialization
+Armor QualifiedName: mylib::DEFAULT_VALUE<int>
+Clang QUalifiedName: mylib::DEFAULT_VALUE
+Clang USR : c:@N@mylib@DEFAULT_VALUE>#I
+-------------------------------------------
+
+Declaration: DEFAULT_VALUE
+Location: Line 165, Column 18
+Kind: VarTemplateSpecialization
+Armor QualifiedName: mylib::DEFAULT_VALUE<double>
+Clang QUalifiedName: mylib::DEFAULT_VALUE
+Clang USR : c:@N@mylib@DEFAULT_VALUE>#d
+-------------------------------------------
+
+Declaration: DEFAULT_VALUE
+Location: Line 168, Column 16
+Kind: VarTemplateSpecialization
+Armor QualifiedName: mylib::DEFAULT_VALUE<char>
+Clang QUalifiedName: mylib::DEFAULT_VALUE
+Clang USR : c:@N@mylib@DEFAULT_VALUE>#C
+-------------------------------------------
+
+Declaration: Pair<T, U>
+Location: Line 185, Column 5
+Kind: CXXConstructor
+Armor QualifiedName: mylib::Pair::Pair
+Clang QUalifiedName: mylib::Pair::Pair<T, U>
+Clang USR : c:@N@mylib@ST>2#T#T@Pair@F@Pair#
+-------------------------------------------
+
+Declaration: Pair<T, U>
+Location: Line 186, Column 5
+Kind: CXXConstructor
+Armor QualifiedName: mylib::Pair::Pair
+Clang QUalifiedName: mylib::Pair::Pair<T, U>
+Clang USR : c:@N@mylib@ST>2#T#T@Pair@F@Pair#t0.0#t0.1#
+-------------------------------------------
+
+Declaration: add
+Location: Line 223, Column 5
+Kind: Function
+Armor QualifiedName: mylib::add<int, int>
+Clang QUalifiedName: mylib::add
+Clang USR : c:@N@mylib@F@add<#I#I>#I#I#
+-------------------------------------------
+
+Declaration: 
+Location: Line 225, Column 9
+Kind: CXXRecord
+Armor QualifiedName: mylib::anon_alpha
+Clang QUalifiedName: mylib::(anonymous)
+Clang USR : c:@N@mylib@SA@anon_alpha
+-------------------------------------------
+
+Declaration: a
+Location: Line 226, Column 9
+Kind: Field
+Armor QualifiedName: mylib::anon_alpha::a
+Clang QUalifiedName: mylib::(anonymous struct)::a
+Clang USR : c:@N@mylib@SA@anon_alpha@FI@a
+-------------------------------------------
+
+Declaration: 
+Location: Line 229, Column 9
+Kind: CXXRecord
+Armor QualifiedName: mylib::anon_beta
+Clang QUalifiedName: mylib::(anonymous)
+Clang USR : c:armor_all_in.cpp@N@mylib@S@armor_all_in.cpp@4864
+-------------------------------------------
+
+Declaration: a
+Location: Line 230, Column 9
+Kind: Field
+Armor QualifiedName: mylib::anon_beta::a
+Clang QUalifiedName: mylib::(anonymous struct)::a
+Clang USR : c:armor_all_in.cpp@N@mylib@S@armor_all_in.cpp@4864@FI@a
+-------------------------------------------
+
+Declaration: 
+Location: Line 233, Column 1
+Kind: CXXRecord
+Armor QualifiedName: mylib::gamma
+Clang QUalifiedName: mylib::(anonymous)
+Clang USR : c:armor_all_in.cpp@N@mylib@S@armor_all_in.cpp@4952
+-------------------------------------------
+
+Declaration: a
+Location: Line 234, Column 9
+Kind: Field
+Armor QualifiedName: mylib::gamma::a
+Clang QUalifiedName: mylib::(anonymous struct)::a
+Clang USR : c:armor_all_in.cpp@N@mylib@S@armor_all_in.cpp@4952@FI@a
+-------------------------------------------
+
+Declaration: 
+Location: Line 237, Column 1
+Kind: CXXRecord
+Armor QualifiedName: mylib::anon_gamma
+Clang QUalifiedName: mylib::(anonymous)
+Clang USR : c:armor_all_in.cpp@N@mylib@S@armor_all_in.cpp@4982
+-------------------------------------------
+
+Declaration: a
+Location: Line 238, Column 9
+Kind: Field
+Armor QualifiedName: mylib::anon_gamma::a
+Clang QUalifiedName: mylib::(anonymous struct)::a
+Clang USR : c:armor_all_in.cpp@N@mylib@S@armor_all_in.cpp@4982@FI@a
+-------------------------------------------
+
+Declaration: 
+Location: Line 262, Column 9
+Kind: CXXRecord
+Armor QualifiedName: anon_alpha
+Clang QUalifiedName: (anonymous)
+Clang USR : c:@SA@anon_alpha
+-------------------------------------------
+
+Declaration: a
+Location: Line 263, Column 9
+Kind: Field
+Armor QualifiedName: anon_alpha::a
+Clang QUalifiedName: (anonymous struct)::a
+Clang USR : c:@SA@anon_alpha@FI@a
+-------------------------------------------
+
+Declaration: 
+Location: Line 266, Column 9
+Kind: CXXRecord
+Armor QualifiedName: anon_beta
+Clang QUalifiedName: (anonymous)
+Clang USR : c:armor_all_in.cpp@S@armor_all_in.cpp@5449
+-------------------------------------------
+
+Declaration: a
+Location: Line 267, Column 9
+Kind: Field
+Armor QualifiedName: anon_beta::a
+Clang QUalifiedName: (anonymous struct)::a
+Clang USR : c:armor_all_in.cpp@S@armor_all_in.cpp@5449@FI@a
+-------------------------------------------
+
+Declaration: 
+Location: Line 270, Column 1
+Kind: CXXRecord
+Armor QualifiedName: gamma
+Clang QUalifiedName: (anonymous)
+Clang USR : c:armor_all_in.cpp@S@armor_all_in.cpp@5537
+-------------------------------------------
+
+Declaration: a
+Location: Line 271, Column 9
+Kind: Field
+Armor QualifiedName: gamma::a
+Clang QUalifiedName: (anonymous struct)::a
+Clang USR : c:armor_all_in.cpp@S@armor_all_in.cpp@5537@FI@a
+-------------------------------------------
+
+Declaration: 
+Location: Line 274, Column 1
+Kind: CXXRecord
+Armor QualifiedName: anon_gamma
+Clang QUalifiedName: (anonymous)
+Clang USR : c:armor_all_in.cpp@S@armor_all_in.cpp@5567
+-------------------------------------------
+
+Declaration: a
+Location: Line 275, Column 9
+Kind: Field
+Armor QualifiedName: anon_gamma::a
+Clang QUalifiedName: (anonymous struct)::a
+Clang USR : c:armor_all_in.cpp@S@armor_all_in.cpp@5567@FI@a
+-------------------------------------------
+
+Declaration: Container
+Location: Line 282, Column 14
+Kind: ClassTemplateSpecialization
+Armor QualifiedName: mylib::Container<int (*)(int, int)>
+Clang QUalifiedName: mylib::Container
+Clang USR : c:@N@mylib@S@Container>#*FI(#I#I)
+-------------------------------------------
+
+Declaration: InnerTemplate<T>
+Location: Line 292, Column 5
+Kind: CXXConstructor
+Armor QualifiedName: InnerTemplate::InnerTemplate
+Clang QUalifiedName: InnerTemplate::InnerTemplate<T>
+Clang USR : c:@ST>1#T@InnerTemplate@F@InnerTemplate#
+-------------------------------------------
+
+Declaration: InnerTemplate<T>
+Location: Line 293, Column 14
+Kind: CXXConstructor
+Armor QualifiedName: InnerTemplate::InnerTemplate
+Clang QUalifiedName: InnerTemplate::InnerTemplate<T>
+Clang USR : c:@ST>1#T@InnerTemplate@F@InnerTemplate#t0.0#
+-------------------------------------------
+
+Declaration: ok
+Location: Line 317, Column 7
+Kind: ClassTemplateSpecialization
+Armor QualifiedName: ok<InnerTemplate, InnerTemplate>
+Clang QUalifiedName: ok
+Clang USR : c:@S@ok>#@ST>1#T@InnerTemplate#@ST>1#T@InnerTemplate
+-------------------------------------------
+
+Declaration: SimpleTemplate<T>
+Location: Line 331, Column 5
+Kind: CXXConstructor
+Armor QualifiedName: SimpleTemplate::SimpleTemplate
+Clang QUalifiedName: SimpleTemplate::SimpleTemplate<T>
+Clang USR : c:@ST>1#T@SimpleTemplate@F@SimpleTemplate#t0.0#
+-------------------------------------------
+
+Declaration: 
+Location: Line 428, Column 11
+Kind: Namespace
+Armor QualifiedName: (anonymous namespace)
+Clang QUalifiedName: (anonymous)
+Clang USR : c:@aN
+-------------------------------------------
+
+Declaration: 
+Location: Line 434, Column 5
+Kind: CXXRecord
+Armor QualifiedName: ContainsAnonymousStruct::field_with_anonymous_struct
+Clang QUalifiedName: ContainsAnonymousStruct::(anonymous)
+Clang USR : c:@S@ContainsAnonymousStruct@S@armor_all_in.cpp@8975
+-------------------------------------------
+
+Declaration: anonymous_field
+Location: Line 435, Column 13
+Kind: Field
+Armor QualifiedName: ContainsAnonymousStruct::field_with_anonymous_struct::anonymous_field
+Clang QUalifiedName: ContainsAnonymousStruct::(anonymous struct)::anonymous_field
+Clang USR : c:@S@ContainsAnonymousStruct@S@armor_all_in.cpp@8975@FI@anonymous_field
+-------------------------------------------
+
+Declaration: 
+Location: Line 438, Column 5
+Kind: CXXRecord
+Armor QualifiedName: ContainsAnonymousStruct::field_with_anonymous_union
+Clang QUalifiedName: ContainsAnonymousStruct::(anonymous)
+Clang USR : c:@S@ContainsAnonymousStruct@U@armor_all_in.cpp@9057
+-------------------------------------------
+
+Declaration: i
+Location: Line 439, Column 13
+Kind: Field
+Armor QualifiedName: ContainsAnonymousStruct::field_with_anonymous_union::i
+Clang QUalifiedName: ContainsAnonymousStruct::(anonymous union)::i
+Clang USR : c:@S@ContainsAnonymousStruct@U@armor_all_in.cpp@9057@FI@i
+-------------------------------------------
+
+Declaration: f
+Location: Line 440, Column 15
+Kind: Field
+Armor QualifiedName: ContainsAnonymousStruct::field_with_anonymous_union::f
+Clang QUalifiedName: ContainsAnonymousStruct::(anonymous union)::f
+Clang USR : c:@S@ContainsAnonymousStruct@U@armor_all_in.cpp@9057@FI@f
+-------------------------------------------
+
+Declaration: 
+Location: Line 443, Column 5
+Kind: Enum
+Armor QualifiedName: ContainsAnonymousStruct::field_with_anonymous_enum
+Clang QUalifiedName: ContainsAnonymousStruct::(anonymous)
+Clang USR : c:@S@ContainsAnonymousStruct@E@armor_all_in.cpp@9140
+-------------------------------------------
+
+Declaration: VAL1
+Location: Line 444, Column 9
+Kind: EnumConstant
+Armor QualifiedName: ContainsAnonymousStruct::field_with_anonymous_enum::VAL1
+Clang QUalifiedName: ContainsAnonymousStruct::VAL1
+Clang USR : c:@S@ContainsAnonymousStruct@E@armor_all_in.cpp@9140@VAL1
+-------------------------------------------
+
+Declaration: VAL2
+Location: Line 445, Column 9
+Kind: EnumConstant
+Armor QualifiedName: ContainsAnonymousStruct::field_with_anonymous_enum::VAL2
+Clang QUalifiedName: ContainsAnonymousStruct::VAL2
+Clang USR : c:@S@ContainsAnonymousStruct@E@armor_all_in.cpp@9140@VAL2
+-------------------------------------------
+
+Declaration: 
+Location: Line 450, Column 9
+Kind: CXXRecord
+Armor QualifiedName: TypedefForAnonymousStruct
+Clang QUalifiedName: (anonymous)
+Clang USR : c:@SA@TypedefForAnonymousStruct
+-------------------------------------------
+
+Declaration: data
+Location: Line 451, Column 9
+Kind: Field
+Armor QualifiedName: TypedefForAnonymousStruct::data
+Clang QUalifiedName: (anonymous struct)::data
+Clang USR : c:@SA@TypedefForAnonymousStruct@FI@data
+-------------------------------------------
+
+Declaration: 
+Location: Line 456, Column 5
+Kind: CXXRecord
+Armor QualifiedName: OuterStruct::(Anon::Struct)
+Clang QUalifiedName: OuterStruct::(anonymous)
+Clang USR : c:@S@OuterStruct@Sa
+-------------------------------------------
+
+Declaration: inner_field
+Location: Line 457, Column 13
+Kind: Field
+Armor QualifiedName: OuterStruct::(Anon::Struct)::inner_field
+Clang QUalifiedName: OuterStruct::(anonymous struct)::inner_field
+Clang USR : c:@S@OuterStruct@Sa@FI@inner_field
+-------------------------------------------
+
+Declaration: TemplateClass<T>
+Location: Line 472, Column 5
+Kind: CXXConstructor
+Armor QualifiedName: TemplateClass::TemplateClass
+Clang QUalifiedName: TemplateClass::TemplateClass<T>
+Clang USR : c:@ST>1#T@TemplateClass@F@TemplateClass#t0.0#
+-------------------------------------------
+
+Declaration: TemplateClass
+Location: Line 477, Column 7
+Kind: ClassTemplateSpecialization
+Armor QualifiedName: TemplateClass<void *>
+Clang QUalifiedName: TemplateClass
+Clang USR : c:@S@TemplateClass>#*v
+-------------------------------------------
+
+Declaration: TemplateClass
+Location: Line 485, Column 7
+Kind: ClassTemplatePartialSpecialization
+Armor QualifiedName: TemplateClass<type-parameter-0-0 *>
+Clang QUalifiedName: TemplateClass
+Clang USR : c:@SP>1#T@TemplateClass>#*t0.0
+-------------------------------------------
+
+Declaration: TemplateClass<type-parameter-0-0 *>
+Location: Line 488, Column 5
+Kind: CXXConstructor
+Armor QualifiedName: TemplateClass<type-parameter-0-0 *>::TemplateClass
+Clang QUalifiedName: TemplateClass<type-parameter-0-0 *>::TemplateClass<type-parameter-0-0 *>
+Clang USR : c:@SP>1#T@TemplateClass>#*t0.0@F@TemplateClass#S0_#
+-------------------------------------------
+
+Declaration: <using-directive>
+Location: Line 508, Column 17
+Kind: UsingDirective
+Armor QualifiedName: ERROR
+Clang QUalifiedName: <using-directive>
+Clang USR : c:
+-------------------------------------------
+
+Declaration: 
+Location: Line 512, Column 10
+Kind: Decomposition
+Armor QualifiedName: ERROR
+Clang QUalifiedName: [x, y]
+Clang USR : c:armor_all_in.cpp@10441@F@test_binding#
+-------------------------------------------
+
+Declaration: x
+Location: Line 512, Column 11
+Kind: Binding
+Armor QualifiedName: test_binding::x
+Clang QUalifiedName: x
+Clang USR : c:armor_all_in.cpp@10447@F@test_binding#@x
+-------------------------------------------
+
+Declaration: y
+Location: Line 512, Column 14
+Kind: Binding
+Armor QualifiedName: test_binding::y
+Clang QUalifiedName: y
+Clang USR : c:armor_all_in.cpp@10450@F@test_binding#@y
+-------------------------------------------
+
+Declaration: TemplateWithSpecialization
+Location: Line 546, Column 8
+Kind: ClassTemplateSpecialization
+Armor QualifiedName: TemplateWithSpecialization<int>
+Clang QUalifiedName: TemplateWithSpecialization
+Clang USR : c:@S@TemplateWithSpecialization>#I
+-------------------------------------------
+
+Declaration: MultiArgTemplate
+Location: Line 559, Column 7
+Kind: ClassTemplateSpecialization
+Armor QualifiedName: MultiArgTemplate<int, double>
+Clang QUalifiedName: MultiArgTemplate
+Clang USR : c:@S@MultiArgTemplate>#I#d
+-------------------------------------------
+
+Declaration: static_var
+Location: Line 570, Column 5
+Kind: VarTemplateSpecialization
+Armor QualifiedName: static_var<int>
+Clang QUalifiedName: static_var
+Clang USR : c:@static_var>#I
+-------------------------------------------
+
+Declaration: pi
+Location: Line 389, Column 13
+Kind: VarTemplateSpecialization
+Armor QualifiedName: pi<double>
+Clang QUalifiedName: pi
+Clang USR : c:@pi>#d
+-------------------------------------------
+

@@ -61,6 +61,7 @@ public:
   void VisitClassTemplateDecl(const ClassTemplateDecl *D);
   void VisitTagDecl(const TagDecl *D);
   void VisitTypedefDecl(const TypedefDecl *D);
+  void VisitTypeAliasDecl(const TypeAliasDecl *D);
   void VisitVarDecl(const VarDecl *D);
   void VisitBindingDecl(const BindingDecl *D);
   void VisitUnresolvedUsingValueDecl(const UnresolvedUsingValueDecl *D);
@@ -323,6 +324,14 @@ void USRGenerator::VisitTypedefDecl(const TypedefDecl *D) {
   Out << D->getName();
 }
 
+void USRGenerator::VisitTypeAliasDecl(const TypeAliasDecl *D) {
+  const unsigned startSize = Buf.size();
+  const DeclContext *DC = D->getDeclContext();
+  if (const NamedDecl *DCN = dyn_cast<NamedDecl>(DC)) Visit(DCN);
+  const unsigned endSize = Buf.size();
+  startSize == endSize ? Out : Out << "::";
+  Out << D->getName();
+}
 void USRGenerator::GenExtSymbolContainer(const NamedDecl *D) {
   StringRef Container = GetExternalSourceContainer(D);
   if (!Container.empty())

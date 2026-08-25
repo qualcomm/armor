@@ -72,7 +72,7 @@ public:
     void BuildClassTemplateDecl(clang::ClassTemplateDecl* Decl);
     void BuildClassTemplateSpecializationDecl(clang::ClassTemplateSpecializationDecl* Decl);
     void BuildClassTemplatePartialSpecializationDecl(clang::ClassTemplatePartialSpecializationDecl* Decl);
-    void BuildTypeAliasDecl(clang::TypeAliasDecl* Decl);
+    bool BuildTypeAliasDecl(clang::TypeAliasDecl* Decl);
     void BuildUsingDecl(clang::UsingDecl* Decl);
     void BuildUsingDirectiveDecl(clang::UsingDirectiveDecl* Decl);
     void BuildNamespaceAliasDecl(clang::NamespaceAliasDecl* Decl);
