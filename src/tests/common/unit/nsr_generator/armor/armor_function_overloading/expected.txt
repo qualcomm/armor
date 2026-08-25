@@ -1,0 +1,119 @@
+Declaration: print
+Location: Line 6, Column 6
+Kind: Function
+Clang USR: c:@F@print#I#
+Armor NSR: c:@F@print#
+-------------------------------------------
+
+Declaration: print
+Location: Line 7, Column 6
+Kind: Function
+Clang USR: c:@F@print#d#
+Armor NSR: c:@F@print#
+-------------------------------------------
+
+Declaration: print
+Location: Line 8, Column 6
+Kind: Function
+Clang USR: c:@F@print#&1$@N@std@N@__cxx11@S@basic_string>#C#$@N@std@S@char_traits>#C#$@N@std@S@allocator>#C#
+Armor NSR: c:@F@print#
+-------------------------------------------
+
+Declaration: calculate
+Location: Line 11, Column 6
+Kind: Function
+Clang USR: c:@F@calculate#I#
+Armor NSR: c:@F@calculate#
+-------------------------------------------
+
+Declaration: calculate
+Location: Line 12, Column 6
+Kind: Function
+Clang USR: c:@F@calculate#I#I#
+Armor NSR: c:@F@calculate#
+-------------------------------------------
+
+Declaration: calculate
+Location: Line 13, Column 6
+Kind: Function
+Clang USR: c:@F@calculate#I#I#I#
+Armor NSR: c:@F@calculate#
+-------------------------------------------
+
+Declaration: add
+Location: Line 17, Column 3
+Kind: FunctionTemplate
+Clang USR: c:@FT@>1#Tadd#t0.0#S0_#S0_#
+Armor NSR: c:@F@add#
+-------------------------------------------
+
+Declaration: add
+Location: Line 17, Column 3
+Kind: Function
+Clang USR: c:@FT@>1#Tadd#t0.0#S0_#S0_#
+Armor NSR: c:@F@add#
+-------------------------------------------
+
+Declaration: add
+Location: Line 21, Column 13
+Kind: Function
+Clang USR: c:@F@add<#$@N@std@N@__cxx11@S@basic_string>#C#$@N@std@S@char_traits>#C#$@N@std@S@allocator>#C>#S0_#S0_#
+Armor NSR: c:@F@add#
+-------------------------------------------
+
+Declaration: process
+Location: Line 24, Column 6
+Kind: Function
+Clang USR: c:@F@process#I#
+Armor NSR: c:@F@process#
+-------------------------------------------
+
+Declaration: process
+Location: Line 27, Column 6
+Kind: FunctionTemplate
+Clang USR: c:@FT@>1#Tprocess#t0.0#v#
+Armor NSR: c:@F@process#
+-------------------------------------------
+
+Declaration: process
+Location: Line 27, Column 6
+Kind: Function
+Clang USR: c:@FT@>1#Tprocess#t0.0#v#
+Armor NSR: c:@F@process#
+-------------------------------------------
+
+Declaration: WithFriendTemplates
+Location: Line 31, Column 8
+Kind: ClassTemplate
+Clang USR: c:@ST>1#T@WithFriendTemplates
+Armor NSR: c:@S@WithFriendTemplates
+-------------------------------------------
+
+Declaration: WithFriendTemplates
+Location: Line 31, Column 8
+Kind: CXXRecord
+Clang USR: c:@ST>1#T@WithFriendTemplates
+Armor NSR: c:@S@WithFriendTemplates
+-------------------------------------------
+
+Declaration: transform
+Location: Line 34, Column 24
+Kind: FunctionTemplate
+Clang USR: c:@FT@>1#Ttransform#&1>@ST>1#T@WithFriendTemplates1t0.0#*FS2_(#S2_)#S1_#
+Armor NSR: c:@F@transform#
+-------------------------------------------
+
+Declaration: transform
+Location: Line 34, Column 24
+Kind: Function
+Clang USR: c:@FT@>1#Ttransform#&1>@ST>1#T@WithFriendTemplates1t0.0#*FS2_(#S2_)#S1_#
+Armor NSR: c:@F@transform#
+-------------------------------------------
+
+Declaration: transform
+Location: Line 38, Column 26
+Kind: Function
+Clang USR: c:@F@transform<#I>#&1$@S@WithFriendTemplates>#I#*FI(#I)#
+Armor NSR: c:@F@transform#
+-------------------------------------------
+

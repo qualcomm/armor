@@ -20,3 +20,8 @@ enum Color2 {
     I,
     J
 };
+enum color3 : uint8_t {
+    K,
+    L,
+    M
+};

@@ -1,0 +1,385 @@
+Declaration: 
+Location: Line 2, Column 1
+Kind: CXXRecord
+Clang USR: c:armor_tag_anon.cpp@S@armor_tag_anon.cpp@1
+Armor USR: c:@S@#vf#alpha
+-------------------------------------------
+
+Declaration: alpha
+Location: Line 3, Column 3
+Kind: Var
+Clang USR: c:armor_tag_anon.cpp@alpha
+Armor USR: c:@alpha
+-------------------------------------------
+
+Declaration: alpha2
+Location: Line 5, Column 8
+Kind: CXXRecord
+Clang USR: c:@S@alpha2
+Armor USR: c:@S@alpha2
+-------------------------------------------
+
+Declaration: x
+Location: Line 6, Column 9
+Kind: Field
+Clang USR: c:@S@alpha2@FI@x
+Armor USR: c:@S@alpha2@FI@x
+-------------------------------------------
+
+Declaration: alpha2
+Location: Line 7, Column 3
+Kind: Var
+Clang USR: c:@alpha2
+Armor USR: c:@alpha2
+-------------------------------------------
+
+Declaration: alpah3
+Location: Line 9, Column 8
+Kind: CXXRecord
+Clang USR: c:@S@alpah3
+Armor USR: c:@S@alpah3
+-------------------------------------------
+
+Declaration: x
+Location: Line 10, Column 9
+Kind: Field
+Clang USR: c:@S@alpah3@FI@x
+Armor USR: c:@S@alpah3@FI@x
+-------------------------------------------
+
+Declaration: alpha4
+Location: Line 11, Column 3
+Kind: Var
+Clang USR: c:@alpha4
+Armor USR: c:@alpha4
+-------------------------------------------
+
+Declaration: 
+Location: Line 13, Column 1
+Kind: Enum
+Clang USR: c:@E@armor_tag_anon.cpp@94
+Armor USR: c:@E@#vf#alpha_enum
+-------------------------------------------
+
+Declaration: x
+Location: Line 14, Column 5
+Kind: EnumConstant
+Clang USR: c:@E@armor_tag_anon.cpp@94@x
+Armor USR: c:@E@#vf#alpha_enum@x
+-------------------------------------------
+
+Declaration: alpha_enum
+Location: Line 15, Column 3
+Kind: Var
+Clang USR: c:armor_tag_anon.cpp@alpha_enum
+Armor USR: c:@alpha_enum
+-------------------------------------------
+
+Declaration: alpha_eum2
+Location: Line 17, Column 6
+Kind: Enum
+Clang USR: c:@E@alpha_eum2
+Armor USR: c:@E@alpha_eum2
+-------------------------------------------
+
+Declaration: y
+Location: Line 18, Column 5
+Kind: EnumConstant
+Clang USR: c:@E@alpha_eum2@y
+Armor USR: c:@E@alpha_eum2@y
+-------------------------------------------
+
+Declaration: alpha_enum2
+Location: Line 19, Column 3
+Kind: Var
+Clang USR: c:@alpha_enum2
+Armor USR: c:@alpha_enum2
+-------------------------------------------
+
+Declaration: alpha_eum3
+Location: Line 21, Column 6
+Kind: Enum
+Clang USR: c:@E@alpha_eum3
+Armor USR: c:@E@alpha_eum3
+-------------------------------------------
+
+Declaration: z
+Location: Line 22, Column 5
+Kind: EnumConstant
+Clang USR: c:@E@alpha_eum3@z
+Armor USR: c:@E@alpha_eum3@z
+-------------------------------------------
+
+Declaration: alpha_enum4
+Location: Line 23, Column 3
+Kind: Var
+Clang USR: c:@alpha_enum4
+Armor USR: c:@alpha_enum4
+-------------------------------------------
+
+Declaration: armor
+Location: Line 26, Column 8
+Kind: CXXRecord
+Clang USR: c:@S@armor
+Armor USR: c:@S@armor
+-------------------------------------------
+
+Declaration: 
+Location: Line 28, Column 5
+Kind: CXXRecord
+Clang USR: c:@S@armor@Sa
+Armor USR: c:@S@armor@Sa
+-------------------------------------------
+
+Declaration: x
+Location: Line 29, Column 13
+Kind: Field
+Clang USR: c:@S@armor@Sa@FI@x
+Armor USR: c:@S@armor@Sa@FI@x
+-------------------------------------------
+
+Declaration: 
+Location: Line 30, Column 9
+Kind: CXXRecord
+Clang USR: c:@S@armor@Sa@Sa
+Armor USR: c:@S@armor@Sa@Sa
+-------------------------------------------
+
+Declaration: y
+Location: Line 31, Column 17
+Kind: Field
+Clang USR: c:@S@armor@Sa@Sa@FI@y
+Armor USR: c:@S@armor@Sa@Sa@FI@y
+-------------------------------------------
+
+Declaration: 
+Location: Line 35, Column 5
+Kind: Enum
+Clang USR: c:@S@armor@Ea@x1
+Armor USR: c:@S@armor@Ea
+-------------------------------------------
+
+Declaration: x1
+Location: Line 36, Column 9
+Kind: EnumConstant
+Clang USR: c:@S@armor@Ea@x1@x1
+Armor USR: c:@S@armor@Ea@x1
+-------------------------------------------
+
+Declaration: 
+Location: Line 39, Column 5
+Kind: Enum
+Clang USR: c:@S@armor@Ea@y1
+Armor USR: c:@S@armor@Ea
+-------------------------------------------
+
+Declaration: y1
+Location: Line 40, Column 9
+Kind: EnumConstant
+Clang USR: c:@S@armor@Ea@y1@y1
+Armor USR: c:@S@armor@Ea@y1
+-------------------------------------------
+
+Declaration: 
+Location: Line 46, Column 1
+Kind: CXXRecord
+Clang USR: c:armor_tag_anon.cpp@S@armor_tag_anon.cpp@366
+Armor USR: c:@S@#vf#field
+-------------------------------------------
+
+Declaration: x
+Location: Line 46, Column 14
+Kind: Field
+Clang USR: c:armor_tag_anon.cpp@S@armor_tag_anon.cpp@366@FI@x
+Armor USR: c:@S@#vf#field@FI@x
+-------------------------------------------
+
+Declaration: field
+Location: Line 46, Column 38
+Kind: Var
+Clang USR: c:armor_tag_anon.cpp@field
+Armor USR: c:@field
+-------------------------------------------
+
+Declaration: 
+Location: Line 48, Column 1
+Kind: CXXRecord
+Clang USR: c:armor_tag_anon.cpp@S@armor_tag_anon.cpp@421
+Armor USR: c:@S@#vf#gamma
+-------------------------------------------
+
+Declaration: y
+Location: Line 48, Column 13
+Kind: Field
+Clang USR: c:armor_tag_anon.cpp@S@armor_tag_anon.cpp@421@FI@y
+Armor USR: c:@S@#vf#gamma@FI@y
+-------------------------------------------
+
+Declaration: gamma
+Location: Line 48, Column 21
+Kind: Var
+Clang USR: c:armor_tag_anon.cpp@gamma
+Armor USR: c:@gamma
+-------------------------------------------
+
+Declaration: SomeClass
+Location: Line 50, Column 8
+Kind: CXXRecord
+Clang USR: c:@S@SomeClass
+Armor USR: c:@S@SomeClass
+-------------------------------------------
+
+Declaration: 
+Location: Line 51, Column 1
+Kind: CXXRecord
+Clang USR: c:armor_tag_anon.cpp@S@armor_tag_anon.cpp@471
+Armor USR: c:@S@#vf#class_member_ptr
+-------------------------------------------
+
+Declaration: x
+Location: Line 51, Column 14
+Kind: Field
+Clang USR: c:armor_tag_anon.cpp@S@armor_tag_anon.cpp@471@FI@x
+Armor USR: c:@S@#vf#class_member_ptr@FI@x
+-------------------------------------------
+
+Declaration: class_member_ptr
+Location: Line 51, Column 32
+Kind: Var
+Clang USR: c:armor_tag_anon.cpp@class_member_ptr
+Armor USR: c:@class_member_ptr
+-------------------------------------------
+
+Declaration: 
+Location: Line 53, Column 1
+Kind: Enum
+Clang USR: c:@E@armor_tag_anon.cpp@521
+Armor USR: c:@E@#vf#beta
+-------------------------------------------
+
+Declaration: I
+Location: Line 53, Column 8
+Kind: EnumConstant
+Clang USR: c:@E@armor_tag_anon.cpp@521@I
+Armor USR: c:@E@#vf#beta@I
+-------------------------------------------
+
+Declaration: beta
+Location: Line 53, Column 35
+Kind: Var
+Clang USR: c:armor_tag_anon.cpp@beta
+Armor USR: c:@beta
+-------------------------------------------
+
+Declaration: 
+Location: Line 55, Column 1
+Kind: CXXRecord
+Clang USR: c:armor_tag_anon.cpp@S@armor_tag_anon.cpp@572
+Armor USR: c:@S@#vf#zeta
+-------------------------------------------
+
+Declaration: a
+Location: Line 56, Column 7
+Kind: Field
+Clang USR: c:armor_tag_anon.cpp@S@armor_tag_anon.cpp@572@FI@a
+Armor USR: c:@S@#vf#zeta@FI@a
+-------------------------------------------
+
+Declaration: zeta
+Location: Line 57, Column 3
+Kind: Var
+Clang USR: c:armor_tag_anon.cpp@zeta
+Armor USR: c:@zeta
+-------------------------------------------
+
+Declaration: zeta
+Location: Line 59, Column 8
+Kind: CXXRecord
+Clang USR: c:@S@zeta
+Armor USR: c:@S@zeta
+-------------------------------------------
+
+Declaration: a
+Location: Line 60, Column 7
+Kind: Field
+Clang USR: c:@S@zeta@FI@a
+Armor USR: c:@S@zeta@FI@a
+-------------------------------------------
+
+Declaration: b
+Location: Line 61, Column 7
+Kind: Field
+Clang USR: c:@S@zeta@FI@b
+Armor USR: c:@S@zeta@FI@b
+-------------------------------------------
+
+Declaration: alpha1
+Location: Line 62, Column 3
+Kind: Var
+Clang USR: c:@alpha1
+Armor USR: c:@alpha1
+-------------------------------------------
+
+Declaration: 
+Location: Line 64, Column 9
+Kind: CXXRecord
+Clang USR: c:armor_tag_anon.cpp@S@armor_tag_anon.cpp@649
+Armor USR: c:@SA@alpha6
+-------------------------------------------
+
+Declaration: a
+Location: Line 65, Column 7
+Kind: Field
+Clang USR: c:armor_tag_anon.cpp@S@armor_tag_anon.cpp@649@FI@a
+Armor USR: c:@SA@alpha6@FI@a
+-------------------------------------------
+
+Declaration: b
+Location: Line 66, Column 7
+Kind: Field
+Clang USR: c:armor_tag_anon.cpp@S@armor_tag_anon.cpp@649@FI@b
+Armor USR: c:@SA@alpha6@FI@b
+-------------------------------------------
+
+Declaration: alpha6
+Location: Line 67, Column 23
+Kind: Typedef
+Clang USR: c:armor_tag_anon.cpp@T@alpha6
+Armor USR: c:@T@alpha6
+-------------------------------------------
+
+Declaration: ok
+Location: Line 69, Column 8
+Kind: Var
+Clang USR: c:armor_tag_anon.cpp@ok
+Armor USR: c:@ok
+-------------------------------------------
+
+Declaration: 
+Location: Line 71, Column 9
+Kind: Enum
+Clang USR: c:@E@armor_tag_anon.cpp@732
+Armor USR: c:@EA@alpha7
+-------------------------------------------
+
+Declaration: a
+Location: Line 72, Column 3
+Kind: EnumConstant
+Clang USR: c:@E@armor_tag_anon.cpp@732@a
+Armor USR: c:@EA@alpha7@a
+-------------------------------------------
+
+Declaration: b
+Location: Line 73, Column 3
+Kind: EnumConstant
+Clang USR: c:@E@armor_tag_anon.cpp@732@b
+Armor USR: c:@EA@alpha7@b
+-------------------------------------------
+
+Declaration: alpha7
+Location: Line 74, Column 23
+Kind: Typedef
+Clang USR: c:armor_tag_anon.cpp@T@alpha7
+Armor USR: c:@T@alpha7
+-------------------------------------------
+

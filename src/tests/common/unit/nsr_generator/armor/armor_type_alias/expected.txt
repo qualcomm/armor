@@ -1,0 +1,1036 @@
+Declaration: Byte
+Location: Line 16, Column 7
+Kind: TypeAlias
+Clang USR: c:@Byte
+Armor NSR: c:@T@Byte
+-------------------------------------------
+
+Declaration: Int8
+Location: Line 17, Column 7
+Kind: TypeAlias
+Clang USR: c:@Int8
+Armor NSR: c:@T@Int8
+-------------------------------------------
+
+Declaration: Int16
+Location: Line 18, Column 7
+Kind: TypeAlias
+Clang USR: c:@Int16
+Armor NSR: c:@T@Int16
+-------------------------------------------
+
+Declaration: Int32
+Location: Line 19, Column 7
+Kind: TypeAlias
+Clang USR: c:@Int32
+Armor NSR: c:@T@Int32
+-------------------------------------------
+
+Declaration: Int64
+Location: Line 20, Column 7
+Kind: TypeAlias
+Clang USR: c:@Int64
+Armor NSR: c:@T@Int64
+-------------------------------------------
+
+Declaration: UInt8
+Location: Line 21, Column 7
+Kind: TypeAlias
+Clang USR: c:@UInt8
+Armor NSR: c:@T@UInt8
+-------------------------------------------
+
+Declaration: UInt16
+Location: Line 22, Column 7
+Kind: TypeAlias
+Clang USR: c:@UInt16
+Armor NSR: c:@T@UInt16
+-------------------------------------------
+
+Declaration: UInt32
+Location: Line 23, Column 7
+Kind: TypeAlias
+Clang USR: c:@UInt32
+Armor NSR: c:@T@UInt32
+-------------------------------------------
+
+Declaration: UInt64
+Location: Line 24, Column 7
+Kind: TypeAlias
+Clang USR: c:@UInt64
+Armor NSR: c:@T@UInt64
+-------------------------------------------
+
+Declaration: Float32
+Location: Line 25, Column 7
+Kind: TypeAlias
+Clang USR: c:@Float32
+Armor NSR: c:@T@Float32
+-------------------------------------------
+
+Declaration: Float64
+Location: Line 26, Column 7
+Kind: TypeAlias
+Clang USR: c:@Float64
+Armor NSR: c:@T@Float64
+-------------------------------------------
+
+Declaration: Char
+Location: Line 27, Column 7
+Kind: TypeAlias
+Clang USR: c:@Char
+Armor NSR: c:@T@Char
+-------------------------------------------
+
+Declaration: Bool
+Location: Line 28, Column 7
+Kind: TypeAlias
+Clang USR: c:@Bool
+Armor NSR: c:@T@Bool
+-------------------------------------------
+
+Declaration: Size
+Location: Line 34, Column 7
+Kind: TypeAlias
+Clang USR: c:@Size
+Armor NSR: c:@T@Size
+-------------------------------------------
+
+Declaration: Index
+Location: Line 35, Column 7
+Kind: TypeAlias
+Clang USR: c:@Index
+Armor NSR: c:@T@Index
+-------------------------------------------
+
+Declaration: Offset
+Location: Line 36, Column 7
+Kind: TypeAlias
+Clang USR: c:@Offset
+Armor NSR: c:@T@Offset
+-------------------------------------------
+
+Declaration: Handle
+Location: Line 37, Column 7
+Kind: TypeAlias
+Clang USR: c:@Handle
+Armor NSR: c:@T@Handle
+-------------------------------------------
+
+Declaration: SubHandle
+Location: Line 38, Column 7
+Kind: TypeAlias
+Clang USR: c:@SubHandle
+Armor NSR: c:@T@SubHandle
+-------------------------------------------
+
+Declaration: Token
+Location: Line 39, Column 7
+Kind: TypeAlias
+Clang USR: c:@Token
+Armor NSR: c:@T@Token
+-------------------------------------------
+
+Declaration: BytePtr
+Location: Line 45, Column 7
+Kind: TypeAlias
+Clang USR: c:@BytePtr
+Armor NSR: c:@T@BytePtr
+-------------------------------------------
+
+Declaration: ConstBytePtr
+Location: Line 46, Column 7
+Kind: TypeAlias
+Clang USR: c:@ConstBytePtr
+Armor NSR: c:@T@ConstBytePtr
+-------------------------------------------
+
+Declaration: Int32Ptr
+Location: Line 47, Column 7
+Kind: TypeAlias
+Clang USR: c:@Int32Ptr
+Armor NSR: c:@T@Int32Ptr
+-------------------------------------------
+
+Declaration: Int32Ref
+Location: Line 48, Column 7
+Kind: TypeAlias
+Clang USR: c:@Int32Ref
+Armor NSR: c:@T@Int32Ref
+-------------------------------------------
+
+Declaration: VoidPtr
+Location: Line 49, Column 7
+Kind: TypeAlias
+Clang USR: c:@VoidPtr
+Armor NSR: c:@T@VoidPtr
+-------------------------------------------
+
+Declaration: ConstVoidPtr
+Location: Line 50, Column 7
+Kind: TypeAlias
+Clang USR: c:@ConstVoidPtr
+Armor NSR: c:@T@ConstVoidPtr
+-------------------------------------------
+
+Declaration: RawBuffer
+Location: Line 53, Column 7
+Kind: TypeAlias
+Clang USR: c:@RawBuffer
+Armor NSR: c:@T@RawBuffer
+-------------------------------------------
+
+Declaration: ConstBuffer
+Location: Line 54, Column 7
+Kind: TypeAlias
+Clang USR: c:@ConstBuffer
+Armor NSR: c:@T@ConstBuffer
+-------------------------------------------
+
+Declaration: BufferHandle
+Location: Line 55, Column 7
+Kind: TypeAlias
+Clang USR: c:@BufferHandle
+Armor NSR: c:@T@BufferHandle
+-------------------------------------------
+
+Declaration: IntVec
+Location: Line 61, Column 7
+Kind: TypeAlias
+Clang USR: c:@IntVec
+Armor NSR: c:@T@IntVec
+-------------------------------------------
+
+Declaration: FloatVec
+Location: Line 62, Column 7
+Kind: TypeAlias
+Clang USR: c:@FloatVec
+Armor NSR: c:@T@FloatVec
+-------------------------------------------
+
+Declaration: DoubleVec
+Location: Line 63, Column 7
+Kind: TypeAlias
+Clang USR: c:@DoubleVec
+Armor NSR: c:@T@DoubleVec
+-------------------------------------------
+
+Declaration: StringVec
+Location: Line 64, Column 7
+Kind: TypeAlias
+Clang USR: c:@StringVec
+Armor NSR: c:@T@StringVec
+-------------------------------------------
+
+Declaration: ByteVec
+Location: Line 65, Column 7
+Kind: TypeAlias
+Clang USR: c:@ByteVec
+Armor NSR: c:@T@ByteVec
+-------------------------------------------
+
+Declaration: IntIntMap
+Location: Line 66, Column 7
+Kind: TypeAlias
+Clang USR: c:@IntIntMap
+Armor NSR: c:@T@IntIntMap
+-------------------------------------------
+
+Declaration: StringIntMap
+Location: Line 67, Column 7
+Kind: TypeAlias
+Clang USR: c:@StringIntMap
+Armor NSR: c:@T@StringIntMap
+-------------------------------------------
+
+Declaration: IntStringMap
+Location: Line 68, Column 7
+Kind: TypeAlias
+Clang USR: c:@IntStringMap
+Armor NSR: c:@T@IntStringMap
+-------------------------------------------
+
+Declaration: StringStrMap
+Location: Line 69, Column 7
+Kind: TypeAlias
+Clang USR: c:@StringStrMap
+Armor NSR: c:@T@StringStrMap
+-------------------------------------------
+
+Declaration: IntIntUMap
+Location: Line 70, Column 7
+Kind: TypeAlias
+Clang USR: c:@IntIntUMap
+Armor NSR: c:@T@IntIntUMap
+-------------------------------------------
+
+Declaration: StrIntUMap
+Location: Line 71, Column 7
+Kind: TypeAlias
+Clang USR: c:@StrIntUMap
+Armor NSR: c:@T@StrIntUMap
+-------------------------------------------
+
+Declaration: IntPair
+Location: Line 72, Column 7
+Kind: TypeAlias
+Clang USR: c:@IntPair
+Armor NSR: c:@T@IntPair
+-------------------------------------------
+
+Declaration: StrIntPair
+Location: Line 73, Column 7
+Kind: TypeAlias
+Clang USR: c:@StrIntPair
+Armor NSR: c:@T@StrIntPair
+-------------------------------------------
+
+Declaration: IntTriple
+Location: Line 74, Column 7
+Kind: TypeAlias
+Clang USR: c:@IntTriple
+Armor NSR: c:@T@IntTriple
+-------------------------------------------
+
+Declaration: MixedTuple
+Location: Line 75, Column 7
+Kind: TypeAlias
+Clang USR: c:@MixedTuple
+Armor NSR: c:@T@MixedTuple
+-------------------------------------------
+
+Declaration: IntArr4
+Location: Line 76, Column 7
+Kind: TypeAlias
+Clang USR: c:@IntArr4
+Armor NSR: c:@T@IntArr4
+-------------------------------------------
+
+Declaration: FloatArr3
+Location: Line 77, Column 7
+Kind: TypeAlias
+Clang USR: c:@FloatArr3
+Armor NSR: c:@T@FloatArr3
+-------------------------------------------
+
+Declaration: Row
+Location: Line 83, Column 7
+Kind: TypeAlias
+Clang USR: c:@Row
+Armor NSR: c:@T@Row
+-------------------------------------------
+
+Declaration: Matrix
+Location: Line 84, Column 7
+Kind: TypeAlias
+Clang USR: c:@Matrix
+Armor NSR: c:@T@Matrix
+-------------------------------------------
+
+Declaration: Cube
+Location: Line 85, Column 7
+Kind: TypeAlias
+Clang USR: c:@Cube
+Armor NSR: c:@T@Cube
+-------------------------------------------
+
+Declaration: Record
+Location: Line 87, Column 7
+Kind: TypeAlias
+Clang USR: c:@Record
+Armor NSR: c:@T@Record
+-------------------------------------------
+
+Declaration: RecordSet
+Location: Line 88, Column 7
+Kind: TypeAlias
+Clang USR: c:@RecordSet
+Armor NSR: c:@T@RecordSet
+-------------------------------------------
+
+Declaration: RecordIndex
+Location: Line 89, Column 7
+Kind: TypeAlias
+Clang USR: c:@RecordIndex
+Armor NSR: c:@T@RecordIndex
+-------------------------------------------
+
+Declaration: Pair
+Location: Line 91, Column 7
+Kind: TypeAlias
+Clang USR: c:@Pair
+Armor NSR: c:@T@Pair
+-------------------------------------------
+
+Declaration: PairVec
+Location: Line 92, Column 7
+Kind: TypeAlias
+Clang USR: c:@PairVec
+Armor NSR: c:@T@PairVec
+-------------------------------------------
+
+Declaration: PairMap
+Location: Line 93, Column 7
+Kind: TypeAlias
+Clang USR: c:@PairMap
+Armor NSR: c:@T@PairMap
+-------------------------------------------
+
+Declaration: VecOfVecInt
+Location: Line 99, Column 7
+Kind: TypeAlias
+Clang USR: c:@VecOfVecInt
+Armor NSR: c:@T@VecOfVecInt
+-------------------------------------------
+
+Declaration: VecOfVecFloat
+Location: Line 100, Column 7
+Kind: TypeAlias
+Clang USR: c:@VecOfVecFloat
+Armor NSR: c:@T@VecOfVecFloat
+-------------------------------------------
+
+Declaration: MapOfVecInt
+Location: Line 101, Column 7
+Kind: TypeAlias
+Clang USR: c:@MapOfVecInt
+Armor NSR: c:@T@MapOfVecInt
+-------------------------------------------
+
+Declaration: MapOfMapInt
+Location: Line 102, Column 7
+Kind: TypeAlias
+Clang USR: c:@MapOfMapInt
+Armor NSR: c:@T@MapOfMapInt
+-------------------------------------------
+
+Declaration: VecOfMapStrInt
+Location: Line 103, Column 7
+Kind: TypeAlias
+Clang USR: c:@VecOfMapStrInt
+Armor NSR: c:@T@VecOfMapStrInt
+-------------------------------------------
+
+Declaration: UMapOfVecStr
+Location: Line 104, Column 7
+Kind: TypeAlias
+Clang USR: c:@UMapOfVecStr
+Armor NSR: c:@T@UMapOfVecStr
+-------------------------------------------
+
+Declaration: VecOfPair
+Location: Line 105, Column 7
+Kind: TypeAlias
+Clang USR: c:@VecOfPair
+Armor NSR: c:@T@VecOfPair
+-------------------------------------------
+
+Declaration: MapOfTuple
+Location: Line 106, Column 7
+Kind: TypeAlias
+Clang USR: c:@MapOfTuple
+Armor NSR: c:@T@MapOfTuple
+-------------------------------------------
+
+Declaration: Grid
+Location: Line 109, Column 7
+Kind: TypeAlias
+Clang USR: c:@Grid
+Armor NSR: c:@T@Grid
+-------------------------------------------
+
+Declaration: GridRow
+Location: Line 110, Column 7
+Kind: TypeAlias
+Clang USR: c:@GridRow
+Armor NSR: c:@T@GridRow
+-------------------------------------------
+
+Declaration: SparseGrid
+Location: Line 111, Column 7
+Kind: TypeAlias
+Clang USR: c:@SparseGrid
+Armor NSR: c:@T@SparseGrid
+-------------------------------------------
+
+Declaration: SparseGridIndex
+Location: Line 112, Column 7
+Kind: TypeAlias
+Clang USR: c:@SparseGridIndex
+Armor NSR: c:@T@SparseGridIndex
+-------------------------------------------
+
+Declaration: IntShared
+Location: Line 118, Column 7
+Kind: TypeAlias
+Clang USR: c:@IntShared
+Armor NSR: c:@T@IntShared
+-------------------------------------------
+
+Declaration: IntUnique
+Location: Line 119, Column 7
+Kind: TypeAlias
+Clang USR: c:@IntUnique
+Armor NSR: c:@T@IntUnique
+-------------------------------------------
+
+Declaration: IntWeak
+Location: Line 120, Column 7
+Kind: TypeAlias
+Clang USR: c:@IntWeak
+Armor NSR: c:@T@IntWeak
+-------------------------------------------
+
+Declaration: VoidShared
+Location: Line 121, Column 7
+Kind: TypeAlias
+Clang USR: c:@VoidShared
+Armor NSR: c:@T@VoidShared
+-------------------------------------------
+
+Declaration: SharedInt
+Location: Line 124, Column 7
+Kind: TypeAlias
+Clang USR: c:@SharedInt
+Armor NSR: c:@T@SharedInt
+-------------------------------------------
+
+Declaration: SharedIntVec
+Location: Line 125, Column 7
+Kind: TypeAlias
+Clang USR: c:@SharedIntVec
+Armor NSR: c:@T@SharedIntVec
+-------------------------------------------
+
+Declaration: SharedIntMap
+Location: Line 126, Column 7
+Kind: TypeAlias
+Clang USR: c:@SharedIntMap
+Armor NSR: c:@T@SharedIntMap
+-------------------------------------------
+
+Declaration: VoidFn
+Location: Line 132, Column 7
+Kind: TypeAlias
+Clang USR: c:@VoidFn
+Armor NSR: c:@T@VoidFn
+-------------------------------------------
+
+Declaration: IntFn
+Location: Line 133, Column 7
+Kind: TypeAlias
+Clang USR: c:@IntFn
+Armor NSR: c:@T@IntFn
+-------------------------------------------
+
+Declaration: IntIntFn
+Location: Line 134, Column 7
+Kind: TypeAlias
+Clang USR: c:@IntIntFn
+Armor NSR: c:@T@IntIntFn
+-------------------------------------------
+
+Declaration: IntIntIntFn
+Location: Line 135, Column 7
+Kind: TypeAlias
+Clang USR: c:@IntIntIntFn
+Armor NSR: c:@T@IntIntIntFn
+-------------------------------------------
+
+Declaration: BoolIntFn
+Location: Line 136, Column 7
+Kind: TypeAlias
+Clang USR: c:@BoolIntFn
+Armor NSR: c:@T@BoolIntFn
+-------------------------------------------
+
+Declaration: VoidIntFn
+Location: Line 137, Column 7
+Kind: TypeAlias
+Clang USR: c:@VoidIntFn
+Armor NSR: c:@T@VoidIntFn
+-------------------------------------------
+
+Declaration: VoidStrFn
+Location: Line 138, Column 7
+Kind: TypeAlias
+Clang USR: c:@VoidStrFn
+Armor NSR: c:@T@VoidStrFn
+-------------------------------------------
+
+Declaration: StrStrFn
+Location: Line 139, Column 7
+Kind: TypeAlias
+Clang USR: c:@StrStrFn
+Armor NSR: c:@T@StrStrFn
+-------------------------------------------
+
+Declaration: SizeFn
+Location: Line 142, Column 7
+Kind: TypeAlias
+Clang USR: c:@SizeFn
+Armor NSR: c:@T@SizeFn
+-------------------------------------------
+
+Declaration: IndexMapFn
+Location: Line 143, Column 7
+Kind: TypeAlias
+Clang USR: c:@IndexMapFn
+Armor NSR: c:@T@IndexMapFn
+-------------------------------------------
+
+Declaration: RowTransformFn
+Location: Line 144, Column 7
+Kind: TypeAlias
+Clang USR: c:@RowTransformFn
+Armor NSR: c:@T@RowTransformFn
+-------------------------------------------
+
+Declaration: MatrixFn
+Location: Line 145, Column 7
+Kind: TypeAlias
+Clang USR: c:@MatrixFn
+Armor NSR: c:@T@MatrixFn
+-------------------------------------------
+
+Declaration: Callback
+Location: Line 148, Column 7
+Kind: TypeAlias
+Clang USR: c:@Callback
+Armor NSR: c:@T@Callback
+-------------------------------------------
+
+Declaration: EventHandler
+Location: Line 149, Column 7
+Kind: TypeAlias
+Clang USR: c:@EventHandler
+Armor NSR: c:@T@EventHandler
+-------------------------------------------
+
+Declaration: SignalHandler
+Location: Line 150, Column 7
+Kind: TypeAlias
+Clang USR: c:@SignalHandler
+Armor NSR: c:@T@SignalHandler
+-------------------------------------------
+
+Declaration: Predicate
+Location: Line 152, Column 7
+Kind: TypeAlias
+Clang USR: c:@Predicate
+Armor NSR: c:@T@Predicate
+-------------------------------------------
+
+Declaration: Filter
+Location: Line 153, Column 7
+Kind: TypeAlias
+Clang USR: c:@Filter
+Armor NSR: c:@T@Filter
+-------------------------------------------
+
+Declaration: Transformer
+Location: Line 155, Column 7
+Kind: TypeAlias
+Clang USR: c:@Transformer
+Armor NSR: c:@T@Transformer
+-------------------------------------------
+
+Declaration: Mapper
+Location: Line 156, Column 7
+Kind: TypeAlias
+Clang USR: c:@Mapper
+Armor NSR: c:@T@Mapper
+-------------------------------------------
+
+Declaration: Reducer
+Location: Line 157, Column 7
+Kind: TypeAlias
+Clang USR: c:@Reducer
+Armor NSR: c:@T@Reducer
+-------------------------------------------
+
+Declaration: Vec
+Location: Line 164, Column 7
+Kind: TypeAlias
+Clang USR: c:@Vec
+Armor NSR: c:@T@Vec
+-------------------------------------------
+
+Declaration: Ptr
+Location: Line 167, Column 7
+Kind: TypeAlias
+Clang USR: c:@Ptr
+Armor NSR: c:@T@Ptr
+-------------------------------------------
+
+Declaration: UniquePtr
+Location: Line 170, Column 7
+Kind: TypeAlias
+Clang USR: c:@UniquePtr
+Armor NSR: c:@T@UniquePtr
+-------------------------------------------
+
+Declaration: Dict
+Location: Line 173, Column 7
+Kind: TypeAlias
+Clang USR: c:@Dict
+Armor NSR: c:@T@Dict
+-------------------------------------------
+
+Declaration: HashMap
+Location: Line 176, Column 7
+Kind: TypeAlias
+Clang USR: c:@HashMap
+Armor NSR: c:@T@HashMap
+-------------------------------------------
+
+Declaration: Opt
+Location: Line 179, Column 7
+Kind: TypeAlias
+Clang USR: c:@Opt
+Armor NSR: c:@T@Opt
+-------------------------------------------
+
+Declaration: Grid2D
+Location: Line 182, Column 7
+Kind: TypeAlias
+Clang USR: c:@Grid2D
+Armor NSR: c:@T@Grid2D
+-------------------------------------------
+
+Declaration: Grid3D
+Location: Line 185, Column 7
+Kind: TypeAlias
+Clang USR: c:@Grid3D
+Armor NSR: c:@T@Grid3D
+-------------------------------------------
+
+Declaration: MultiDict
+Location: Line 188, Column 7
+Kind: TypeAlias
+Clang USR: c:@MultiDict
+Armor NSR: c:@T@MultiDict
+-------------------------------------------
+
+Declaration: Fn
+Location: Line 191, Column 7
+Kind: TypeAlias
+Clang USR: c:@Fn
+Armor NSR: c:@T@Fn
+-------------------------------------------
+
+Declaration: PtrVec
+Location: Line 194, Column 7
+Kind: TypeAlias
+Clang USR: c:@PtrVec
+Armor NSR: c:@T@PtrVec
+-------------------------------------------
+
+Declaration: PtrDict
+Location: Line 197, Column 7
+Kind: TypeAlias
+Clang USR: c:@PtrDict
+Armor NSR: c:@T@PtrDict
+-------------------------------------------
+
+Declaration: IndexVec
+Location: Line 204, Column 7
+Kind: TypeAlias
+Clang USR: c:@IndexVec
+Armor NSR: c:@T@IndexVec
+-------------------------------------------
+
+Declaration: HandleMap
+Location: Line 205, Column 7
+Kind: TypeAlias
+Clang USR: c:@HandleMap
+Armor NSR: c:@T@HandleMap
+-------------------------------------------
+
+Declaration: TokenSet
+Location: Line 206, Column 7
+Kind: TypeAlias
+Clang USR: c:@TokenSet
+Armor NSR: c:@T@TokenSet
+-------------------------------------------
+
+Declaration: SharedRow
+Location: Line 209, Column 7
+Kind: TypeAlias
+Clang USR: c:@SharedRow
+Armor NSR: c:@T@SharedRow
+-------------------------------------------
+
+Declaration: SharedMatrix
+Location: Line 210, Column 7
+Kind: TypeAlias
+Clang USR: c:@SharedMatrix
+Armor NSR: c:@T@SharedMatrix
+-------------------------------------------
+
+Declaration: UniqueGrid
+Location: Line 211, Column 7
+Kind: TypeAlias
+Clang USR: c:@UniqueGrid
+Armor NSR: c:@T@UniqueGrid
+-------------------------------------------
+
+Declaration: SharedRowVec
+Location: Line 214, Column 7
+Kind: TypeAlias
+Clang USR: c:@SharedRowVec
+Armor NSR: c:@T@SharedRowVec
+-------------------------------------------
+
+Declaration: SharedMatrixVec
+Location: Line 215, Column 7
+Kind: TypeAlias
+Clang USR: c:@SharedMatrixVec
+Armor NSR: c:@T@SharedMatrixVec
+-------------------------------------------
+
+Declaration: IndexTransform
+Location: Line 218, Column 7
+Kind: TypeAlias
+Clang USR: c:@IndexTransform
+Armor NSR: c:@T@IndexTransform
+-------------------------------------------
+
+Declaration: RowFn
+Location: Line 219, Column 7
+Kind: TypeAlias
+Clang USR: c:@RowFn
+Armor NSR: c:@T@RowFn
+-------------------------------------------
+
+Declaration: MatrixBuilder
+Location: Line 220, Column 7
+Kind: TypeAlias
+Clang USR: c:@MatrixBuilder
+Armor NSR: c:@T@MatrixBuilder
+-------------------------------------------
+
+Declaration: GridReducer
+Location: Line 221, Column 7
+Kind: TypeAlias
+Clang USR: c:@GridReducer
+Armor NSR: c:@T@GridReducer
+-------------------------------------------
+
+Declaration: CallbackMap
+Location: Line 224, Column 7
+Kind: TypeAlias
+Clang USR: c:@CallbackMap
+Armor NSR: c:@T@CallbackMap
+-------------------------------------------
+
+Declaration: HandlerRegistry
+Location: Line 225, Column 7
+Kind: TypeAlias
+Clang USR: c:@HandlerRegistry
+Armor NSR: c:@T@HandlerRegistry
+-------------------------------------------
+
+Declaration: RecordTuple
+Location: Line 228, Column 7
+Kind: TypeAlias
+Clang USR: c:@RecordTuple
+Armor NSR: c:@T@RecordTuple
+-------------------------------------------
+
+Declaration: FullRecord
+Location: Line 229, Column 7
+Kind: TypeAlias
+Clang USR: c:@FullRecord
+Armor NSR: c:@T@FullRecord
+-------------------------------------------
+
+Declaration: L1
+Location: Line 236, Column 7
+Kind: TypeAlias
+Clang USR: c:@L1
+Armor NSR: c:@T@L1
+-------------------------------------------
+
+Declaration: L2
+Location: Line 237, Column 7
+Kind: TypeAlias
+Clang USR: c:@L2
+Armor NSR: c:@T@L2
+-------------------------------------------
+
+Declaration: L3
+Location: Line 238, Column 7
+Kind: TypeAlias
+Clang USR: c:@L3
+Armor NSR: c:@T@L3
+-------------------------------------------
+
+Declaration: L4
+Location: Line 239, Column 7
+Kind: TypeAlias
+Clang USR: c:@L4
+Armor NSR: c:@T@L4
+-------------------------------------------
+
+Declaration: L5
+Location: Line 240, Column 7
+Kind: TypeAlias
+Clang USR: c:@L5
+Armor NSR: c:@T@L5
+-------------------------------------------
+
+Declaration: L6
+Location: Line 241, Column 7
+Kind: TypeAlias
+Clang USR: c:@L6
+Armor NSR: c:@T@L6
+-------------------------------------------
+
+Declaration: C1
+Location: Line 244, Column 7
+Kind: TypeAlias
+Clang USR: c:@C1
+Armor NSR: c:@T@C1
+-------------------------------------------
+
+Declaration: C2
+Location: Line 245, Column 7
+Kind: TypeAlias
+Clang USR: c:@C2
+Armor NSR: c:@T@C2
+-------------------------------------------
+
+Declaration: C3
+Location: Line 246, Column 7
+Kind: TypeAlias
+Clang USR: c:@C3
+Armor NSR: c:@T@C3
+-------------------------------------------
+
+Declaration: C4
+Location: Line 247, Column 7
+Kind: TypeAlias
+Clang USR: c:@C4
+Armor NSR: c:@T@C4
+-------------------------------------------
+
+Declaration: C5
+Location: Line 248, Column 7
+Kind: TypeAlias
+Clang USR: c:@C5
+Armor NSR: c:@T@C5
+-------------------------------------------
+
+Declaration: F1
+Location: Line 251, Column 7
+Kind: TypeAlias
+Clang USR: c:@F1
+Armor NSR: c:@T@F1
+-------------------------------------------
+
+Declaration: F2
+Location: Line 252, Column 7
+Kind: TypeAlias
+Clang USR: c:@F2
+Armor NSR: c:@T@F2
+-------------------------------------------
+
+Declaration: F3
+Location: Line 253, Column 7
+Kind: TypeAlias
+Clang USR: c:@F3
+Armor NSR: c:@T@F3
+-------------------------------------------
+
+Declaration: F4
+Location: Line 254, Column 7
+Kind: TypeAlias
+Clang USR: c:@F4
+Armor NSR: c:@T@F4
+-------------------------------------------
+
+Declaration: F5
+Location: Line 255, Column 7
+Kind: TypeAlias
+Clang USR: c:@F5
+Armor NSR: c:@T@F5
+-------------------------------------------
+
+Declaration: S1
+Location: Line 258, Column 7
+Kind: TypeAlias
+Clang USR: c:@S1
+Armor NSR: c:@T@S1
+-------------------------------------------
+
+Declaration: S2
+Location: Line 259, Column 7
+Kind: TypeAlias
+Clang USR: c:@S2
+Armor NSR: c:@T@S2
+-------------------------------------------
+
+Declaration: S3
+Location: Line 260, Column 7
+Kind: TypeAlias
+Clang USR: c:@S3
+Armor NSR: c:@T@S3
+-------------------------------------------
+
+Declaration: S4
+Location: Line 261, Column 7
+Kind: TypeAlias
+Clang USR: c:@S4
+Armor NSR: c:@T@S4
+-------------------------------------------
+
+Declaration: S5
+Location: Line 262, Column 7
+Kind: TypeAlias
+Clang USR: c:@S5
+Armor NSR: c:@T@S5
+-------------------------------------------
+
+Declaration: XBase
+Location: Line 265, Column 7
+Kind: TypeAlias
+Clang USR: c:@XBase
+Armor NSR: c:@T@XBase
+-------------------------------------------
+
+Declaration: XVec
+Location: Line 266, Column 7
+Kind: TypeAlias
+Clang USR: c:@XVec
+Armor NSR: c:@T@XVec
+-------------------------------------------
+
+Declaration: XShared
+Location: Line 267, Column 7
+Kind: TypeAlias
+Clang USR: c:@XShared
+Armor NSR: c:@T@XShared
+-------------------------------------------
+
+Declaration: XFn
+Location: Line 268, Column 7
+Kind: TypeAlias
+Clang USR: c:@XFn
+Armor NSR: c:@T@XFn
+-------------------------------------------
+
+Declaration: XCallback
+Location: Line 269, Column 7
+Kind: TypeAlias
+Clang USR: c:@XCallback
+Armor NSR: c:@T@XCallback
+-------------------------------------------
+
+Declaration: XHandler
+Location: Line 270, Column 7
+Kind: TypeAlias
+Clang USR: c:@XHandler
+Armor NSR: c:@T@XHandler
+-------------------------------------------
+

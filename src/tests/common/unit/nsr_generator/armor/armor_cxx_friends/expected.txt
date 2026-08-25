@@ -1,0 +1,973 @@
+Declaration: accessClassA
+Location: Line 15, Column 10
+Kind: CXXMethod
+Clang USR: c:@S@ClassB@F@accessClassA#&1$@S@ClassA#
+Armor NSR: c:@S@ClassB@F@accessClassA#
+-------------------------------------------
+
+Declaration: ClassA
+Location: Line 24, Column 5
+Kind: CXXConstructor
+Clang USR: c:@S@ClassA@F@ClassA#I#
+Armor NSR: c:@S@ClassA@F@ClassA#
+-------------------------------------------
+
+Declaration: Friend
+Location: Line 29, Column 25
+Kind: Friend
+Clang USR: c:
+Armor NSR: c:@S@ClassB@F@accessClassA#(F)
+-------------------------------------------
+
+Declaration: accessClassA
+Location: Line 29, Column 25
+Kind: CXXMethod
+Clang USR: c:@S@ClassB@F@accessClassA#&1$@S@ClassA#
+Armor NSR: c:@S@ClassB@F@accessClassA#
+-------------------------------------------
+
+Declaration: Friend
+Location: Line 30, Column 17
+Kind: Friend
+Clang USR: c:
+Armor NSR: c:@F@ok#(F)
+-------------------------------------------
+
+Declaration: Friend
+Location: Line 31, Column 12
+Kind: Friend
+Clang USR: c:
+Armor NSR: c:@S@ClassC(F)
+-------------------------------------------
+
+Declaration: Friend
+Location: Line 39, Column 17
+Kind: Friend
+Clang USR: c:
+Armor NSR: c:@F@ok#(F)
+-------------------------------------------
+
+Declaration: Friend
+Location: Line 40, Column 12
+Kind: Friend
+Clang USR: c:
+Armor NSR: c:@U@b(F)
+-------------------------------------------
+
+Declaration: Friend
+Location: Line 44, Column 17
+Kind: Friend
+Clang USR: c:
+Armor NSR: c:@F@ok#(F)
+-------------------------------------------
+
+Declaration: Friend
+Location: Line 45, Column 12
+Kind: Friend
+Clang USR: c:
+Armor NSR: c:@S@a(F)
+-------------------------------------------
+
+Declaration: A
+Location: Line 48, Column 29
+Kind: ClassTemplate
+Clang USR: c:@ST>1#T@A
+Armor NSR: c:@S@A
+-------------------------------------------
+
+Declaration: A
+Location: Line 48, Column 29
+Kind: CXXRecord
+Clang USR: c:@ST>1#T@A
+Armor NSR: c:@S@A
+-------------------------------------------
+
+Declaration: Friend
+Location: Line 49, Column 15
+Kind: Friend
+Clang USR: c:
+Armor NSR: c:@F@foo#(F)
+-------------------------------------------
+
+Declaration: foo
+Location: Line 49, Column 15
+Kind: Function
+Clang USR: c:@F@foo#t0.0#
+Armor NSR: c:@F@foo#
+-------------------------------------------
+
+Declaration: Friend
+Location: Line 50, Column 11
+Kind: Friend
+Clang USR: c:
+Armor NSR: c:@S@B(F)
+-------------------------------------------
+
+Declaration: Friend
+Location: Line 51, Column 11
+Kind: Friend
+Clang USR: c:
+Armor NSR: c:t0.0(F)
+-------------------------------------------
+
+Declaration: Friend
+Location: Line 52, Column 39
+Kind: Friend
+Clang USR: c:
+Armor NSR: c:@S@C(F)
+-------------------------------------------
+
+Declaration: C
+Location: Line 52, Column 39
+Kind: ClassTemplate
+Clang USR: c:@ST>1#T@C
+Armor NSR: c:@S@C
+-------------------------------------------
+
+Declaration: C
+Location: Line 52, Column 39
+Kind: CXXRecord
+Clang USR: c:@ST>1#T@C
+Armor NSR: c:@S@C
+-------------------------------------------
+
+Declaration: Friend
+Location: Line 53, Column 36
+Kind: Friend
+Clang USR: c:
+Armor NSR: c:@F@operator+=#(F)
+-------------------------------------------
+
+Declaration: operator+=
+Location: Line 53, Column 36
+Kind: FunctionTemplate
+Clang USR: c:@FT@>1#Toperator+=#&>@ST>1#T@A1t0.0#&1t1.0#S0_#
+Armor NSR: c:@F@operator+=#
+-------------------------------------------
+
+Declaration: operator+=
+Location: Line 53, Column 36
+Kind: Function
+Clang USR: c:@FT@>1#Toperator+=#&>@ST>1#T@A1t0.0#&1t1.0#S0_#
+Armor NSR: c:@F@operator+=#
+-------------------------------------------
+
+Declaration: VariadicTemplate
+Location: Line 57, Column 32
+Kind: ClassTemplate
+Clang USR: c:@ST>1#pT@VariadicTemplate
+Armor NSR: c:@S@VariadicTemplate
+-------------------------------------------
+
+Declaration: VariadicTemplate
+Location: Line 57, Column 32
+Kind: CXXRecord
+Clang USR: c:@ST>1#pT@VariadicTemplate
+Armor NSR: c:@S@VariadicTemplate
+-------------------------------------------
+
+Declaration: DefaultTemplate
+Location: Line 58, Column 47
+Kind: ClassTemplate
+Clang USR: c:@ST>2#T#T@DefaultTemplate
+Armor NSR: c:@S@DefaultTemplate
+-------------------------------------------
+
+Declaration: DefaultTemplate
+Location: Line 58, Column 47
+Kind: CXXRecord
+Clang USR: c:@ST>2#T#T@DefaultTemplate
+Armor NSR: c:@S@DefaultTemplate
+-------------------------------------------
+
+Declaration: TemplateTemplate
+Location: Line 59, Column 78
+Kind: ClassTemplate
+Clang USR: c:@ST>2#T#t>1#T@TemplateTemplate
+Armor NSR: c:@S@TemplateTemplate
+-------------------------------------------
+
+Declaration: TemplateTemplate
+Location: Line 59, Column 78
+Kind: CXXRecord
+Clang USR: c:@ST>2#T#t>1#T@TemplateTemplate
+Armor NSR: c:@S@TemplateTemplate
+-------------------------------------------
+
+Declaration: IntAlias
+Location: Line 62, Column 7
+Kind: TypeAlias
+Clang USR: c:@IntAlias
+Armor NSR: c:@T@IntAlias
+-------------------------------------------
+
+Declaration: StringVector
+Location: Line 63, Column 7
+Kind: TypeAlias
+Clang USR: c:@StringVector
+Armor NSR: c:@T@StringVector
+-------------------------------------------
+
+Declaration: Ptr
+Location: Line 64, Column 28
+Kind: TypeAlias
+Clang USR: c:@Ptr
+Armor NSR: c:@T@Ptr
+-------------------------------------------
+
+Declaration: complexTemplateFunction
+Location: Line 68, Column 3
+Kind: FunctionTemplate
+Clang USR: c:@FT@>2#T#TcomplexTemplateFunction#t0.0#S0_#
+Armor NSR: c:@F@complexTemplateFunction#
+-------------------------------------------
+
+Declaration: complexTemplateFunction
+Location: Line 68, Column 3
+Kind: Function
+Clang USR: c:@FT@>2#T#TcomplexTemplateFunction#t0.0#S0_#
+Armor NSR: c:@F@complexTemplateFunction#
+-------------------------------------------
+
+Declaration: variadicFunction
+Location: Line 74, Column 6
+Kind: FunctionTemplate
+Clang USR: c:@FT@>1#pTvariadicFunction#Pt0.0#v#
+Armor NSR: c:@F@variadicFunction#
+-------------------------------------------
+
+Declaration: variadicFunction
+Location: Line 74, Column 6
+Kind: Function
+Clang USR: c:@FT@>1#pTvariadicFunction#Pt0.0#v#
+Armor NSR: c:@F@variadicFunction#
+-------------------------------------------
+
+Declaration: FunctionPtr
+Location: Line 85, Column 11
+Kind: TypeAlias
+Clang USR: c:@S@ClassWithTypeAliasFriends@FunctionPtr
+Armor NSR: c:@S@ClassWithTypeAliasFriends@T@FunctionPtr
+-------------------------------------------
+
+Declaration: MemberFunctionPtr
+Location: Line 88, Column 11
+Kind: TypeAlias
+Clang USR: c:@S@ClassWithTypeAliasFriends@MemberFunctionPtr
+Armor NSR: c:@S@ClassWithTypeAliasFriends@T@MemberFunctionPtr
+-------------------------------------------
+
+Declaration: Friend
+Location: Line 91, Column 12
+Kind: Friend
+Clang USR: c:
+Armor NSR: c:*Fv(#&$@S@ClassWithTypeAliasFriends)(F)
+-------------------------------------------
+
+Declaration: Friend
+Location: Line 94, Column 17
+Kind: Friend
+Clang USR: c:
+Armor NSR: c:@F@functionMatchingAlias#(F)
+-------------------------------------------
+
+Declaration: functionMatchingAlias
+Location: Line 94, Column 17
+Kind: Function
+Clang USR: c:@F@functionMatchingAlias#&$@S@ClassWithTypeAliasFriends#
+Armor NSR: c:@F@functionMatchingAlias#
+-------------------------------------------
+
+Declaration: ComplexClass
+Location: Line 101, Column 7
+Kind: ClassTemplate
+Clang USR: c:@ST>1#T@ComplexClass
+Armor NSR: c:@S@ComplexClass
+-------------------------------------------
+
+Declaration: ComplexClass
+Location: Line 101, Column 7
+Kind: CXXRecord
+Clang USR: c:@ST>1#T@ComplexClass
+Armor NSR: c:@S@ComplexClass
+-------------------------------------------
+
+Declaration: data
+Location: Line 103, Column 7
+Kind: Field
+Clang USR: c:@ST>1#T@ComplexClass@FI@data
+Armor NSR: c:@S@ComplexClass@FI@data
+-------------------------------------------
+
+Declaration: PrivateNested
+Location: Line 106, Column 12
+Kind: CXXRecord
+Clang USR: c:@ST>1#T@ComplexClass@S@PrivateNested
+Armor NSR: c:@S@ComplexClass@S@PrivateNested
+-------------------------------------------
+
+Declaration: nestedData
+Location: Line 107, Column 11
+Kind: Field
+Clang USR: c:@ST>1#T@ComplexClass@S@PrivateNested@FI@nestedData
+Armor NSR: c:@S@ComplexClass@S@PrivateNested@FI@nestedData
+-------------------------------------------
+
+Declaration: nested
+Location: Line 110, Column 19
+Kind: Field
+Clang USR: c:@ST>1#T@ComplexClass@FI@nested
+Armor NSR: c:@S@ComplexClass@FI@nested
+-------------------------------------------
+
+Declaration: ComplexClass<T>
+Location: Line 113, Column 5
+Kind: CXXConstructor
+Clang USR: c:@ST>1#T@ComplexClass@F@ComplexClass#t0.0#
+Armor NSR: c:@S@ComplexClass@F@ComplexClass#
+-------------------------------------------
+
+Declaration: Friend
+Location: Line 117, Column 14
+Kind: Friend
+Clang USR: c:
+Armor NSR: c:@F@accessWithSFINAE#(F)
+-------------------------------------------
+
+Declaration: accessWithSFINAE
+Location: Line 117, Column 14
+Kind: FunctionTemplate
+Clang USR: c:@FT@>2#T#TaccessWithSFINAE#&1>@ST>1#T@ComplexClass1t1.0#S2_#
+Armor NSR: c:@F@accessWithSFINAE#
+-------------------------------------------
+
+Declaration: accessWithSFINAE
+Location: Line 117, Column 14
+Kind: Function
+Clang USR: c:@FT@>2#T#TaccessWithSFINAE#&1>@ST>1#T@ComplexClass1t1.0#S2_#
+Armor NSR: c:@F@accessWithSFINAE#
+-------------------------------------------
+
+Declaration: Friend
+Location: Line 123, Column 18
+Kind: Friend
+Clang USR: c:
+Armor NSR: c:@S@VariadicTemplate(F)
+-------------------------------------------
+
+Declaration: VariadicTemplate
+Location: Line 123, Column 18
+Kind: ClassTemplate
+Clang USR: c:@ST>1#pT@VariadicTemplate
+Armor NSR: c:@S@VariadicTemplate
+-------------------------------------------
+
+Declaration: VariadicTemplate
+Location: Line 123, Column 18
+Kind: CXXRecord
+Clang USR: c:@ST>1#pT@VariadicTemplate
+Armor NSR: c:@S@VariadicTemplate
+-------------------------------------------
+
+Declaration: Friend
+Location: Line 127, Column 18
+Kind: Friend
+Clang USR: c:
+Armor NSR: c:@S@TemplateTemplate(F)
+-------------------------------------------
+
+Declaration: TemplateTemplate
+Location: Line 127, Column 18
+Kind: ClassTemplate
+Clang USR: c:@ST>2#T#t>1#T@TemplateTemplate
+Armor NSR: c:@S@TemplateTemplate
+-------------------------------------------
+
+Declaration: TemplateTemplate
+Location: Line 127, Column 18
+Kind: CXXRecord
+Clang USR: c:@ST>2#T#t>1#T@TemplateTemplate
+Armor NSR: c:@S@TemplateTemplate
+-------------------------------------------
+
+Declaration: Friend
+Location: Line 131, Column 17
+Kind: Friend
+Clang USR: c:
+Armor NSR: c:@F@complexFriendFunction#(F)
+-------------------------------------------
+
+Declaration: complexFriendFunction
+Location: Line 131, Column 17
+Kind: FunctionTemplate
+Clang USR: c:@FT@>1#TcomplexFriendFunction#&1>@ST>1#T@ComplexClass1t1.0# #
+Armor NSR: c:@F@complexFriendFunction#
+-------------------------------------------
+
+Declaration: complexFriendFunction
+Location: Line 131, Column 17
+Kind: Function
+Clang USR: c:@FT@>1#TcomplexFriendFunction#&1>@ST>1#T@ComplexClass1t1.0# #
+Armor NSR: c:@F@complexFriendFunction#
+-------------------------------------------
+
+Declaration: Friend
+Location: Line 137, Column 18
+Kind: Friend
+Clang USR: c:
+Armor NSR: c:@S@DefaultTemplate(F)
+-------------------------------------------
+
+Declaration: DefaultTemplate
+Location: Line 137, Column 18
+Kind: ClassTemplate
+Clang USR: c:@ST>2#T#T@DefaultTemplate
+Armor NSR: c:@S@DefaultTemplate
+-------------------------------------------
+
+Declaration: DefaultTemplate
+Location: Line 137, Column 18
+Kind: CXXRecord
+Clang USR: c:@ST>2#T#T@DefaultTemplate
+Armor NSR: c:@S@DefaultTemplate
+-------------------------------------------
+
+Declaration: VariadicTemplate
+Location: Line 142, Column 7
+Kind: ClassTemplate
+Clang USR: c:@ST>1#pT@VariadicTemplate
+Armor NSR: c:@S@VariadicTemplate
+-------------------------------------------
+
+Declaration: VariadicTemplate
+Location: Line 142, Column 7
+Kind: CXXRecord
+Clang USR: c:@ST>1#pT@VariadicTemplate
+Armor NSR: c:@S@VariadicTemplate
+-------------------------------------------
+
+Declaration: data
+Location: Line 144, Column 23
+Kind: Field
+Clang USR: c:@ST>1#pT@VariadicTemplate@FI@data
+Armor NSR: c:@S@VariadicTemplate@FI@data
+-------------------------------------------
+
+Declaration: VariadicTemplate<Ts...>
+Location: Line 147, Column 5
+Kind: CXXConstructor
+Clang USR: c:@ST>1#pT@VariadicTemplate@F@VariadicTemplate#Pt0.0#
+Armor NSR: c:@S@VariadicTemplate@F@VariadicTemplate#
+-------------------------------------------
+
+Declaration: accessComplexClassData
+Location: Line 151, Column 10
+Kind: FunctionTemplate
+Clang USR: c:@ST>1#pT@VariadicTemplate@FT@>1#TaccessComplexClassData#&1>@ST>1#T@ComplexClass1t1.0#v#
+Armor NSR: c:@S@VariadicTemplate@F@accessComplexClassData#
+-------------------------------------------
+
+Declaration: accessComplexClassData
+Location: Line 151, Column 10
+Kind: CXXMethod
+Clang USR: c:@ST>1#pT@VariadicTemplate@FT@>1#TaccessComplexClassData#&1>@ST>1#T@ComplexClass1t1.0#v#
+Armor NSR: c:@S@VariadicTemplate@F@accessComplexClassData#
+-------------------------------------------
+
+Declaration: TemplateTemplate
+Location: Line 159, Column 7
+Kind: ClassTemplate
+Clang USR: c:@ST>2#T#t>1#T@TemplateTemplate
+Armor NSR: c:@S@TemplateTemplate
+-------------------------------------------
+
+Declaration: TemplateTemplate
+Location: Line 159, Column 7
+Kind: CXXRecord
+Clang USR: c:@ST>2#T#t>1#T@TemplateTemplate
+Armor NSR: c:@S@TemplateTemplate
+-------------------------------------------
+
+Declaration: container
+Location: Line 161, Column 18
+Kind: Field
+Clang USR: c:@ST>2#T#t>1#T@TemplateTemplate@FI@container
+Armor NSR: c:@S@TemplateTemplate@FI@container
+-------------------------------------------
+
+Declaration: accessComplexClassData
+Location: Line 165, Column 10
+Kind: CXXMethod
+Clang USR: c:@ST>2#T#t>1#T@TemplateTemplate@F@accessComplexClassData#&1>@ST>1#T@ComplexClass1t0.0#
+Armor NSR: c:@S@TemplateTemplate@F@accessComplexClassData#
+-------------------------------------------
+
+Declaration: DefaultTemplate
+Location: Line 172, Column 7
+Kind: ClassTemplate
+Clang USR: c:@ST>2#T#T@DefaultTemplate
+Armor NSR: c:@S@DefaultTemplate
+-------------------------------------------
+
+Declaration: DefaultTemplate
+Location: Line 172, Column 7
+Kind: CXXRecord
+Clang USR: c:@ST>2#T#T@DefaultTemplate
+Armor NSR: c:@S@DefaultTemplate
+-------------------------------------------
+
+Declaration: accessComplexClassData
+Location: Line 175, Column 10
+Kind: CXXMethod
+Clang USR: c:@ST>2#T#T@DefaultTemplate@F@accessComplexClassData#&1>@ST>1#T@ComplexClass1t0.0#
+Armor NSR: c:@S@DefaultTemplate@F@accessComplexClassData#
+-------------------------------------------
+
+Declaration: ConditionalFriends
+Location: Line 182, Column 7
+Kind: ClassTemplate
+Clang USR: c:@ST>1#T@ConditionalFriends
+Armor NSR: c:@S@ConditionalFriends
+-------------------------------------------
+
+Declaration: ConditionalFriends
+Location: Line 182, Column 7
+Kind: CXXRecord
+Clang USR: c:@ST>1#T@ConditionalFriends
+Armor NSR: c:@S@ConditionalFriends
+-------------------------------------------
+
+Declaration: data
+Location: Line 184, Column 7
+Kind: Field
+Clang USR: c:@ST>1#T@ConditionalFriends@FI@data
+Armor NSR: c:@S@ConditionalFriends@FI@data
+-------------------------------------------
+
+Declaration: ConditionalFriends<T>
+Location: Line 187, Column 5
+Kind: CXXConstructor
+Clang USR: c:@ST>1#T@ConditionalFriends@F@ConditionalFriends#t0.0#
+Armor NSR: c:@S@ConditionalFriends@F@ConditionalFriends#
+-------------------------------------------
+
+Declaration: Friend
+Location: Line 192, Column 5
+Kind: Friend
+Clang USR: c:
+Armor NSR: c:@F@integralOnlyFriend#(F)
+-------------------------------------------
+
+Declaration: integralOnlyFriend
+Location: Line 192, Column 5
+Kind: FunctionTemplate
+Clang USR: c:@FT@>1#TintegralOnlyFriend#&1>@ST>1#T@ConditionalFriends1t1.0#S2_#
+Armor NSR: c:@F@integralOnlyFriend#
+-------------------------------------------
+
+Declaration: integralOnlyFriend
+Location: Line 192, Column 5
+Kind: Function
+Clang USR: c:@FT@>1#TintegralOnlyFriend#&1>@ST>1#T@ConditionalFriends1t1.0#S2_#
+Armor NSR: c:@F@integralOnlyFriend#
+-------------------------------------------
+
+Declaration: Friend
+Location: Line 199, Column 5
+Kind: Friend
+Clang USR: c:
+Armor NSR: c:@F@floatOnlyFriend#(F)
+-------------------------------------------
+
+Declaration: floatOnlyFriend
+Location: Line 199, Column 5
+Kind: FunctionTemplate
+Clang USR: c:@FT@>1#TfloatOnlyFriend#&1>@ST>1#T@ConditionalFriends1t1.0#v#
+Armor NSR: c:@F@floatOnlyFriend#
+-------------------------------------------
+
+Declaration: floatOnlyFriend
+Location: Line 199, Column 5
+Kind: Function
+Clang USR: c:@FT@>1#TfloatOnlyFriend#&1>@ST>1#T@ConditionalFriends1t1.0#v#
+Armor NSR: c:@F@floatOnlyFriend#
+-------------------------------------------
+
+Declaration: RecursiveTemplate
+Location: Line 206, Column 7
+Kind: ClassTemplate
+Clang USR: c:@ST>2#T#Nl@RecursiveTemplate
+Armor NSR: c:@S@RecursiveTemplate
+-------------------------------------------
+
+Declaration: RecursiveTemplate
+Location: Line 206, Column 7
+Kind: CXXRecord
+Clang USR: c:@ST>2#T#Nl@RecursiveTemplate
+Armor NSR: c:@S@RecursiveTemplate
+-------------------------------------------
+
+Declaration: data
+Location: Line 208, Column 7
+Kind: Field
+Clang USR: c:@ST>2#T#Nl@RecursiveTemplate@FI@data
+Armor NSR: c:@S@RecursiveTemplate@FI@data
+-------------------------------------------
+
+Declaration: RecursiveTemplate<T, N>
+Location: Line 211, Column 5
+Kind: CXXConstructor
+Clang USR: c:@ST>2#T#Nl@RecursiveTemplate@F@RecursiveTemplate#t0.0#
+Armor NSR: c:@S@RecursiveTemplate@F@RecursiveTemplate#
+-------------------------------------------
+
+Declaration: i
+Location: Line 212, Column 21
+Kind: Var
+Clang USR: c:cxx_friends.cpp@5369@ST>2#T#Nl@RecursiveTemplate@F@RecursiveTemplate#t0.0#@i
+Armor NSR: c:cxx_friends.cpp@5369@S@RecursiveTemplate@F@RecursiveTemplate#@i
+-------------------------------------------
+
+Declaration: Friend
+Location: Line 218, Column 12
+Kind: Friend
+Clang USR: c:
+Armor NSR: c:@S@RecursiveTemplate(F)
+-------------------------------------------
+
+Declaration: accessSmallerTemplate
+Location: Line 221, Column 10
+Kind: CXXMethod
+Clang USR: c:@ST>2#T#Nl@RecursiveTemplate@F@accessSmallerTemplate#&1>@ST>2#T#Nl@RecursiveTemplate2t0.0#
+Armor NSR: c:@S@RecursiveTemplate@F@accessSmallerTemplate#
+-------------------------------------------
+
+Declaration: RecursiveTemplate
+Location: Line 228, Column 7
+Kind: ClassTemplatePartialSpecialization
+Clang USR: c:@SP>1#T@RecursiveTemplate>#t0.0#Vl0
+Armor NSR: c:@S@RecursiveTemplate
+-------------------------------------------
+
+Declaration: dummy
+Location: Line 230, Column 7
+Kind: Field
+Clang USR: c:@SP>1#T@RecursiveTemplate>#t0.0#Vl0@FI@dummy
+Armor NSR: c:@S@RecursiveTemplate@FI@dummy
+-------------------------------------------
+
+Declaration: RecursiveTemplate<type-parameter-0-0, 0UL>
+Location: Line 233, Column 5
+Kind: CXXConstructor
+Clang USR: c:@SP>1#T@RecursiveTemplate>#t0.0#Vl0@F@RecursiveTemplate#S0_#
+Armor NSR: c:@S@RecursiveTemplate@F@RecursiveTemplate#
+-------------------------------------------
+
+Declaration: Friend
+Location: Line 236, Column 12
+Kind: Friend
+Clang USR: c:
+Armor NSR: c:@S@RecursiveTemplate(F)
+-------------------------------------------
+
+Declaration: Friend
+Location: Line 247, Column 17
+Kind: Friend
+Clang USR: c:
+Armor NSR: c:@F@perfectForwardingFriend#(F)
+-------------------------------------------
+
+Declaration: perfectForwardingFriend
+Location: Line 247, Column 17
+Kind: FunctionTemplate
+Clang USR: c:@FT@>1#pTperfectForwardingFriend#&$@S@PerfectForwardingClass#P&&t0.0# #
+Armor NSR: c:@F@perfectForwardingFriend#
+-------------------------------------------
+
+Declaration: perfectForwardingFriend
+Location: Line 247, Column 17
+Kind: Function
+Clang USR: c:@FT@>1#pTperfectForwardingFriend#&$@S@PerfectForwardingClass#P&&t0.0# #
+Armor NSR: c:@F@perfectForwardingFriend#
+-------------------------------------------
+
+Declaration: OperatorFriendClass
+Location: Line 255, Column 7
+Kind: ClassTemplate
+Clang USR: c:@ST>1#T@OperatorFriendClass
+Armor NSR: c:@S@OperatorFriendClass
+-------------------------------------------
+
+Declaration: OperatorFriendClass
+Location: Line 255, Column 7
+Kind: CXXRecord
+Clang USR: c:@ST>1#T@OperatorFriendClass
+Armor NSR: c:@S@OperatorFriendClass
+-------------------------------------------
+
+Declaration: value
+Location: Line 257, Column 7
+Kind: Field
+Clang USR: c:@ST>1#T@OperatorFriendClass@FI@value
+Armor NSR: c:@S@OperatorFriendClass@FI@value
+-------------------------------------------
+
+Declaration: OperatorFriendClass<T>
+Location: Line 260, Column 5
+Kind: CXXConstructor
+Clang USR: c:@ST>1#T@OperatorFriendClass@F@OperatorFriendClass#t0.0#
+Armor NSR: c:@S@OperatorFriendClass@F@OperatorFriendClass#
+-------------------------------------------
+
+Declaration: Friend
+Location: Line 264, Column 35
+Kind: Friend
+Clang USR: c:
+Armor NSR: c:@F@operator+#(F)
+-------------------------------------------
+
+Declaration: operator+
+Location: Line 264, Column 35
+Kind: FunctionTemplate
+Clang USR: c:@FT@>1#Toperator+#&1>@ST>1#T@OperatorFriendClass1t1.0#S0_#S1_#
+Armor NSR: c:@F@operator+#
+-------------------------------------------
+
+Declaration: operator+
+Location: Line 264, Column 35
+Kind: Function
+Clang USR: c:@FT@>1#Toperator+#&1>@ST>1#T@OperatorFriendClass1t1.0#S0_#S1_#
+Armor NSR: c:@F@operator+#
+-------------------------------------------
+
+Declaration: Friend
+Location: Line 269, Column 26
+Kind: Friend
+Clang USR: c:
+Armor NSR: c:@F@operator<<#(F)
+-------------------------------------------
+
+Declaration: operator<<
+Location: Line 269, Column 26
+Kind: FunctionTemplate
+Clang USR: c:@FT@>1#Toperator<<#&$@N@std@S@basic_ostream>#C#$@N@std@S@char_traits>#C#&1>@ST>1#T@OperatorFriendClass1t1.0#S0_#
+Armor NSR: c:@F@operator<<#
+-------------------------------------------
+
+Declaration: operator<<
+Location: Line 269, Column 26
+Kind: Function
+Clang USR: c:@FT@>1#Toperator<<#&$@N@std@S@basic_ostream>#C#$@N@std@S@char_traits>#C#&1>@ST>1#T@OperatorFriendClass1t1.0#S0_#
+Armor NSR: c:@F@operator<<#
+-------------------------------------------
+
+Declaration: Friend
+Location: Line 276, Column 5
+Kind: Friend
+Clang USR: c:
+Armor NSR: c:@F@operator==#(F)
+-------------------------------------------
+
+Declaration: operator==
+Location: Line 276, Column 5
+Kind: FunctionTemplate
+Clang USR: c:@FT@>1#Toperator==#&1>@ST>1#T@OperatorFriendClass1t1.0#S0_#b#
+Armor NSR: c:@F@operator==#
+-------------------------------------------
+
+Declaration: operator==
+Location: Line 276, Column 5
+Kind: Function
+Clang USR: c:@FT@>1#Toperator==#&1>@ST>1#T@OperatorFriendClass1t1.0#S0_#b#
+Armor NSR: c:@F@operator==#
+-------------------------------------------
+
+Declaration: TypeTraitsFriendClass
+Location: Line 283, Column 7
+Kind: ClassTemplate
+Clang USR: c:@ST>1#T@TypeTraitsFriendClass
+Armor NSR: c:@S@TypeTraitsFriendClass
+-------------------------------------------
+
+Declaration: TypeTraitsFriendClass
+Location: Line 283, Column 7
+Kind: CXXRecord
+Clang USR: c:@ST>1#T@TypeTraitsFriendClass
+Armor NSR: c:@S@TypeTraitsFriendClass
+-------------------------------------------
+
+Declaration: data
+Location: Line 285, Column 7
+Kind: Field
+Clang USR: c:@ST>1#T@TypeTraitsFriendClass@FI@data
+Armor NSR: c:@S@TypeTraitsFriendClass@FI@data
+-------------------------------------------
+
+Declaration: TypeTraitsFriendClass<T>
+Location: Line 288, Column 5
+Kind: CXXConstructor
+Clang USR: c:@ST>1#T@TypeTraitsFriendClass@F@TypeTraitsFriendClass#t0.0#
+Armor NSR: c:@S@TypeTraitsFriendClass@F@TypeTraitsFriendClass#
+-------------------------------------------
+
+Declaration: Friend
+Location: Line 293, Column 5
+Kind: Friend
+Clang USR: c:
+Armor NSR: c:@F@getArithmeticData#(F)
+-------------------------------------------
+
+Declaration: getArithmeticData
+Location: Line 293, Column 5
+Kind: FunctionTemplate
+Clang USR: c:@FT@>1#TgetArithmeticData#&1>@ST>1#T@TypeTraitsFriendClass1t1.0#S2_#
+Armor NSR: c:@F@getArithmeticData#
+-------------------------------------------
+
+Declaration: getArithmeticData
+Location: Line 293, Column 5
+Kind: Function
+Clang USR: c:@FT@>1#TgetArithmeticData#&1>@ST>1#T@TypeTraitsFriendClass1t1.0#S2_#
+Armor NSR: c:@F@getArithmeticData#
+-------------------------------------------
+
+Declaration: Friend
+Location: Line 300, Column 5
+Kind: Friend
+Clang USR: c:
+Armor NSR: c:@F@getClassData#(F)
+-------------------------------------------
+
+Declaration: getClassData
+Location: Line 300, Column 5
+Kind: FunctionTemplate
+Clang USR: c:@FT@>1#TgetClassData#&1>@ST>1#T@TypeTraitsFriendClass1t1.0#&1S2_#
+Armor NSR: c:@F@getClassData#
+-------------------------------------------
+
+Declaration: getClassData
+Location: Line 300, Column 5
+Kind: Function
+Clang USR: c:@FT@>1#TgetClassData#&1>@ST>1#T@TypeTraitsFriendClass1t1.0#&1S2_#
+Armor NSR: c:@F@getClassData#
+-------------------------------------------
+
+Declaration: AliasTemplateFriendClass
+Location: Line 307, Column 7
+Kind: ClassTemplate
+Clang USR: c:@ST>1#T@AliasTemplateFriendClass
+Armor NSR: c:@S@AliasTemplateFriendClass
+-------------------------------------------
+
+Declaration: AliasTemplateFriendClass
+Location: Line 307, Column 7
+Kind: CXXRecord
+Clang USR: c:@ST>1#T@AliasTemplateFriendClass
+Armor NSR: c:@S@AliasTemplateFriendClass
+-------------------------------------------
+
+Declaration: data
+Location: Line 309, Column 7
+Kind: Field
+Clang USR: c:@ST>1#T@AliasTemplateFriendClass@FI@data
+Armor NSR: c:@S@AliasTemplateFriendClass@FI@data
+-------------------------------------------
+
+Declaration: AliasTemplateFriendClass<T>
+Location: Line 312, Column 5
+Kind: CXXConstructor
+Clang USR: c:@ST>1#T@AliasTemplateFriendClass@F@AliasTemplateFriendClass#t0.0#
+Armor NSR: c:@S@AliasTemplateFriendClass@F@AliasTemplateFriendClass#
+-------------------------------------------
+
+Declaration: showData
+Location: Line 315, Column 10
+Kind: CXXMethod
+Clang USR: c:@ST>1#T@AliasTemplateFriendClass@F@showData#1
+Armor NSR: c:@S@AliasTemplateFriendClass@F@showData#
+-------------------------------------------
+
+Declaration: demonstrateAliasTemplateFriendship
+Location: Line 322, Column 6
+Kind: FunctionTemplate
+Clang USR: c:@FT@>1#TdemonstrateAliasTemplateFriendship#v#
+Armor NSR: c:@F@demonstrateAliasTemplateFriendship#
+-------------------------------------------
+
+Declaration: demonstrateAliasTemplateFriendship
+Location: Line 322, Column 6
+Kind: Function
+Clang USR: c:@FT@>1#TdemonstrateAliasTemplateFriendship#v#
+Armor NSR: c:@F@demonstrateAliasTemplateFriendship#
+-------------------------------------------
+
+Declaration: obj
+Location: Line 323, Column 33
+Kind: Var
+Clang USR: c:cxx_friends.cpp@8295@FT@>1#TdemonstrateAliasTemplateFriendship#v#@obj
+Armor NSR: c:cxx_friends.cpp@8295@F@demonstrateAliasTemplateFriendship#@obj
+-------------------------------------------
+
+Declaration: ptr
+Location: Line 324, Column 38
+Kind: Var
+Clang USR: c:cxx_friends.cpp@8336@FT@>1#TdemonstrateAliasTemplateFriendship#v#@ptr
+Armor NSR: c:cxx_friends.cpp@8336@F@demonstrateAliasTemplateFriendship#@ptr
+-------------------------------------------
+
+Declaration: Friend
+Location: Line 335, Column 39
+Kind: Friend
+Clang USR: c:
+Armor NSR: c:@S@SpecializedFriend(F)
+-------------------------------------------
+
+Declaration: SpecializedFriend
+Location: Line 335, Column 39
+Kind: ClassTemplate
+Clang USR: c:@ST>1#T@SpecializedFriend
+Armor NSR: c:@S@SpecializedFriend
+-------------------------------------------
+
+Declaration: SpecializedFriend
+Location: Line 335, Column 39
+Kind: CXXRecord
+Clang USR: c:@ST>1#T@SpecializedFriend
+Armor NSR: c:@S@SpecializedFriend
+-------------------------------------------
+
+Declaration: SpecializedFriend
+Location: Line 340, Column 7
+Kind: ClassTemplate
+Clang USR: c:@ST>1#T@SpecializedFriend
+Armor NSR: c:@S@SpecializedFriend
+-------------------------------------------
+
+Declaration: SpecializedFriend
+Location: Line 340, Column 7
+Kind: CXXRecord
+Clang USR: c:@ST>1#T@SpecializedFriend
+Armor NSR: c:@S@SpecializedFriend
+-------------------------------------------
+
+Declaration: doSomething
+Location: Line 342, Column 10
+Kind: CXXMethod
+Clang USR: c:@ST>1#T@SpecializedFriend@F@doSomething#
+Armor NSR: c:@S@SpecializedFriend@F@doSomething#
+-------------------------------------------
+
+Declaration: SpecializedFriend
+Location: Line 349, Column 7
+Kind: ClassTemplateSpecialization
+Clang USR: c:@S@SpecializedFriend>#I
+Armor NSR: c:@S@SpecializedFriend
+-------------------------------------------
+
+Declaration: accessBaseData
+Location: Line 351, Column 10
+Kind: CXXMethod
+Clang USR: c:@S@SpecializedFriend>#I@F@accessBaseData#&$@S@SpecializedFriendBase#
+Armor NSR: c:@S@SpecializedFriend@F@accessBaseData#
+-------------------------------------------
+

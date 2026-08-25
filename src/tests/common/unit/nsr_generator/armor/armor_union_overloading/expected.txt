@@ -1,0 +1,231 @@
+Declaration: setValue
+Location: Line 14, Column 10
+Kind: CXXMethod
+Clang USR: c:@U@OverloadedUnion@F@setValue#I#
+Armor NSR: c:@U@OverloadedUnion@F@setValue#
+-------------------------------------------
+
+Declaration: setValue
+Location: Line 18, Column 10
+Kind: CXXMethod
+Clang USR: c:@U@OverloadedUnion@F@setValue#f#
+Armor NSR: c:@U@OverloadedUnion@F@setValue#
+-------------------------------------------
+
+Declaration: setValue
+Location: Line 22, Column 10
+Kind: CXXMethod
+Clang USR: c:@U@OverloadedUnion@F@setValue#d#
+Armor NSR: c:@U@OverloadedUnion@F@setValue#
+-------------------------------------------
+
+Declaration: getInt
+Location: Line 27, Column 9
+Kind: CXXMethod
+Clang USR: c:@U@OverloadedUnion@F@getInt#1
+Armor NSR: c:@U@OverloadedUnion@F@getInt#
+-------------------------------------------
+
+Declaration: getFloat
+Location: Line 31, Column 11
+Kind: CXXMethod
+Clang USR: c:@U@OverloadedUnion@F@getFloat#1
+Armor NSR: c:@U@OverloadedUnion@F@getFloat#
+-------------------------------------------
+
+Declaration: getDouble
+Location: Line 35, Column 12
+Kind: CXXMethod
+Clang USR: c:@U@OverloadedUnion@F@getDouble#1
+Armor NSR: c:@U@OverloadedUnion@F@getDouble#
+-------------------------------------------
+
+Declaration: TemplateUnion
+Location: Line 42, Column 7
+Kind: ClassTemplate
+Clang USR: c:@UT>1#T@TemplateUnion
+Armor NSR: c:@U@TemplateUnion
+-------------------------------------------
+
+Declaration: TemplateUnion
+Location: Line 42, Column 7
+Kind: CXXRecord
+Clang USR: c:@UT>1#T@TemplateUnion
+Armor NSR: c:@U@TemplateUnion
+-------------------------------------------
+
+Declaration: value
+Location: Line 43, Column 7
+Kind: Field
+Clang USR: c:@UT>1#T@TemplateUnion@FI@value
+Armor NSR: c:@U@TemplateUnion@FI@value
+-------------------------------------------
+
+Declaration: intRep
+Location: Line 44, Column 9
+Kind: Field
+Clang USR: c:@UT>1#T@TemplateUnion@FI@intRep
+Armor NSR: c:@U@TemplateUnion@FI@intRep
+-------------------------------------------
+
+Declaration: buffer
+Location: Line 45, Column 10
+Kind: Field
+Clang USR: c:@UT>1#T@TemplateUnion@FI@buffer
+Armor NSR: c:@U@TemplateUnion@FI@buffer
+-------------------------------------------
+
+Declaration: TemplateUnion<T>
+Location: Line 47, Column 5
+Kind: CXXConstructor
+Clang USR: c:@UT>1#T@TemplateUnion@F@TemplateUnion#
+Armor NSR: c:@U@TemplateUnion@F@TemplateUnion#
+-------------------------------------------
+
+Declaration: TemplateUnion<T>
+Location: Line 48, Column 14
+Kind: CXXConstructor
+Clang USR: c:@UT>1#T@TemplateUnion@F@TemplateUnion#t0.0#
+Armor NSR: c:@U@TemplateUnion@F@TemplateUnion#
+-------------------------------------------
+
+Declaration: getValue
+Location: Line 50, Column 7
+Kind: CXXMethod
+Clang USR: c:@UT>1#T@TemplateUnion@F@getValue#1
+Armor NSR: c:@U@TemplateUnion@F@getValue#
+-------------------------------------------
+
+Declaration: setValue
+Location: Line 51, Column 10
+Kind: CXXMethod
+Clang USR: c:@UT>1#T@TemplateUnion@F@setValue#t0.0#
+Armor NSR: c:@U@TemplateUnion@F@setValue#
+-------------------------------------------
+
+Declaration: getIntRep
+Location: Line 53, Column 9
+Kind: CXXMethod
+Clang USR: c:@UT>1#T@TemplateUnion@F@getIntRep#1
+Armor NSR: c:@U@TemplateUnion@F@getIntRep#
+-------------------------------------------
+
+Declaration: TemplateUnion
+Location: Line 58, Column 7
+Kind: ClassTemplatePartialSpecialization
+Clang USR: c:@UP>1#T@TemplateUnion>#*t0.0
+Armor NSR: c:@U@TemplateUnion
+-------------------------------------------
+
+Declaration: value
+Location: Line 59, Column 8
+Kind: Field
+Clang USR: c:@UP>1#T@TemplateUnion>#*t0.0@FI@value
+Armor NSR: c:@U@TemplateUnion@FI@value
+-------------------------------------------
+
+Declaration: ptrValue
+Location: Line 60, Column 15
+Kind: Field
+Clang USR: c:@UP>1#T@TemplateUnion>#*t0.0@FI@ptrValue
+Armor NSR: c:@U@TemplateUnion@FI@ptrValue
+-------------------------------------------
+
+Declaration: voidPtr
+Location: Line 61, Column 11
+Kind: Field
+Clang USR: c:@UP>1#T@TemplateUnion>#*t0.0@FI@voidPtr
+Armor NSR: c:@U@TemplateUnion@FI@voidPtr
+-------------------------------------------
+
+Declaration: TemplateUnion<type-parameter-0-0 *>
+Location: Line 63, Column 5
+Kind: CXXConstructor
+Clang USR: c:@UP>1#T@TemplateUnion>#*t0.0@F@TemplateUnion#
+Armor NSR: c:@U@TemplateUnion@F@TemplateUnion#
+-------------------------------------------
+
+Declaration: TemplateUnion<type-parameter-0-0 *>
+Location: Line 64, Column 14
+Kind: CXXConstructor
+Clang USR: c:@UP>1#T@TemplateUnion>#*t0.0@F@TemplateUnion#S0_#
+Armor NSR: c:@U@TemplateUnion@F@TemplateUnion#
+-------------------------------------------
+
+Declaration: getValue
+Location: Line 66, Column 8
+Kind: CXXMethod
+Clang USR: c:@UP>1#T@TemplateUnion>#*t0.0@F@getValue#1
+Armor NSR: c:@U@TemplateUnion@F@getValue#
+-------------------------------------------
+
+Declaration: setValue
+Location: Line 67, Column 10
+Kind: CXXMethod
+Clang USR: c:@UP>1#T@TemplateUnion>#*t0.0@F@setValue#S0_#
+Armor NSR: c:@U@TemplateUnion@F@setValue#
+-------------------------------------------
+
+Declaration: getAddress
+Location: Line 69, Column 15
+Kind: CXXMethod
+Clang USR: c:@UP>1#T@TemplateUnion>#*t0.0@F@getAddress#1
+Armor NSR: c:@U@TemplateUnion@F@getAddress#
+-------------------------------------------
+
+Declaration: TemplateUnion
+Location: Line 74, Column 7
+Kind: ClassTemplateSpecialization
+Clang USR: c:@U@TemplateUnion>#b
+Armor NSR: c:@U@TemplateUnion
+-------------------------------------------
+
+Declaration: value
+Location: Line 75, Column 10
+Kind: Field
+Clang USR: c:@U@TemplateUnion>#b@FI@value
+Armor NSR: c:@U@TemplateUnion@FI@value
+-------------------------------------------
+
+Declaration: charRep
+Location: Line 76, Column 10
+Kind: Field
+Clang USR: c:@U@TemplateUnion>#b@FI@charRep
+Armor NSR: c:@U@TemplateUnion@FI@charRep
+-------------------------------------------
+
+Declaration: TemplateUnion
+Location: Line 78, Column 5
+Kind: CXXConstructor
+Clang USR: c:@U@TemplateUnion>#b@F@TemplateUnion#
+Armor NSR: c:@U@TemplateUnion@F@TemplateUnion#
+-------------------------------------------
+
+Declaration: TemplateUnion
+Location: Line 79, Column 14
+Kind: CXXConstructor
+Clang USR: c:@U@TemplateUnion>#b@F@TemplateUnion#b#
+Armor NSR: c:@U@TemplateUnion@F@TemplateUnion#
+-------------------------------------------
+
+Declaration: getValue
+Location: Line 81, Column 10
+Kind: CXXMethod
+Clang USR: c:@U@TemplateUnion>#b@F@getValue#1
+Armor NSR: c:@U@TemplateUnion@F@getValue#
+-------------------------------------------
+
+Declaration: setValue
+Location: Line 82, Column 10
+Kind: CXXMethod
+Clang USR: c:@U@TemplateUnion>#b@F@setValue#b#
+Armor NSR: c:@U@TemplateUnion@F@setValue#
+-------------------------------------------
+
+Declaration: getCharRep
+Location: Line 84, Column 10
+Kind: CXXMethod
+Clang USR: c:@U@TemplateUnion>#b@F@getCharRep#1
+Armor NSR: c:@U@TemplateUnion@F@getCharRep#
+-------------------------------------------
+
