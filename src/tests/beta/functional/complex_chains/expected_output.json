@@ -1,0 +1,84 @@
+[
+    {
+        "children": [
+            {
+                "dataType": "unsigned int",
+                "nodeType": "Enumerator",
+                "qualifiedName": "StatusCode::STATUS_OK"
+            },
+            {
+                "dataType": "unsigned int",
+                "nodeType": "Enumerator",
+                "qualifiedName": "StatusCode::STATUS_FAIL"
+            },
+            {
+                "dataType": "unsigned int",
+                "nodeType": "Enumerator",
+                "qualifiedName": "StatusCode::STATUS_PENDING"
+            }
+        ],
+        "nodeType": "Enum",
+        "qualifiedName": "StatusCode",
+        "tag": "removed"
+    },
+    {
+        "children": [
+            {
+                "dataType": "StatusCode",
+                "nodeType": "Typedef",
+                "qualifiedName": "StatusCode",
+                "tag": "removed"
+            },
+            {
+                "dataType": "enum StatusCodeEnum",
+                "nodeType": "Typedef",
+                "qualifiedName": "StatusCode",
+                "tag": "added"
+            }
+        ],
+        "nodeType": "Typedef",
+        "qualifiedName": "StatusCode",
+        "tag": "modified"
+    },
+    {
+        "children": [
+            {
+                "dataType": "short",
+                "nodeType": "Typedef",
+                "qualifiedName": "size_base_t",
+                "tag": "removed"
+            },
+            {
+                "dataType": "int",
+                "nodeType": "Typedef",
+                "qualifiedName": "size_base_t",
+                "tag": "added"
+            }
+        ],
+        "nodeType": "Typedef",
+        "qualifiedName": "size_base_t",
+        "tag": "modified"
+    },
+    {
+        "children": [
+            {
+                "dataType": "unsigned int",
+                "nodeType": "Enumerator",
+                "qualifiedName": "StatusCodeEnum::STATUS_OK"
+            },
+            {
+                "dataType": "unsigned int",
+                "nodeType": "Enumerator",
+                "qualifiedName": "StatusCodeEnum::STATUS_FAIL"
+            },
+            {
+                "dataType": "unsigned int",
+                "nodeType": "Enumerator",
+                "qualifiedName": "StatusCodeEnum::STATUS_PENDING"
+            }
+        ],
+        "nodeType": "Enum",
+        "qualifiedName": "StatusCodeEnum",
+        "tag": "added"
+    }
+]

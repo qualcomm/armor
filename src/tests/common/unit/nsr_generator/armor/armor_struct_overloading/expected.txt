@@ -1,0 +1,1022 @@
+Declaration: TemplateStruct
+Location: Line 8, Column 29
+Kind: ClassTemplate
+Clang USR: c:@ST>1#T@TemplateStruct
+Armor NSR: c:@S@TemplateStruct
+-------------------------------------------
+
+Declaration: TemplateStruct
+Location: Line 8, Column 29
+Kind: CXXRecord
+Clang USR: c:@ST>1#T@TemplateStruct
+Armor NSR: c:@S@TemplateStruct
+-------------------------------------------
+
+Declaration: TemplateStructFriend
+Location: Line 9, Column 29
+Kind: ClassTemplate
+Clang USR: c:@ST>1#T@TemplateStructFriend
+Armor NSR: c:@S@TemplateStructFriend
+-------------------------------------------
+
+Declaration: TemplateStructFriend
+Location: Line 9, Column 29
+Kind: CXXRecord
+Clang USR: c:@ST>1#T@TemplateStructFriend
+Armor NSR: c:@S@TemplateStructFriend
+-------------------------------------------
+
+Declaration: TemplateStruct
+Location: Line 13, Column 8
+Kind: ClassTemplate
+Clang USR: c:@ST>1#T@TemplateStruct
+Armor NSR: c:@S@TemplateStruct
+-------------------------------------------
+
+Declaration: TemplateStruct
+Location: Line 13, Column 8
+Kind: CXXRecord
+Clang USR: c:@ST>1#T@TemplateStruct
+Armor NSR: c:@S@TemplateStruct
+-------------------------------------------
+
+Declaration: value
+Location: Line 14, Column 7
+Kind: Field
+Clang USR: c:@ST>1#T@TemplateStruct@FI@value
+Armor NSR: c:@S@TemplateStruct@FI@value
+-------------------------------------------
+
+Declaration: TemplateStruct<T>
+Location: Line 17, Column 5
+Kind: CXXConstructor
+Clang USR: c:@ST>1#T@TemplateStruct@F@TemplateStruct#
+Armor NSR: c:@S@TemplateStruct@F@TemplateStruct#
+-------------------------------------------
+
+Declaration: TemplateStruct<T>
+Location: Line 18, Column 14
+Kind: CXXConstructor
+Clang USR: c:@ST>1#T@TemplateStruct@F@TemplateStruct#t0.0#
+Armor NSR: c:@S@TemplateStruct@F@TemplateStruct#
+-------------------------------------------
+
+Declaration: set
+Location: Line 21, Column 10
+Kind: CXXMethod
+Clang USR: c:@ST>1#T@TemplateStruct@F@set#t0.0#
+Armor NSR: c:@S@TemplateStruct@F@set#
+-------------------------------------------
+
+Declaration: get
+Location: Line 23, Column 7
+Kind: CXXMethod
+Clang USR: c:@ST>1#T@TemplateStruct@F@get#1
+Armor NSR: c:@S@TemplateStruct@F@get#
+-------------------------------------------
+
+Declaration: Friend
+Location: Line 26, Column 12
+Kind: Friend
+Clang USR: c:
+Armor NSR: c:@S@TemplateStructFriend(F)
+-------------------------------------------
+
+Declaration: TemplateStruct
+Location: Line 31, Column 8
+Kind: ClassTemplatePartialSpecialization
+Clang USR: c:@SP>1#T@TemplateStruct>#*t0.0
+Armor NSR: c:@S@TemplateStruct
+-------------------------------------------
+
+Declaration: value
+Location: Line 32, Column 8
+Kind: Field
+Clang USR: c:@SP>1#T@TemplateStruct>#*t0.0@FI@value
+Armor NSR: c:@S@TemplateStruct@FI@value
+-------------------------------------------
+
+Declaration: ownsPointer
+Location: Line 33, Column 10
+Kind: Field
+Clang USR: c:@SP>1#T@TemplateStruct>#*t0.0@FI@ownsPointer
+Armor NSR: c:@S@TemplateStruct@FI@ownsPointer
+-------------------------------------------
+
+Declaration: TemplateStruct<type-parameter-0-0 *>
+Location: Line 36, Column 5
+Kind: CXXConstructor
+Clang USR: c:@SP>1#T@TemplateStruct>#*t0.0@F@TemplateStruct#
+Armor NSR: c:@S@TemplateStruct@F@TemplateStruct#
+-------------------------------------------
+
+Declaration: TemplateStruct<type-parameter-0-0 *>
+Location: Line 37, Column 14
+Kind: CXXConstructor
+Clang USR: c:@SP>1#T@TemplateStruct>#*t0.0@F@TemplateStruct#S0_#b#
+Armor NSR: c:@S@TemplateStruct@F@TemplateStruct#
+-------------------------------------------
+
+Declaration: ~TemplateStruct<type-parameter-0-0 *>
+Location: Line 40, Column 5
+Kind: CXXDestructor
+Clang USR: c:@SP>1#T@TemplateStruct>#*t0.0@F@~TemplateStruct#
+Armor NSR: c:@S@TemplateStruct@F@~TemplateStruct#
+-------------------------------------------
+
+Declaration: set
+Location: Line 43, Column 10
+Kind: CXXMethod
+Clang USR: c:@SP>1#T@TemplateStruct>#*t0.0@F@set#S0_#b#
+Armor NSR: c:@S@TemplateStruct@F@set#
+-------------------------------------------
+
+Declaration: get
+Location: Line 45, Column 8
+Kind: CXXMethod
+Clang USR: c:@SP>1#T@TemplateStruct>#*t0.0@F@get#1
+Armor NSR: c:@S@TemplateStruct@F@get#
+-------------------------------------------
+
+Declaration: Friend
+Location: Line 48, Column 12
+Kind: Friend
+Clang USR: c:
+Armor NSR: c:@S@TemplateStructFriend(F)
+-------------------------------------------
+
+Declaration: TemplateStruct
+Location: Line 53, Column 8
+Kind: ClassTemplateSpecialization
+Clang USR: c:@S@TemplateStruct>#I
+Armor NSR: c:@S@TemplateStruct
+-------------------------------------------
+
+Declaration: value
+Location: Line 54, Column 9
+Kind: Field
+Clang USR: c:@S@TemplateStruct>#I@FI@value
+Armor NSR: c:@S@TemplateStruct@FI@value
+-------------------------------------------
+
+Declaration: TemplateStruct
+Location: Line 56, Column 5
+Kind: CXXConstructor
+Clang USR: c:@S@TemplateStruct>#I@F@TemplateStruct#
+Armor NSR: c:@S@TemplateStruct@F@TemplateStruct#
+-------------------------------------------
+
+Declaration: TemplateStruct
+Location: Line 57, Column 14
+Kind: CXXConstructor
+Clang USR: c:@S@TemplateStruct>#I@F@TemplateStruct#I#
+Armor NSR: c:@S@TemplateStruct@F@TemplateStruct#
+-------------------------------------------
+
+Declaration: set
+Location: Line 59, Column 10
+Kind: CXXMethod
+Clang USR: c:@S@TemplateStruct>#I@F@set#I#
+Armor NSR: c:@S@TemplateStruct@F@set#
+-------------------------------------------
+
+Declaration: isEven
+Location: Line 62, Column 10
+Kind: CXXMethod
+Clang USR: c:@S@TemplateStruct>#I@F@isEven#1
+Armor NSR: c:@S@TemplateStruct@F@isEven#
+-------------------------------------------
+
+Declaration: get
+Location: Line 64, Column 9
+Kind: CXXMethod
+Clang USR: c:@S@TemplateStruct>#I@F@get#1
+Armor NSR: c:@S@TemplateStruct@F@get#
+-------------------------------------------
+
+Declaration: Friend
+Location: Line 67, Column 12
+Kind: Friend
+Clang USR: c:
+Armor NSR: c:@S@TemplateStructFriend(F)
+-------------------------------------------
+
+Declaration: TemplateStructFriend
+Location: Line 72, Column 8
+Kind: ClassTemplate
+Clang USR: c:@ST>1#T@TemplateStructFriend
+Armor NSR: c:@S@TemplateStructFriend
+-------------------------------------------
+
+Declaration: TemplateStructFriend
+Location: Line 72, Column 8
+Kind: CXXRecord
+Clang USR: c:@ST>1#T@TemplateStructFriend
+Armor NSR: c:@S@TemplateStructFriend
+-------------------------------------------
+
+Declaration: inspect
+Location: Line 73, Column 10
+Kind: CXXMethod
+Clang USR: c:@ST>1#T@TemplateStructFriend@F@inspect#&1>@ST>1#T@TemplateStruct1t0.0#
+Armor NSR: c:@S@TemplateStructFriend@F@inspect#
+-------------------------------------------
+
+Declaration: VariadicStruct
+Location: Line 78, Column 8
+Kind: ClassTemplate
+Clang USR: c:@ST>1#pT@VariadicStruct
+Armor NSR: c:@S@VariadicStruct
+-------------------------------------------
+
+Declaration: VariadicStruct
+Location: Line 78, Column 8
+Kind: CXXRecord
+Clang USR: c:@ST>1#pT@VariadicStruct
+Armor NSR: c:@S@VariadicStruct
+-------------------------------------------
+
+Declaration: data
+Location: Line 79, Column 23
+Kind: Field
+Clang USR: c:@ST>1#pT@VariadicStruct@FI@data
+Armor NSR: c:@S@VariadicStruct@FI@data
+-------------------------------------------
+
+Declaration: VariadicStruct<Ts...>
+Location: Line 81, Column 5
+Kind: CXXConstructor
+Clang USR: c:@ST>1#pT@VariadicStruct@F@VariadicStruct#Pt0.0#
+Armor NSR: c:@S@VariadicStruct@F@VariadicStruct#
+-------------------------------------------
+
+Declaration: get
+Location: Line 85, Column 10
+Kind: FunctionTemplate
+Clang USR: c:@ST>1#pT@VariadicStruct@FT@>1#Nlget# #1
+Armor NSR: c:@S@VariadicStruct@F@get#
+-------------------------------------------
+
+Declaration: get
+Location: Line 85, Column 10
+Kind: CXXMethod
+Clang USR: c:@ST>1#pT@VariadicStruct@FT@>1#Nlget# #1
+Armor NSR: c:@S@VariadicStruct@F@get#
+-------------------------------------------
+
+Declaration: contains
+Location: Line 88, Column 10
+Kind: FunctionTemplate
+Clang USR: c:@ST>1#pT@VariadicStruct@FT@>1#Tcontains#b#1
+Armor NSR: c:@S@VariadicStruct@F@contains#
+-------------------------------------------
+
+Declaration: contains
+Location: Line 88, Column 10
+Kind: CXXMethod
+Clang USR: c:@ST>1#pT@VariadicStruct@FT@>1#Tcontains#b#1
+Armor NSR: c:@S@VariadicStruct@F@contains#
+-------------------------------------------
+
+Declaration: dispatch
+Location: Line 98, Column 17
+Kind: FunctionTemplate
+Clang USR: c:@S@TagDispatcher@FT@>1#Tdispatch#t0.0# #S
+Armor NSR: c:@S@TagDispatcher@F@dispatch#
+-------------------------------------------
+
+Declaration: dispatch
+Location: Line 98, Column 17
+Kind: CXXMethod
+Clang USR: c:@S@TagDispatcher@FT@>1#Tdispatch#t0.0# #S
+Armor NSR: c:@S@TagDispatcher@F@dispatch#
+-------------------------------------------
+
+Declaration: process
+Location: Line 100, Column 17
+Kind: CXXMethod
+Clang USR: c:@S@TagDispatcher@F@process#I#$@S@IntTag#S
+Armor NSR: c:@S@TagDispatcher@F@process#
+-------------------------------------------
+
+Declaration: process
+Location: Line 102, Column 17
+Kind: CXXMethod
+Clang USR: c:@S@TagDispatcher@F@process#f#$@S@FloatTag#S
+Armor NSR: c:@S@TagDispatcher@F@process#
+-------------------------------------------
+
+Declaration: overloaded
+Location: Line 107, Column 8
+Kind: ClassTemplate
+Clang USR: c:@ST>1#pT@overloaded
+Armor NSR: c:@S@overloaded
+-------------------------------------------
+
+Declaration: overloaded
+Location: Line 107, Column 8
+Kind: CXXRecord
+Clang USR: c:@ST>1#pT@overloaded
+Armor NSR: c:@S@overloaded
+-------------------------------------------
+
+Declaration: operator()
+Location: Line 108, Column 15
+Kind: UnresolvedUsingValue
+Clang USR: c:armor_struct_overloading.cpp@ST>1#pT@overloaded@UUV@Ts::operator()
+Armor NSR: c:@S@overloaded@UUV@Ts::operator()
+-------------------------------------------
+
+Declaration: method
+Location: Line 113, Column 18
+Kind: CXXMethod
+Clang USR: c:@S@BaseVirtual@F@method#I#
+Armor NSR: c:@S@BaseVirtual@F@method#
+-------------------------------------------
+
+Declaration: method
+Location: Line 115, Column 18
+Kind: CXXMethod
+Clang USR: c:@S@BaseVirtual@F@method#d#
+Armor NSR: c:@S@BaseVirtual@F@method#
+-------------------------------------------
+
+Declaration: method
+Location: Line 117, Column 18
+Kind: CXXMethod
+Clang USR: c:@S@BaseVirtual@F@method#&1$@N@std@N@__cxx11@S@basic_string>#C#$@N@std@S@char_traits>#C#$@N@std@S@allocator>#C#
+Armor NSR: c:@S@BaseVirtual@F@method#
+-------------------------------------------
+
+Declaration: method
+Location: Line 123, Column 10
+Kind: CXXMethod
+Clang USR: c:@S@DerivedVirtual@F@method#I#
+Armor NSR: c:@S@DerivedVirtual@F@method#
+-------------------------------------------
+
+Declaration: method
+Location: Line 125, Column 10
+Kind: CXXMethod
+Clang USR: c:@S@DerivedVirtual@F@method#d#
+Armor NSR: c:@S@DerivedVirtual@F@method#
+-------------------------------------------
+
+Declaration: method
+Location: Line 128, Column 10
+Kind: CXXMethod
+Clang USR: c:@S@DerivedVirtual@F@method#b#
+Armor NSR: c:@S@DerivedVirtual@F@method#
+-------------------------------------------
+
+Declaration: ValueType
+Location: Line 133, Column 11
+Kind: TypeAlias
+Clang USR: c:@S@DirectStorage@ValueType
+Armor NSR: c:@S@DirectStorage@T@ValueType
+-------------------------------------------
+
+Declaration: StorageType
+Location: Line 134, Column 11
+Kind: TypeAlias
+Clang USR: c:@S@DirectStorage@StorageType
+Armor NSR: c:@S@DirectStorage@T@StorageType
+-------------------------------------------
+
+Declaration: store
+Location: Line 136, Column 17
+Kind: CXXMethod
+Clang USR: c:@S@DirectStorage@F@store#&I#&1I#S
+Armor NSR: c:@S@DirectStorage@F@store#
+-------------------------------------------
+
+Declaration: retrieve
+Location: Line 138, Column 22
+Kind: CXXMethod
+Clang USR: c:@S@DirectStorage@F@retrieve#&1I#S
+Armor NSR: c:@S@DirectStorage@F@retrieve#
+-------------------------------------------
+
+Declaration: ValueType
+Location: Line 144, Column 11
+Kind: TypeAlias
+Clang USR: c:@S@PointerStorage@ValueType
+Armor NSR: c:@S@PointerStorage@T@ValueType
+-------------------------------------------
+
+Declaration: StorageType
+Location: Line 145, Column 11
+Kind: TypeAlias
+Clang USR: c:@S@PointerStorage@StorageType
+Armor NSR: c:@S@PointerStorage@T@StorageType
+-------------------------------------------
+
+Declaration: store
+Location: Line 147, Column 17
+Kind: CXXMethod
+Clang USR: c:@S@PointerStorage@F@store#&$@N@std@S@unique_ptr>#I#$@N@std@S@default_delete>#I#&1I#S
+Armor NSR: c:@S@PointerStorage@F@store#
+-------------------------------------------
+
+Declaration: retrieve
+Location: Line 151, Column 22
+Kind: CXXMethod
+Clang USR: c:@S@PointerStorage@F@retrieve#&1$@N@std@S@unique_ptr>#I#$@N@std@S@default_delete>#I#S
+Armor NSR: c:@S@PointerStorage@F@retrieve#
+-------------------------------------------
+
+Declaration: Factorial
+Location: Line 158, Column 8
+Kind: ClassTemplate
+Clang USR: c:@ST>1#Ni@Factorial
+Armor NSR: c:@S@Factorial
+-------------------------------------------
+
+Declaration: Factorial
+Location: Line 158, Column 8
+Kind: CXXRecord
+Clang USR: c:@ST>1#Ni@Factorial
+Armor NSR: c:@S@Factorial
+-------------------------------------------
+
+Declaration: value
+Location: Line 159, Column 31
+Kind: Var
+Clang USR: c:@ST>1#Ni@Factorial@value
+Armor NSR: c:@S@Factorial@FI@value
+-------------------------------------------
+
+Declaration: Factorial
+Location: Line 163, Column 8
+Kind: ClassTemplateSpecialization
+Clang USR: c:@S@Factorial>#Vi0
+Armor NSR: c:@S@Factorial
+-------------------------------------------
+
+Declaration: value
+Location: Line 164, Column 31
+Kind: Var
+Clang USR: c:@S@Factorial>#Vi0@value
+Armor NSR: c:@S@Factorial@FI@value
+-------------------------------------------
+
+Declaration: FixedArray
+Location: Line 169, Column 8
+Kind: ClassTemplate
+Clang USR: c:@ST>2#T#Nl@FixedArray
+Armor NSR: c:@S@FixedArray
+-------------------------------------------
+
+Declaration: FixedArray
+Location: Line 169, Column 8
+Kind: CXXRecord
+Clang USR: c:@ST>2#T#Nl@FixedArray
+Armor NSR: c:@S@FixedArray
+-------------------------------------------
+
+Declaration: data
+Location: Line 170, Column 7
+Kind: Field
+Clang USR: c:@ST>2#T#Nl@FixedArray@FI@data
+Armor NSR: c:@S@FixedArray@FI@data
+-------------------------------------------
+
+Declaration: FixedArray<T, Size>
+Location: Line 173, Column 5
+Kind: CXXConstructor
+Clang USR: c:@ST>2#T#Nl@FixedArray@F@FixedArray#
+Armor NSR: c:@S@FixedArray@F@FixedArray#
+-------------------------------------------
+
+Declaration: FixedArray<T, Size>
+Location: Line 175, Column 14
+Kind: CXXConstructor
+Clang USR: c:@ST>2#T#Nl@FixedArray@F@FixedArray#&1t0.0#
+Armor NSR: c:@S@FixedArray@F@FixedArray#
+-------------------------------------------
+
+Declaration: FixedArray
+Location: Line 180, Column 8
+Kind: ClassTemplatePartialSpecialization
+Clang USR: c:@SP>1#Nl@FixedArray>#b#
+Armor NSR: c:@S@FixedArray
+-------------------------------------------
+
+Declaration: FixedArray<bool, Size>
+Location: Line 182, Column 5
+Kind: CXXConstructor
+Clang USR: c:@SP>1#Nl@FixedArray>#b#@F@FixedArray#
+Armor NSR: c:@S@FixedArray@F@FixedArray#
+-------------------------------------------
+
+Declaration: FixedArray<bool, Size>
+Location: Line 184, Column 14
+Kind: CXXConstructor
+Clang USR: c:@SP>1#Nl@FixedArray>#b#@F@FixedArray#b#
+Armor NSR: c:@S@FixedArray@F@FixedArray#
+-------------------------------------------
+
+Declaration: operator[]
+Location: Line 187, Column 9
+Kind: CXXMethod
+Clang USR: c:@SP>1#Nl@FixedArray>#b#@F@operator[]#l#
+Armor NSR: c:@S@FixedArray@F@operator[]#
+-------------------------------------------
+
+Declaration: operator[]
+Location: Line 188, Column 10
+Kind: CXXMethod
+Clang USR: c:@SP>1#Nl@FixedArray>#b#@F@operator[]#l#1
+Armor NSR: c:@S@FixedArray@F@operator[]#
+-------------------------------------------
+
+Declaration: NestedContainer
+Location: Line 193, Column 8
+Kind: ClassTemplate
+Clang USR: c:@ST>2#T#Nl@NestedContainer
+Armor NSR: c:@S@NestedContainer
+-------------------------------------------
+
+Declaration: NestedContainer
+Location: Line 193, Column 8
+Kind: CXXRecord
+Clang USR: c:@ST>2#T#Nl@NestedContainer
+Armor NSR: c:@S@NestedContainer
+-------------------------------------------
+
+Declaration: type
+Location: Line 194, Column 11
+Kind: TypeAlias
+Clang USR: c:@ST>2#T#Nl@NestedContainer@type
+Armor NSR: c:@S@NestedContainer@T@type
+-------------------------------------------
+
+Declaration: NestedContainer
+Location: Line 198, Column 8
+Kind: ClassTemplatePartialSpecialization
+Clang USR: c:@SP>1#T@NestedContainer>#t0.0#Vl0
+Armor NSR: c:@S@NestedContainer
+-------------------------------------------
+
+Declaration: type
+Location: Line 199, Column 11
+Kind: TypeAlias
+Clang USR: c:@SP>1#T@NestedContainer>#t0.0#Vl0@type
+Armor NSR: c:@S@NestedContainer@T@type
+-------------------------------------------
+
+Declaration: ExplicitControl
+Location: Line 204, Column 8
+Kind: ClassTemplate
+Clang USR: c:@ST>1#T@ExplicitControl
+Armor NSR: c:@S@ExplicitControl
+-------------------------------------------
+
+Declaration: ExplicitControl
+Location: Line 204, Column 8
+Kind: CXXRecord
+Clang USR: c:@ST>1#T@ExplicitControl
+Armor NSR: c:@S@ExplicitControl
+-------------------------------------------
+
+Declaration: value
+Location: Line 205, Column 7
+Kind: Field
+Clang USR: c:@ST>1#T@ExplicitControl@FI@value
+Armor NSR: c:@S@ExplicitControl@FI@value
+-------------------------------------------
+
+Declaration: ExplicitControl<T>
+Location: Line 207, Column 14
+Kind: CXXConstructor
+Clang USR: c:@ST>1#T@ExplicitControl@F@ExplicitControl#t0.0#
+Armor NSR: c:@S@ExplicitControl@F@ExplicitControl#
+-------------------------------------------
+
+Declaration: display
+Location: Line 209, Column 10
+Kind: CXXMethod
+Clang USR: c:@ST>1#T@ExplicitControl@F@display#1
+Armor NSR: c:@S@ExplicitControl@F@display#
+-------------------------------------------
+
+Declaration: WithFriendTemplates
+Location: Line 215, Column 8
+Kind: ClassTemplate
+Clang USR: c:@ST>1#T@WithFriendTemplates
+Armor NSR: c:@S@WithFriendTemplates
+-------------------------------------------
+
+Declaration: WithFriendTemplates
+Location: Line 215, Column 8
+Kind: CXXRecord
+Clang USR: c:@ST>1#T@WithFriendTemplates
+Armor NSR: c:@S@WithFriendTemplates
+-------------------------------------------
+
+Declaration: value
+Location: Line 216, Column 7
+Kind: Field
+Clang USR: c:@ST>1#T@WithFriendTemplates@FI@value
+Armor NSR: c:@S@WithFriendTemplates@FI@value
+-------------------------------------------
+
+Declaration: WithFriendTemplates<T>
+Location: Line 218, Column 5
+Kind: CXXConstructor
+Clang USR: c:@ST>1#T@WithFriendTemplates@F@WithFriendTemplates#t0.0#
+Armor NSR: c:@S@WithFriendTemplates@F@WithFriendTemplates#
+-------------------------------------------
+
+Declaration: Friend
+Location: Line 223, Column 35
+Kind: Friend
+Clang USR: c:
+Armor NSR: c:@F@transform#(F)
+-------------------------------------------
+
+Declaration: transform
+Location: Line 223, Column 35
+Kind: FunctionTemplate
+Clang USR: c:@FT@>1#Ttransform#&1>@ST>1#T@WithFriendTemplates1t1.0#*FS2_(#S2_)#S1_#
+Armor NSR: c:@F@transform#
+-------------------------------------------
+
+Declaration: transform
+Location: Line 223, Column 35
+Kind: Function
+Clang USR: c:@FT@>1#Ttransform#&1>@ST>1#T@WithFriendTemplates1t1.0#*FS2_(#S2_)#S1_#
+Armor NSR: c:@F@transform#
+-------------------------------------------
+
+Declaration: StaticSpecialization
+Location: Line 228, Column 8
+Kind: ClassTemplate
+Clang USR: c:@ST>1#T@StaticSpecialization
+Armor NSR: c:@S@StaticSpecialization
+-------------------------------------------
+
+Declaration: StaticSpecialization
+Location: Line 228, Column 8
+Kind: CXXRecord
+Clang USR: c:@ST>1#T@StaticSpecialization
+Armor NSR: c:@S@StaticSpecialization
+-------------------------------------------
+
+Declaration: defaultValue
+Location: Line 229, Column 14
+Kind: Var
+Clang USR: c:@ST>1#T@StaticSpecialization@defaultValue
+Armor NSR: c:@S@StaticSpecialization@FI@defaultValue
+-------------------------------------------
+
+Declaration: getDefault
+Location: Line 231, Column 14
+Kind: CXXMethod
+Clang USR: c:@ST>1#T@StaticSpecialization@F@getDefault#S
+Armor NSR: c:@S@StaticSpecialization@F@getDefault#
+-------------------------------------------
+
+Declaration: CustomTraits
+Location: Line 238, Column 8
+Kind: ClassTemplate
+Clang USR: c:@ST>1#T@CustomTraits
+Armor NSR: c:@S@CustomTraits
+-------------------------------------------
+
+Declaration: CustomTraits
+Location: Line 238, Column 8
+Kind: CXXRecord
+Clang USR: c:@ST>1#T@CustomTraits
+Armor NSR: c:@S@CustomTraits
+-------------------------------------------
+
+Declaration: is_custom
+Location: Line 239, Column 27
+Kind: Var
+Clang USR: c:@ST>1#T@CustomTraits@is_custom
+Armor NSR: c:@S@CustomTraits@FI@is_custom
+-------------------------------------------
+
+Declaration: size
+Location: Line 240, Column 29
+Kind: Var
+Clang USR: c:@ST>1#T@CustomTraits@size
+Armor NSR: c:@S@CustomTraits@FI@size
+-------------------------------------------
+
+Declaration: promoted_type
+Location: Line 241, Column 11
+Kind: TypeAlias
+Clang USR: c:@ST>1#T@CustomTraits@promoted_type
+Armor NSR: c:@S@CustomTraits@T@promoted_type
+-------------------------------------------
+
+Declaration: CustomTraits
+Location: Line 245, Column 8
+Kind: ClassTemplateSpecialization
+Clang USR: c:@S@CustomTraits>#C
+Armor NSR: c:@S@CustomTraits
+-------------------------------------------
+
+Declaration: is_custom
+Location: Line 246, Column 27
+Kind: Var
+Clang USR: c:@S@CustomTraits>#C@is_custom
+Armor NSR: c:@S@CustomTraits@FI@is_custom
+-------------------------------------------
+
+Declaration: size
+Location: Line 247, Column 29
+Kind: Var
+Clang USR: c:@S@CustomTraits>#C@size
+Armor NSR: c:@S@CustomTraits@FI@size
+-------------------------------------------
+
+Declaration: promoted_type
+Location: Line 248, Column 11
+Kind: TypeAlias
+Clang USR: c:@S@CustomTraits>#C@promoted_type
+Armor NSR: c:@S@CustomTraits@T@promoted_type
+-------------------------------------------
+
+Declaration: CustomTraits
+Location: Line 252, Column 8
+Kind: ClassTemplateSpecialization
+Clang USR: c:@S@CustomTraits>#f
+Armor NSR: c:@S@CustomTraits
+-------------------------------------------
+
+Declaration: is_custom
+Location: Line 253, Column 27
+Kind: Var
+Clang USR: c:@S@CustomTraits>#f@is_custom
+Armor NSR: c:@S@CustomTraits@FI@is_custom
+-------------------------------------------
+
+Declaration: size
+Location: Line 254, Column 29
+Kind: Var
+Clang USR: c:@S@CustomTraits>#f@size
+Armor NSR: c:@S@CustomTraits@FI@size
+-------------------------------------------
+
+Declaration: promoted_type
+Location: Line 255, Column 11
+Kind: TypeAlias
+Clang USR: c:@S@CustomTraits>#f@promoted_type
+Armor NSR: c:@S@CustomTraits@T@promoted_type
+-------------------------------------------
+
+Declaration: NestedTypes
+Location: Line 260, Column 8
+Kind: ClassTemplate
+Clang USR: c:@ST>1#T@NestedTypes
+Armor NSR: c:@S@NestedTypes
+-------------------------------------------
+
+Declaration: NestedTypes
+Location: Line 260, Column 8
+Kind: CXXRecord
+Clang USR: c:@ST>1#T@NestedTypes
+Armor NSR: c:@S@NestedTypes
+-------------------------------------------
+
+Declaration: Inner
+Location: Line 261, Column 12
+Kind: CXXRecord
+Clang USR: c:@ST>1#T@NestedTypes@S@Inner
+Armor NSR: c:@S@NestedTypes@S@Inner
+-------------------------------------------
+
+Declaration: value
+Location: Line 262, Column 11
+Kind: Field
+Clang USR: c:@ST>1#T@NestedTypes@S@Inner@FI@value
+Armor NSR: c:@S@NestedTypes@S@Inner@FI@value
+-------------------------------------------
+
+Declaration: InnerRef
+Location: Line 265, Column 11
+Kind: TypeAlias
+Clang USR: c:@ST>1#T@NestedTypes@InnerRef
+Armor NSR: c:@S@NestedTypes@T@InnerRef
+-------------------------------------------
+
+Declaration: ValueType
+Location: Line 266, Column 11
+Kind: TypeAlias
+Clang USR: c:@ST>1#T@NestedTypes@ValueType
+Armor NSR: c:@S@NestedTypes@T@ValueType
+-------------------------------------------
+
+Declaration: NestedTypes
+Location: Line 270, Column 8
+Kind: ClassTemplateSpecialization
+Clang USR: c:@S@NestedTypes>#b
+Armor NSR: c:@S@NestedTypes
+-------------------------------------------
+
+Declaration: Inner
+Location: Line 271, Column 12
+Kind: CXXRecord
+Clang USR: c:@S@NestedTypes>#b@S@Inner
+Armor NSR: c:@S@NestedTypes@S@Inner
+-------------------------------------------
+
+Declaration: value
+Location: Line 272, Column 14
+Kind: Field
+Clang USR: c:@S@NestedTypes>#b@S@Inner@FI@value
+Armor NSR: c:@S@NestedTypes@S@Inner@FI@value
+-------------------------------------------
+
+Declaration: count
+Location: Line 273, Column 16
+Kind: Field
+Clang USR: c:@S@NestedTypes>#b@S@Inner@FI@count
+Armor NSR: c:@S@NestedTypes@S@Inner@FI@count
+-------------------------------------------
+
+Declaration: InnerRef
+Location: Line 276, Column 11
+Kind: TypeAlias
+Clang USR: c:@S@NestedTypes>#b@InnerRef
+Armor NSR: c:@S@NestedTypes@T@InnerRef
+-------------------------------------------
+
+Declaration: ValueType
+Location: Line 277, Column 11
+Kind: TypeAlias
+Clang USR: c:@S@NestedTypes>#b@ValueType
+Armor NSR: c:@S@NestedTypes@T@ValueType
+-------------------------------------------
+
+Declaration: 
+Location: Line 281, Column 1
+Kind: CXXRecord
+Clang USR: c:armor_struct_overloading.cpp@S@armor_struct_overloading.cpp@6267
+Armor NSR: c:@S@#vf#field
+-------------------------------------------
+
+Declaration: x
+Location: Line 281, Column 14
+Kind: Field
+Clang USR: c:armor_struct_overloading.cpp@S@armor_struct_overloading.cpp@6267@FI@x
+Armor NSR: c:@S@#vf#field@FI@x
+-------------------------------------------
+
+Declaration: field
+Location: Line 281, Column 38
+Kind: Var
+Clang USR: c:armor_struct_overloading.cpp@field
+Armor NSR: c:@field
+-------------------------------------------
+
+Declaration: 
+Location: Line 283, Column 1
+Kind: CXXRecord
+Clang USR: c:armor_struct_overloading.cpp@S@armor_struct_overloading.cpp@6322
+Armor NSR: c:@S@#vf#gamma
+-------------------------------------------
+
+Declaration: y
+Location: Line 283, Column 13
+Kind: Field
+Clang USR: c:armor_struct_overloading.cpp@S@armor_struct_overloading.cpp@6322@FI@y
+Armor NSR: c:@S@#vf#gamma@FI@y
+-------------------------------------------
+
+Declaration: gamma
+Location: Line 283, Column 21
+Kind: Var
+Clang USR: c:armor_struct_overloading.cpp@gamma
+Armor NSR: c:@gamma
+-------------------------------------------
+
+Declaration: 
+Location: Line 286, Column 1
+Kind: CXXRecord
+Clang USR: c:armor_struct_overloading.cpp@S@armor_struct_overloading.cpp@6372
+Armor NSR: c:@S@#vf#class_member_ptr
+-------------------------------------------
+
+Declaration: x
+Location: Line 286, Column 14
+Kind: Field
+Clang USR: c:armor_struct_overloading.cpp@S@armor_struct_overloading.cpp@6372@FI@x
+Armor NSR: c:@S@#vf#class_member_ptr@FI@x
+-------------------------------------------
+
+Declaration: class_member_ptr
+Location: Line 286, Column 32
+Kind: Var
+Clang USR: c:armor_struct_overloading.cpp@class_member_ptr
+Armor NSR: c:@class_member_ptr
+-------------------------------------------
+
+Declaration: 
+Location: Line 288, Column 1
+Kind: Enum
+Clang USR: c:@E@armor_struct_overloading.cpp@6422
+Armor NSR: c:@E@#vf#beta
+-------------------------------------------
+
+Declaration: I
+Location: Line 288, Column 8
+Kind: EnumConstant
+Clang USR: c:@E@armor_struct_overloading.cpp@6422@I
+Armor NSR: c:@E@#vf#beta@I
+-------------------------------------------
+
+Declaration: beta
+Location: Line 288, Column 35
+Kind: Var
+Clang USR: c:armor_struct_overloading.cpp@beta
+Armor NSR: c:@beta
+-------------------------------------------
+
+Declaration: 
+Location: Line 290, Column 1
+Kind: CXXRecord
+Clang USR: c:armor_struct_overloading.cpp@S@armor_struct_overloading.cpp@6473
+Armor NSR: c:@S@#vf#zeta
+-------------------------------------------
+
+Declaration: a
+Location: Line 291, Column 7
+Kind: Field
+Clang USR: c:armor_struct_overloading.cpp@S@armor_struct_overloading.cpp@6473@FI@a
+Armor NSR: c:@S@#vf#zeta@FI@a
+-------------------------------------------
+
+Declaration: zeta
+Location: Line 292, Column 3
+Kind: Var
+Clang USR: c:armor_struct_overloading.cpp@zeta
+Armor NSR: c:@zeta
+-------------------------------------------
+
+Declaration: 
+Location: Line 299, Column 9
+Kind: CXXRecord
+Clang USR: c:armor_struct_overloading.cpp@S@armor_struct_overloading.cpp@6550
+Armor NSR: c:@SA@alpha6
+-------------------------------------------
+
+Declaration: a
+Location: Line 300, Column 7
+Kind: Field
+Clang USR: c:armor_struct_overloading.cpp@S@armor_struct_overloading.cpp@6550@FI@a
+Armor NSR: c:@SA@alpha6@FI@a
+-------------------------------------------
+
+Declaration: b
+Location: Line 301, Column 7
+Kind: Field
+Clang USR: c:armor_struct_overloading.cpp@S@armor_struct_overloading.cpp@6550@FI@b
+Armor NSR: c:@SA@alpha6@FI@b
+-------------------------------------------
+
+Declaration: alpha6
+Location: Line 302, Column 23
+Kind: Typedef
+Clang USR: c:armor_struct_overloading.cpp@T@alpha6
+Armor NSR: c:@T@alpha6
+-------------------------------------------
+
+Declaration: ok
+Location: Line 304, Column 8
+Kind: Var
+Clang USR: c:armor_struct_overloading.cpp@ok
+Armor NSR: c:@ok
+-------------------------------------------
+
+Declaration: 
+Location: Line 306, Column 9
+Kind: Enum
+Clang USR: c:@E@armor_struct_overloading.cpp@6633
+Armor NSR: c:@EA@alpha7
+-------------------------------------------
+
+Declaration: a
+Location: Line 307, Column 3
+Kind: EnumConstant
+Clang USR: c:@E@armor_struct_overloading.cpp@6633@a
+Armor NSR: c:@EA@alpha7@a
+-------------------------------------------
+
+Declaration: b
+Location: Line 308, Column 3
+Kind: EnumConstant
+Clang USR: c:@E@armor_struct_overloading.cpp@6633@b
+Armor NSR: c:@EA@alpha7@b
+-------------------------------------------
+
+Declaration: alpha7
+Location: Line 309, Column 23
+Kind: Typedef
+Clang USR: c:armor_struct_overloading.cpp@T@alpha7
+Armor NSR: c:@T@alpha7
+-------------------------------------------
+

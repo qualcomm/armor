@@ -1,0 +1,196 @@
+Declaration: Container
+Location: Line 7, Column 7
+Kind: ClassTemplate
+Clang USR: c:@ST>1#T@Container
+Armor USR: c:@ST>1#T@Container
+-------------------------------------------
+
+Declaration: Container
+Location: Line 7, Column 7
+Kind: CXXRecord
+Clang USR: c:@ST>1#T@Container
+Armor USR: c:@ST>1#T@Container
+-------------------------------------------
+
+Declaration: data
+Location: Line 9, Column 7
+Kind: Field
+Clang USR: c:@ST>1#T@Container@FI@data
+Armor USR: c:@ST>1#T@Container@FI@data
+-------------------------------------------
+
+Declaration: Container<T>
+Location: Line 11, Column 5
+Kind: CXXConstructor
+Clang USR: c:@ST>1#T@Container@F@Container#t0.0#
+Armor USR: c:@ST>1#T@Container@F@Container#t0.0#
+-------------------------------------------
+
+Declaration: val
+Location: Line 11, Column 17
+Kind: ParmVar
+Clang USR: c:armor_cxx_records.cpp@174@ST>1#T@Container@F@Container#t0.0#@val
+Armor USR: c:armor_cxx_records.cpp@174@ST>1#T@Container@F@Container#t0.0#@val
+-------------------------------------------
+
+Declaration: print
+Location: Line 13, Column 10
+Kind: CXXMethod
+Clang USR: c:@ST>1#T@Container@F@print#
+Armor USR: c:@ST>1#T@Container@F@print#
+-------------------------------------------
+
+Declaration: getValue
+Location: Line 15, Column 7
+Kind: CXXMethod
+Clang USR: c:@ST>1#T@Container@F@getValue#1
+Armor USR: c:@ST>1#T@Container@F@getValue#1
+-------------------------------------------
+
+Declaration: Container
+Location: Line 19, Column 7
+Kind: ClassTemplateSpecialization
+Clang USR: c:@S@Container>#I
+Armor USR: c:@S@Container>#I
+-------------------------------------------
+
+Declaration: data
+Location: Line 21, Column 9
+Kind: Field
+Clang USR: c:@S@Container>#I@FI@data
+Armor USR: c:@S@Container>#I@FI@data
+-------------------------------------------
+
+Declaration: Container
+Location: Line 23, Column 5
+Kind: CXXConstructor
+Clang USR: c:@S@Container>#I@F@Container#I#
+Armor USR: c:@S@Container>#I@F@Container#I#
+-------------------------------------------
+
+Declaration: val
+Location: Line 23, Column 19
+Kind: ParmVar
+Clang USR: c:armor_cxx_records.cpp@313@S@Container>#I@F@Container#I#@val
+Armor USR: c:armor_cxx_records.cpp@313@S@Container>#I@F@Container#I#@val
+-------------------------------------------
+
+Declaration: print
+Location: Line 25, Column 10
+Kind: CXXMethod
+Clang USR: c:@S@Container>#I@F@print#
+Armor USR: c:@S@Container>#I@F@print#
+-------------------------------------------
+
+Declaration: getValue
+Location: Line 27, Column 9
+Kind: CXXMethod
+Clang USR: c:@S@Container>#I@F@getValue#1
+Armor USR: c:@S@Container>#I@F@getValue#1
+-------------------------------------------
+
+Declaration: isEven
+Location: Line 29, Column 10
+Kind: CXXMethod
+Clang USR: c:@S@Container>#I@F@isEven#1
+Armor USR: c:@S@Container>#I@F@isEven#1
+-------------------------------------------
+
+Declaration: Container
+Location: Line 34, Column 7
+Kind: ClassTemplateSpecialization
+Clang USR: c:@S@Container>#$@N@std@N@__cxx11@S@basic_string>#C#$@N@std@S@char_traits>#C#$@N@std@S@allocator>#C
+Armor USR: c:@S@Container>#$@N@std@N@__cxx11@S@basic_string>#C#$@N@std@S@char_traits>#C#$@N@std@S@allocator>#C
+-------------------------------------------
+
+Declaration: data
+Location: Line 36, Column 17
+Kind: Field
+Clang USR: c:@S@Container>#$@N@std@N@__cxx11@S@basic_string>#C#$@N@std@S@char_traits>#C#$@N@std@S@allocator>#C@FI@data
+Armor USR: c:@S@Container>#$@N@std@N@__cxx11@S@basic_string>#C#$@N@std@S@char_traits>#C#$@N@std@S@allocator>#C@FI@data
+-------------------------------------------
+
+Declaration: Container
+Location: Line 38, Column 5
+Kind: CXXConstructor
+Clang USR: c:@S@Container>#$@N@std@N@__cxx11@S@basic_string>#C#$@N@std@S@char_traits>#C#$@N@std@S@allocator>#C@F@Container#S0_#
+Armor USR: c:@S@Container>#$@N@std@N@__cxx11@S@basic_string>#C#$@N@std@S@char_traits>#C#$@N@std@S@allocator>#C@F@Container#S0_#
+-------------------------------------------
+
+Declaration: val
+Location: Line 38, Column 27
+Kind: ParmVar
+Clang USR: c:armor_cxx_records.cpp@545@S@Container>#$@N@std@N@__cxx11@S@basic_string>#C#$@N@std@S@char_traits>#C#$@N@std@S@allocator>#C@F@Container#S0_#@val
+Armor USR: c:armor_cxx_records.cpp@545@S@Container>#$@N@std@N@__cxx11@S@basic_string>#C#$@N@std@S@char_traits>#C#$@N@std@S@allocator>#C@F@Container#S0_#@val
+-------------------------------------------
+
+Declaration: print
+Location: Line 40, Column 10
+Kind: CXXMethod
+Clang USR: c:@S@Container>#$@N@std@N@__cxx11@S@basic_string>#C#$@N@std@S@char_traits>#C#$@N@std@S@allocator>#C@F@print#
+Armor USR: c:@S@Container>#$@N@std@N@__cxx11@S@basic_string>#C#$@N@std@S@char_traits>#C#$@N@std@S@allocator>#C@F@print#
+-------------------------------------------
+
+Declaration: getValue
+Location: Line 42, Column 17
+Kind: CXXMethod
+Clang USR: c:@S@Container>#$@N@std@N@__cxx11@S@basic_string>#C#$@N@std@S@char_traits>#C#$@N@std@S@allocator>#C@F@getValue#1
+Armor USR: c:@S@Container>#$@N@std@N@__cxx11@S@basic_string>#C#$@N@std@S@char_traits>#C#$@N@std@S@allocator>#C@F@getValue#1
+-------------------------------------------
+
+Declaration: length
+Location: Line 44, Column 9
+Kind: CXXMethod
+Clang USR: c:@S@Container>#$@N@std@N@__cxx11@S@basic_string>#C#$@N@std@S@char_traits>#C#$@N@std@S@allocator>#C@F@length#1
+Armor USR: c:@S@Container>#$@N@std@N@__cxx11@S@basic_string>#C#$@N@std@S@char_traits>#C#$@N@std@S@allocator>#C@F@length#1
+-------------------------------------------
+
+Declaration: Container
+Location: Line 49, Column 7
+Kind: ClassTemplatePartialSpecialization
+Clang USR: c:@SP>1#T@Container>#*t0.0
+Armor USR: c:@SP>1#T@Container>#*t0.0
+-------------------------------------------
+
+Declaration: data
+Location: Line 51, Column 8
+Kind: Field
+Clang USR: c:@SP>1#T@Container>#*t0.0@FI@data
+Armor USR: c:@SP>1#T@Container>#*t0.0@FI@data
+-------------------------------------------
+
+Declaration: Container<type-parameter-0-0 *>
+Location: Line 53, Column 5
+Kind: CXXConstructor
+Clang USR: c:@SP>1#T@Container>#*t0.0@F@Container#S0_#
+Armor USR: c:@SP>1#T@Container>#*t0.0@F@Container#S0_#
+-------------------------------------------
+
+Declaration: val
+Location: Line 53, Column 18
+Kind: ParmVar
+Clang USR: c:armor_cxx_records.cpp@785@SP>1#T@Container>#*t0.0@F@Container#S0_#@val
+Armor USR: c:armor_cxx_records.cpp@785@SP>1#T@Container>#*t0.0@F@Container#S0_#@val
+-------------------------------------------
+
+Declaration: print
+Location: Line 55, Column 10
+Kind: CXXMethod
+Clang USR: c:@SP>1#T@Container>#*t0.0@F@print#
+Armor USR: c:@SP>1#T@Container>#*t0.0@F@print#
+-------------------------------------------
+
+Declaration: getValue
+Location: Line 57, Column 8
+Kind: CXXMethod
+Clang USR: c:@SP>1#T@Container>#*t0.0@F@getValue#1
+Armor USR: c:@SP>1#T@Container>#*t0.0@F@getValue#1
+-------------------------------------------
+
+Declaration: dereference
+Location: Line 59, Column 8
+Kind: CXXMethod
+Clang USR: c:@SP>1#T@Container>#*t0.0@F@dereference#1
+Armor USR: c:@SP>1#T@Container>#*t0.0@F@dereference#1
+-------------------------------------------
+

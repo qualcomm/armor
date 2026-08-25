@@ -1,0 +1,105 @@
+Declaration: QType
+Location: Line 6, Column 15
+Kind: Typedef
+Clang USR: c:usrs.cpp@N@bar@T@QType
+Armor USR: c:@N@bar@T@QType
+-------------------------------------------
+
+Declaration: ClsC
+Location: Line 29, Column 9
+Kind: CXXRecord
+Clang USR: c:usrs.cpp@aN@S@ClsC
+Armor USR: c:@aN@S@ClsC
+-------------------------------------------
+
+Declaration: w
+Location: Line 30, Column 7
+Kind: Var
+Clang USR: c:usrs.cpp@aN@w
+Armor USR: c:@aN@w
+-------------------------------------------
+
+Declaration: add
+Location: Line 37, Column 21
+Kind: Function
+Clang USR: c:usrs.cpp@N@foo@N@taz@F@add#I#I#
+Armor USR: c:@N@foo@N@taz@F@add#I#I#
+-------------------------------------------
+
+Declaration: RDar9371763_Foo
+Location: Line 69, Column 7
+Kind: CXXRecord
+Clang USR: c:usrs.cpp@aN@S@RDar9371763_Foo
+Armor USR: c:@aN@S@RDar9371763_Foo
+-------------------------------------------
+
+Declaration: bar
+Location: Line 71, Column 8
+Kind: CXXMethod
+Clang USR: c:usrs.cpp@aN@S@RDar9371763_Foo@F@bar#
+Armor USR: c:@aN@S@RDar9371763_Foo@F@bar#
+-------------------------------------------
+
+Declaration: bar
+Location: Line 75, Column 23
+Kind: CXXMethod
+Clang USR: c:usrs.cpp@aN@S@RDar9371763_Foo@F@bar#
+Armor USR: c:@aN@S@RDar9371763_Foo@F@bar#
+-------------------------------------------
+
+Declaration: 
+Location: Line 91, Column 1
+Kind: CXXRecord
+Clang USR: c:usrs.cpp@S@usrs.cpp@1475
+Armor USR: c:@S@#vf#embedS1
+-------------------------------------------
+
+Declaration: x
+Location: Line 91, Column 14
+Kind: Field
+Clang USR: c:usrs.cpp@S@usrs.cpp@1475@FI@x
+Armor USR: c:@S@#vf#embedS1@FI@x
+-------------------------------------------
+
+Declaration: embedS1
+Location: Line 91, Column 19
+Kind: Var
+Clang USR: c:usrs.cpp@embedS1
+Armor USR: c:@embedS1
+-------------------------------------------
+
+Declaration: 
+Location: Line 92, Column 1
+Kind: CXXRecord
+Clang USR: c:usrs.cpp@S@usrs.cpp@1502
+Armor USR: c:@S@#vf#embedS2
+-------------------------------------------
+
+Declaration: x
+Location: Line 92, Column 14
+Kind: Field
+Clang USR: c:usrs.cpp@S@usrs.cpp@1502@FI@x
+Armor USR: c:@S@#vf#embedS2@FI@x
+-------------------------------------------
+
+Declaration: embedS2
+Location: Line 92, Column 19
+Kind: Var
+Clang USR: c:usrs.cpp@embedS2
+Armor USR: c:@embedS2
+-------------------------------------------
+
+Declaration: float3
+Location: Line 99, Column 55
+Kind: Typedef
+Clang USR: c:usrs.cpp@T@float3
+Armor USR: c:@T@float3
+-------------------------------------------
+
+Declaration: __m128
+Location: Line 101, Column 15
+Kind: Typedef
+Clang USR: c:usrs.cpp@T@__m128
+Armor USR: c:@T@__m128
+-------------------------------------------
+

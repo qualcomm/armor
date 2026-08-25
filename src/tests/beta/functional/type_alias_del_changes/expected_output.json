@@ -1,0 +1,872 @@
+{
+    "astDiff": [
+        {
+            "children": [
+                {
+                    "dataType": "int",
+                    "nodeType": "Typedef",
+                    "qualifiedName": "Int32",
+                    "tag": "removed"
+                },
+                {
+                    "dataType": "long",
+                    "nodeType": "Typedef",
+                    "qualifiedName": "Int32",
+                    "tag": "added"
+                }
+            ],
+            "nodeType": "Typedef",
+            "qualifiedName": "Int32",
+            "tag": "modified"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "float",
+                    "nodeType": "Typedef",
+                    "qualifiedName": "Float32",
+                    "tag": "removed"
+                },
+                {
+                    "dataType": "double",
+                    "nodeType": "Typedef",
+                    "qualifiedName": "Float32",
+                    "tag": "added"
+                }
+            ],
+            "nodeType": "Typedef",
+            "qualifiedName": "Float32",
+            "tag": "modified"
+        },
+        {
+            "dataType": "bool",
+            "nodeType": "Typedef",
+            "qualifiedName": "Bool",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "unsigned long long",
+                    "nodeType": "Typedef",
+                    "qualifiedName": "Size",
+                    "tag": "removed"
+                },
+                {
+                    "dataType": "unsigned int",
+                    "nodeType": "Typedef",
+                    "qualifiedName": "Size",
+                    "tag": "added"
+                }
+            ],
+            "nodeType": "Typedef",
+            "qualifiedName": "Size",
+            "tag": "modified"
+        },
+        {
+            "dataType": "UInt32",
+            "nodeType": "Typedef",
+            "qualifiedName": "Handle",
+            "tag": "removed"
+        },
+        {
+            "dataType": "Handle",
+            "nodeType": "Typedef",
+            "qualifiedName": "SubHandle",
+            "tag": "removed"
+        },
+        {
+            "dataType": "SubHandle",
+            "nodeType": "Typedef",
+            "qualifiedName": "Token",
+            "tag": "removed"
+        },
+        {
+            "dataType": "Int32 *",
+            "nodeType": "Typedef",
+            "qualifiedName": "Int32Ptr",
+            "tag": "removed"
+        },
+        {
+            "dataType": "Int32 &",
+            "nodeType": "Typedef",
+            "qualifiedName": "Int32Ref",
+            "tag": "removed"
+        },
+        {
+            "dataType": "ConstBytePtr",
+            "nodeType": "Typedef",
+            "qualifiedName": "ConstBuffer",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "class std::vector<float, class std::allocator<float>>",
+                    "nodeType": "Typedef",
+                    "qualifiedName": "FloatVec",
+                    "tag": "removed"
+                },
+                {
+                    "dataType": "class std::vector<double, class std::allocator<double>>",
+                    "nodeType": "Typedef",
+                    "qualifiedName": "FloatVec",
+                    "tag": "added"
+                }
+            ],
+            "nodeType": "Typedef",
+            "qualifiedName": "FloatVec",
+            "tag": "modified"
+        },
+        {
+            "dataType": "std::map<int, std::string>",
+            "nodeType": "Typedef",
+            "qualifiedName": "IntStringMap",
+            "tag": "removed"
+        },
+        {
+            "dataType": "std::unordered_map<int, int>",
+            "nodeType": "Typedef",
+            "qualifiedName": "IntIntUMap",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "class std::tuple<int, float, class std::basic_string<char, struct std::char_traits<char>, class std::allocator<char>>>",
+                    "nodeType": "Typedef",
+                    "qualifiedName": "MixedTuple",
+                    "tag": "removed"
+                },
+                {
+                    "dataType": "class std::tuple<int, double, class std::basic_string<char, struct std::char_traits<char>, class std::allocator<char>>>",
+                    "nodeType": "Typedef",
+                    "qualifiedName": "MixedTuple",
+                    "tag": "added"
+                }
+            ],
+            "nodeType": "Typedef",
+            "qualifiedName": "MixedTuple",
+            "tag": "modified"
+        },
+        {
+            "dataType": "std::array<int, 4>",
+            "nodeType": "Typedef",
+            "qualifiedName": "IntArr4",
+            "tag": "removed"
+        },
+        {
+            "dataType": "std::vector<Matrix>",
+            "nodeType": "Typedef",
+            "qualifiedName": "Cube",
+            "tag": "removed"
+        },
+        {
+            "dataType": "std::map<std::string, RecordSet>",
+            "nodeType": "Typedef",
+            "qualifiedName": "RecordIndex",
+            "tag": "removed"
+        },
+        {
+            "dataType": "IntPair",
+            "nodeType": "Typedef",
+            "qualifiedName": "Pair",
+            "tag": "removed"
+        },
+        {
+            "dataType": "std::vector<Pair>",
+            "nodeType": "Typedef",
+            "qualifiedName": "PairVec",
+            "tag": "removed"
+        },
+        {
+            "dataType": "std::map<int, Pair>",
+            "nodeType": "Typedef",
+            "qualifiedName": "PairMap",
+            "tag": "removed"
+        },
+        {
+            "dataType": "std::vector<std::vector<float>>",
+            "nodeType": "Typedef",
+            "qualifiedName": "VecOfVecFloat",
+            "tag": "removed"
+        },
+        {
+            "dataType": "std::map<std::string, std::map<std::string, int>>",
+            "nodeType": "Typedef",
+            "qualifiedName": "MapOfMapInt",
+            "tag": "removed"
+        },
+        {
+            "dataType": "std::vector<std::pair<int, std::string>>",
+            "nodeType": "Typedef",
+            "qualifiedName": "VecOfPair",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "class std::map<int, class std::tuple<int, float, class std::basic_string<char, struct std::char_traits<char>, class std::allocator<char>>>, struct std::less<int>, class std::allocator<struct std::pair<const int, class std::tuple<int, float, class std::basic_string<char, struct std::char_traits<char>, class std::allocator<char>>>>>>",
+                    "nodeType": "Typedef",
+                    "qualifiedName": "MapOfTuple",
+                    "tag": "removed"
+                },
+                {
+                    "dataType": "class std::map<int, class std::tuple<int, double, class std::basic_string<char, struct std::char_traits<char>, class std::allocator<char>>>, struct std::less<int>, class std::allocator<struct std::pair<const int, class std::tuple<int, double, class std::basic_string<char, struct std::char_traits<char>, class std::allocator<char>>>>>>",
+                    "nodeType": "Typedef",
+                    "qualifiedName": "MapOfTuple",
+                    "tag": "added"
+                }
+            ],
+            "nodeType": "Typedef",
+            "qualifiedName": "MapOfTuple",
+            "tag": "modified"
+        },
+        {
+            "dataType": "IntVec",
+            "nodeType": "Typedef",
+            "qualifiedName": "GridRow",
+            "tag": "removed"
+        },
+        {
+            "dataType": "std::map<int, SparseGrid>",
+            "nodeType": "Typedef",
+            "qualifiedName": "SparseGridIndex",
+            "tag": "removed"
+        },
+        {
+            "dataType": "std::unique_ptr<int>",
+            "nodeType": "Typedef",
+            "qualifiedName": "IntUnique",
+            "tag": "removed"
+        },
+        {
+            "dataType": "std::shared_ptr<void>",
+            "nodeType": "Typedef",
+            "qualifiedName": "VoidShared",
+            "tag": "removed"
+        },
+        {
+            "dataType": "std::map<int, SharedInt>",
+            "nodeType": "Typedef",
+            "qualifiedName": "SharedIntMap",
+            "tag": "removed"
+        },
+        {
+            "dataType": "std::function<int ()>",
+            "nodeType": "Typedef",
+            "qualifiedName": "IntFn",
+            "tag": "removed"
+        },
+        {
+            "dataType": "std::function<int (int, int)>",
+            "nodeType": "Typedef",
+            "qualifiedName": "IntIntIntFn",
+            "tag": "removed"
+        },
+        {
+            "dataType": "std::function<void (std::string)>",
+            "nodeType": "Typedef",
+            "qualifiedName": "VoidStrFn",
+            "tag": "removed"
+        },
+        {
+            "dataType": "std::function<Row (Row)>",
+            "nodeType": "Typedef",
+            "qualifiedName": "RowTransformFn",
+            "tag": "removed"
+        },
+        {
+            "dataType": "EventHandler",
+            "nodeType": "Typedef",
+            "qualifiedName": "SignalHandler",
+            "tag": "removed"
+        },
+        {
+            "dataType": "BoolIntFn",
+            "nodeType": "Typedef",
+            "qualifiedName": "Predicate",
+            "tag": "removed"
+        },
+        {
+            "dataType": "Predicate",
+            "nodeType": "Typedef",
+            "qualifiedName": "Filter",
+            "tag": "removed"
+        },
+        {
+            "dataType": "Transformer",
+            "nodeType": "Typedef",
+            "qualifiedName": "Mapper",
+            "tag": "removed"
+        },
+        {
+            "dataType": "Mapper",
+            "nodeType": "Typedef",
+            "qualifiedName": "Reducer",
+            "tag": "removed"
+        },
+        {
+            "dataType": "Dict<Handle, SubHandle>",
+            "nodeType": "Typedef",
+            "qualifiedName": "HandleMap",
+            "tag": "removed"
+        },
+        {
+            "dataType": "std::vector<Token>",
+            "nodeType": "Typedef",
+            "qualifiedName": "TokenSet",
+            "tag": "removed"
+        },
+        {
+            "dataType": "Ptr<Matrix>",
+            "nodeType": "Typedef",
+            "qualifiedName": "SharedMatrix",
+            "tag": "removed"
+        },
+        {
+            "dataType": "UniquePtr<Grid>",
+            "nodeType": "Typedef",
+            "qualifiedName": "UniqueGrid",
+            "tag": "removed"
+        },
+        {
+            "dataType": "Vec<SharedMatrix>",
+            "nodeType": "Typedef",
+            "qualifiedName": "SharedMatrixVec",
+            "tag": "removed"
+        },
+        {
+            "dataType": "Fn<Row (Row)>",
+            "nodeType": "Typedef",
+            "qualifiedName": "RowFn",
+            "tag": "removed"
+        },
+        {
+            "dataType": "Fn<Grid (Grid, Grid)>",
+            "nodeType": "Typedef",
+            "qualifiedName": "GridReducer",
+            "tag": "removed"
+        },
+        {
+            "dataType": "HashMap<std::string, EventHandler>",
+            "nodeType": "Typedef",
+            "qualifiedName": "HandlerRegistry",
+            "tag": "removed"
+        },
+        {
+            "dataType": "std::tuple<Index, Handle, Row>",
+            "nodeType": "Typedef",
+            "qualifiedName": "RecordTuple",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "class std::tuple<unsigned int, class std::shared_ptr<class std::vector<int, class std::allocator<int>>>, class std::function<void ()>>",
+                    "nodeType": "Typedef",
+                    "qualifiedName": "FullRecord",
+                    "tag": "removed"
+                },
+                {
+                    "dataType": "class std::tuple<unsigned long long, class std::shared_ptr<class std::vector<int, class std::allocator<int>>>, class std::function<void ()>>",
+                    "nodeType": "Typedef",
+                    "qualifiedName": "FullRecord",
+                    "tag": "added"
+                }
+            ],
+            "nodeType": "Typedef",
+            "qualifiedName": "FullRecord",
+            "tag": "modified"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "int",
+                    "nodeType": "Typedef",
+                    "qualifiedName": "L4",
+                    "tag": "removed"
+                },
+                {
+                    "dataType": "long",
+                    "nodeType": "Typedef",
+                    "qualifiedName": "L4",
+                    "tag": "added"
+                }
+            ],
+            "nodeType": "Typedef",
+            "qualifiedName": "L4",
+            "tag": "modified"
+        },
+        {
+            "dataType": "L5",
+            "nodeType": "Typedef",
+            "qualifiedName": "L6",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "class std::vector<int, class std::allocator<int>>",
+                    "nodeType": "Typedef",
+                    "qualifiedName": "C5",
+                    "tag": "removed"
+                },
+                {
+                    "dataType": "class std::deque<int, class std::allocator<int>>",
+                    "nodeType": "Typedef",
+                    "qualifiedName": "C5",
+                    "tag": "added"
+                }
+            ],
+            "nodeType": "Typedef",
+            "qualifiedName": "C5",
+            "tag": "modified"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "class std::function<void (int)>",
+                    "nodeType": "Typedef",
+                    "qualifiedName": "F3",
+                    "tag": "removed"
+                },
+                {
+                    "dataType": "class std::function<void (long)>",
+                    "nodeType": "Typedef",
+                    "qualifiedName": "F3",
+                    "tag": "added"
+                }
+            ],
+            "nodeType": "Typedef",
+            "qualifiedName": "F3",
+            "tag": "modified"
+        },
+        {
+            "dataType": "F4",
+            "nodeType": "Typedef",
+            "qualifiedName": "F5",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "class std::shared_ptr<int>",
+                    "nodeType": "Typedef",
+                    "qualifiedName": "S1",
+                    "tag": "removed"
+                },
+                {
+                    "dataType": "class std::shared_ptr<long>",
+                    "nodeType": "Typedef",
+                    "qualifiedName": "S1",
+                    "tag": "added"
+                }
+            ],
+            "nodeType": "Typedef",
+            "qualifiedName": "S1",
+            "tag": "modified"
+        },
+        {
+            "dataType": "S3",
+            "nodeType": "Typedef",
+            "qualifiedName": "S4",
+            "tag": "removed"
+        },
+        {
+            "dataType": "S4",
+            "nodeType": "Typedef",
+            "qualifiedName": "S5",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "unsigned int",
+                    "nodeType": "Typedef",
+                    "qualifiedName": "XBase",
+                    "tag": "removed"
+                },
+                {
+                    "dataType": "unsigned long long",
+                    "nodeType": "Typedef",
+                    "qualifiedName": "XBase",
+                    "tag": "added"
+                }
+            ],
+            "nodeType": "Typedef",
+            "qualifiedName": "XBase",
+            "tag": "modified"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "class std::function<class std::shared_ptr<class std::vector<unsigned int, class std::allocator<unsigned int>>> (unsigned int)>",
+                    "nodeType": "Typedef",
+                    "qualifiedName": "XFn",
+                    "tag": "removed"
+                },
+                {
+                    "dataType": "class std::function<bool (unsigned long long)>",
+                    "nodeType": "Typedef",
+                    "qualifiedName": "XFn",
+                    "tag": "added"
+                }
+            ],
+            "nodeType": "Typedef",
+            "qualifiedName": "XFn",
+            "tag": "modified"
+        },
+        {
+            "dataType": "XCallback",
+            "nodeType": "Typedef",
+            "qualifiedName": "XHandler",
+            "tag": "removed"
+        },
+        {
+            "dataType": "int",
+            "nodeType": "Typedef",
+            "qualifiedName": "NativeInt",
+            "tag": "added"
+        },
+        {
+            "dataType": "long",
+            "nodeType": "Typedef",
+            "qualifiedName": "NativeLong",
+            "tag": "added"
+        },
+        {
+            "dataType": "uint16_t",
+            "nodeType": "Typedef",
+            "qualifiedName": "Byte16",
+            "tag": "added"
+        },
+        {
+            "dataType": "Offset",
+            "nodeType": "Typedef",
+            "qualifiedName": "Stride",
+            "tag": "added"
+        },
+        {
+            "dataType": "UInt64",
+            "nodeType": "Typedef",
+            "qualifiedName": "NodeId",
+            "tag": "added"
+        },
+        {
+            "dataType": "NodeId",
+            "nodeType": "Typedef",
+            "qualifiedName": "EdgeId",
+            "tag": "added"
+        },
+        {
+            "dataType": "EdgeId",
+            "nodeType": "Typedef",
+            "qualifiedName": "GraphId",
+            "tag": "added"
+        },
+        {
+            "dataType": "Int64 *",
+            "nodeType": "Typedef",
+            "qualifiedName": "Int64Ptr",
+            "tag": "added"
+        },
+        {
+            "dataType": "Int64 &",
+            "nodeType": "Typedef",
+            "qualifiedName": "Int64Ref",
+            "tag": "added"
+        },
+        {
+            "dataType": "Byte &",
+            "nodeType": "Typedef",
+            "qualifiedName": "ByteRef",
+            "tag": "added"
+        },
+        {
+            "dataType": "ConstBytePtr",
+            "nodeType": "Typedef",
+            "qualifiedName": "SecureBuffer",
+            "tag": "added"
+        },
+        {
+            "dataType": "BytePtr",
+            "nodeType": "Typedef",
+            "qualifiedName": "MutableBuffer",
+            "tag": "added"
+        },
+        {
+            "dataType": "std::deque<int>",
+            "nodeType": "Typedef",
+            "qualifiedName": "IntDeque",
+            "tag": "added"
+        },
+        {
+            "dataType": "std::list<std::string>",
+            "nodeType": "Typedef",
+            "qualifiedName": "StringList",
+            "tag": "added"
+        },
+        {
+            "dataType": "std::set<int>",
+            "nodeType": "Typedef",
+            "qualifiedName": "IntSet",
+            "tag": "added"
+        },
+        {
+            "dataType": "std::unordered_set<std::string>",
+            "nodeType": "Typedef",
+            "qualifiedName": "StringUSet",
+            "tag": "added"
+        },
+        {
+            "dataType": "std::array<int, 8>",
+            "nodeType": "Typedef",
+            "qualifiedName": "IntArr8",
+            "tag": "added"
+        },
+        {
+            "dataType": "std::vector<Matrix>",
+            "nodeType": "Typedef",
+            "qualifiedName": "Tensor",
+            "tag": "added"
+        },
+        {
+            "dataType": "std::vector<Tensor>",
+            "nodeType": "Typedef",
+            "qualifiedName": "HyperTensor",
+            "tag": "added"
+        },
+        {
+            "dataType": "std::unordered_map<std::string, RecordSet>",
+            "nodeType": "Typedef",
+            "qualifiedName": "RecordMap",
+            "tag": "added"
+        },
+        {
+            "dataType": "std::pair<std::string, int>",
+            "nodeType": "Typedef",
+            "qualifiedName": "TaggedPair",
+            "tag": "added"
+        },
+        {
+            "dataType": "std::vector<TaggedPair>",
+            "nodeType": "Typedef",
+            "qualifiedName": "TaggedPairVec",
+            "tag": "added"
+        },
+        {
+            "dataType": "std::vector<std::vector<double>>",
+            "nodeType": "Typedef",
+            "qualifiedName": "VecOfVecDouble",
+            "tag": "added"
+        },
+        {
+            "dataType": "std::map<std::string, std::map<std::string, std::string>>",
+            "nodeType": "Typedef",
+            "qualifiedName": "MapOfMapStr",
+            "tag": "added"
+        },
+        {
+            "dataType": "std::vector<std::pair<std::string, std::string>>",
+            "nodeType": "Typedef",
+            "qualifiedName": "VecOfPairStrStr",
+            "tag": "added"
+        },
+        {
+            "dataType": "std::set<std::vector<int>>",
+            "nodeType": "Typedef",
+            "qualifiedName": "SetOfVecInt",
+            "tag": "added"
+        },
+        {
+            "dataType": "std::unordered_map<int, std::set<std::string>>",
+            "nodeType": "Typedef",
+            "qualifiedName": "UMapOfSet",
+            "tag": "added"
+        },
+        {
+            "dataType": "std::vector<int>",
+            "nodeType": "Typedef",
+            "qualifiedName": "GridCol",
+            "tag": "added"
+        },
+        {
+            "dataType": "std::unordered_map<int, SparseGrid>",
+            "nodeType": "Typedef",
+            "qualifiedName": "SparseGridMap",
+            "tag": "added"
+        },
+        {
+            "dataType": "std::shared_ptr<Int64>",
+            "nodeType": "Typedef",
+            "qualifiedName": "Int64Shared",
+            "tag": "added"
+        },
+        {
+            "dataType": "std::unique_ptr<Int64>",
+            "nodeType": "Typedef",
+            "qualifiedName": "Int64Unique",
+            "tag": "added"
+        },
+        {
+            "dataType": "std::shared_ptr<float>",
+            "nodeType": "Typedef",
+            "qualifiedName": "FloatShared",
+            "tag": "added"
+        },
+        {
+            "dataType": "std::unordered_map<int, SharedInt>",
+            "nodeType": "Typedef",
+            "qualifiedName": "SharedIntUMap",
+            "tag": "added"
+        },
+        {
+            "dataType": "std::vector<IntWeak>",
+            "nodeType": "Typedef",
+            "qualifiedName": "WeakIntVec",
+            "tag": "added"
+        },
+        {
+            "dataType": "std::function<long ()>",
+            "nodeType": "Typedef",
+            "qualifiedName": "LongFn",
+            "tag": "added"
+        },
+        {
+            "dataType": "std::function<bool (std::string)>",
+            "nodeType": "Typedef",
+            "qualifiedName": "BoolStrFn",
+            "tag": "added"
+        },
+        {
+            "dataType": "std::function<void (void *)>",
+            "nodeType": "Typedef",
+            "qualifiedName": "VoidVoidPtrFn",
+            "tag": "added"
+        },
+        {
+            "dataType": "std::function<Tensor (Tensor)>",
+            "nodeType": "Typedef",
+            "qualifiedName": "TensorFn",
+            "tag": "added"
+        },
+        {
+            "dataType": "std::function<NodeId (NodeId)>",
+            "nodeType": "Typedef",
+            "qualifiedName": "NodeFn",
+            "tag": "added"
+        },
+        {
+            "dataType": "EventHandler",
+            "nodeType": "Typedef",
+            "qualifiedName": "Listener",
+            "tag": "added"
+        },
+        {
+            "dataType": "Listener",
+            "nodeType": "Typedef",
+            "qualifiedName": "Observer",
+            "tag": "added"
+        },
+        {
+            "dataType": "BoolIntFn",
+            "nodeType": "Typedef",
+            "qualifiedName": "Condition",
+            "tag": "added"
+        },
+        {
+            "dataType": "Condition",
+            "nodeType": "Typedef",
+            "qualifiedName": "Guard",
+            "tag": "added"
+        },
+        {
+            "dataType": "Transformer",
+            "nodeType": "Typedef",
+            "qualifiedName": "Converter",
+            "tag": "added"
+        },
+        {
+            "dataType": "Converter",
+            "nodeType": "Typedef",
+            "qualifiedName": "Processor",
+            "tag": "added"
+        },
+        {
+            "dataType": "Dict<NodeId, EdgeId>",
+            "nodeType": "Typedef",
+            "qualifiedName": "NodeMap",
+            "tag": "added"
+        },
+        {
+            "dataType": "std::vector<GraphId>",
+            "nodeType": "Typedef",
+            "qualifiedName": "GraphIdVec",
+            "tag": "added"
+        },
+        {
+            "dataType": "Ptr<Tensor>",
+            "nodeType": "Typedef",
+            "qualifiedName": "SharedTensor",
+            "tag": "added"
+        },
+        {
+            "dataType": "UniquePtr<Matrix>",
+            "nodeType": "Typedef",
+            "qualifiedName": "UniqueMatrix",
+            "tag": "added"
+        },
+        {
+            "dataType": "Vec<SharedTensor>",
+            "nodeType": "Typedef",
+            "qualifiedName": "SharedTensorVec",
+            "tag": "added"
+        },
+        {
+            "dataType": "Vec<WeakPtr<Row>>",
+            "nodeType": "Typedef",
+            "qualifiedName": "WeakRowVec",
+            "tag": "added"
+        },
+        {
+            "dataType": "Fn<Row (Row, Index)>",
+            "nodeType": "Typedef",
+            "qualifiedName": "RowProcessor",
+            "tag": "added"
+        },
+        {
+            "dataType": "Fn<Tensor (Tensor, Tensor)>",
+            "nodeType": "Typedef",
+            "qualifiedName": "TensorReducer",
+            "tag": "added"
+        },
+        {
+            "dataType": "HashMap<std::string, Listener>",
+            "nodeType": "Typedef",
+            "qualifiedName": "ListenerRegistry",
+            "tag": "added"
+        },
+        {
+            "dataType": "std::tuple<NodeId, EdgeId, Row>",
+            "nodeType": "Typedef",
+            "qualifiedName": "NodeTuple",
+            "tag": "added"
+        },
+        {
+            "dataType": "XCallback",
+            "nodeType": "Typedef",
+            "qualifiedName": "XDispatch",
+            "tag": "added"
+        },
+        {
+            "dataType": "XDispatch",
+            "nodeType": "Typedef",
+            "qualifiedName": "XRouter",
+            "tag": "added"
+        }
+    ],
+    "headerResolutionFailures": [],
+    "parsed_status": 1,
+    "unparsed_status": 0
+}
