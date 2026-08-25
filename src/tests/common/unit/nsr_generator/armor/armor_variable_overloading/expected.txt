@@ -1,0 +1,322 @@
+Declaration: pi
+Location: Line 6, Column 20
+Kind: Var
+Clang USR: c:armor_variable_overloading.cpp@VT>1#T@pi
+Armor NSR: c:@pi
+-------------------------------------------
+
+Declaration: pi
+Location: Line 9, Column 24
+Kind: VarTemplateSpecialization
+Clang USR: c:armor_variable_overloading.cpp@pi>#f
+Armor NSR: c:@pi
+-------------------------------------------
+
+Declaration: pi
+Location: Line 12, Column 22
+Kind: VarTemplateSpecialization
+Clang USR: c:armor_variable_overloading.cpp@pi>#I
+Armor NSR: c:@pi
+-------------------------------------------
+
+Declaration: is_small
+Location: Line 16, Column 23
+Kind: Var
+Clang USR: c:armor_variable_overloading.cpp@VT>1#T@is_small
+Armor NSR: c:@is_small
+-------------------------------------------
+
+Declaration: type_name
+Location: Line 19, Column 30
+Kind: Var
+Clang USR: c:armor_variable_overloading.cpp@VT>1#T@type_name
+Armor NSR: c:@type_name
+-------------------------------------------
+
+Declaration: type_name
+Location: Line 22, Column 30
+Kind: VarTemplateSpecialization
+Clang USR: c:armor_variable_overloading.cpp@type_name>#I
+Armor NSR: c:@type_name
+-------------------------------------------
+
+Declaration: type_name
+Location: Line 25, Column 30
+Kind: VarTemplateSpecialization
+Clang USR: c:armor_variable_overloading.cpp@type_name>#d
+Armor NSR: c:@type_name
+-------------------------------------------
+
+Declaration: type_name
+Location: Line 28, Column 30
+Kind: VarTemplateSpecialization
+Clang USR: c:armor_variable_overloading.cpp@type_name>#$@N@std@N@__cxx11@S@basic_string>#C#$@N@std@S@char_traits>#C#$@N@std@S@allocator>#C
+Armor NSR: c:@type_name
+-------------------------------------------
+
+Declaration: CustomTraits
+Location: Line 32, Column 8
+Kind: ClassTemplate
+Clang USR: c:@ST>1#T@CustomTraits
+Armor NSR: c:@S@CustomTraits
+-------------------------------------------
+
+Declaration: CustomTraits
+Location: Line 32, Column 8
+Kind: CXXRecord
+Clang USR: c:@ST>1#T@CustomTraits
+Armor NSR: c:@S@CustomTraits
+-------------------------------------------
+
+Declaration: is_custom
+Location: Line 33, Column 27
+Kind: Var
+Clang USR: c:@ST>1#T@CustomTraits@is_custom
+Armor NSR: c:@S@CustomTraits@FI@is_custom
+-------------------------------------------
+
+Declaration: size
+Location: Line 34, Column 29
+Kind: Var
+Clang USR: c:@ST>1#T@CustomTraits@size
+Armor NSR: c:@S@CustomTraits@FI@size
+-------------------------------------------
+
+Declaration: promoted_type
+Location: Line 35, Column 11
+Kind: TypeAlias
+Clang USR: c:@ST>1#T@CustomTraits@promoted_type
+Armor NSR: c:@S@CustomTraits@T@promoted_type
+-------------------------------------------
+
+Declaration: CustomTraits
+Location: Line 39, Column 8
+Kind: ClassTemplateSpecialization
+Clang USR: c:@S@CustomTraits>#C
+Armor NSR: c:@S@CustomTraits
+-------------------------------------------
+
+Declaration: is_custom
+Location: Line 40, Column 27
+Kind: Var
+Clang USR: c:@S@CustomTraits>#C@is_custom
+Armor NSR: c:@S@CustomTraits@FI@is_custom
+-------------------------------------------
+
+Declaration: size
+Location: Line 41, Column 29
+Kind: Var
+Clang USR: c:@S@CustomTraits>#C@size
+Armor NSR: c:@S@CustomTraits@FI@size
+-------------------------------------------
+
+Declaration: promoted_type
+Location: Line 42, Column 11
+Kind: TypeAlias
+Clang USR: c:@S@CustomTraits>#C@promoted_type
+Armor NSR: c:@S@CustomTraits@T@promoted_type
+-------------------------------------------
+
+Declaration: CustomTraits
+Location: Line 46, Column 8
+Kind: ClassTemplateSpecialization
+Clang USR: c:@S@CustomTraits>#f
+Armor NSR: c:@S@CustomTraits
+-------------------------------------------
+
+Declaration: is_custom
+Location: Line 47, Column 27
+Kind: Var
+Clang USR: c:@S@CustomTraits>#f@is_custom
+Armor NSR: c:@S@CustomTraits@FI@is_custom
+-------------------------------------------
+
+Declaration: size
+Location: Line 48, Column 29
+Kind: Var
+Clang USR: c:@S@CustomTraits>#f@size
+Armor NSR: c:@S@CustomTraits@FI@size
+-------------------------------------------
+
+Declaration: promoted_type
+Location: Line 49, Column 11
+Kind: TypeAlias
+Clang USR: c:@S@CustomTraits>#f@promoted_type
+Armor NSR: c:@S@CustomTraits@T@promoted_type
+-------------------------------------------
+
+Declaration: StaticSpecialization
+Location: Line 54, Column 8
+Kind: ClassTemplate
+Clang USR: c:@ST>1#T@StaticSpecialization
+Armor NSR: c:@S@StaticSpecialization
+-------------------------------------------
+
+Declaration: StaticSpecialization
+Location: Line 54, Column 8
+Kind: CXXRecord
+Clang USR: c:@ST>1#T@StaticSpecialization
+Armor NSR: c:@S@StaticSpecialization
+-------------------------------------------
+
+Declaration: defaultValue
+Location: Line 55, Column 14
+Kind: Var
+Clang USR: c:@ST>1#T@StaticSpecialization@defaultValue
+Armor NSR: c:@S@StaticSpecialization@FI@defaultValue
+-------------------------------------------
+
+Declaration: getDefault
+Location: Line 57, Column 14
+Kind: CXXMethod
+Clang USR: c:@ST>1#T@StaticSpecialization@F@getDefault#S
+Armor NSR: c:@S@StaticSpecialization@F@getDefault#
+-------------------------------------------
+
+Declaration: NestedTypes
+Location: Line 64, Column 8
+Kind: ClassTemplate
+Clang USR: c:@ST>1#T@NestedTypes
+Armor NSR: c:@S@NestedTypes
+-------------------------------------------
+
+Declaration: NestedTypes
+Location: Line 64, Column 8
+Kind: CXXRecord
+Clang USR: c:@ST>1#T@NestedTypes
+Armor NSR: c:@S@NestedTypes
+-------------------------------------------
+
+Declaration: Inner
+Location: Line 65, Column 12
+Kind: CXXRecord
+Clang USR: c:@ST>1#T@NestedTypes@S@Inner
+Armor NSR: c:@S@NestedTypes@S@Inner
+-------------------------------------------
+
+Declaration: value
+Location: Line 66, Column 11
+Kind: Field
+Clang USR: c:@ST>1#T@NestedTypes@S@Inner@FI@value
+Armor NSR: c:@S@NestedTypes@S@Inner@FI@value
+-------------------------------------------
+
+Declaration: InnerRef
+Location: Line 69, Column 11
+Kind: TypeAlias
+Clang USR: c:@ST>1#T@NestedTypes@InnerRef
+Armor NSR: c:@S@NestedTypes@T@InnerRef
+-------------------------------------------
+
+Declaration: ValueType
+Location: Line 70, Column 11
+Kind: TypeAlias
+Clang USR: c:@ST>1#T@NestedTypes@ValueType
+Armor NSR: c:@S@NestedTypes@T@ValueType
+-------------------------------------------
+
+Declaration: NestedTypes
+Location: Line 74, Column 8
+Kind: ClassTemplateSpecialization
+Clang USR: c:@S@NestedTypes>#b
+Armor NSR: c:@S@NestedTypes
+-------------------------------------------
+
+Declaration: Inner
+Location: Line 75, Column 12
+Kind: CXXRecord
+Clang USR: c:@S@NestedTypes>#b@S@Inner
+Armor NSR: c:@S@NestedTypes@S@Inner
+-------------------------------------------
+
+Declaration: value
+Location: Line 76, Column 14
+Kind: Field
+Clang USR: c:@S@NestedTypes>#b@S@Inner@FI@value
+Armor NSR: c:@S@NestedTypes@S@Inner@FI@value
+-------------------------------------------
+
+Declaration: count
+Location: Line 77, Column 16
+Kind: Field
+Clang USR: c:@S@NestedTypes>#b@S@Inner@FI@count
+Armor NSR: c:@S@NestedTypes@S@Inner@FI@count
+-------------------------------------------
+
+Declaration: InnerRef
+Location: Line 80, Column 11
+Kind: TypeAlias
+Clang USR: c:@S@NestedTypes>#b@InnerRef
+Armor NSR: c:@S@NestedTypes@T@InnerRef
+-------------------------------------------
+
+Declaration: ValueType
+Location: Line 81, Column 11
+Kind: TypeAlias
+Clang USR: c:@S@NestedTypes>#b@ValueType
+Armor NSR: c:@S@NestedTypes@T@ValueType
+-------------------------------------------
+
+Declaration: DALSYSPropertyVar
+Location: Line 84, Column 34
+Kind: Typedef
+Clang USR: c:armor_variable_overloading.cpp@T@DALSYSPropertyVar
+Armor NSR: c:@T@DALSYSPropertyVar
+-------------------------------------------
+
+Declaration: 
+Location: Line 90, Column 3
+Kind: CXXRecord
+Clang USR: c:@S@DALSYSPropertyVar@U@armor_variable_overloading.cpp@2035
+Armor NSR: c:@S@DALSYSPropertyVar@U@#vf#Val
+-------------------------------------------
+
+Declaration: pbVal
+Location: Line 92, Column 10
+Kind: Field
+Clang USR: c:@S@DALSYSPropertyVar@U@armor_variable_overloading.cpp@2035@FI@pbVal
+Armor NSR: c:@S@DALSYSPropertyVar@U@#vf#Val@FI@pbVal
+-------------------------------------------
+
+Declaration: pszVal
+Location: Line 93, Column 11
+Kind: Field
+Clang USR: c:@S@DALSYSPropertyVar@U@armor_variable_overloading.cpp@2035@FI@pszVal
+Armor NSR: c:@S@DALSYSPropertyVar@U@#vf#Val@FI@pszVal
+-------------------------------------------
+
+Declaration: dwVal
+Location: Line 94, Column 9
+Kind: Field
+Clang USR: c:@S@DALSYSPropertyVar@U@armor_variable_overloading.cpp@2035@FI@dwVal
+Armor NSR: c:@S@DALSYSPropertyVar@U@#vf#Val@FI@dwVal
+-------------------------------------------
+
+Declaration: pdwVal
+Location: Line 95, Column 10
+Kind: Field
+Clang USR: c:@S@DALSYSPropertyVar@U@armor_variable_overloading.cpp@2035@FI@pdwVal
+Armor NSR: c:@S@DALSYSPropertyVar@U@#vf#Val@FI@pdwVal
+-------------------------------------------
+
+Declaration: pStruct
+Location: Line 96, Column 17
+Kind: Field
+Clang USR: c:@S@DALSYSPropertyVar@U@armor_variable_overloading.cpp@2035@FI@pStruct
+Armor NSR: c:@S@DALSYSPropertyVar@U@#vf#Val@FI@pStruct
+-------------------------------------------
+
+Declaration: qwVal
+Location: Line 97, Column 9
+Kind: Field
+Clang USR: c:@S@DALSYSPropertyVar@U@armor_variable_overloading.cpp@2035@FI@qwVal
+Armor NSR: c:@S@DALSYSPropertyVar@U@#vf#Val@FI@qwVal
+-------------------------------------------
+
+Declaration: fVal
+Location: Line 98, Column 11
+Kind: Field
+Clang USR: c:@S@DALSYSPropertyVar@U@armor_variable_overloading.cpp@2035@FI@fVal
+Armor NSR: c:@S@DALSYSPropertyVar@U@#vf#Val@FI@fVal
+-------------------------------------------
+

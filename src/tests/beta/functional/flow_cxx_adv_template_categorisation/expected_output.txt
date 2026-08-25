@@ -564,10 +564,6 @@ std::unique_ptr<T> make_unique_with_args(Args&&... args) {
     return std::make_unique<T>(std::forward<Args>(args)...);
 }
 ----------------------------------------
-TypeAliasDecl
-5643335536656467175
-using Value = std::variant<int, double, std::string>
-----------------------------------------
 Function Body
 process
 9063025977719545702
@@ -1008,7 +1004,6 @@ unhandledDecls1
 13816479023391194073  : 1
 11442841472222897421  : 1
 12073625207878275815  : 1
-5643335536656467175  : 1
 7216266635772902375  : 1
 12814579946915968411  : 1
 11160874710484048764  : 1

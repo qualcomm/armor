@@ -1,0 +1,126 @@
+Declaration: CustomTraits
+Location: Line 4, Column 8
+Kind: ClassTemplate
+Armor USR: c:@ST>1#T@CustomTraits
+Clang USR: c:@ST>1#T@CustomTraits
+-------------------------------------------
+
+Declaration: CustomTraits
+Location: Line 4, Column 8
+Kind: CXXRecord
+Armor USR: c:@ST>1#T@CustomTraits
+Clang USR: c:@ST>1#T@CustomTraits
+-------------------------------------------
+
+Declaration: is_custom
+Location: Line 5, Column 27
+Kind: Var
+Armor USR: c:@ST>1#T@CustomTraits@FI@is_custom
+Clang USR: c:@ST>1#T@CustomTraits@is_custom
+-------------------------------------------
+
+Declaration: size
+Location: Line 6, Column 29
+Kind: Var
+Armor USR: c:@ST>1#T@CustomTraits@FI@size
+Clang USR: c:@ST>1#T@CustomTraits@size
+-------------------------------------------
+
+Declaration: promoted_type
+Location: Line 7, Column 11
+Kind: TypeAlias
+Armor USR: c:@ST>1#T@CustomTraits@T@promoted_type
+Clang USR: c:@ST>1#T@CustomTraits@promoted_type
+-------------------------------------------
+
+Declaration: CustomTraits
+Location: Line 11, Column 8
+Kind: ClassTemplateSpecialization
+Armor USR: c:@S@CustomTraits>#C
+Clang USR: c:@S@CustomTraits>#C
+-------------------------------------------
+
+Declaration: is_custom
+Location: Line 12, Column 27
+Kind: Var
+Armor USR: c:@S@CustomTraits>#C@FI@is_custom
+Clang USR: c:@S@CustomTraits>#C@is_custom
+-------------------------------------------
+
+Declaration: size
+Location: Line 13, Column 29
+Kind: Var
+Armor USR: c:@S@CustomTraits>#C@FI@size
+Clang USR: c:@S@CustomTraits>#C@size
+-------------------------------------------
+
+Declaration: promoted_type
+Location: Line 14, Column 11
+Kind: TypeAlias
+Armor USR: c:@S@CustomTraits>#C@T@promoted_type
+Clang USR: c:@S@CustomTraits>#C@promoted_type
+-------------------------------------------
+
+Declaration: CustomTraits
+Location: Line 18, Column 8
+Kind: ClassTemplateSpecialization
+Armor USR: c:@S@CustomTraits>#f
+Clang USR: c:@S@CustomTraits>#f
+-------------------------------------------
+
+Declaration: is_custom
+Location: Line 19, Column 27
+Kind: Var
+Armor USR: c:@S@CustomTraits>#f@FI@is_custom
+Clang USR: c:@S@CustomTraits>#f@is_custom
+-------------------------------------------
+
+Declaration: size
+Location: Line 20, Column 29
+Kind: Var
+Armor USR: c:@S@CustomTraits>#f@FI@size
+Clang USR: c:@S@CustomTraits>#f@size
+-------------------------------------------
+
+Declaration: promoted_type
+Location: Line 21, Column 11
+Kind: TypeAlias
+Armor USR: c:@S@CustomTraits>#f@T@promoted_type
+Clang USR: c:@S@CustomTraits>#f@promoted_type
+-------------------------------------------
+
+Declaration: StaticSpecialization
+Location: Line 26, Column 8
+Kind: ClassTemplate
+Armor USR: c:@ST>1#T@StaticSpecialization
+Clang USR: c:@ST>1#T@StaticSpecialization
+-------------------------------------------
+
+Declaration: StaticSpecialization
+Location: Line 26, Column 8
+Kind: CXXRecord
+Armor USR: c:@ST>1#T@StaticSpecialization
+Clang USR: c:@ST>1#T@StaticSpecialization
+-------------------------------------------
+
+Declaration: defaultValue
+Location: Line 27, Column 14
+Kind: Var
+Armor USR: c:@ST>1#T@StaticSpecialization@FI@defaultValue
+Clang USR: c:@ST>1#T@StaticSpecialization@defaultValue
+-------------------------------------------
+
+Declaration: getDefault
+Location: Line 29, Column 14
+Kind: CXXMethod
+Armor USR: c:@ST>1#T@StaticSpecialization@F@getDefault#S
+Clang USR: c:@ST>1#T@StaticSpecialization@F@getDefault#S
+-------------------------------------------
+
+Declaration: is_custom
+Location: Line 34, Column 23
+Kind: Var
+Armor USR: c:@is_custom
+Clang USR: c:armor_field_var_merge.cpp@is_custom
+-------------------------------------------
+

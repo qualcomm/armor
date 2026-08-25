@@ -848,6 +848,12 @@
             "tag": "removed"
         },
         {
+            "dataType": "std::variant<int, double, std::string>",
+            "nodeType": "Typedef",
+            "qualifiedName": "Value",
+            "tag": "removed"
+        },
+        {
             "children": [
                 {
                     "children": [

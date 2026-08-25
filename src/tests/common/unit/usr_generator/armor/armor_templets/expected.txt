@@ -1,0 +1,91 @@
+Declaration: VariadicHolder
+Location: Line 8, Column 8
+Kind: ClassTemplate
+Armor USR: c:@ST>1#pT@VariadicHolder
+Clang USR: c:@ST>1#pT@VariadicHolder
+-------------------------------------------
+
+Declaration: VariadicHolder
+Location: Line 8, Column 8
+Kind: CXXRecord
+Armor USR: c:@ST>1#pT@VariadicHolder
+Clang USR: c:@ST>1#pT@VariadicHolder
+-------------------------------------------
+
+Declaration: values
+Location: Line 9, Column 25
+Kind: Field
+Armor USR: c:@ST>1#pT@VariadicHolder@FI@values
+Clang USR: c:@ST>1#pT@VariadicHolder@FI@values
+-------------------------------------------
+
+Declaration: variadic_instance
+Location: Line 12, Column 42
+Kind: Var
+Armor USR: c:@variadic_instance
+Clang USR: c:@variadic_instance
+-------------------------------------------
+
+Declaration: ComplexWrapper
+Location: Line 16, Column 8
+Kind: ClassTemplate
+Armor USR: c:@ST>2#t>2#T#pT#t>2#T#pT@ComplexWrapper
+Clang USR: c:@ST>2#t>2#T#pT#t>2#T#pT@ComplexWrapper
+-------------------------------------------
+
+Declaration: ComplexWrapper
+Location: Line 16, Column 8
+Kind: CXXRecord
+Armor USR: c:@ST>2#t>2#T#pT#t>2#T#pT@ComplexWrapper
+Clang USR: c:@ST>2#t>2#T#pT#t>2#T#pT@ComplexWrapper
+-------------------------------------------
+
+Declaration: nested
+Location: Line 17, Column 94
+Kind: Field
+Armor USR: c:@ST>2#t>2#T#pT#t>2#T#pT@ComplexWrapper@FI@nested
+Clang USR: c:@ST>2#t>2#T#pT#t>2#T#pT@ComplexWrapper@FI@nested
+-------------------------------------------
+
+Declaration: simple
+Location: Line 18, Column 25
+Kind: Field
+Armor USR: c:@ST>2#t>2#T#pT#t>2#T#pT@ComplexWrapper@FI@simple
+Clang USR: c:@ST>2#t>2#T#pT#t>2#T#pT@ComplexWrapper@FI@simple
+-------------------------------------------
+
+Declaration: value
+Location: Line 19, Column 46
+Kind: Field
+Armor USR: c:@ST>2#t>2#T#pT#t>2#T#pT@ComplexWrapper@FI@value
+Clang USR: c:@ST>2#t>2#T#pT#t>2#T#pT@ComplexWrapper@FI@value
+-------------------------------------------
+
+Declaration: ContainerAlias
+Location: Line 22, Column 5
+Kind: TypeAliasTemplate
+Armor USR: c:@ST>2#t>2#T#pT#t>2#T#pT@ComplexWrapper@ContainerAlias
+Clang USR: c:@ST>2#t>2#T#pT#t>2#T#pT@ComplexWrapper@ContainerAlias
+-------------------------------------------
+
+Declaration: ContainerAlias
+Location: Line 22, Column 11
+Kind: TypeAlias
+Armor USR: c:@ST>2#t>2#T#pT#t>2#T#pT@ComplexWrapper@T@ContainerAlias
+Clang USR: c:@ST>2#t>2#T#pT#t>2#T#pT@ComplexWrapper@ContainerAlias
+-------------------------------------------
+
+Declaration: aliased
+Location: Line 24, Column 27
+Kind: Field
+Armor USR: c:@ST>2#t>2#T#pT#t>2#T#pT@ComplexWrapper@FI@aliased
+Clang USR: c:@ST>2#t>2#T#pT#t>2#T#pT@ComplexWrapper@FI@aliased
+-------------------------------------------
+
+Declaration: complex_wrapper
+Location: Line 27, Column 40
+Kind: Var
+Armor USR: c:@complex_wrapper
+Clang USR: c:@complex_wrapper
+-------------------------------------------
+

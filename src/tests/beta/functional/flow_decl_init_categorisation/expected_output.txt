@@ -767,10 +767,6 @@ sample_matrix{
     {4, 5, 6}
 }
 ----------------------------------------
-TypeAliasDecl
-15529516918349818119
-using ComplexFunctionType = std::function<std::vector<double>(const std::vector<double>&, double)>
-----------------------------------------
 Var init
 signal_processors
 17592249031386877950
@@ -1158,7 +1154,6 @@ comments1
 ----------------------------------------
 unhandledDecls1
 1771605423457679277  : 1
-15529516918349818119  : 1
 14784299442328131169  : 1
 4670556794927485077  : 1
 7455076031092283842  : 1

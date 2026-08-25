@@ -320,8 +320,7 @@ bool beta::ASTNormalize::VisitFunctionDecl(clang::FunctionDecl *Decl) {
 }
 
 bool beta::ASTNormalize::VisitTypeAliasDecl(clang::TypeAliasDecl *Decl) {
-    treeBuilder.BuildTypeAliasDecl(Decl);
-    return true;
+    return treeBuilder.BuildTypeAliasDecl(Decl);
 }
 
 bool beta::ASTNormalize::VisitTypedefDecl(clang::TypedefDecl *Decl) {

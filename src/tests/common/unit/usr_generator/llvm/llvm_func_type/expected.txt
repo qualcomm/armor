@@ -1,0 +1,27 @@
+Declaration: _VoidToVoidPtr_
+Location: Line 5, Column 16
+Kind: Typedef
+Clang USR: c:func-type.cpp@T@_VoidToVoidPtr_
+Armor USR: c:@T@_VoidToVoidPtr_
+-------------------------------------------
+
+Declaration: _IntToVoidPtr_
+Location: Line 6, Column 16
+Kind: Typedef
+Clang USR: c:func-type.cpp@T@_IntToVoidPtr_
+Armor USR: c:@T@_IntToVoidPtr_
+-------------------------------------------
+
+Declaration: IntTo_VoidToVoidPtr_Ptr
+Location: Line 7, Column 27
+Kind: Typedef
+Clang USR: c:func-type.cpp@T@IntTo_VoidToVoidPtr_Ptr
+Armor USR: c:@T@IntTo_VoidToVoidPtr_Ptr
+-------------------------------------------
+
+Declaration: VoidTo_IntToVoidPtr_Ptr
+Location: Line 8, Column 26
+Kind: Typedef
+Clang USR: c:func-type.cpp@T@VoidTo_IntToVoidPtr_Ptr
+Armor USR: c:@T@VoidTo_IntToVoidPtr_Ptr
+-------------------------------------------

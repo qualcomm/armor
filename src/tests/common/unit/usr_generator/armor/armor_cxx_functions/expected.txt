@@ -1,0 +1,322 @@
+Declaration: ComplexContainer
+Location: Line 10, Column 7
+Kind: ClassTemplate
+Clang USR: c:@ST>2#T#T@ComplexContainer
+Armor USR: c:@ST>2#T#T@ComplexContainer
+-------------------------------------------
+
+Declaration: ComplexContainer
+Location: Line 10, Column 7
+Kind: CXXRecord
+Clang USR: c:@ST>2#T#T@ComplexContainer
+Armor USR: c:@ST>2#T#T@ComplexContainer
+-------------------------------------------
+
+Declaration: VariadicStruct
+Location: Line 13, Column 8
+Kind: ClassTemplate
+Clang USR: c:@ST>1#pT@VariadicStruct
+Armor USR: c:@ST>1#pT@VariadicStruct
+-------------------------------------------
+
+Declaration: VariadicStruct
+Location: Line 13, Column 8
+Kind: CXXRecord
+Clang USR: c:@ST>1#pT@VariadicStruct
+Armor USR: c:@ST>1#pT@VariadicStruct
+-------------------------------------------
+
+Declaration: ProcessingMode
+Location: Line 15, Column 12
+Kind: Enum
+Clang USR: c:@E@ProcessingMode
+Armor USR: c:@E@ProcessingMode
+-------------------------------------------
+
+Declaration: Fast
+Location: Line 16, Column 5
+Kind: EnumConstant
+Clang USR: c:@E@ProcessingMode@Fast
+Armor USR: c:@E@ProcessingMode@Fast
+-------------------------------------------
+
+Declaration: Accurate
+Location: Line 17, Column 5
+Kind: EnumConstant
+Clang USR: c:@E@ProcessingMode@Accurate
+Armor USR: c:@E@ProcessingMode@Accurate
+-------------------------------------------
+
+Declaration: Balanced
+Location: Line 18, Column 5
+Kind: EnumConstant
+Clang USR: c:@E@ProcessingMode@Balanced
+Armor USR: c:@E@ProcessingMode@Balanced
+-------------------------------------------
+
+Declaration: processData
+Location: Line 23, Column 24
+Kind: FunctionTemplate
+Clang USR: c:@FT@>3#T#T#NIprocessData#&1>@N@std@ST>2#T#T@vector2t0.0>@N@std@ST>1#T@allocator1S2_#&>@N@std@ST>4#T#T#T#T@map4$@N@std@N@__cxx11@S@basic_string>#C#$@N@std@S@char_traits>#C#$@N@std@S@allocator>#Ct0.1$@N@std@S@less>#S6_>@N@std@ST>1#T@allocator1>@N@std@ST>2#T#T@pair21S6_S9_#&1>@N@std@ST>1#T@function1FS9_(#S2_#I)#*1>@ST>2#T#T@ComplexContainer2S2_S9_#$@E@ProcessingMode#&1>@N@std@ST>1#T@shared_ptr1>@ST>1#pT@VariadicStruct1p3S2_dS6_#>@N@std@ST>1#pT@tuple1p3S2_S9_b#
+Armor USR: c:@FT@>3#T#T#NIprocessData#&1>@N@std@ST>2#T#T@vector2t0.0>@N@std@ST>1#T@allocator1S2_#&>@N@std@ST>4#T#T#T#T@map4$@N@std@N@__cxx11@S@basic_string>#C#$@N@std@S@char_traits>#C#$@N@std@S@allocator>#Ct0.1$@N@std@S@less>#S6_>@N@std@ST>1#T@allocator1>@N@std@ST>2#T#T@pair21S6_S9_#&1>@N@std@ST>1#T@function1FS9_(#S2_#I)#*1>@ST>2#T#T@ComplexContainer2S2_S9_#$@E@ProcessingMode#&1>@N@std@ST>1#T@shared_ptr1>@ST>1#pT@VariadicStruct1p3S2_dS6_#>@N@std@ST>1#pT@tuple1p3S2_S9_b#
+-------------------------------------------
+
+Declaration: processData
+Location: Line 23, Column 24
+Kind: Function
+Clang USR: c:@FT@>3#T#T#NIprocessData#&1>@N@std@ST>2#T#T@vector2t0.0>@N@std@ST>1#T@allocator1S2_#&>@N@std@ST>4#T#T#T#T@map4$@N@std@N@__cxx11@S@basic_string>#C#$@N@std@S@char_traits>#C#$@N@std@S@allocator>#Ct0.1$@N@std@S@less>#S6_>@N@std@ST>1#T@allocator1>@N@std@ST>2#T#T@pair21S6_S9_#&1>@N@std@ST>1#T@function1FS9_(#S2_#I)#*1>@ST>2#T#T@ComplexContainer2S2_S9_#$@E@ProcessingMode#&1>@N@std@ST>1#T@shared_ptr1>@ST>1#pT@VariadicStruct1p3S2_dS6_#>@N@std@ST>1#pT@tuple1p3S2_S9_b#
+Armor USR: c:@FT@>3#T#T#NIprocessData#&1>@N@std@ST>2#T#T@vector2t0.0>@N@std@ST>1#T@allocator1S2_#&>@N@std@ST>4#T#T#T#T@map4$@N@std@N@__cxx11@S@basic_string>#C#$@N@std@S@char_traits>#C#$@N@std@S@allocator>#Ct0.1$@N@std@S@less>#S6_>@N@std@ST>1#T@allocator1>@N@std@ST>2#T#T@pair21S6_S9_#&1>@N@std@ST>1#T@function1FS9_(#S2_#I)#*1>@ST>2#T#T@ComplexContainer2S2_S9_#$@E@ProcessingMode#&1>@N@std@ST>1#T@shared_ptr1>@ST>1#pT@VariadicStruct1p3S2_dS6_#>@N@std@ST>1#pT@tuple1p3S2_S9_b#
+-------------------------------------------
+
+Declaration: inputData
+Location: Line 24, Column 27
+Kind: ParmVar
+Clang USR: c:armor_cxx_functions.cpp@453@FT@>3#T#T#NIprocessData#&1>@N@std@ST>2#T#T@vector2t0.0>@N@std@ST>1#T@allocator1S2_#&>@N@std@ST>4#T#T#T#T@map4$@N@std@N@__cxx11@S@basic_string>#C#$@N@std@S@char_traits>#C#$@N@std@S@allocator>#Ct0.1$@N@std@S@less>#S6_>@N@std@ST>1#T@allocator1>@N@std@ST>2#T#T@pair21S6_S9_#&1>@N@std@ST>1#T@function1FS9_(#S2_#I)#*1>@ST>2#T#T@ComplexContainer2S2_S9_#$@E@ProcessingMode#&1>@N@std@ST>1#T@shared_ptr1>@ST>1#pT@VariadicStruct1p3S2_dS6_#>@N@std@ST>1#pT@tuple1p3S2_S9_b#@inputData
+Armor USR: c:armor_cxx_functions.cpp@453@FT@>3#T#T#NIprocessData#&1>@N@std@ST>2#T#T@vector2t0.0>@N@std@ST>1#T@allocator1S2_#&>@N@std@ST>4#T#T#T#T@map4$@N@std@N@__cxx11@S@basic_string>#C#$@N@std@S@char_traits>#C#$@N@std@S@allocator>#Ct0.1$@N@std@S@less>#S6_>@N@std@ST>1#T@allocator1>@N@std@ST>2#T#T@pair21S6_S9_#&1>@N@std@ST>1#T@function1FS9_(#S2_#I)#*1>@ST>2#T#T@ComplexContainer2S2_S9_#$@E@ProcessingMode#&1>@N@std@ST>1#T@shared_ptr1>@ST>1#pT@VariadicStruct1p3S2_dS6_#>@N@std@ST>1#pT@tuple1p3S2_S9_b#@inputData
+-------------------------------------------
+
+Declaration: configMap
+Location: Line 25, Column 31
+Kind: ParmVar
+Clang USR: c:armor_cxx_functions.cpp@490@FT@>3#T#T#NIprocessData#&1>@N@std@ST>2#T#T@vector2t0.0>@N@std@ST>1#T@allocator1S2_#&>@N@std@ST>4#T#T#T#T@map4$@N@std@N@__cxx11@S@basic_string>#C#$@N@std@S@char_traits>#C#$@N@std@S@allocator>#Ct0.1$@N@std@S@less>#S6_>@N@std@ST>1#T@allocator1>@N@std@ST>2#T#T@pair21S6_S9_#&1>@N@std@ST>1#T@function1FS9_(#S2_#I)#*1>@ST>2#T#T@ComplexContainer2S2_S9_#$@E@ProcessingMode#&1>@N@std@ST>1#T@shared_ptr1>@ST>1#pT@VariadicStruct1p3S2_dS6_#>@N@std@ST>1#pT@tuple1p3S2_S9_b#@configMap
+Armor USR: c:armor_cxx_functions.cpp@490@FT@>3#T#T#NIprocessData#&1>@N@std@ST>2#T#T@vector2t0.0>@N@std@ST>1#T@allocator1S2_#&>@N@std@ST>4#T#T#T#T@map4$@N@std@N@__cxx11@S@basic_string>#C#$@N@std@S@char_traits>#C#$@N@std@S@allocator>#Ct0.1$@N@std@S@less>#S6_>@N@std@ST>1#T@allocator1>@N@std@ST>2#T#T@pair21S6_S9_#&1>@N@std@ST>1#T@function1FS9_(#S2_#I)#*1>@ST>2#T#T@ComplexContainer2S2_S9_#$@E@ProcessingMode#&1>@N@std@ST>1#T@shared_ptr1>@ST>1#pT@VariadicStruct1p3S2_dS6_#>@N@std@ST>1#pT@tuple1p3S2_S9_b#@configMap
+-------------------------------------------
+
+Declaration: transformFunc
+Location: Line 26, Column 37
+Kind: ParmVar
+Clang USR: c:armor_cxx_functions.cpp@531@FT@>3#T#T#NIprocessData#&1>@N@std@ST>2#T#T@vector2t0.0>@N@std@ST>1#T@allocator1S2_#&>@N@std@ST>4#T#T#T#T@map4$@N@std@N@__cxx11@S@basic_string>#C#$@N@std@S@char_traits>#C#$@N@std@S@allocator>#Ct0.1$@N@std@S@less>#S6_>@N@std@ST>1#T@allocator1>@N@std@ST>2#T#T@pair21S6_S9_#&1>@N@std@ST>1#T@function1FS9_(#S2_#I)#*1>@ST>2#T#T@ComplexContainer2S2_S9_#$@E@ProcessingMode#&1>@N@std@ST>1#T@shared_ptr1>@ST>1#pT@VariadicStruct1p3S2_dS6_#>@N@std@ST>1#pT@tuple1p3S2_S9_b#@transformFunc
+Armor USR: c:armor_cxx_functions.cpp@531@FT@>3#T#T#NIprocessData#&1>@N@std@ST>2#T#T@vector2t0.0>@N@std@ST>1#T@allocator1S2_#&>@N@std@ST>4#T#T#T#T@map4$@N@std@N@__cxx11@S@basic_string>#C#$@N@std@S@char_traits>#C#$@N@std@S@allocator>#Ct0.1$@N@std@S@less>#S6_>@N@std@ST>1#T@allocator1>@N@std@ST>2#T#T@pair21S6_S9_#&1>@N@std@ST>1#T@function1FS9_(#S2_#I)#*1>@ST>2#T#T@ComplexContainer2S2_S9_#$@E@ProcessingMode#&1>@N@std@ST>1#T@shared_ptr1>@ST>1#pT@VariadicStruct1p3S2_dS6_#>@N@std@ST>1#pT@tuple1p3S2_S9_b#@transformFunc
+-------------------------------------------
+
+Declaration: 
+Location: Line 26, Column 28
+Kind: ParmVar
+Clang USR: ERROR
+Armor USR: ERROR
+-------------------------------------------
+
+Declaration: 
+Location: Line 26, Column 33
+Kind: ParmVar
+Clang USR: ERROR
+Armor USR: ERROR
+-------------------------------------------
+
+Declaration: container
+Location: Line 27, Column 35
+Kind: ParmVar
+Clang USR: c:armor_cxx_functions.cpp@582@FT@>3#T#T#NIprocessData#&1>@N@std@ST>2#T#T@vector2t0.0>@N@std@ST>1#T@allocator1S2_#&>@N@std@ST>4#T#T#T#T@map4$@N@std@N@__cxx11@S@basic_string>#C#$@N@std@S@char_traits>#C#$@N@std@S@allocator>#Ct0.1$@N@std@S@less>#S6_>@N@std@ST>1#T@allocator1>@N@std@ST>2#T#T@pair21S6_S9_#&1>@N@std@ST>1#T@function1FS9_(#S2_#I)#*1>@ST>2#T#T@ComplexContainer2S2_S9_#$@E@ProcessingMode#&1>@N@std@ST>1#T@shared_ptr1>@ST>1#pT@VariadicStruct1p3S2_dS6_#>@N@std@ST>1#pT@tuple1p3S2_S9_b#@container
+Armor USR: c:armor_cxx_functions.cpp@582@FT@>3#T#T#NIprocessData#&1>@N@std@ST>2#T#T@vector2t0.0>@N@std@ST>1#T@allocator1S2_#&>@N@std@ST>4#T#T#T#T@map4$@N@std@N@__cxx11@S@basic_string>#C#$@N@std@S@char_traits>#C#$@N@std@S@allocator>#Ct0.1$@N@std@S@less>#S6_>@N@std@ST>1#T@allocator1>@N@std@ST>2#T#T@pair21S6_S9_#&1>@N@std@ST>1#T@function1FS9_(#S2_#I)#*1>@ST>2#T#T@ComplexContainer2S2_S9_#$@E@ProcessingMode#&1>@N@std@ST>1#T@shared_ptr1>@ST>1#pT@VariadicStruct1p3S2_dS6_#>@N@std@ST>1#pT@tuple1p3S2_S9_b#@container
+-------------------------------------------
+
+Declaration: mode
+Location: Line 28, Column 20
+Kind: ParmVar
+Clang USR: c:armor_cxx_functions.cpp@627@FT@>3#T#T#NIprocessData#&1>@N@std@ST>2#T#T@vector2t0.0>@N@std@ST>1#T@allocator1S2_#&>@N@std@ST>4#T#T#T#T@map4$@N@std@N@__cxx11@S@basic_string>#C#$@N@std@S@char_traits>#C#$@N@std@S@allocator>#Ct0.1$@N@std@S@less>#S6_>@N@std@ST>1#T@allocator1>@N@std@ST>2#T#T@pair21S6_S9_#&1>@N@std@ST>1#T@function1FS9_(#S2_#I)#*1>@ST>2#T#T@ComplexContainer2S2_S9_#$@E@ProcessingMode#&1>@N@std@ST>1#T@shared_ptr1>@ST>1#pT@VariadicStruct1p3S2_dS6_#>@N@std@ST>1#pT@tuple1p3S2_S9_b#@mode
+Armor USR: c:armor_cxx_functions.cpp@627@FT@>3#T#T#NIprocessData#&1>@N@std@ST>2#T#T@vector2t0.0>@N@std@ST>1#T@allocator1S2_#&>@N@std@ST>4#T#T#T#T@map4$@N@std@N@__cxx11@S@basic_string>#C#$@N@std@S@char_traits>#C#$@N@std@S@allocator>#Ct0.1$@N@std@S@less>#S6_>@N@std@ST>1#T@allocator1>@N@std@ST>2#T#T@pair21S6_S9_#&1>@N@std@ST>1#T@function1FS9_(#S2_#I)#*1>@ST>2#T#T@ComplexContainer2S2_S9_#$@E@ProcessingMode#&1>@N@std@ST>1#T@shared_ptr1>@ST>1#pT@VariadicStruct1p3S2_dS6_#>@N@std@ST>1#pT@tuple1p3S2_S9_b#@mode
+-------------------------------------------
+
+Declaration: extraData
+Location: Line 29, Column 68
+Kind: ParmVar
+Clang USR: c:armor_cxx_functions.cpp@679@FT@>3#T#T#NIprocessData#&1>@N@std@ST>2#T#T@vector2t0.0>@N@std@ST>1#T@allocator1S2_#&>@N@std@ST>4#T#T#T#T@map4$@N@std@N@__cxx11@S@basic_string>#C#$@N@std@S@char_traits>#C#$@N@std@S@allocator>#Ct0.1$@N@std@S@less>#S6_>@N@std@ST>1#T@allocator1>@N@std@ST>2#T#T@pair21S6_S9_#&1>@N@std@ST>1#T@function1FS9_(#S2_#I)#*1>@ST>2#T#T@ComplexContainer2S2_S9_#$@E@ProcessingMode#&1>@N@std@ST>1#T@shared_ptr1>@ST>1#pT@VariadicStruct1p3S2_dS6_#>@N@std@ST>1#pT@tuple1p3S2_S9_b#@extraData
+Armor USR: c:armor_cxx_functions.cpp@679@FT@>3#T#T#NIprocessData#&1>@N@std@ST>2#T#T@vector2t0.0>@N@std@ST>1#T@allocator1S2_#&>@N@std@ST>4#T#T#T#T@map4$@N@std@N@__cxx11@S@basic_string>#C#$@N@std@S@char_traits>#C#$@N@std@S@allocator>#Ct0.1$@N@std@S@less>#S6_>@N@std@ST>1#T@allocator1>@N@std@ST>2#T#T@pair21S6_S9_#&1>@N@std@ST>1#T@function1FS9_(#S2_#I)#*1>@ST>2#T#T@ComplexContainer2S2_S9_#$@E@ProcessingMode#&1>@N@std@ST>1#T@shared_ptr1>@ST>1#pT@VariadicStruct1p3S2_dS6_#>@N@std@ST>1#pT@tuple1p3S2_S9_b#@extraData
+-------------------------------------------
+
+Declaration: processData
+Location: Line 33, Column 30
+Kind: FunctionTemplate
+Clang USR: c:@FT@>4#T#T#NI#pTprocessData#&1>@N@std@ST>4#T#T#T#T@map4t0.1>@N@std@ST>2#T#T@vector2t0.0>@N@std@ST>1#T@allocator1S4_>@N@std@ST>1#T@less1S2_>@N@std@ST>1#T@allocator1>@N@std@ST>2#T#T@pair21S2_S3_#>@N@std@ST>1#T@function1Fv(#&S4_#Pt0.3)#&1>@N@std@ST>1#pT@tuple1p1PS12_#I#&1>@ST>2#T#T@ComplexContainer2S2_S4_#$@E@ProcessingMode#>@N@std@ST>2#T#T@pair2S3_S2_#
+Armor USR: c:@FT@>4#T#T#NI#pTprocessData#&1>@N@std@ST>4#T#T#T#T@map4t0.1>@N@std@ST>2#T#T@vector2t0.0>@N@std@ST>1#T@allocator1S4_>@N@std@ST>1#T@less1S2_>@N@std@ST>1#T@allocator1>@N@std@ST>2#T#T@pair21S2_S3_#>@N@std@ST>1#T@function1Fv(#&S4_#Pt0.3)#&1>@N@std@ST>1#pT@tuple1p1PS12_#I#&1>@ST>2#T#T@ComplexContainer2S2_S4_#$@E@ProcessingMode#>@N@std@ST>2#T#T@pair2S3_S2_#
+-------------------------------------------
+
+Declaration: processData
+Location: Line 33, Column 30
+Kind: Function
+Clang USR: c:@FT@>4#T#T#NI#pTprocessData#&1>@N@std@ST>4#T#T#T#T@map4t0.1>@N@std@ST>2#T#T@vector2t0.0>@N@std@ST>1#T@allocator1S4_>@N@std@ST>1#T@less1S2_>@N@std@ST>1#T@allocator1>@N@std@ST>2#T#T@pair21S2_S3_#>@N@std@ST>1#T@function1Fv(#&S4_#Pt0.3)#&1>@N@std@ST>1#pT@tuple1p1PS12_#I#&1>@ST>2#T#T@ComplexContainer2S2_S4_#$@E@ProcessingMode#>@N@std@ST>2#T#T@pair2S3_S2_#
+Armor USR: c:@FT@>4#T#T#NI#pTprocessData#&1>@N@std@ST>4#T#T#T#T@map4t0.1>@N@std@ST>2#T#T@vector2t0.0>@N@std@ST>1#T@allocator1S4_>@N@std@ST>1#T@less1S2_>@N@std@ST>1#T@allocator1>@N@std@ST>2#T#T@pair21S2_S3_#>@N@std@ST>1#T@function1Fv(#&S4_#Pt0.3)#&1>@N@std@ST>1#pT@tuple1p1PS12_#I#&1>@ST>2#T#T@ComplexContainer2S2_S4_#$@E@ProcessingMode#>@N@std@ST>2#T#T@pair2S3_S2_#
+-------------------------------------------
+
+Declaration: inputMap
+Location: Line 34, Column 40
+Kind: ParmVar
+Clang USR: c:armor_cxx_functions.cpp@933@FT@>4#T#T#NI#pTprocessData#&1>@N@std@ST>4#T#T#T#T@map4t0.1>@N@std@ST>2#T#T@vector2t0.0>@N@std@ST>1#T@allocator1S4_>@N@std@ST>1#T@less1S2_>@N@std@ST>1#T@allocator1>@N@std@ST>2#T#T@pair21S2_S3_#>@N@std@ST>1#T@function1Fv(#&S4_#Pt0.3)#&1>@N@std@ST>1#pT@tuple1p1PS12_#I#&1>@ST>2#T#T@ComplexContainer2S2_S4_#$@E@ProcessingMode#>@N@std@ST>2#T#T@pair2S3_S2_#@inputMap
+Armor USR: c:armor_cxx_functions.cpp@933@FT@>4#T#T#NI#pTprocessData#&1>@N@std@ST>4#T#T#T#T@map4t0.1>@N@std@ST>2#T#T@vector2t0.0>@N@std@ST>1#T@allocator1S4_>@N@std@ST>1#T@less1S2_>@N@std@ST>1#T@allocator1>@N@std@ST>2#T#T@pair21S2_S3_#>@N@std@ST>1#T@function1Fv(#&S4_#Pt0.3)#&1>@N@std@ST>1#pT@tuple1p1PS12_#I#&1>@ST>2#T#T@ComplexContainer2S2_S4_#$@E@ProcessingMode#>@N@std@ST>2#T#T@pair2S3_S2_#@inputMap
+-------------------------------------------
+
+Declaration: modifierFunc
+Location: Line 35, Column 38
+Kind: ParmVar
+Clang USR: c:armor_cxx_functions.cpp@982@FT@>4#T#T#NI#pTprocessData#&1>@N@std@ST>4#T#T#T#T@map4t0.1>@N@std@ST>2#T#T@vector2t0.0>@N@std@ST>1#T@allocator1S4_>@N@std@ST>1#T@less1S2_>@N@std@ST>1#T@allocator1>@N@std@ST>2#T#T@pair21S2_S3_#>@N@std@ST>1#T@function1Fv(#&S4_#Pt0.3)#&1>@N@std@ST>1#pT@tuple1p1PS12_#I#&1>@ST>2#T#T@ComplexContainer2S2_S4_#$@E@ProcessingMode#>@N@std@ST>2#T#T@pair2S3_S2_#@modifierFunc
+Armor USR: c:armor_cxx_functions.cpp@982@FT@>4#T#T#NI#pTprocessData#&1>@N@std@ST>4#T#T#T#T@map4t0.1>@N@std@ST>2#T#T@vector2t0.0>@N@std@ST>1#T@allocator1S4_>@N@std@ST>1#T@less1S2_>@N@std@ST>1#T@allocator1>@N@std@ST>2#T#T@pair21S2_S3_#>@N@std@ST>1#T@function1Fv(#&S4_#Pt0.3)#&1>@N@std@ST>1#pT@tuple1p1PS12_#I#&1>@ST>2#T#T@ComplexContainer2S2_S4_#$@E@ProcessingMode#>@N@std@ST>2#T#T@pair2S3_S2_#@modifierFunc
+-------------------------------------------
+
+Declaration: 
+Location: Line 35, Column 26
+Kind: ParmVar
+Clang USR: ERROR
+Armor USR: ERROR
+-------------------------------------------
+
+Declaration: 
+Location: Line 35, Column 35
+Kind: ParmVar
+Clang USR: ERROR
+Armor USR: ERROR
+-------------------------------------------
+
+Declaration: additionalArgs
+Location: Line 36, Column 32
+Kind: ParmVar
+Clang USR: c:armor_cxx_functions.cpp@1033@FT@>4#T#T#NI#pTprocessData#&1>@N@std@ST>4#T#T#T#T@map4t0.1>@N@std@ST>2#T#T@vector2t0.0>@N@std@ST>1#T@allocator1S4_>@N@std@ST>1#T@less1S2_>@N@std@ST>1#T@allocator1>@N@std@ST>2#T#T@pair21S2_S3_#>@N@std@ST>1#T@function1Fv(#&S4_#Pt0.3)#&1>@N@std@ST>1#pT@tuple1p1PS12_#I#&1>@ST>2#T#T@ComplexContainer2S2_S4_#$@E@ProcessingMode#>@N@std@ST>2#T#T@pair2S3_S2_#@additionalArgs
+Armor USR: c:armor_cxx_functions.cpp@1033@FT@>4#T#T#NI#pTprocessData#&1>@N@std@ST>4#T#T#T#T@map4t0.1>@N@std@ST>2#T#T@vector2t0.0>@N@std@ST>1#T@allocator1S4_>@N@std@ST>1#T@less1S2_>@N@std@ST>1#T@allocator1>@N@std@ST>2#T#T@pair21S2_S3_#>@N@std@ST>1#T@function1Fv(#&S4_#Pt0.3)#&1>@N@std@ST>1#pT@tuple1p1PS12_#I#&1>@ST>2#T#T@ComplexContainer2S2_S4_#$@E@ProcessingMode#>@N@std@ST>2#T#T@pair2S3_S2_#@additionalArgs
+-------------------------------------------
+
+Declaration: priority
+Location: Line 37, Column 9
+Kind: ParmVar
+Clang USR: c:armor_cxx_functions.cpp@1080@FT@>4#T#T#NI#pTprocessData#&1>@N@std@ST>4#T#T#T#T@map4t0.1>@N@std@ST>2#T#T@vector2t0.0>@N@std@ST>1#T@allocator1S4_>@N@std@ST>1#T@less1S2_>@N@std@ST>1#T@allocator1>@N@std@ST>2#T#T@pair21S2_S3_#>@N@std@ST>1#T@function1Fv(#&S4_#Pt0.3)#&1>@N@std@ST>1#pT@tuple1p1PS12_#I#&1>@ST>2#T#T@ComplexContainer2S2_S4_#$@E@ProcessingMode#>@N@std@ST>2#T#T@pair2S3_S2_#@priority
+Armor USR: c:armor_cxx_functions.cpp@1080@FT@>4#T#T#NI#pTprocessData#&1>@N@std@ST>4#T#T#T#T@map4t0.1>@N@std@ST>2#T#T@vector2t0.0>@N@std@ST>1#T@allocator1S4_>@N@std@ST>1#T@less1S2_>@N@std@ST>1#T@allocator1>@N@std@ST>2#T#T@pair21S2_S3_#>@N@std@ST>1#T@function1Fv(#&S4_#Pt0.3)#&1>@N@std@ST>1#pT@tuple1p1PS12_#I#&1>@ST>2#T#T@ComplexContainer2S2_S4_#$@E@ProcessingMode#>@N@std@ST>2#T#T@pair2S3_S2_#@priority
+-------------------------------------------
+
+Declaration: settings
+Location: Line 38, Column 35
+Kind: ParmVar
+Clang USR: c:armor_cxx_functions.cpp@1098@FT@>4#T#T#NI#pTprocessData#&1>@N@std@ST>4#T#T#T#T@map4t0.1>@N@std@ST>2#T#T@vector2t0.0>@N@std@ST>1#T@allocator1S4_>@N@std@ST>1#T@less1S2_>@N@std@ST>1#T@allocator1>@N@std@ST>2#T#T@pair21S2_S3_#>@N@std@ST>1#T@function1Fv(#&S4_#Pt0.3)#&1>@N@std@ST>1#pT@tuple1p1PS12_#I#&1>@ST>2#T#T@ComplexContainer2S2_S4_#$@E@ProcessingMode#>@N@std@ST>2#T#T@pair2S3_S2_#@settings
+Armor USR: c:armor_cxx_functions.cpp@1098@FT@>4#T#T#NI#pTprocessData#&1>@N@std@ST>4#T#T#T#T@map4t0.1>@N@std@ST>2#T#T@vector2t0.0>@N@std@ST>1#T@allocator1S4_>@N@std@ST>1#T@less1S2_>@N@std@ST>1#T@allocator1>@N@std@ST>2#T#T@pair21S2_S3_#>@N@std@ST>1#T@function1Fv(#&S4_#Pt0.3)#&1>@N@std@ST>1#pT@tuple1p1PS12_#I#&1>@ST>2#T#T@ComplexContainer2S2_S4_#$@E@ProcessingMode#>@N@std@ST>2#T#T@pair2S3_S2_#@settings
+-------------------------------------------
+
+Declaration: mode
+Location: Line 39, Column 20
+Kind: ParmVar
+Clang USR: c:armor_cxx_functions.cpp@1142@FT@>4#T#T#NI#pTprocessData#&1>@N@std@ST>4#T#T#T#T@map4t0.1>@N@std@ST>2#T#T@vector2t0.0>@N@std@ST>1#T@allocator1S4_>@N@std@ST>1#T@less1S2_>@N@std@ST>1#T@allocator1>@N@std@ST>2#T#T@pair21S2_S3_#>@N@std@ST>1#T@function1Fv(#&S4_#Pt0.3)#&1>@N@std@ST>1#pT@tuple1p1PS12_#I#&1>@ST>2#T#T@ComplexContainer2S2_S4_#$@E@ProcessingMode#>@N@std@ST>2#T#T@pair2S3_S2_#@mode
+Armor USR: c:armor_cxx_functions.cpp@1142@FT@>4#T#T#NI#pTprocessData#&1>@N@std@ST>4#T#T#T#T@map4t0.1>@N@std@ST>2#T#T@vector2t0.0>@N@std@ST>1#T@allocator1S4_>@N@std@ST>1#T@less1S2_>@N@std@ST>1#T@allocator1>@N@std@ST>2#T#T@pair21S2_S3_#>@N@std@ST>1#T@function1Fv(#&S4_#Pt0.3)#&1>@N@std@ST>1#pT@tuple1p1PS12_#I#&1>@ST>2#T#T@ComplexContainer2S2_S4_#$@E@ProcessingMode#>@N@std@ST>2#T#T@pair2S3_S2_#@mode
+-------------------------------------------
+
+Declaration: ComplexContainer
+Location: Line 43, Column 7
+Kind: ClassTemplate
+Clang USR: c:@ST>2#T#T@ComplexContainer
+Armor USR: c:@ST>2#T#T@ComplexContainer
+-------------------------------------------
+
+Declaration: ComplexContainer
+Location: Line 43, Column 7
+Kind: CXXRecord
+Clang USR: c:@ST>2#T#T@ComplexContainer
+Armor USR: c:@ST>2#T#T@ComplexContainer
+-------------------------------------------
+
+Declaration: primary
+Location: Line 45, Column 7
+Kind: Field
+Clang USR: c:@ST>2#T#T@ComplexContainer@FI@primary
+Armor USR: c:@ST>2#T#T@ComplexContainer@FI@primary
+-------------------------------------------
+
+Declaration: secondary
+Location: Line 46, Column 7
+Kind: Field
+Clang USR: c:@ST>2#T#T@ComplexContainer@FI@secondary
+Armor USR: c:@ST>2#T#T@ComplexContainer@FI@secondary
+-------------------------------------------
+
+Declaration: elements
+Location: Line 47, Column 34
+Kind: Field
+Clang USR: c:@ST>2#T#T@ComplexContainer@FI@elements
+Armor USR: c:@ST>2#T#T@ComplexContainer@FI@elements
+-------------------------------------------
+
+Declaration: ComplexContainer<T, U>
+Location: Line 49, Column 5
+Kind: CXXConstructor
+Clang USR: c:@ST>2#T#T@ComplexContainer@F@ComplexContainer#t0.0#t0.1#
+Armor USR: c:@ST>2#T#T@ComplexContainer@F@ComplexContainer#t0.0#t0.1#
+-------------------------------------------
+
+Declaration: p
+Location: Line 49, Column 24
+Kind: ParmVar
+Clang USR: c:armor_cxx_functions.cpp@1411@ST>2#T#T@ComplexContainer@F@ComplexContainer#t0.0#t0.1#@p
+Armor USR: c:armor_cxx_functions.cpp@1411@ST>2#T#T@ComplexContainer@F@ComplexContainer#t0.0#t0.1#@p
+-------------------------------------------
+
+Declaration: s
+Location: Line 49, Column 29
+Kind: ParmVar
+Clang USR: c:armor_cxx_functions.cpp@1416@ST>2#T#T@ComplexContainer@F@ComplexContainer#t0.0#t0.1#@s
+Armor USR: c:armor_cxx_functions.cpp@1416@ST>2#T#T@ComplexContainer@F@ComplexContainer#t0.0#t0.1#@s
+-------------------------------------------
+
+Declaration: add
+Location: Line 51, Column 10
+Kind: CXXMethod
+Clang USR: c:@ST>2#T#T@ComplexContainer@F@add#&1t0.0#&1t0.1#
+Armor USR: c:@ST>2#T#T@ComplexContainer@F@add#&1t0.0#&1t0.1#
+-------------------------------------------
+
+Declaration: t
+Location: Line 51, Column 23
+Kind: ParmVar
+Clang USR: c:armor_cxx_functions.cpp@1469@ST>2#T#T@ComplexContainer@F@add#&1t0.0#&1t0.1#@t
+Armor USR: c:armor_cxx_functions.cpp@1469@ST>2#T#T@ComplexContainer@F@add#&1t0.0#&1t0.1#@t
+-------------------------------------------
+
+Declaration: u
+Location: Line 51, Column 35
+Kind: ParmVar
+Clang USR: c:armor_cxx_functions.cpp@1481@ST>2#T#T@ComplexContainer@F@add#&1t0.0#&1t0.1#@u
+Armor USR: c:armor_cxx_functions.cpp@1481@ST>2#T#T@ComplexContainer@F@add#&1t0.0#&1t0.1#@u
+-------------------------------------------
+
+Declaration: size
+Location: Line 53, Column 17
+Kind: CXXMethod
+Clang USR: c:@ST>2#T#T@ComplexContainer@F@size#1
+Armor USR: c:@ST>2#T#T@ComplexContainer@F@size#1
+-------------------------------------------
+
+Declaration: VariadicStruct
+Location: Line 57, Column 8
+Kind: ClassTemplate
+Clang USR: c:@ST>1#pT@VariadicStruct
+Armor USR: c:@ST>1#pT@VariadicStruct
+-------------------------------------------
+
+Declaration: VariadicStruct
+Location: Line 57, Column 8
+Kind: CXXRecord
+Clang USR: c:@ST>1#pT@VariadicStruct
+Armor USR: c:@ST>1#pT@VariadicStruct
+-------------------------------------------
+
+Declaration: data
+Location: Line 58, Column 25
+Kind: Field
+Clang USR: c:@ST>1#pT@VariadicStruct@FI@data
+Armor USR: c:@ST>1#pT@VariadicStruct@FI@data
+-------------------------------------------
+
+Declaration: VariadicStruct<Args...>
+Location: Line 61, Column 5
+Kind: FunctionTemplate
+Clang USR: c:@ST>1#pT@VariadicStruct@FT@>1#pTVariadicStruct#P&&t1.0#v#
+Armor USR: c:@ST>1#pT@VariadicStruct@FT@>1#pTVariadicStruct#P&&t1.0#v#
+-------------------------------------------
+
+Declaration: VariadicStruct<Args...>
+Location: Line 61, Column 5
+Kind: CXXConstructor
+Clang USR: c:@ST>1#pT@VariadicStruct@FT@>1#pTVariadicStruct#P&&t1.0#v#
+Armor USR: c:@ST>1#pT@VariadicStruct@FT@>1#pTVariadicStruct#P&&t1.0#v#
+-------------------------------------------
+
+Declaration: args
+Location: Line 61, Column 28
+Kind: ParmVar
+Clang USR: c:armor_cxx_functions.cpp@1667@ST>1#pT@VariadicStruct@FT@>1#pTVariadicStruct#P&&t1.0#v#@args
+Armor USR: c:armor_cxx_functions.cpp@1667@ST>1#pT@VariadicStruct@FT@>1#pTVariadicStruct#P&&t1.0#v#@args
+-------------------------------------------
+

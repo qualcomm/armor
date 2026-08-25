@@ -1,0 +1,364 @@
+Declaration: store
+Location: Line 12, Column 10
+Kind: FunctionTemplate
+Clang USR: c:@S@BasicContainer@FT@>1#Tstore#t0.0#v#
+Armor NSR: c:@S@BasicContainer@F@store#
+-------------------------------------------
+
+Declaration: store
+Location: Line 12, Column 10
+Kind: CXXMethod
+Clang USR: c:@S@BasicContainer@FT@>1#Tstore#t0.0#v#
+Armor NSR: c:@S@BasicContainer@F@store#
+-------------------------------------------
+
+Declaration: store
+Location: Line 16, Column 10
+Kind: CXXMethod
+Clang USR: c:@S@BasicContainer@F@store<#I>#I#
+Armor NSR: c:@S@BasicContainer@F@store#
+-------------------------------------------
+
+Declaration: store
+Location: Line 20, Column 10
+Kind: CXXMethod
+Clang USR: c:@S@BasicContainer@F@store<#$@N@std@N@__cxx11@S@basic_string>#C#$@N@std@S@char_traits>#C#$@N@std@S@allocator>#C>#S0_#
+Armor NSR: c:@S@BasicContainer@F@store#
+-------------------------------------------
+
+Declaration: store
+Location: Line 23, Column 10
+Kind: CXXMethod
+Clang USR: c:@S@BasicContainer@F@store#d#
+Armor NSR: c:@S@BasicContainer@F@store#
+-------------------------------------------
+
+Declaration: DataContainer
+Location: Line 29, Column 7
+Kind: ClassTemplate
+Clang USR: c:@ST>1#T@DataContainer
+Armor NSR: c:@S@DataContainer
+-------------------------------------------
+
+Declaration: DataContainer
+Location: Line 29, Column 7
+Kind: CXXRecord
+Clang USR: c:@ST>1#T@DataContainer
+Armor NSR: c:@S@DataContainer
+-------------------------------------------
+
+Declaration: DataContainer<T>
+Location: Line 31, Column 5
+Kind: CXXConstructor
+Clang USR: c:@ST>1#T@DataContainer@F@DataContainer#
+Armor NSR: c:@S@DataContainer@F@DataContainer#
+-------------------------------------------
+
+Declaration: DataContainer<T>
+Location: Line 32, Column 14
+Kind: CXXConstructor
+Clang USR: c:@ST>1#T@DataContainer@F@DataContainer#t0.0#
+Armor NSR: c:@S@DataContainer@F@DataContainer#
+-------------------------------------------
+
+Declaration: getData
+Location: Line 35, Column 14
+Kind: CXXMethod
+Clang USR: c:@ST>1#T@DataContainer@F@getData#1
+Armor NSR: c:@S@DataContainer@F@getData#
+-------------------------------------------
+
+Declaration: getData
+Location: Line 37, Column 8
+Kind: CXXMethod
+Clang USR: c:@ST>1#T@DataContainer@F@getData#
+Armor NSR: c:@S@DataContainer@F@getData#
+-------------------------------------------
+
+Declaration: calculate
+Location: Line 40, Column 10
+Kind: CXXMethod
+Clang USR: c:@ST>1#T@DataContainer@F@calculate#I#
+Armor NSR: c:@S@DataContainer@F@calculate#
+-------------------------------------------
+
+Declaration: calculate
+Location: Line 42, Column 10
+Kind: CXXMethod
+Clang USR: c:@ST>1#T@DataContainer@F@calculate#I#I#
+Armor NSR: c:@S@DataContainer@F@calculate#
+-------------------------------------------
+
+Declaration: data
+Location: Line 45, Column 7
+Kind: Field
+Clang USR: c:@ST>1#T@DataContainer@FI@data
+Armor NSR: c:@S@DataContainer@FI@data
+-------------------------------------------
+
+Declaration: calculate
+Location: Line 48, Column 10
+Kind: CXXMethod
+Clang USR: c:@ST>1#T@DataContainer@F@calculate#I#I#I#
+Armor NSR: c:@S@DataContainer@F@calculate#
+-------------------------------------------
+
+Declaration: DataContainer
+Location: Line 54, Column 7
+Kind: ClassTemplateSpecialization
+Clang USR: c:@S@DataContainer>#$@N@std@N@__cxx11@S@basic_string>#C#$@N@std@S@char_traits>#C#$@N@std@S@allocator>#C
+Armor NSR: c:@S@DataContainer
+-------------------------------------------
+
+Declaration: DataContainer
+Location: Line 56, Column 5
+Kind: CXXConstructor
+Clang USR: c:@S@DataContainer>#$@N@std@N@__cxx11@S@basic_string>#C#$@N@std@S@char_traits>#C#$@N@std@S@allocator>#C@F@DataContainer#
+Armor NSR: c:@S@DataContainer@F@DataContainer#
+-------------------------------------------
+
+Declaration: DataContainer
+Location: Line 57, Column 14
+Kind: CXXConstructor
+Clang USR: c:@S@DataContainer>#$@N@std@N@__cxx11@S@basic_string>#C#$@N@std@S@char_traits>#C#$@N@std@S@allocator>#C@F@DataContainer#&1S0_#
+Armor NSR: c:@S@DataContainer@F@DataContainer#
+-------------------------------------------
+
+Declaration: getData
+Location: Line 60, Column 24
+Kind: CXXMethod
+Clang USR: c:@S@DataContainer>#$@N@std@N@__cxx11@S@basic_string>#C#$@N@std@S@char_traits>#C#$@N@std@S@allocator>#C@F@getData#1
+Armor NSR: c:@S@DataContainer@F@getData#
+-------------------------------------------
+
+Declaration: getData
+Location: Line 62, Column 18
+Kind: CXXMethod
+Clang USR: c:@S@DataContainer>#$@N@std@N@__cxx11@S@basic_string>#C#$@N@std@S@char_traits>#C#$@N@std@S@allocator>#C@F@getData#
+Armor NSR: c:@S@DataContainer@F@getData#
+-------------------------------------------
+
+Declaration: getLength
+Location: Line 65, Column 12
+Kind: CXXMethod
+Clang USR: c:@S@DataContainer>#$@N@std@N@__cxx11@S@basic_string>#C#$@N@std@S@char_traits>#C#$@N@std@S@allocator>#C@F@getLength#1
+Armor NSR: c:@S@DataContainer@F@getLength#
+-------------------------------------------
+
+Declaration: isEmpty
+Location: Line 67, Column 10
+Kind: CXXMethod
+Clang USR: c:@S@DataContainer>#$@N@std@N@__cxx11@S@basic_string>#C#$@N@std@S@char_traits>#C#$@N@std@S@allocator>#C@F@isEmpty#1
+Armor NSR: c:@S@DataContainer@F@isEmpty#
+-------------------------------------------
+
+Declaration: data
+Location: Line 70, Column 17
+Kind: Field
+Clang USR: c:@S@DataContainer>#$@N@std@N@__cxx11@S@basic_string>#C#$@N@std@S@char_traits>#C#$@N@std@S@allocator>#C@FI@data
+Armor NSR: c:@S@DataContainer@FI@data
+-------------------------------------------
+
+Declaration: SmartContainer
+Location: Line 75, Column 7
+Kind: ClassTemplate
+Clang USR: c:@ST>1#T@SmartContainer
+Armor NSR: c:@S@SmartContainer
+-------------------------------------------
+
+Declaration: SmartContainer
+Location: Line 75, Column 7
+Kind: CXXRecord
+Clang USR: c:@ST>1#T@SmartContainer
+Armor NSR: c:@S@SmartContainer
+-------------------------------------------
+
+Declaration: SmartContainer<T>
+Location: Line 77, Column 5
+Kind: CXXConstructor
+Clang USR: c:@ST>1#T@SmartContainer@F@SmartContainer#
+Armor NSR: c:@S@SmartContainer@F@SmartContainer#
+-------------------------------------------
+
+Declaration: SmartContainer<T>
+Location: Line 78, Column 14
+Kind: CXXConstructor
+Clang USR: c:@ST>1#T@SmartContainer@F@SmartContainer#&1t0.0#
+Armor NSR: c:@S@SmartContainer@F@SmartContainer#
+-------------------------------------------
+
+Declaration: process
+Location: Line 80, Column 10
+Kind: CXXMethod
+Clang USR: c:@ST>1#T@SmartContainer@F@process#
+Armor NSR: c:@S@SmartContainer@F@process#
+-------------------------------------------
+
+Declaration: getValue
+Location: Line 82, Column 8
+Kind: CXXMethod
+Clang USR: c:@ST>1#T@SmartContainer@F@getValue#
+Armor NSR: c:@S@SmartContainer@F@getValue#
+-------------------------------------------
+
+Declaration: getValue
+Location: Line 83, Column 14
+Kind: CXXMethod
+Clang USR: c:@ST>1#T@SmartContainer@F@getValue#1
+Armor NSR: c:@S@SmartContainer@F@getValue#
+-------------------------------------------
+
+Declaration: data
+Location: Line 86, Column 7
+Kind: Field
+Clang USR: c:@ST>1#T@SmartContainer@FI@data
+Armor NSR: c:@S@SmartContainer@FI@data
+-------------------------------------------
+
+Declaration: SmartContainer
+Location: Line 91, Column 7
+Kind: ClassTemplatePartialSpecialization
+Clang USR: c:@SP>1#T@SmartContainer>#*t0.0
+Armor NSR: c:@S@SmartContainer
+-------------------------------------------
+
+Declaration: SmartContainer<type-parameter-0-0 *>
+Location: Line 93, Column 5
+Kind: CXXConstructor
+Clang USR: c:@SP>1#T@SmartContainer>#*t0.0@F@SmartContainer#
+Armor NSR: c:@S@SmartContainer@F@SmartContainer#
+-------------------------------------------
+
+Declaration: SmartContainer<type-parameter-0-0 *>
+Location: Line 96, Column 14
+Kind: CXXConstructor
+Clang USR: c:@SP>1#T@SmartContainer>#*t0.0@F@SmartContainer#S0_#
+Armor NSR: c:@S@SmartContainer@F@SmartContainer#
+-------------------------------------------
+
+Declaration: SmartContainer<type-parameter-0-0 *>
+Location: Line 97, Column 5
+Kind: CXXConstructor
+Clang USR: c:@SP>1#T@SmartContainer>#*t0.0@F@SmartContainer#S0_#b#
+Armor NSR: c:@S@SmartContainer@F@SmartContainer#
+-------------------------------------------
+
+Declaration: ~SmartContainer<type-parameter-0-0 *>
+Location: Line 99, Column 5
+Kind: CXXDestructor
+Clang USR: c:@SP>1#T@SmartContainer>#*t0.0@F@~SmartContainer#
+Armor NSR: c:@S@SmartContainer@F@~SmartContainer#
+-------------------------------------------
+
+Declaration: process
+Location: Line 105, Column 10
+Kind: CXXMethod
+Clang USR: c:@SP>1#T@SmartContainer>#*t0.0@F@process#
+Armor NSR: c:@S@SmartContainer@F@process#
+-------------------------------------------
+
+Declaration: getValue
+Location: Line 107, Column 8
+Kind: CXXMethod
+Clang USR: c:@SP>1#T@SmartContainer>#*t0.0@F@getValue#
+Armor NSR: c:@S@SmartContainer@F@getValue#
+-------------------------------------------
+
+Declaration: getValue
+Location: Line 108, Column 14
+Kind: CXXMethod
+Clang USR: c:@SP>1#T@SmartContainer>#*t0.0@F@getValue#1
+Armor NSR: c:@S@SmartContainer@F@getValue#
+-------------------------------------------
+
+Declaration: data
+Location: Line 111, Column 8
+Kind: Field
+Clang USR: c:@SP>1#T@SmartContainer>#*t0.0@FI@data
+Armor NSR: c:@S@SmartContainer@FI@data
+-------------------------------------------
+
+Declaration: ownsPointer
+Location: Line 112, Column 10
+Kind: Field
+Clang USR: c:@SP>1#T@SmartContainer>#*t0.0@FI@ownsPointer
+Armor NSR: c:@S@SmartContainer@FI@ownsPointer
+-------------------------------------------
+
+Declaration: MultiTypeContainer
+Location: Line 117, Column 7
+Kind: ClassTemplate
+Clang USR: c:@ST>2#T#T@MultiTypeContainer
+Armor NSR: c:@S@MultiTypeContainer
+-------------------------------------------
+
+Declaration: MultiTypeContainer
+Location: Line 117, Column 7
+Kind: CXXRecord
+Clang USR: c:@ST>2#T#T@MultiTypeContainer
+Armor NSR: c:@S@MultiTypeContainer
+-------------------------------------------
+
+Declaration: MultiTypeContainer<T, U>
+Location: Line 119, Column 5
+Kind: CXXConstructor
+Clang USR: c:@ST>2#T#T@MultiTypeContainer@F@MultiTypeContainer#
+Armor NSR: c:@S@MultiTypeContainer@F@MultiTypeContainer#
+-------------------------------------------
+
+Declaration: process
+Location: Line 123, Column 10
+Kind: FunctionTemplate
+Clang USR: c:@ST>2#T#T@MultiTypeContainer@FT@>1#Tprocess#t1.0#v#
+Armor NSR: c:@S@MultiTypeContainer@F@process#
+-------------------------------------------
+
+Declaration: process
+Location: Line 123, Column 10
+Kind: CXXMethod
+Clang USR: c:@ST>2#T#T@MultiTypeContainer@FT@>1#Tprocess#t1.0#v#
+Armor NSR: c:@S@MultiTypeContainer@F@process#
+-------------------------------------------
+
+Declaration: convert
+Location: Line 126, Column 10
+Kind: FunctionTemplate
+Clang USR: c:@ST>2#T#T@MultiTypeContainer@FT@>1#Tconvert#t1.0#v#
+Armor NSR: c:@S@MultiTypeContainer@F@convert#
+-------------------------------------------
+
+Declaration: convert
+Location: Line 126, Column 10
+Kind: CXXMethod
+Clang USR: c:@ST>2#T#T@MultiTypeContainer@FT@>1#Tconvert#t1.0#v#
+Armor NSR: c:@S@MultiTypeContainer@F@convert#
+-------------------------------------------
+
+Declaration: process
+Location: Line 129, Column 10
+Kind: CXXMethod
+Clang USR: c:@ST>2#T#T@MultiTypeContainer@F@process#I#
+Armor NSR: c:@S@MultiTypeContainer@F@process#
+-------------------------------------------
+
+Declaration: Base
+Location: Line 134, Column 7
+Kind: ClassTemplate
+Clang USR: c:@ST>1#T@Base
+Armor NSR: c:@S@Base
+-------------------------------------------
+
+Declaration: Base
+Location: Line 134, Column 7
+Kind: CXXRecord
+Clang USR: c:@ST>1#T@Base
+Armor NSR: c:@S@Base
+-------------------------------------------
+
+Declaration: implementation
+Location: Line 136, Column 10
+Kind: CXXMethod
+Clang USR: c:@ST>1#T@Base@F@implementation#
+Armor NSR: c:@S@Base@F@implementation#
+-------------------------------------------
+

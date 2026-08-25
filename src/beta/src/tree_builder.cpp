@@ -1018,13 +1018,49 @@ void beta::TreeBuilder::BuildClassTemplatePartialSpecializationDecl(clang::Class
     processUnhandledDecl(Decl);
 }
 
-void beta::TreeBuilder::BuildTypeAliasDecl(clang::TypeAliasDecl* Decl) {
-    if (!IsDeclFromMainFileAndNotLocal(Decl) || isWrittenInTemplatedClass(Decl)) return;
+bool beta::TreeBuilder::BuildTypeAliasDecl(clang::TypeAliasDecl* Decl) {
     
+    if(!IsDeclFromMainFileAndNotLocal(Decl) || isInTemplatedClass(Decl) || Decl->isTemplated()){
+        if(IsDeclFromMainFileAndNotLocal(Decl) && !isWrittenInTemplatedClass(Decl)){
     armor::debug() << "Excluding TypeAliasDecl\n";
     TEST_LOG << "TypeAliasDecl\n";
+            processUnhandledDecl(Decl);
+        }
+        return false;
+    }
 
-    processUnhandledDecl(Decl);
+    const std::string USR = ::generateUSRForDecl(Decl);
+    if( context->usrNodeMap.find(USR) != context->usrNodeMap.end() ) return true;
+    llvm::SmallString<128> nameBuf;
+    llvm::raw_svector_ostream OS(nameBuf);
+    const clang::QualType underlyingType = Decl->getUnderlyingType();
+    auto typeDefNode = std::make_shared<armor::APINode>();
+    Decl->printName(OS);
+    PushName(nameBuf);
+    typeDefNode->qualifiedName = GetCurrentQualifiedName();
+    typeDefNode->kind = NodeKind::Typedef;
+    auto [dataType, canonicalType] = getTypesWithAndWithoutTypeResolution(underlyingType, Decl->getASTContext());
+    typeDefNode->dataType = dataType;
+    typeDefNode->caonicalType = canonicalType;
+    typeDefNode->USR = USR;
+    typeDefNode->NSR = ::generateNSRForDecl(Decl);
+    typeDefNode->access = getAccessSpecifier(Decl->getAccess());
+    context->usrNodeMap.insert_or_assign(std::move(USR), typeDefNode);
+    armor::debug() << "VisitTypeAliasDecl V2: " << typeDefNode->qualifiedName << "\n";
+    if (!llvm::isa<clang::TypedefType>(underlyingType)) {
+        if (const clang::TypeSourceInfo *TSI = Decl->getTypeSourceInfo()) {
+            auto [typeModifiers,unwrappedTL] = unwrapTypeLoc(TSI->getTypeLoc());
+            if (const clang::FunctionProtoTypeLoc FTL = unwrappedTL.getAs<clang::FunctionProtoTypeLoc>()) {
+                typeDefNode->dataType = std::string{};
+                PushNode(typeDefNode);
+                normalizeFunctionPointerType(typeModifiers, FTL, Decl);
+                PopNode();
+            }
+        }
+    }
+    PopName();
+    AddNode(typeDefNode);
+    return true;
 }
 
 void beta::TreeBuilder::BuildUsingDecl(clang::UsingDecl* Decl) {

@@ -2,6 +2,44 @@
     {
         "children": [
             {
+                "dataType": "class std::vector<float, class std::allocator<float>>",
+                "nodeType": "Typedef",
+                "qualifiedName": "IntVector",
+                "tag": "removed"
+            },
+            {
+                "dataType": "class std::vector<int, class std::allocator<int>>",
+                "nodeType": "Typedef",
+                "qualifiedName": "IntVector",
+                "tag": "added"
+            }
+        ],
+        "nodeType": "Typedef",
+        "qualifiedName": "IntVector",
+        "tag": "modified"
+    },
+    {
+        "children": [
+            {
+                "dataType": "class std::function<void (const char *)>",
+                "nodeType": "Typedef",
+                "qualifiedName": "StringCallback",
+                "tag": "removed"
+            },
+            {
+                "dataType": "class std::function<void (const class std::basic_string<char, struct std::char_traits<char>, class std::allocator<char>> &)>",
+                "nodeType": "Typedef",
+                "qualifiedName": "StringCallback",
+                "tag": "added"
+            }
+        ],
+        "nodeType": "Typedef",
+        "qualifiedName": "StringCallback",
+        "tag": "modified"
+    },
+    {
+        "children": [
+            {
                 "dataType": "int",
                 "nodeType": "Field",
                 "qualifiedName": "alpha::b",

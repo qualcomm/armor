@@ -31,3 +31,7 @@ target_link_libraries(common_unit_tests
 
 include(GoogleTest)
 gtest_discover_tests(common_unit_tests)
+
+add_subdirectory(unit/nsr_generator)
+add_subdirectory(unit/qualified_name_generator)
+add_subdirectory(unit/usr_generator)

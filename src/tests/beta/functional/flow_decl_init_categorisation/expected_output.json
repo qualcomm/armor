@@ -198,6 +198,12 @@
             "tag": "removed"
         },
         {
+            "dataType": "std::function<std::vector<double> (const std::vector<double> &, double)>",
+            "nodeType": "Typedef",
+            "qualifiedName": "ComplexFunctionType",
+            "tag": "removed"
+        },
+        {
             "dataType": "std::map<std::string, ComplexFunctionType>",
             "nodeType": "Variable",
             "qualifiedName": "signal_processors",
