@@ -237,30 +237,3 @@ const std::string generateHash( llvm::StringRef qualifiedName , const NodeKind& 
 
 }
 
-bool isInlineForwardDeclOfDeclType(const clang::CXXRecordDecl* Decl) {
-
-    if (Decl->isThisDeclarationADefinition()) return false;
-
-    const clang::Decl* next = Decl->getNextDeclInContext();
-    if (!next) return false;
-
-    clang::QualType FT;
-
-    if (const auto* FD = llvm::dyn_cast<clang::FieldDecl>(next))
-        FT = unwrapType(FD->getType());
-    else if (const auto* FnD = llvm::dyn_cast<clang::FunctionDecl>(next)){
-        FT = unwrapType(FnD->getReturnType());
-    }
-    else if (const auto* VD = llvm::dyn_cast<clang::VarDecl>(next))
-        FT = unwrapType(VD->getType());
-    else if (const auto* TD = llvm::dyn_cast<clang::TypedefDecl>(next))
-        FT = unwrapType(TD->getUnderlyingType());
-    else return false;
-
-    if (FT.isNull()) return false;
-
-    const clang::CXXRecordDecl* RD = FT->getAsCXXRecordDecl();
-    if (!RD) return false;
-
-    return RD->getCanonicalDecl()->Equals(Decl->getCanonicalDecl());
-}

@@ -99,6 +99,26 @@ inline bool beta::TreeBuilder::isWrittenInTemplatedClass(const clang::Decl* D) {
     return false;
 
 }
+bool beta::TreeBuilder::isInlineForwardDeclOfDeclType(const clang::CXXRecordDecl* Decl) {
+    if (Decl->isThisDeclarationADefinition()) return false;
+    const clang::Decl* next = Decl->getNextDeclInContext();
+    if (!next) return false;
+    clang::QualType FT;
+    if (const auto* FD = llvm::dyn_cast<clang::FieldDecl>(next))
+        FT = unwrapType(FD->getType());
+    else if (const auto* FnD = llvm::dyn_cast<clang::FunctionDecl>(next)){
+        FT = unwrapType(FnD->getReturnType());
+    }
+    else if (const auto* VD = llvm::dyn_cast<clang::VarDecl>(next))
+        FT = unwrapType(VD->getType());
+    else if (const auto* TD = llvm::dyn_cast<clang::TypedefDecl>(next))
+        FT = unwrapType(TD->getUnderlyingType());
+    else return false;
+    if (FT.isNull()) return false;
+    const clang::CXXRecordDecl* RD = FT->getAsCXXRecordDecl();
+    if (!RD) return false;
+    return RD->getCanonicalDecl()->Equals(Decl->getCanonicalDecl()) && !Decl->isFreeStanding();
+}
 
 uint64_t beta::TreeBuilder::generateSemanticHashFromDecl(const clang::Decl* Decl) {
     clang::SourceManager& SM = Decl->getASTContext().getSourceManager();
@@ -441,19 +461,31 @@ bool beta::TreeBuilder::BuildCXXRecordNode(clang::CXXRecordDecl* Decl) {
     const auto it = context->usrNodeMap.find(USR);
     const bool isCached = (it != context->usrNodeMap.end());
     const bool isForwardDeclUsedAsAdjacentDeclType = isInlineForwardDeclOfDeclType(Decl);
+    NodeKind nodeKind =  Decl->isUnion() ? NodeKind::Union
+                           : Decl->isClass() ? NodeKind::Class
+                           : NodeKind::Struct;
 
     llvm::SmallString<128> nameBuf;
     llvm::raw_svector_ostream OS(nameBuf);
     Decl->printName(OS);
 
+    if (isForwardDeclUsedAsAdjacentDeclType) {
+        if (!Decl->getDefinition() && !isCached) {
+            std::shared_ptr<armor::APINode> cxxRecordNode = std::make_shared<armor::APINode>(armor::APINode{
+                .kind          = nodeKind,
+                .qualifiedName = std::string{nameBuf},
+                .USR           = USR,
+                .NSR           = NSR,
+            });
+            context->addRootNode(cxxRecordNode);
+            context->addNode(cxxRecordNode->NSR, cxxRecordNode);
+            context->usrNodeMap.insert_or_assign(USR, std::move(cxxRecordNode));
+        }
+        return true;
+    }
     if (!isCached) {
         if(!nameBuf.empty()){
-            if(isForwardDeclUsedAsAdjacentDeclType){
-                armor::debug() << "If Embededed ForwardDecl Field is found\n";
-            }
-            else{
                 PushName(nameBuf);
-            }
         } 
         else{
             if (const auto *typedefForAnon = Decl->getTypedefNameForAnonDecl()) {
@@ -490,12 +522,7 @@ bool beta::TreeBuilder::BuildCXXRecordNode(clang::CXXRecordDecl* Decl) {
     cxxRecordNode->USR = USR;
     
     if (!isCached) {
-        if(isForwardDeclUsedAsAdjacentDeclType){
-            cxxRecordNode->qualifiedName = nameBuf.c_str();
-        }
-        else{
             cxxRecordNode->qualifiedName = GetCurrentQualifiedName();
-        }
         AddNode(cxxRecordNode);
     } 
     else {
@@ -509,15 +536,7 @@ bool beta::TreeBuilder::BuildCXXRecordNode(clang::CXXRecordDecl* Decl) {
     cxxRecordNode->isFinal = Decl->isEffectivelyFinal();
     cxxRecordNode->access = getAccessSpecifier(Decl->getAccess());
 
-    if( Decl->isStruct() ){
-        cxxRecordNode->kind = NodeKind::Struct;
-    }
-    else if (Decl->isUnion()) {
-        cxxRecordNode->kind = NodeKind::Union;
-    }
-    else{
-        cxxRecordNode->kind = NodeKind::Class;
-    }
+    cxxRecordNode->kind = nodeKind;
     
     PushNode(cxxRecordNode);
 

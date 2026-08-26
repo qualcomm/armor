@@ -155,7 +155,8 @@ bool beta::ASTNormalize::TraverseCXXRecordDecl(clang::CXXRecordDecl *Decl) {
     
     RecursiveASTVisitor<beta::ASTNormalize>::TraverseCXXRecordDecl(Decl);
     if(treeBuilder.IsDeclFromMainFileAndNotLocal(Decl) && !Decl->isTemplated() 
-    && !llvm::isa<clang::ClassTemplateSpecializationDecl>(Decl)){
+    && !llvm::isa<clang::ClassTemplateSpecializationDecl>(Decl)
+    && !treeBuilder.isInlineForwardDeclOfDeclType(Decl)){
         const std::string USR = ::generateUSRForDecl(Decl);
         if( treeBuilder.isQualifiedNameOverriden(USR) ){
             treeBuilder.popOverridenQualifiedName(USR);

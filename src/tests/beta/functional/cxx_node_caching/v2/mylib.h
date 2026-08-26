@@ -16,7 +16,7 @@ struct EmbeddedField {
 
 // -- Sad path: forward decl never defined, still adjacent to field --
 struct FieldOwnerSad {
-    struct EmbeddedFieldNeverDefined** fptr;
+    struct alpha** fptr;
 };
 
 // ============================================================
@@ -82,4 +82,7 @@ struct RedeclaredRetHelper;
 struct RedeclaredRetHelper* redeclaredRetFn();
 struct RedeclaredRetHelper {
     long val;
+};
+struct alpha{
+    int a;
 };

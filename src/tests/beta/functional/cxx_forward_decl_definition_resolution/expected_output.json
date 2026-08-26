@@ -1,0 +1,289 @@
+{
+    "astDiff": [
+        {
+            "children": [
+                {
+                    "dataType": "struct NeverDefined *",
+                    "nodeType": "Field",
+                    "qualifiedName": "FieldOwner::fptr"
+                }
+            ],
+            "nodeType": "Struct",
+            "qualifiedName": "FieldOwner",
+            "tag": "removed"
+        },
+        {
+            "nodeType": "Struct",
+            "qualifiedName": "NeverDefined",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "children": [
+                        {
+                            "children": [
+                                {
+                                    "dataType": "struct DeepNeverDefined *",
+                                    "nodeType": "Field",
+                                    "qualifiedName": "Outer::Middle::Inner::fptr"
+                                }
+                            ],
+                            "nodeType": "Struct",
+                            "qualifiedName": "Outer::Middle::Inner"
+                        }
+                    ],
+                    "nodeType": "Struct",
+                    "qualifiedName": "Outer::Middle"
+                }
+            ],
+            "nodeType": "Struct",
+            "qualifiedName": "Outer",
+            "tag": "removed"
+        },
+        {
+            "nodeType": "Struct",
+            "qualifiedName": "DeepNeverDefined",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "int",
+                    "nodeType": "Field",
+                    "qualifiedName": "RetOwner::val"
+                }
+            ],
+            "nodeType": "Struct",
+            "qualifiedName": "RetOwner",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "struct RetOwner *",
+                    "nodeType": "ReturnType",
+                    "qualifiedName": "retFn::(ReturnType)"
+                }
+            ],
+            "nodeType": "Function",
+            "qualifiedName": "retFn",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "int",
+                    "nodeType": "Field",
+                    "qualifiedName": "alpha::a"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Field",
+                    "qualifiedName": "alpha::b"
+                }
+            ],
+            "nodeType": "Struct",
+            "qualifiedName": "alpha",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "children": [
+                        {
+                            "dataType": "int",
+                            "nodeType": "Field",
+                            "qualifiedName": "beta::alpha::a"
+                        },
+                        {
+                            "dataType": "int",
+                            "nodeType": "Field",
+                            "qualifiedName": "beta::alpha::b"
+                        }
+                    ],
+                    "nodeType": "Struct",
+                    "qualifiedName": "beta::alpha"
+                },
+                {
+                    "dataType": "struct alpha *",
+                    "nodeType": "Field",
+                    "qualifiedName": "beta::a"
+                },
+                {
+                    "dataType": "struct alpha *",
+                    "nodeType": "Field",
+                    "qualifiedName": "beta::b"
+                }
+            ],
+            "nodeType": "Struct",
+            "qualifiedName": "beta",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "children": [
+                        {
+                            "dataType": "int",
+                            "nodeType": "Field",
+                            "qualifiedName": "beta2::alpha1::a"
+                        },
+                        {
+                            "dataType": "int",
+                            "nodeType": "Field",
+                            "qualifiedName": "beta2::alpha1::b"
+                        }
+                    ],
+                    "nodeType": "Struct",
+                    "qualifiedName": "beta2::alpha1"
+                },
+                {
+                    "dataType": "struct alpha1 *",
+                    "nodeType": "Field",
+                    "qualifiedName": "beta2::a"
+                },
+                {
+                    "dataType": "struct alpha1 *",
+                    "nodeType": "Field",
+                    "qualifiedName": "beta2::b"
+                }
+            ],
+            "nodeType": "Struct",
+            "qualifiedName": "beta2",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "struct alpha3 *",
+                    "nodeType": "Field",
+                    "qualifiedName": "beta3::a"
+                },
+                {
+                    "dataType": "struct alpha3 *",
+                    "nodeType": "Field",
+                    "qualifiedName": "beta3::b"
+                }
+            ],
+            "nodeType": "Struct",
+            "qualifiedName": "beta3",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "int",
+                    "nodeType": "Field",
+                    "qualifiedName": "alpha4::a"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Field",
+                    "qualifiedName": "alpha4::b"
+                }
+            ],
+            "nodeType": "Struct",
+            "qualifiedName": "alpha4",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "struct alpha4 *",
+                    "nodeType": "Field",
+                    "qualifiedName": "beta4::a"
+                },
+                {
+                    "dataType": "struct alpha4 *",
+                    "nodeType": "Field",
+                    "qualifiedName": "beta4::b"
+                }
+            ],
+            "nodeType": "Struct",
+            "qualifiedName": "beta4",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "nodeType": "Struct",
+                    "qualifiedName": "alpha5::alpha6"
+                }
+            ],
+            "nodeType": "Struct",
+            "qualifiedName": "alpha5",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "struct alpha5::alpha6 *",
+                    "nodeType": "Field",
+                    "qualifiedName": "beta5::a"
+                }
+            ],
+            "nodeType": "Struct",
+            "qualifiedName": "beta5",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "children": [
+                        {
+                            "children": [
+                                {
+                                    "dataType": "struct alpha7 *",
+                                    "nodeType": "Field",
+                                    "qualifiedName": "beta6::beta7::beta8::a"
+                                },
+                                {
+                                    "dataType": "struct alpha7 *",
+                                    "nodeType": "Field",
+                                    "qualifiedName": "beta6::beta7::beta8::b"
+                                },
+                                {
+                                    "nodeType": "Struct",
+                                    "qualifiedName": "beta6::beta7::beta8::alpha8"
+                                }
+                            ],
+                            "nodeType": "Struct",
+                            "qualifiedName": "beta6::beta7::beta8"
+                        }
+                    ],
+                    "nodeType": "Struct",
+                    "qualifiedName": "beta6::beta7"
+                }
+            ],
+            "nodeType": "Struct",
+            "qualifiedName": "beta6",
+            "tag": "removed"
+        },
+        {
+            "nodeType": "Struct",
+            "qualifiedName": "alpha7",
+            "tag": "removed"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "int",
+                    "nodeType": "Field",
+                    "qualifiedName": "alpha3::a"
+                },
+                {
+                    "dataType": "int",
+                    "nodeType": "Field",
+                    "qualifiedName": "alpha3::b"
+                }
+            ],
+            "nodeType": "Struct",
+            "qualifiedName": "alpha3",
+            "tag": "removed"
+        }
+    ],
+    "headerResolutionFailures": [],
+    "parsed_status": 2,
+    "unparsed_status": 0
+}

@@ -11,7 +11,6 @@ void StringBuilder::push(llvm::StringRef Name) {
 }
 
 void StringBuilder::pop() {
-    armor::debug()<< "Qualified Name : " << buffer << "\n";
     if (!offsets.empty()) {
         buffer.resize(offsets.back());
         offsets.pop_back();
