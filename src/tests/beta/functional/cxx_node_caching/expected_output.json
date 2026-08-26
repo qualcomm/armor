@@ -1,7 +1,5 @@
 {
     "astDiff": [
-        {
-            "children": [
                 {
                     "children": [
                         {
@@ -27,31 +25,26 @@
                     "nodeType": "Struct",
                     "qualifiedName": "EmbeddedField",
                     "tag": "modified"
-                }
-            ],
-            "nodeType": "Struct",
-            "qualifiedName": "FieldOwner",
-            "tag": "modified"
         },
         {
             "children": [
                 {
                     "children": [
                         {
-                            "dataType": "struct EmbeddedFieldNeverDefined *",
+                            "dataType": "struct alpha *",
                             "nodeType": "Field",
-                            "qualifiedName": "fptr",
+                            "qualifiedName": "FieldOwnerSad::fptr",
                             "tag": "removed"
                         },
                         {
-                            "dataType": "struct EmbeddedFieldNeverDefined **",
+                            "dataType": "struct alpha **",
                             "nodeType": "Field",
-                            "qualifiedName": "fptr",
+                            "qualifiedName": "FieldOwnerSad::fptr",
                             "tag": "added"
                         }
                     ],
                     "nodeType": "Field",
-                    "qualifiedName": "fptr",
+                    "qualifiedName": "FieldOwnerSad::fptr",
                     "tag": "modified"
                 }
             ],
@@ -289,6 +282,19 @@
             ],
             "nodeType": "Struct",
             "qualifiedName": "RedeclaredRetHelper",
+            "tag": "modified"
+        },
+        {
+            "children": [
+                {
+                    "dataType": "int",
+                    "nodeType": "Field",
+                    "qualifiedName": "alpha::b",
+                    "tag": "removed"
+                }
+            ],
+            "nodeType": "Struct",
+            "qualifiedName": "alpha",
             "tag": "modified"
         }
     ],

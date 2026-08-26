@@ -52,6 +52,7 @@ public:
     uint64_t generateSemanticHashFromStmt(const clang::Stmt* Stmt);
     void normalizeFunctionPointerType(std::string_view typeModifiers, clang::FunctionProtoTypeLoc FTL, const clang::NamedDecl* Decl);
     void normalizeValueDeclNode(const clang::ValueDecl *Decl, unsigned int pos = -1);
+    bool isInlineForwardDeclOfDeclType(const clang::CXXRecordDecl* Decl);
 
     // Node building methods (supported)
     bool BuildCXXRecordNode(clang::CXXRecordDecl* Decl);

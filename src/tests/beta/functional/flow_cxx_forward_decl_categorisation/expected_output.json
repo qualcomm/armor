@@ -15,7 +15,7 @@
                             "qualifiedName": "core::ResourceManager::Resource::deleter"
                         },
                         {
-                            "dataType": "std::chrono::struct steady_clock::time_point",
+                            "dataType": "std::chrono::steady_clock::time_point",
                             "nodeType": "Field",
                             "qualifiedName": "core::ResourceManager::Resource::created_at"
                         },

@@ -1509,8 +1509,11 @@ void TypePrinter::printElaboratedBefore(const ElaboratedType *T,
     if (T->getKeyword() != ETK_None)
       OS << " ";
     NestedNameSpecifier *Qualifier = T->getQualifier();
-    if (Qualifier)
-      Qualifier->print(OS, Policy);
+    if (Qualifier) {
+      PrintingPolicy QualifierPolicy(Policy);
+      QualifierPolicy.SuppressTagKeyword = true;
+      Qualifier->print(OS, QualifierPolicy);
+    }
   }
 
   ElaboratedTypePolicyRAII PolicyRAII(Policy);
